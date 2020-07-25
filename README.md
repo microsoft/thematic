@@ -26,7 +26,7 @@ These are the core Thematic libraries, see individual README.md files for greate
 
 ## Getting Started
 
-If you want to run locally and work on the app or any theme components, you can run the whole thing from the root folder. The web app will run using `yarn start` as with our typically development structure, and changes to any of the other packages will be reflected live thanks to lerna and watchers. More details can be found in the Create React App section below.
+If you want to run locally and work on the app or any theme components, you can run the whole thing from the root folder. The web app will run using `yarn start` as with our typical development structure, and changes to any of the other packages will be reflected live thanks to lerna and watchers. See the Available Scripts section below.
 
 ## Publishing
 
