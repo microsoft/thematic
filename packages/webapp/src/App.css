@@ -1,0 +1,36 @@
+html,
+body,
+#root,
+.App {
+	overflow-y: hidden;
+}
+.App {
+	text-align: center;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font-size: calc(10px + 2vmin);
+}
+h1 {
+	text-transform: uppercase;
+	font-size: 1em;
+}
+h2 {
+	text-transform: uppercase;
+	font-size: 0.8em;
+}
+.controls {
+	width: 100%;
+}
+.main {
+	height: 90%;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 40px;
+}
+.editor {
+	height: 100%;
+}
+.viewer {
+	height: 100%;
+}

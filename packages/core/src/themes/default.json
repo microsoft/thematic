@@ -1,0 +1,11 @@
+{
+	"name": "Default",
+	"params": {
+		"accentHue": 252,
+		"accentSaturation": 89,
+		"accentLuminance": 50,
+		"backgroundLevel": 95,
+		"backgroundHueShift": 50,
+		"nominalHueStep": 10
+	}
+}

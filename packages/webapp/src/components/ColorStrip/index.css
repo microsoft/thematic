@@ -1,0 +1,47 @@
+.color-strip-horizontal {
+	display: flex;
+	justify-content: center;
+}
+.color-block-horizontal {
+	margin: 4px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.color-block-primary-label-horizontal {
+	font-size: 11px;
+}
+.color-block-secondary-label-horizontal {
+	font-size: 10px;
+}
+.color-block-swatch-horizontal {
+	height: 28px;
+	width: 42px;
+	margin: 2px;
+}
+
+.color-strip-vertical {
+	display: flex;
+	flex-direction: column;
+	margin: 4px;
+}
+.color-block-vertical {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.color-block-primary-label-vertical {
+	width: 110px;
+	text-align: right;
+	font-size: 11px;
+}
+.color-block-secondary-label-vertical {
+	text-align: left;
+	flex: 2;
+	font-size: 10px;
+}
+.color-block-swatch-vertical {
+	height: 20px;
+	width: 20px;
+	margin: 4px;
+}

@@ -1,0 +1,24 @@
+{
+	"name": "@thematic/react",
+	"version": "0.8.0",
+	"license": "MIT",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"types": "dist/types/index.d.ts",
+	"scripts": {
+		"clean": "essex clean",
+		"build": "essex build",
+		"start": "essex watch"
+	},
+	"dependencies": {
+		"@thematic/color": "^0.8.0",
+		"@thematic/core": "^0.8.0",
+		"@types/react": "^16.9.38"
+	},
+	"devDependencies": {
+		"react": "^16.13.1"
+	},
+	"peerDependencies": {
+		"react": ">= 16.13.1"
+	}
+}

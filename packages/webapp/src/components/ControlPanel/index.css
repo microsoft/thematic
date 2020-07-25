@@ -1,0 +1,26 @@
+.control-wrapper {
+	display: flex;
+	align-items: center;
+}
+.control-wrapper > h1 {
+	margin-left: 30px;
+	margin-right: 30px;
+	font-size: 36px;
+}
+.controls {
+	display: flex;
+}
+.control {
+	display: flex;
+	margin-left: 20px;
+	margin-right: 20px;
+	align-items: center;
+}
+.spinner {
+	width: 80px;
+}
+.cb-info {
+	margin-left: 2px;
+	font-size: 10px;
+	width: 140px;
+}

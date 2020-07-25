@@ -1,0 +1,57 @@
+{
+	"name": "@thematic/webapp",
+	"title": "Thematic",
+	"version": "0.8.0",
+	"homepage": "https://microsoft.github.io/thematic/",
+	"private": true,
+	"license": "MIT",
+	"dependencies": {
+		"@fluentui/react": "^7.121.2",
+		"@thematic/color": "^0.8.0",
+		"@thematic/core": "^0.8.0",
+		"@thematic/d3": "^0.8.0",
+		"@thematic/fluent": "^0.8.0",
+		"@thematic/react": "^0.8.0",
+		"@thematic/vega": "^0.8.0",
+		"@types/d3-axis": "^1.0.12",
+		"@types/d3-scale": "^2.2.0",
+		"@types/d3-selection": "^1.4.1",
+		"@types/node": "^14.0.13",
+		"@types/react": "^16.9.38",
+		"@types/react-dom": "^16.9.8",
+		"@types/react-redux": "^7.1.9",
+		"@types/redux": "^3.6.0",
+		"@types/redux-actions": "^2.6.0",
+		"@types/redux-logger": "^3.0.8",
+		"@types/redux-thunk": "^2.1.0",
+		"d3-axis": "^1.0.12",
+		"d3-scale": "^3.0.0",
+		"d3-selection": "^1.4.0",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-redux": "^7.2.0",
+		"redux": "^4.0.1",
+		"redux-actions": "^2.6.5",
+		"redux-logger": "^3.0.6",
+		"redux-thunk": "^2.3.0",
+		"vega": "^5.13.0"
+	},
+	"devDependencies": {
+		"raw-loader": "^4.0.1",
+		"worker-loader": "^2.0.0"
+	},
+	"scripts": {
+		"start": "essex serve",
+		"bundle": "essex bundle",
+		"clean": "essex clean build"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	]
+}

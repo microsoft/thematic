@@ -1,0 +1,27 @@
+{
+	"name": "@thematic/fluent",
+	"version": "0.8.0",
+	"license": "MIT",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"types": "dist/types/index.d.ts",
+	"scripts": {
+		"clean": "essex clean",
+		"build": "essex build",
+		"start": "essex watch"
+	},
+	"dependencies": {
+		"@thematic/color": "^0.8.0",
+		"@thematic/core": "^0.8.0",
+		"@thematic/react": "^0.8.0",
+		"@types/react": "^16.9.38"
+	},
+	"devDependencies": {
+		"@fluentui/react": "^7.121.2",
+		"react": "^16.13.1"
+	},
+	"peerDependencies": {
+		"@fluentui/react": ">= 7.121.2",
+		"react": ">= 16.8.0"
+	}
+}

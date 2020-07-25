@@ -1,0 +1,26 @@
+{
+	"name": "@thematic/core",
+	"version": "0.8.0",
+	"license": "MIT",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"types": "dist/types/index.d.ts",
+	"scripts": {
+		"clean": "essex clean",
+		"build": "run-s build_lib assets",
+		"build_lib": "essex build",
+		"copy_json_esm": "ncp lib/themes dist/esm/themes",
+		"copy_json_cjs": "ncp lib/themes dist/cjs/themes",
+		"assets": "run-p copy_json_esm copy_json_cjs",
+		"start": "essex watch"
+	},
+	"dependencies": {
+		"@thematic/color": "^0.8.0",
+		"@types/d3-scale": "^2.2.0",
+		"@types/lodash": "^4.14.156",
+		"@types/murmurhash-js": "^1.0.3",
+		"d3-scale": "^3.0.0",
+		"lodash": "^4.17.11",
+		"murmurhash-js": "^1.0.0"
+	}
+}
