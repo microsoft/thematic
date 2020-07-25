@@ -36,8 +36,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "essex pre-commit",
-			"commit-msg": "essex commit-msg"
+			"pre-commit": "essex pre-commit"
 		}
 	},
 	"prettier": "@essex/prettier-config"
