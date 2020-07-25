@@ -30,7 +30,7 @@ If you want to run locally and work on the app or any theme components, you can 
 
 ## Publishing
 
-Commits to `master` will automatically deploy to the hosted website. If changes need to be released so the libraries are published into npm, use `yarn release` and follow the steps presented by lerna.
+Commits to `main` will automatically deploy to the hosted website. If changes need to be released so the libraries are published into npm, use `yarn release` and follow the steps presented by lerna.
 
 # Developing
 
@@ -66,7 +66,7 @@ Cleans out the node_modules and built lib directories for every package.
 
 # Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+This project welcomes contributions and suggestions. Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
 
