@@ -29,6 +29,6 @@ jobs:
     - name: Deploy static site
       uses: peaceiris/actions-gh-pages@v3.6.4
       env:
-        github_token: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
+        personal_token: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
         publish_branch: gh-pages
         publish_dir: ./packages/webapp/build
