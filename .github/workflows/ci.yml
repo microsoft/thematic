@@ -20,6 +20,9 @@ jobs:
     - run: yarn install
       name: Install Dependencies
 
+    - run: yarn build
+      name: Build libs
+
     - run: yarn ci
       name: Execute Tests
       env:
