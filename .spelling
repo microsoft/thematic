@@ -1,6 +1,7 @@
 lerna
 node_modules
 http
+https
 theming
 useThematic
 d3
@@ -26,3 +27,9 @@ attr
 README.md
 Webpack
 filenames
+microsoft.com
+DotNet
+AspNet
+Xamarin
+msrc
+repos
