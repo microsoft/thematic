@@ -1,0 +1,13 @@
+.color-controls-area {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.color-controls {
+	margin-left: 20px;
+	width: 400px;
+}
+.color-control {
+	margin-bottom: 8px;
+}

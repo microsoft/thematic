@@ -1,0 +1,237 @@
+{
+	"$schema": "https://vega.github.io/schema/vega/v5.json",
+	"autosize": "fit",
+	"signals": [
+		{
+			"name": "chartPad",
+			"value": 20
+		},
+		{
+			"name": "year",
+			"value": 2000
+		}
+	],
+	"data": [
+		{
+			"name": "population",
+			"url": "https://vega.github.io/vega/data/population.json"
+		},
+		{
+			"name": "popYear",
+			"source": "population",
+			"transform": [{ "type": "filter", "expr": "datum.year == year" }]
+		},
+		{
+			"name": "males",
+			"source": "popYear",
+			"transform": [{ "type": "filter", "expr": "datum.sex == 1" }]
+		},
+		{
+			"name": "females",
+			"source": "popYear",
+			"transform": [{ "type": "filter", "expr": "datum.sex == 2" }]
+		},
+		{
+			"name": "ageGroups",
+			"source": "population",
+			"transform": [{ "type": "aggregate", "groupby": ["age"] }]
+		}
+	],
+	"scales": [
+		{
+			"name": "y",
+			"type": "band",
+			"range": [
+				{
+					"signal": "height"
+				},
+				0
+			],
+			"round": true,
+			"domain": {
+				"data": "ageGroups",
+				"field": "age"
+			}
+		},
+		{
+			"name": "c",
+			"type": "ordinal",
+			"domain": [1, 2],
+			"range": "category"
+		}
+	],
+	"marks": [
+		{
+			"type": "text",
+			"interactive": false,
+			"from": {
+				"data": "ageGroups"
+			},
+			"encode": {
+				"enter": {
+					"x": {
+						"signal": "width / 2"
+					},
+					"y": {
+						"scale": "y",
+						"field": "age",
+						"band": 0.5
+					},
+					"text": {
+						"field": "age"
+					},
+					"baseline": {
+						"value": "middle"
+					},
+					"align": {
+						"value": "center"
+					}
+				}
+			}
+		},
+		{
+			"type": "group",
+			"encode": {
+				"update": {
+					"x": {
+						"value": 0
+					},
+					"height": {
+						"signal": "height"
+					}
+				}
+			},
+			"scales": [
+				{
+					"name": "x",
+					"type": "linear",
+					"range": [
+						{
+							"signal": "width / 2 - chartPad / 2"
+						},
+						0
+					],
+					"nice": true,
+					"zero": true,
+					"domain": {
+						"data": "population",
+						"field": "people"
+					}
+				}
+			],
+			"axes": [
+				{
+					"orient": "bottom",
+					"scale": "x",
+					"format": "s",
+					"tickCount": 4
+				}
+			],
+			"marks": [
+				{
+					"type": "rect",
+					"from": {
+						"data": "females"
+					},
+					"encode": {
+						"enter": {
+							"x": {
+								"scale": "x",
+								"field": "people"
+							},
+							"x2": {
+								"scale": "x",
+								"value": 0
+							},
+							"y": {
+								"scale": "y",
+								"field": "age"
+							},
+							"height": {
+								"scale": "y",
+								"band": 1,
+								"offset": -1
+							},
+							"fill": {
+								"scale": "c",
+								"field": "sex"
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"type": "group",
+			"encode": {
+				"update": {
+					"x": {
+						"signal": "width / 2 + chartPad / 2"
+					},
+					"height": {
+						"signal": "height"
+					}
+				}
+			},
+			"scales": [
+				{
+					"name": "x",
+					"type": "linear",
+					"range": [
+						0,
+						{
+							"signal": "width / 2 - chartPad / 2"
+						}
+					],
+					"nice": true,
+					"zero": true,
+					"domain": {
+						"data": "population",
+						"field": "people"
+					}
+				}
+			],
+			"axes": [
+				{
+					"orient": "bottom",
+					"scale": "x",
+					"format": "s",
+					"tickCount": 4
+				}
+			],
+			"marks": [
+				{
+					"type": "rect",
+					"from": {
+						"data": "males"
+					},
+					"encode": {
+						"enter": {
+							"x": {
+								"scale": "x",
+								"field": "people"
+							},
+							"x2": {
+								"scale": "x",
+								"value": 0
+							},
+							"y": {
+								"scale": "y",
+								"field": "age"
+							},
+							"height": {
+								"scale": "y",
+								"band": 1,
+								"offset": -1
+							},
+							"fill": {
+								"scale": "c",
+								"field": "sex"
+							}
+						}
+					}
+				}
+			]
+		}
+	]
+}

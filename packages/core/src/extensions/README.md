@@ -1,0 +1,1 @@
+This is a folder of built-in Theme transformation extensions. They accept a `Theme` instance and outputting `any`, though usually a `string` because they're primarily used to export files for other applications.

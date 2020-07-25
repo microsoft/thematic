@@ -1,0 +1,23 @@
+.mark-grid {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 32px;
+}
+.mark-grid-cell {
+	width: 80px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	margin-bottom: 8px;
+}
+.mark-grid-cell-title {
+	font-size: 10px;
+}
+.mark-grid-cell-example {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
