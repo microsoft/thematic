@@ -1,6 +1,6 @@
 This package provides a variety of helpers for applying Thematic to visualizations based on [D3](https://d3js.org/).
 
-D3's generally programming model is to use function chaining to update selections. We provide a variety of applicator functions that work directly with the D3 [selection.call](https://github.com/d3/d3-selection#selection_call) mechanism to apply theme parameters to the selection items.
+D3's general programming model is to use function chaining to update selections. We provide a variety of applicator functions that work directly with the D3 [selection.call](https://github.com/d3/d3-selection#selection_call) mechanism to apply theme parameters to the selection items.
 
 For example, you may want to apply the core chart properties to your root svg:
 
