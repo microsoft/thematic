@@ -29,8 +29,8 @@ jobs:
       name: Bundle webapp
     
     - name: Deploy static site
-      uses: peaceiris/actions-gh-pages@v3.6.4
-      env:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: gh-pages
-        publish_dir: ./packages/webapp/build
+      uses: JamesIves/github-pages-deploy-action@3.5.9
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: ./packages/webapp/build
