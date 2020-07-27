@@ -11,6 +11,8 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
 
     - name: Use Node 12.x
       uses: actions/setup-node@v1
@@ -18,7 +20,7 @@ jobs:
         node-version: 12.x
 
     - run: yarn install
-      name: Install Dependencies
+      name: Install dependencies
 
     - run: yarn build
       name: Build libs
@@ -29,6 +31,6 @@ jobs:
     - name: Deploy static site
       uses: peaceiris/actions-gh-pages@v3.6.4
       env:
-        personal_token: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
+        personal_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages
         publish_dir: ./packages/webapp/build
