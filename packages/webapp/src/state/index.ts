@@ -14,7 +14,7 @@ import { graph } from '../data'
  * State entry point for the app - kicks off async starter data, etc.
  */
 export const init: any = (dispatch: Dispatch) => {
-	dispatch(themeSelected(defaultThemes[0]) as any)
+	dispatch(themeSelected(defaultThemes[1]) as any)
 	dispatch(graphLoaded(graph))
 }
 
