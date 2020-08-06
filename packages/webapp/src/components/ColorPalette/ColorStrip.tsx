@@ -22,6 +22,7 @@ export const ColorStrip: React.FC<ColorStripProps> = ({
 		return (
 			<div
 				key={`Color-${index}`}
+				title={`${label} color ${color}`}
 				style={{
 					width: 50,
 					flexShrink: 0,
