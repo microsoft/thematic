@@ -1,5 +1,6 @@
 {
 	"$schema": "https://vega.github.io/schema/vega/v5.json",
+	"description": "Example Vega sunburst chart using Flare package hierarchy data.",
 	"autosize": "fit",
 	"data": [
 		{
