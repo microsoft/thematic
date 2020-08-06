@@ -158,6 +158,8 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
 						onIncrement={handleScaleIncrement}
 						onDecrement={handleScaleDecrement}
 						onValidate={handleScaleValidate}
+						incrementButtonAriaLabel={'Increase value by 1'}
+						decrementButtonAriaLabel={'Decrease value by 1'}
 					/>
 				</div>
 				<div className="control spinner">
@@ -171,6 +173,8 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
 						onIncrement={handleChartIncrement}
 						onDecrement={handleChartDecrement}
 						onValidate={handleChartValidate}
+						incrementButtonAriaLabel={'Increase value by 1'}
+						decrementButtonAriaLabel={'Decrease value by 1'}
 					/>
 				</div>
 				<div className="control">
