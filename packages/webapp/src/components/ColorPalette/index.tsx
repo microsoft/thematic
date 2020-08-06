@@ -28,9 +28,8 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
 	const theme = useThematic()
 	const accentColor = theme.application().accent().hex()
 	const foregroundColor = theme.application().foreground().hex()
-	const slideBackgroundColor = theme.application().background().hex()
+	const backgroundColor = theme.application().background().hex()
 	const errorColor = theme.application().error().hex()
-	const chartBackgroundColor = theme.plotArea().fill().hex()
 	const accent = (
 		<React.Fragment>
 			<span style={{ color: accentColor }}>Accent {accentColor}</span>
@@ -39,7 +38,7 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
 	const background = (
 		<React.Fragment>
 			<span style={{ color: foregroundColor }}>
-				Background {slideBackgroundColor}
+				Background {backgroundColor}
 			</span>
 		</React.Fragment>
 	)
@@ -63,7 +62,7 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
 		<div
 			style={{
 				border: `1px solid ${foregroundColor}`,
-				background: slideBackgroundColor,
+				background: backgroundColor,
 				padding: '10px 30px 30px 30px',
 				color: foregroundColor,
 				textAlign: 'left',
@@ -82,7 +81,7 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
 					{foreground} on {background} (contrast ratio:{' '}
 					<Contrast
 						foreground={foregroundColor}
-						background={slideBackgroundColor}
+						background={backgroundColor}
 						error={errorColor}
 						showLink
 					/>
@@ -92,7 +91,7 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
 					{accent} on {background} (contrast ratio:{' '}
 					<Contrast
 						foreground={accentColor}
-						background={slideBackgroundColor}
+						background={backgroundColor}
 						error={errorColor}
 						showLink
 					/>
@@ -112,51 +111,51 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
 			>
 				<ColorStrip
 					label="Nominal "
-					foreground={accentColor}
-					background={chartBackgroundColor}
+					foreground={foregroundColor}
+					background={backgroundColor}
 					colors={nominal}
 				/>
 				<ColorStrip
 					label="Nominal+"
-					foreground={accentColor}
-					background={chartBackgroundColor}
+					foreground={foregroundColor}
+					background={backgroundColor}
 					colors={nominalBold}
 					labelColors={nominalMuted}
 				/>
 				<ColorStrip
 					label="Nominal-"
-					foreground={accentColor}
-					background={chartBackgroundColor}
+					foreground={foregroundColor}
+					background={backgroundColor}
 					colors={nominalMuted}
 					labelColors={nominalBold}
 				/>
 				<ColorBand
 					label="Sequential"
-					foreground={accentColor}
+					foreground={foregroundColor}
 					colors={sequential}
 					width={BAND_WIDTH}
 				/>
 				<ColorBand
 					label="Sequential2"
-					foreground={accentColor}
+					foreground={foregroundColor}
 					colors={sequential2}
 					width={BAND_WIDTH}
 				/>
 				<ColorBand
 					label="Diverging"
-					foreground={accentColor}
+					foreground={foregroundColor}
 					colors={diverging}
 					width={BAND_WIDTH}
 				/>
 				<ColorBand
 					label="Diverging2"
-					foreground={accentColor}
+					foreground={foregroundColor}
 					colors={diverging2}
 					width={BAND_WIDTH}
 				/>
 				<ColorBand
 					label="Greys"
-					foreground={accentColor}
+					foreground={foregroundColor}
 					colors={greys}
 					width={BAND_WIDTH}
 				/>
