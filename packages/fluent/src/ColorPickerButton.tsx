@@ -36,6 +36,7 @@ export const ColorPickerButton: React.FC<ColorPickerButtonProps> = ({
 		<div style={{ display: 'flex', flexDirection: 'column' }}>
 			{label && <Label style={labelStyle}>{label}</Label>}
 			<IconButton
+				title={label}
 				iconProps={{
 					iconName: 'CheckBoxFill',
 				}}

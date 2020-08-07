@@ -1,5 +1,6 @@
 {
 	"$schema": "https://vega.github.io/schema/vega/v5.json",
+	"description": "Example Vega donut chart using synthetic data.",
 	"autosize": "fit",
 	"signals": [
 		{
