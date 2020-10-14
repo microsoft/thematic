@@ -155,25 +155,37 @@ export class Theme implements ITheme {
 
 	public scales = (): ColorScales => {
 		return {
-			nominal: (sizeOrDomain: number | string[] | number[]) => {
+			nominal: (sizeOrDomain?: number | string[] | number[]) => {
 				const size =
-					typeof sizeOrDomain === 'number' ? sizeOrDomain : sizeOrDomain.length
+					typeof sizeOrDomain === 'number'
+						? sizeOrDomain
+						: sizeOrDomain
+						? sizeOrDomain.length
+						: 10
 				const domain =
 					typeof sizeOrDomain !== 'number' ? sizeOrDomain : undefined
 				const scheme = this.getScheme(size)
 				return nominal(scheme.nominal, domain)
 			},
-			nominalBold: (sizeOrDomain: number | string[] | number[]) => {
+			nominalBold: (sizeOrDomain?: number | string[] | number[]) => {
 				const size =
-					typeof sizeOrDomain === 'number' ? sizeOrDomain : sizeOrDomain.length
+					typeof sizeOrDomain === 'number'
+						? sizeOrDomain
+						: sizeOrDomain
+						? sizeOrDomain.length
+						: 10
 				const domain =
 					typeof sizeOrDomain !== 'number' ? sizeOrDomain : undefined
 				const scheme = this.getScheme(size)
 				return nominal(scheme.nominalBold, domain)
 			},
-			nominalMuted: (sizeOrDomain: number | string[] | number[]) => {
+			nominalMuted: (sizeOrDomain?: number | string[] | number[]) => {
 				const size =
-					typeof sizeOrDomain === 'number' ? sizeOrDomain : sizeOrDomain.length
+					typeof sizeOrDomain === 'number'
+						? sizeOrDomain
+						: sizeOrDomain
+						? sizeOrDomain.length
+						: 10
 				const domain =
 					typeof sizeOrDomain !== 'number' ? sizeOrDomain : undefined
 				const scheme = this.getScheme(size)
