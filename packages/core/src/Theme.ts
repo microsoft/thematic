@@ -298,12 +298,14 @@ export class Theme implements ITheme {
 	 * Gets the scheme with the appropriate size
 	 * @param size The number of elements in the scheme
 	 */
+	// TODO: this cache overcomes slow scale computes, but they shouldn't be slow
 	private getScheme(size = 0) {
 		if (!this._schemeCache[size]) {
 			this._schemeCache[size] = createScheme(
 				this._spec,
 				this._config.variant,
 				this._config.colorBlindnessMode,
+				size,
 				size,
 			)
 		}
