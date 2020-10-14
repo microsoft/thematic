@@ -11,8 +11,13 @@
 	margin-top: 20px;
 	margin-bottom: 30px;
 }
-.privacy {
+.footer {
 	margin-top: 10px;
 	margin-bottom: 40px;
 	font-size: 12px;
+}
+.privacy {
+}
+.github {
+	margin-top: 8px;
 }
