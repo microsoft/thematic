@@ -347,6 +347,11 @@ export class ColorMaker {
 			hues = hues.concat(newHues)
 		}
 
+		// trim the core hues to match requested size
+		// this acounts for initialHues calculation
+		// which can result in minimum counts higher than requested
+		hues = hues.slice(0, size)
+
 		let baseSaturation = nominalSaturation
 		let baseLuminance = this.scaleLuminance
 
