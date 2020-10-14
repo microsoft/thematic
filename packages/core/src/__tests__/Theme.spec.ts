@@ -4,6 +4,7 @@
  */
 import { Theme } from '../Theme'
 import { defaultParams } from '@thematic/color'
+import { ScaleType } from '../types'
 
 const lightSpec = {
 	name: 'light',
@@ -52,17 +53,7 @@ describe('clone', () => {
 	test('no changes', () => {
 		const clone = theme.clone()
 		expect(clone.name).toBe(theme.name)
-		expect(
-			clone
-				.rect()
-				.stroke()
-				.hex(),
-		).toBe(
-			theme
-				.rect()
-				.stroke()
-				.hex(),
-		)
+		expect(clone.rect().stroke().hex()).toBe(theme.rect().stroke().hex())
 	})
 
 	test('basic property changes', () => {
@@ -80,12 +71,7 @@ describe('clone', () => {
 		)
 
 		expect(clone.name).toBe('lighter')
-		expect(
-			clone
-				.rect()
-				.stroke()
-				.hex(),
-		).toBe('#ff0000')
+		expect(clone.rect().stroke().hex()).toBe('#ff0000')
 	})
 
 	test('basic config change + swap color space', () => {
@@ -101,12 +87,14 @@ describe('clone', () => {
 			},
 		)
 
-		expect(
-			clone
-				.rect()
-				.stroke()
-				.rgbav(),
-		).toEqual([1.0, 0, 0, 1.0])
+		expect(clone.rect().stroke().rgbav()).toEqual([1.0, 0, 0, 1.0])
+	})
+
+	test('default nominal scale', () => {
+		// confirm that the default uses 10
+		const scale = theme.scales().nominal()
+		const arr = scale.toArray()
+		expect(arr).toHaveLength(10)
 	})
 
 	test('computed nominal scale', () => {
@@ -124,6 +112,13 @@ describe('clone', () => {
 		expect(scale('first').hex()).toBe(arr[0])
 		expect(scale('second').hex()).toBe(arr[1])
 	})
+
+	test('safe log scale', () => {
+		const scale = theme.scales().sequential([0, 1], ScaleType.Log)
+		const arr = scale.toArray()
+		// zero values should be clamped automatically
+		expect(scale(0).hex()).toBe(arr[0])
+	})
 })
 
 describe('apply config', () => {
@@ -138,12 +133,7 @@ describe('apply config', () => {
 		})
 
 		test('any optional mark properties', () => {
-			expect(
-				theme
-					.arc()
-					.stroke()
-					.hex(),
-			).toBe('#ff0000')
+			expect(theme.arc().stroke().hex()).toBe('#ff0000')
 		})
 	})
 
@@ -151,12 +141,7 @@ describe('apply config', () => {
 		const theme = new Theme(lightSpec, lightConfig)
 
 		test('basic color', () => {
-			expect(
-				theme
-					.arc()
-					.stroke()
-					.rgbav(),
-			).toEqual(STROKE_VECTOR)
+			expect(theme.arc().stroke().rgbav()).toEqual(STROKE_VECTOR)
 		})
 
 		test('computed nominal scale', () => {
@@ -169,12 +154,7 @@ describe('apply config', () => {
 		const theme = new Theme(lightSpec, lightConfig)
 
 		test('basic color', () => {
-			expect(
-				theme
-					.arc()
-					.stroke()
-					.rgbaint(),
-			).toBe(STROKE_NUMBER)
+			expect(theme.arc().stroke().rgbaint()).toBe(STROKE_NUMBER)
 		})
 
 		test('computed nominal scale', () => {

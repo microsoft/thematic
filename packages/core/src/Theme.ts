@@ -155,25 +155,37 @@ export class Theme implements ITheme {
 
 	public scales = (): ColorScales => {
 		return {
-			nominal: (sizeOrDomain: number | string[] | number[]) => {
+			nominal: (sizeOrDomain?: number | string[] | number[]) => {
 				const size =
-					typeof sizeOrDomain === 'number' ? sizeOrDomain : sizeOrDomain.length
+					typeof sizeOrDomain === 'number'
+						? sizeOrDomain
+						: sizeOrDomain
+						? sizeOrDomain.length
+						: 10
 				const domain =
 					typeof sizeOrDomain !== 'number' ? sizeOrDomain : undefined
 				const scheme = this.getScheme(size)
 				return nominal(scheme.nominal, domain)
 			},
-			nominalBold: (sizeOrDomain: number | string[] | number[]) => {
+			nominalBold: (sizeOrDomain?: number | string[] | number[]) => {
 				const size =
-					typeof sizeOrDomain === 'number' ? sizeOrDomain : sizeOrDomain.length
+					typeof sizeOrDomain === 'number'
+						? sizeOrDomain
+						: sizeOrDomain
+						? sizeOrDomain.length
+						: 10
 				const domain =
 					typeof sizeOrDomain !== 'number' ? sizeOrDomain : undefined
 				const scheme = this.getScheme(size)
 				return nominal(scheme.nominalBold, domain)
 			},
-			nominalMuted: (sizeOrDomain: number | string[] | number[]) => {
+			nominalMuted: (sizeOrDomain?: number | string[] | number[]) => {
 				const size =
-					typeof sizeOrDomain === 'number' ? sizeOrDomain : sizeOrDomain.length
+					typeof sizeOrDomain === 'number'
+						? sizeOrDomain
+						: sizeOrDomain
+						? sizeOrDomain.length
+						: 10
 				const domain =
 					typeof sizeOrDomain !== 'number' ? sizeOrDomain : undefined
 				const scheme = this.getScheme(size)
@@ -185,7 +197,7 @@ export class Theme implements ITheme {
 				quantiles?: number,
 			) => {
 				const scheme = this.getScheme(100)
-				return continuous(domain, scheme.sequential, scaleType, quantiles)
+				return continuous(scheme.sequential, domain, scaleType, quantiles)
 			},
 			sequential2: (
 				domain: number[] = [0, 1],
@@ -194,7 +206,7 @@ export class Theme implements ITheme {
 			) => {
 				// with our color generation algo, 100 is plenty long to get full granularity
 				const scheme = this.getScheme(100)
-				return continuous(domain, scheme.sequential2, scaleType, quantiles)
+				return continuous(scheme.sequential2, domain, scaleType, quantiles)
 			},
 			diverging: (
 				domain: number[] = [-1, 1],
@@ -202,7 +214,7 @@ export class Theme implements ITheme {
 				quantiles?: number,
 			) => {
 				const scheme = this.getScheme(100)
-				return continuous(domain, scheme.diverging, scaleType, quantiles)
+				return continuous(scheme.diverging, domain, scaleType, quantiles)
 			},
 			diverging2: (
 				domain: number[] = [-1, 1],
@@ -210,7 +222,7 @@ export class Theme implements ITheme {
 				quantiles?: number,
 			) => {
 				const scheme = this.getScheme(100)
-				return continuous(domain, scheme.diverging2, scaleType, quantiles)
+				return continuous(scheme.diverging2, domain, scaleType, quantiles)
 			},
 			greys: (
 				domain: number[] = [0, 1],
@@ -218,7 +230,7 @@ export class Theme implements ITheme {
 				quantiles?: number,
 			) => {
 				const scheme = this.getScheme(100)
-				return continuous(domain, scheme.greys, scaleType, quantiles)
+				return continuous(scheme.greys, domain, scaleType, quantiles)
 			},
 		}
 	}
@@ -286,12 +298,14 @@ export class Theme implements ITheme {
 	 * Gets the scheme with the appropriate size
 	 * @param size The number of elements in the scheme
 	 */
+	// TODO: this cache overcomes slow scale computes, but they shouldn't be slow
 	private getScheme(size = 0) {
 		if (!this._schemeCache[size]) {
 			this._schemeCache[size] = createScheme(
 				this._spec,
 				this._config.variant,
 				this._config.colorBlindnessMode,
+				size,
 				size,
 			)
 		}

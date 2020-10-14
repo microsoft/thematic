@@ -347,6 +347,11 @@ export class ColorMaker {
 			hues = hues.concat(newHues)
 		}
 
+		// trim the core hues to match requested size
+		// this acounts for initialHues calculation
+		// which can result in minimum counts higher than requested
+		hues = hues.slice(0, size)
+
 		let baseSaturation = nominalSaturation
 		let baseLuminance = this.scaleLuminance
 
@@ -391,7 +396,8 @@ export function hsluv_to_hex(values: HSLVector[]): string[] {
 // TODO: this should probably throw errors if out-of-bounds values are submitted OR, wrap around the geometry if that's always valid
 export function getScheme(
 	params: Params,
-	scaleItemCount: number,
+	nominalItemCount: number,
+	sequentialItemCount: number,
 	light: boolean,
 ): Scheme {
 	const {
@@ -411,7 +417,7 @@ export function getScheme(
 		light,
 	)
 
-	const nominalSequences = colorMaker.nominal(scaleItemCount)
+	const nominalSequences = colorMaker.nominal(nominalItemCount)
 
 	return {
 		background: hsluv.hsluvToHex(colorMaker.backgroundHsl),
@@ -428,14 +434,14 @@ export function getScheme(
 			colorMaker.highContrastAnnotationHsl,
 		),
 		faintAnnotation: hsluv.hsluvToHex(colorMaker.faintAnnotationHsl),
-		sequential: hsluv_to_hex(colorMaker.sequential(scaleItemCount, 0)),
-		sequential2: hsluv_to_hex(colorMaker.sequential(scaleItemCount, 1)),
-		diverging: hsluv_to_hex(colorMaker.diverging(scaleItemCount, 0)),
-		diverging2: hsluv_to_hex(colorMaker.diverging(scaleItemCount, 1)),
+		sequential: hsluv_to_hex(colorMaker.sequential(sequentialItemCount, 0)),
+		sequential2: hsluv_to_hex(colorMaker.sequential(sequentialItemCount, 1)),
+		diverging: hsluv_to_hex(colorMaker.diverging(sequentialItemCount, 0)),
+		diverging2: hsluv_to_hex(colorMaker.diverging(sequentialItemCount, 1)),
 		nominalBold: hsluv_to_hex(nominalSequences.bold),
 		nominal: hsluv_to_hex(nominalSequences.std),
 		nominalMuted: hsluv_to_hex(nominalSequences.muted),
-		greys: hsluv_to_hex(colorMaker.grey(scaleItemCount)),
+		greys: hsluv_to_hex(colorMaker.grey(sequentialItemCount)),
 		warning: '#ff8c00',
 		error: '#d13438',
 	}
