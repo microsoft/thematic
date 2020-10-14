@@ -16,8 +16,8 @@ import {
 // these are static default settings for the marks that are not derived from the computed scheme
 import defaults from './themes/defaults.json'
 
-const DEFAULT_SCALE_ITEMS = 10
-
+const DEFAULT_NOMINAL_ITEMS = 10
+const DEFAULT_SEQUENTIAL_ITEMS = 100
 /**
  * Creates a completed Params block from a ThemeDefinition, making sure missing optional fields are populated.
  * @param themeDefinition
@@ -46,14 +46,14 @@ export function createScheme(
 	spec: ThemeSpec,
 	variant?: ThemeVariant,
 	colorBlindnessMode?: ColorBlindnessMode,
-	scaleItemCount?: number,
+	nominalItemCount: number = DEFAULT_NOMINAL_ITEMS,
+	sequentialItemCount: number = DEFAULT_SEQUENTIAL_ITEMS,
 ): Scheme {
 	const params = applyParams(spec)
-	const count =
-		scaleItemCount === undefined ? DEFAULT_SCALE_ITEMS : scaleItemCount
 	const scheme = getScheme(
 		params,
-		count,
+		nominalItemCount,
+		sequentialItemCount,
 		variant === undefined ? true : variant === ThemeVariant.Light,
 	)
 	return colorBlindness(scheme, colorBlindnessMode)
@@ -61,10 +61,21 @@ export function createScheme(
 
 export function applyScheme(
 	spec: ThemeSpec,
-	scaleItemCount: number = DEFAULT_SCALE_ITEMS,
+	nominalItemCount: number = DEFAULT_NOMINAL_ITEMS,
+	sequentialItemCount: number = DEFAULT_SEQUENTIAL_ITEMS,
 ): ThemeSpec {
-	const light = getScheme(spec.params!, scaleItemCount, true)
-	const dark = getScheme(spec.params!, scaleItemCount, false)
+	const light = getScheme(
+		spec.params!,
+		nominalItemCount,
+		sequentialItemCount,
+		true,
+	)
+	const dark = getScheme(
+		spec.params!,
+		nominalItemCount,
+		sequentialItemCount,
+		false,
+	)
 	return {
 		...spec,
 		light,
