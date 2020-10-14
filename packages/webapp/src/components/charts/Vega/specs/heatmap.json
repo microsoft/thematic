@@ -6,11 +6,11 @@
 	"data": [
 		{
 			"name": "temperature",
-			"url": "https://vega.github.io/vega/data/seattle-temps.csv",
+			"url": "https://vega.github.io/vega/data/seattle-weather-hourly-normals.csv",
 			"format": {
 				"type": "csv",
 				"parse": {
-					"temp": "number",
+					"temperature": "number",
 					"date": "date"
 				}
 			},
@@ -75,7 +75,7 @@
 			"range": "heatmap",
 			"domain": {
 				"data": "temperature",
-				"field": "temp"
+				"field": "temperature"
 			},
 			"zero": false,
 			"nice": true
@@ -141,13 +141,13 @@
 						"band": 1
 					},
 					"tooltip": {
-						"signal": "timeFormat(datum.date, '%b %d %I:00 %p') + ': ' + datum.temp + '°'"
+						"signal": "timeFormat(datum.date, '%b %d %I:00 %p') + ': ' + datum.temperature + '°'"
 					}
 				},
 				"update": {
 					"fill": {
 						"scale": "color",
-						"field": "temp"
+						"field": "temperature"
 					}
 				}
 			}
