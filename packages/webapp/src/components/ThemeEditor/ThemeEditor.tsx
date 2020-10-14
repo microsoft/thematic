@@ -45,16 +45,30 @@ export const ThemeEditor: React.FC<ThemeEditorProps> = ({ scaleItemCount }) => {
 				</PivotItem>
 			</Pivot>
 			<ColorPalette scaleItemCount={scaleItemCount} />
-			<div className="privacy">
-				This site does not collect any personal information or use
-				cookies.&nbsp;
-				<a
-					target="_blank"
-					rel="noreferrer"
-					href="https://privacy.microsoft.com/en-us/privacystatement/"
-				>
-					Read Microsoft's statement on Privacy and Cookies.
-				</a>
+			<div className="footer">
+				<div className="privacy">
+					This site does not collect any personal information or use
+					cookies.&nbsp;
+					<a
+						target="_blank"
+						rel="noreferrer"
+						href="https://privacy.microsoft.com/en-us/privacystatement/"
+					>
+						Read Microsoft's statement on Privacy and Cookies
+					</a>
+					.
+				</div>
+				<div className="github">
+					Contribute at&nbsp;
+					<a
+						target="_blank"
+						rel="noreferrer"
+						href="https://github.com/microsoft/thematic"
+					>
+						GitHub
+					</a>
+					.
+				</div>
 			</div>
 		</div>
 	)

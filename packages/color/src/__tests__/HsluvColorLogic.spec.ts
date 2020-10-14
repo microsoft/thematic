@@ -78,4 +78,27 @@ describe('ColorMaker', () => {
 		const scale2 = polynomial_scale(2, 0, 64, 8).map(x => Math.round(x))
 		expect(scale2).toEqual([0, 1, 5, 12, 21, 33, 47, 64])
 	})
+
+	describe('nominal count matches requested size', () => {
+		// the hue initial hue count establishes starting spacing
+		// but this can result in mismatched final counts
+		// ensure that the resulting nominal scales are trimmed correctly
+		test('default hue step (10)', () => {
+			const colorMaker = new ColorMaker([50, 50, 50], 50, 50, 10, true)
+			const scale = colorMaker.nominal(1)
+			expect(scale.size).toBe(1)
+		})
+
+		test('hue step < 10 (3)', () => {
+			const colorMaker = new ColorMaker([50, 50, 50], 50, 50, 3, true)
+			const scale = colorMaker.nominal(1)
+			expect(scale.size).toBe(1)
+		})
+
+		test('hue step > 10 (14)', () => {
+			const colorMaker = new ColorMaker([50, 50, 50], 50, 50, 14, true)
+			const scale = colorMaker.nominal(2)
+			expect(scale.size).toBe(2)
+		})
+	})
 })

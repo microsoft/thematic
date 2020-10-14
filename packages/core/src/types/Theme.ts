@@ -142,13 +142,13 @@ export interface ContinuousColorScaleFunction extends ColorScaleFunction {
 
 export interface ColorScales {
 	nominal: (
-		sizeOrDomain: number | string[] | number[],
+		sizeOrDomain?: number | string[] | number[],
 	) => NominalColorScaleFunction
 	nominalBold: (
-		sizeOrDomain: number | string[] | number[],
+		sizeOrDomain?: number | string[] | number[],
 	) => NominalColorScaleFunction
 	nominalMuted: (
-		sizeOrDomain: number | string[] | number[],
+		sizeOrDomain?: number | string[] | number[],
 	) => NominalColorScaleFunction
 	/**
 	 * Constructs a sequential numeric scale based on the input domain and specified ScaleType

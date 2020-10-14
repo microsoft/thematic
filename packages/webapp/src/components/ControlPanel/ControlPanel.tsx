@@ -30,6 +30,9 @@ export interface ControlPanelProps {
 	onColorBlindnessModeChange: (mode: ColorBlindnessMode) => void
 }
 
+const SCALE_MIN = 1
+const SCALE_MAX = 1000
+
 export const ControlPanel: React.FC<ControlPanelProps> = ({
 	themes,
 	themeInfo,
@@ -79,23 +82,30 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
 	}
 	const handleDrawNodesChange = (e: any, v) => onDrawNodesChange(v)
 	const handleDrawLinksChange = (e: any, v) => onDrawLinksChange(v)
-	const handleScaleIncrement = useCallback(
-		() => onScaleItemCountChange(scaleItemCount + 1),
-		[onScaleItemCountChange, scaleItemCount],
-	)
-	const handleScaleDecrement = useCallback(
-		() => onScaleItemCountChange(scaleItemCount - 1),
-		[onScaleItemCountChange, scaleItemCount],
-	)
-	const handleScaleValidate = useCallback(
-		(v: string) => {
-			const num = parseInt(v, 10)
-			if (!isNaN(num) && num >= 2) {
-				onScaleItemCountChange(num)
+	const changeValue = useCallback(
+		(value: string, change = 0) => {
+			const num = parseInt(value, 10)
+			if (!isNaN(num)) {
+				const updated = num + change
+				if (updated >= SCALE_MIN && updated <= SCALE_MAX) {
+					onScaleItemCountChange(updated)
+				}
 			}
 		},
 		[onScaleItemCountChange],
 	)
+	const handleScaleValidate = useCallback((v: string) => changeValue(v), [
+		changeValue,
+	])
+	const handleScaleIncrement = useCallback(
+		v => {
+			changeValue(v, 1)
+		},
+		[changeValue],
+	)
+	const handleScaleDecrement = useCallback(v => changeValue(v, -1), [
+		changeValue,
+	])
 
 	const handleColorBlindnessChange = (e: ColorBlindnessMode) => {
 		onColorBlindnessModeChange(e)
@@ -152,8 +162,8 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
 						label="Scale items"
 						labelPosition={Position.top}
 						value={scaleItemCount.toString()}
-						min={2}
-						max={1000}
+						min={SCALE_MIN}
+						max={SCALE_MAX}
 						step={1}
 						onIncrement={handleScaleIncrement}
 						onDecrement={handleScaleDecrement}
