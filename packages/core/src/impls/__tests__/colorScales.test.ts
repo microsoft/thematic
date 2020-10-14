@@ -80,25 +80,42 @@ describe('nominal scale generators', () => {
 		expect(scale(keys[1]).hex()).toBe(ref3)
 	})
 
-	test('scale.toArray length options', () => {
+	describe('scale.toArray length options', () => {
 		const scale = nominal(colors)
-		// when nothing is based and scale was only created with colors, we expect matching length
-		expect(scale.toArray()).toHaveLength(colors.length)
 
-		// if a domain is supplied, toArray defaults to the domain length
-		const domainScale = nominal(colors, ['1', '2', '3'])
-		expect(domainScale.toArray()).toHaveLength(3)
+		test('empty toArray uses nominal ctor colors', () => {
+			expect(scale.toArray()).toHaveLength(colors.length)
+		})
 
-		// otherwise, we can supply an explicit length param
-		expect(scale.toArray(2)).toHaveLength(2)
+		test('empty toArray uses domain colors if supplied', () => {
+			const domainScale = nominal(colors, ['1', '2', '3'])
+			expect(domainScale.toArray()).toHaveLength(3)
+		})
+
+		test('explicit toArray param is used when provided', () => {
+			// otherwise, we can supply an explicit length param
+			expect(scale.toArray(2)).toHaveLength(2)
+		})
 	})
 })
 
 describe('continuous scale generators', () => {
 	const colors = ['red', 'grey', 'black']
 
-	test('scale bounds, including clamping', () => {
-		const scale = continuous([0, 1], colors, ScaleType.Linear)
+	test('linear scale bounds, including clamping', () => {
+		const scale = continuous(colors, [0, 1], ScaleType.Linear)
+
+		expect(scale(0).hex()).toBe('#ff0000')
+		expect(scale(0.5).hex()).toBe('#808080')
+		expect(scale(1).hex()).toBe('#000000')
+
+		expect(scale(-1).hex()).toBe('#ff0000')
+		expect(scale(2).hex()).toBe('#000000')
+	})
+
+	test('log scale bounds, including clamping', () => {
+		// note the use of 0 in the domain, to test safety correction for log
+		const scale = continuous(colors, [0, 1], ScaleType.Log)
 
 		expect(scale(0).hex()).toBe('#ff0000')
 		expect(scale(0.5).hex()).toBe('#808080')

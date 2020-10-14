@@ -14,8 +14,11 @@ import { scaleLinear, scaleLog } from 'd3-scale'
  * with less exposed functionality such as chaining
  * @param domain
  */
-export function linear(domain: number[]): (value: number) => number {
-	const scale = scaleLinear().domain(domain)
+export function linear(
+	domain: number[],
+	clamp = true,
+): (value: number) => number {
+	const scale = scaleLinear().domain(domain).clamp(clamp)
 	return (value: number) => scale(value)
 }
 
@@ -26,8 +29,8 @@ export function linear(domain: number[]): (value: number) => number {
  * with less exposed functionality such as chaining
  * @param domain
  */
-export function log(domain: number[]): (value: number) => number {
-	const scale = scaleLog().domain(domain)
+export function log(domain: number[], clamp = true): (value: number) => number {
+	const scale = scaleLog().domain(domain).clamp(clamp)
 	return (value: number) => scale(value)
 }
 

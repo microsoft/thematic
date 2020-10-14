@@ -46,7 +46,7 @@ export function nominal(
 
 	const fn = (key: string | number) => {
 		const color = getColor(key)
-		return new Color(color, 1.0)
+		return new Color(color)
 	}
 
 	fn.toArray = function (length?: number) {
@@ -60,15 +60,18 @@ export function nominal(
 }
 
 export function continuous(
-	domain: number[],
 	colorStops: string[],
+	domain: number[],
 	scaleType: ScaleType | undefined,
 	quantiles?: number,
 ): ContinuousColorScaleFunction {
 	let scale: (value: number) => number
+	// this ensures no infinite values can be used with log scale
+	// note that the results can still be unpredictable if the domain crosses zero
+	const safedomain = domain.map(d => (d === 0 ? 1e-10 : d))
 	switch (scaleType) {
 		case ScaleType.Log:
-			scale = log(domain)
+			scale = log(safedomain)
 			break
 		case ScaleType.Quantile:
 			scale = quantile(domain, quantiles || 10)
@@ -85,7 +88,7 @@ export function continuous(
 		// make sure the index is in bounds for safe clamping
 		const i = index < 0 ? 0 : index > max ? max : index
 		const color = colorStops[i]
-		return new Color(color, 1.0)
+		return new Color(color)
 	}
 
 	fn.toArray = function (length?: number) {

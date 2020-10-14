@@ -197,7 +197,7 @@ export class Theme implements ITheme {
 				quantiles?: number,
 			) => {
 				const scheme = this.getScheme(100)
-				return continuous(domain, scheme.sequential, scaleType, quantiles)
+				return continuous(scheme.sequential, domain, scaleType, quantiles)
 			},
 			sequential2: (
 				domain: number[] = [0, 1],
@@ -206,7 +206,7 @@ export class Theme implements ITheme {
 			) => {
 				// with our color generation algo, 100 is plenty long to get full granularity
 				const scheme = this.getScheme(100)
-				return continuous(domain, scheme.sequential2, scaleType, quantiles)
+				return continuous(scheme.sequential2, domain, scaleType, quantiles)
 			},
 			diverging: (
 				domain: number[] = [-1, 1],
@@ -214,7 +214,7 @@ export class Theme implements ITheme {
 				quantiles?: number,
 			) => {
 				const scheme = this.getScheme(100)
-				return continuous(domain, scheme.diverging, scaleType, quantiles)
+				return continuous(scheme.diverging, domain, scaleType, quantiles)
 			},
 			diverging2: (
 				domain: number[] = [-1, 1],
@@ -222,7 +222,7 @@ export class Theme implements ITheme {
 				quantiles?: number,
 			) => {
 				const scheme = this.getScheme(100)
-				return continuous(domain, scheme.diverging2, scaleType, quantiles)
+				return continuous(scheme.diverging2, domain, scaleType, quantiles)
 			},
 			greys: (
 				domain: number[] = [0, 1],
@@ -230,7 +230,7 @@ export class Theme implements ITheme {
 				quantiles?: number,
 			) => {
 				const scheme = this.getScheme(100)
-				return continuous(domain, scheme.greys, scaleType, quantiles)
+				return continuous(scheme.greys, domain, scaleType, quantiles)
 			},
 		}
 	}

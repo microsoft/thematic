@@ -4,6 +4,7 @@
  */
 import { Theme } from '../Theme'
 import { defaultParams } from '@thematic/color'
+import { ScaleType } from '../types'
 
 const lightSpec = {
 	name: 'light',
@@ -110,6 +111,13 @@ describe('clone', () => {
 		const arr = scale.toArray()
 		expect(scale('first').hex()).toBe(arr[0])
 		expect(scale('second').hex()).toBe(arr[1])
+	})
+
+	test('safe log scale', () => {
+		const scale = theme.scales().sequential([0, 1], ScaleType.Log)
+		const arr = scale.toArray()
+		// zero values should be clamped automatically
+		expect(scale(0).hex()).toBe(arr[0])
 	})
 })
 
