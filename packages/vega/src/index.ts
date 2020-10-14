@@ -122,7 +122,7 @@ function group(theme: Theme) {
 // TODO: allow configuration of the length
 function range(theme: Theme) {
 	return {
-		category: theme.scales().nominal(10).toArray(),
+		category: theme.scales().nominal().toArray(),
 		diverging: theme.scales().diverging().toArray(10),
 		heatmap: theme.scales().sequential().toArray(10),
 		ordinal: theme.scales().sequential().toArray(10),
