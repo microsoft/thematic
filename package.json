@@ -4,18 +4,18 @@
 	"private": true,
 	"license": "MIT",
 	"scripts": {
-		"clean": "lerna run clean --stream  --parallel",
-		"clean:all": "yarn clean && lerna clean --yes && rimraf node_modules",
+		"clean_all": "yarn workspaces foreach -pv run clean",
+		"bundle_all": "yarn workspaces foreach -pvt run bundle",
+		"build_all": "yarn workspaces foreach -pvt run build",
+		"start_all": "yarn workspaces foreach -piv run start",
+		"publish_all": "yarn workspaces foreach --exclude '@thematic/root' -pv npm publish --tolerate-republish --access public",
 		"lint": "essex lint",
 		"lint:ci": "essex lint --docs",
 		"prettify": "essex prettify",
-		"bundle": "lerna run bundle --stream",
-		"build": "lerna run build --stream",
 		"test": "essex test",
 		"test:ci": "essex test --coverage",
 		"ci": "run-s lint:ci build bundle test:ci",
-		"start": "lerna run start --stream --parallel",
-		"release": "yarn build && lerna publish"
+		"release": "run-s build_all publish_all"
 	},
 	"workspaces": {
 		"packages": [
