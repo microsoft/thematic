@@ -13,10 +13,10 @@
 	"dependencies": {
 		"@thematic/color": "^0.8.0",
 		"@thematic/core": "^0.8.0",
-		"@types/react": "^16.9.38"
+		"@types/react": "^16.9.53"
 	},
 	"devDependencies": {
-		"react": "^16.13.1"
+		"react": "^16.14.0"
 	},
 	"peerDependencies": {
 		"react": ">= 16.13.1"

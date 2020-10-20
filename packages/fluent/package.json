@@ -14,11 +14,11 @@
 		"@thematic/color": "^0.8.0",
 		"@thematic/core": "^0.8.0",
 		"@thematic/react": "^0.8.0",
-		"@types/react": "^16.9.38"
+		"@types/react": "^16.9.53"
 	},
 	"devDependencies": {
-		"@fluentui/react": "^7.121.2",
-		"react": "^16.13.1"
+		"@fluentui/react": "^7.147.1",
+		"react": "^16.14.0"
 	},
 	"peerDependencies": {
 		"@fluentui/react": ">= 7.121.2",
