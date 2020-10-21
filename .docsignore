@@ -3,3 +3,4 @@ build/
 lib/
 dist/
 .yarn/
+CODE_OF_CONDUCT.md

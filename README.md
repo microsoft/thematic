@@ -1,6 +1,6 @@
 # Thematic
 
-This repository holds all of the packages for creating sharable, perceptually-balanced and tastefully complementary (hopefully!) application and data viz themes. There are adapter libraries and tools to apply themes across several environments, which will be detailed below.
+This repository holds all of the packages for creating shareable, perceptually-balanced and tastefully complementary (hopefully!) application and data viz themes. There are adapter libraries and tools to apply themes across several environments, which will be detailed below.
 
 This repository is structured as a lerna monorepo. It contains separate packages for all of the theme generation, management, and applications. To use thematic in your app, you should only need to install the relevant packages for your use case(s).
 
