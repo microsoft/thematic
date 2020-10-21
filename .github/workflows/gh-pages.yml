@@ -7,31 +7,30 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-        
+
     steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
 
-    - uses: actions/checkout@v2
-      with:
-        persist-credentials: false
+      - name: Use Node 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
 
-    - name: Use Node 12.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
+      - run: yarn install
+        name: Install dependencies
 
-    - run: yarn install
-      name: Install dependencies
+      - run: yarn build_all
+        name: Build libs
 
-    - run: yarn build
-      name: Build libs
+      - run: yarn bundle_all
+        name: Bundle webapp
 
-    - run: yarn bundle
-      name: Bundle webapp
-    
-    - name: Deploy static site
-      uses: JamesIves/github-pages-deploy-action@3.5.9
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: packages/webapp/build
-        CLEAN: true
+      - name: Deploy static site
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: packages/webapp/build
+          CLEAN: true
