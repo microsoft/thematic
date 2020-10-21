@@ -30,11 +30,7 @@ If you want to run locally and work on the app or any theme components, you can 
 
 ## Publishing
 
-Commits to `main` will automatically deploy to the hosted website. If changes need to be released so the libraries are published into npm, use `yarn release` and follow the steps presented by lerna.
-
-# Developing
-
-This monorepo uses [lerna](https://lerna.js.org/) to manage packages, and our team's [build infra scripts](https://github.com/microsoft/essex-alpha-build-infra).
+Commits to `main` will automatically deploy to the hosted website. Pull requests should use `yarn version check --interactive` to create semantic versioning documents describing the impact of the PR. When a release is ready, run`yarn release_all` to publish packages to npm.
 
 ## Available Scripts
 
