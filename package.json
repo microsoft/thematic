@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"scripts": {
 		"clean_all": "yarn workspaces foreach -pv run clean",
-		"bundle_all": "yarn workspaces foreach -pvt run bundle",
+		"bundle_all": "yarn workspaces foreach -pv run bundle",
 		"build_all": "yarn workspaces foreach -pv run build",
 		"start_all": "yarn workspaces foreach -piv run start",
 		"publish_all": "yarn workspaces foreach --exclude '@thematic/root' -pv npm publish --tolerate-republish --access public",
@@ -14,7 +14,8 @@
 		"prettify": "essex prettify",
 		"test": "essex test",
 		"test:ci": "essex test --coverage",
-		"ci": "run-s lint:ci build_all bundle_all test:ci",
+		"git-is-clean": "essex git-is-clean",
+		"ci": "npm-run-all -p lint:ci build_all bundle_all test:ci -s git-is-clean",
 		"release": "run-s build_all publish_all"
 	},
 	"workspaces": {
