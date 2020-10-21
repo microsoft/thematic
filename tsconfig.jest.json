@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"target": "ES5",
+		"jsx": "react",
+		"types": ["node", "jest"],
+		"allowJs": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true
+	}
+}

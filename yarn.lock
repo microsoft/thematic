@@ -2351,7 +2351,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/jest-config@npm:10.0.2":
+"@essex/jest-config@npm:10.0.2, @essex/jest-config@npm:^10.0.2":
   version: 10.0.2
   resolution: "@essex/jest-config@npm:10.0.2"
   dependencies:
@@ -5070,7 +5070,8 @@ __metadata:
     "@uifabric/icons": ^7.5.12
     react: ^16.14.0
   peerDependencies:
-    "@fluentui/react": ">= 7.121.2"
+    "@fluentui/react": ">= 7"
+    "@uifabric/icons": ">= 7"
     react: ">= 16.8.0"
   languageName: unknown
   linkType: soft
@@ -5094,8 +5095,10 @@ __metadata:
   dependencies:
     "@essex/eslint-config": ^10.0.1
     "@essex/eslint-plugin": ^10.0.1
+    "@essex/jest-config": ^10.0.2
     "@essex/prettier-config": ^10.0.0
     "@essex/scripts": ^11.0.1
+    "@types/jest": ^26.0.15
     "@types/node": ^14.14.0
     "@types/prettier": ^2
     "@typescript-eslint/eslint-plugin": ^4.4.1
@@ -5108,6 +5111,10 @@ __metadata:
     lint-staged: ^10.4.2
     ncp: ^2.0.0
     npm-run-all: ^4.1.5
+    react: ^17.0.0
+    react-dom: ^17.0.0
+    regenerator-runtime: ^0.13.7
+    ts-jest: ^26.4.1
     typescript: ^3.9.7
   languageName: unknown
   linkType: soft
@@ -5476,7 +5483,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:26.x, @types/jest@npm:^26.0.14":
+"@types/jest@npm:26.x, @types/jest@npm:^26.0.14, @types/jest@npm:^26.0.15":
   version: 26.0.15
   resolution: "@types/jest@npm:26.0.15"
   dependencies:
@@ -20245,6 +20252,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"react-dom@npm:^17.0.0":
+  version: 17.0.0
+  resolution: "react-dom@npm:17.0.0"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+    scheduler: ^0.20.0
+  peerDependencies:
+    react: 17.0.0
+  checksum: 0c695ad4fc43d506e49199441806d84632ae714e21efbd1708cefa2fd2fc3a321b9b19e6f9d6fcf0277aa3d4998563821bb443107761ee58c36e419c95e6629d
+  languageName: node
+  linkType: hard
+
 "react-draggable@npm:^4.0.3":
   version: 4.4.3
   resolution: "react-draggable@npm:4.4.3"
@@ -20508,6 +20528,16 @@ fsevents@^1.2.7:
     object-assign: ^4.1.1
     prop-types: ^15.6.2
   checksum: 13dcc9ba8a7521ecc3d7e69998dbc5703ae9515308d06a94a474ad34b42f1fc109372265e924a8c9b11d20fa1828407c290b8f61617c36734c4ca907ae7e5f45
+  languageName: node
+  linkType: hard
+
+"react@npm:^17.0.0":
+  version: 17.0.0
+  resolution: "react@npm:17.0.0"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+  checksum: 7dc305794dfcd4b7b20ba0a0e320b701544487fffb3dc64b31712c04989b36fc73fbe7e23b31913d811f5e7030385b468db2c25109608dd5402e5ff94dcbc68f
   languageName: node
   linkType: hard
 
@@ -21689,6 +21719,16 @@ fsevents@^1.2.7:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
   checksum: 804f990b9f370cca6d42b65f3cba2cc2bfed4973ee5623bed1ea36a6627842db8c891e2e5ac003f06f9ee892d1d3396921e27fa077346caf0213af05776e8dee
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.20.0":
+  version: 0.20.0
+  resolution: "scheduler@npm:0.20.0"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+  checksum: 092f965d23704e280a79ac4919afbed96548228c58b338e9e6a6ba1e3e48a9ff3db059ac756b071d4112350d07bf3c58a3fe45d88ba44f4616b443f2ee2a4469
   languageName: node
   linkType: hard
 
@@ -23541,7 +23581,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:~26.4.1":
+"ts-jest@npm:^26.4.1, ts-jest@npm:~26.4.1":
   version: 26.4.1
   resolution: "ts-jest@npm:26.4.1"
   dependencies:
