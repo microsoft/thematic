@@ -4,8 +4,8 @@
  */
 import React from 'react'
 import { Graph } from '../../interfaces'
-import { VegaChart, charts } from '../charts/Vega'
 import { D3Chart } from '../charts/D3'
+import { VegaChart, charts } from '../charts/Vega'
 import { D3Graph } from '../graphs/D3'
 import './index.css'
 
@@ -29,12 +29,14 @@ export const ThemeViewer: React.FC<ThemeViewerProps> = ({
 
 	const graphs = [
 		<D3Graph
+			key="graph-1"
 			graph={graph}
 			{...common}
 			drawNodes={drawNodes}
 			drawLinks={drawLinks}
 		/>,
 		<D3Graph
+			key="graph-2"
 			graph={graph}
 			{...common}
 			drawNodes={drawNodes}
@@ -42,6 +44,7 @@ export const ThemeViewer: React.FC<ThemeViewerProps> = ({
 			categoricalFill
 		/>,
 		<D3Graph
+			key="graph-3"
 			graph={graph}
 			{...common}
 			drawNodes={drawNodes}

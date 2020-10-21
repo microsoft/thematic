@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { useCallback, useMemo } from 'react'
 import {
 	CommandBar,
 	ICommandBarStyleProps,
@@ -11,6 +10,7 @@ import {
 	Label,
 	ICommandBarItemProps,
 } from '@fluentui/react'
+import React, { useCallback, useMemo } from 'react'
 import { useThematic } from '@thematic/react'
 
 interface WrapperStyles {

@@ -2,13 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
 import {
 	Link,
 	IStyleFunctionOrObject,
 	ILinkStyleProps,
 	ILinkStyles,
 } from '@fluentui/react'
+import React from 'react'
 
 export interface DownloadLinkProps {
 	/**

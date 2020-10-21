@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { useState, useCallback, useMemo } from 'react'
+import { EnumButtonBar } from '../EnumButtonBar'
 import { GridCell } from './GridCell'
 
 import './index.css'
-import { EnumButtonBar } from '../EnumButtonBar'
 import { SelectionState } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 

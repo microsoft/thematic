@@ -2,6 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { scaleLinear } from 'd3-scale'
+import { select } from 'd3-selection'
 import React, {
 	useLayoutEffect,
 	useState,
@@ -9,10 +11,9 @@ import React, {
 	useEffect,
 	useCallback,
 } from 'react'
-import { select } from 'd3-selection'
-import { scaleLinear } from 'd3-scale'
+import { Graph, Node, Edge } from '../../../interfaces'
+import { bounds } from '../../../util/graph'
 import { ScaleType, SelectionState } from '@thematic/core'
-import { useThematic } from '@thematic/react'
 import {
 	circle,
 	line,
@@ -21,8 +22,7 @@ import {
 	chart,
 	plotArea,
 } from '@thematic/d3'
-import { bounds } from '../../../util/graph'
-import { Graph, Node, Edge } from '../../../interfaces'
+import { useThematic } from '@thematic/react'
 
 interface GraphProps {
 	graph: Graph
@@ -94,10 +94,10 @@ export const D3Graph: React.FC<GraphProps> = ({
 			.enter()
 			.append('line')
 			.attr('class', 'link')
-			.attr('x1', d => xScale(nmap[d.source].x))
-			.attr('x2', d => xScale(nmap[d.target].x))
-			.attr('y1', d => yScale(nmap[d.source].y))
-			.attr('y2', d => yScale(nmap[d.target].y))
+			.attr('x1', d => xScale(nmap[d.source].x) as number)
+			.attr('x2', d => xScale(nmap[d.target].x) as number)
+			.attr('y1', d => yScale(nmap[d.source].y) as number)
+			.attr('y2', d => yScale(nmap[d.target].y) as number)
 			.call(line as any, theme.link({ selectionState: SelectionState.Hidden }))
 
 		g.selectAll('.node')
@@ -105,8 +105,8 @@ export const D3Graph: React.FC<GraphProps> = ({
 			.enter()
 			.append('circle')
 			.attr('class', 'node')
-			.attr('cx', d => xScale(d.x))
-			.attr('cy', d => yScale(d.y))
+			.attr('cx', d => xScale(d.x) as number)
+			.attr('cy', d => yScale(d.y) as number)
 			.style('cursor', 'pointer')
 			.on('mouseover', d => setNodeHover(d.id as any))
 			.on('mouseout', () => setNodeHover(null))

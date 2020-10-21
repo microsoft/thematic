@@ -2,11 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { mark2style } from '@thematic/react'
 import React from 'react'
 import { Rect, Circle, Line, Arc, Text } from '../svg'
-import { useThematic } from '@thematic/react'
 import { SelectionState } from '@thematic/core'
+import { useThematic, mark2style } from '@thematic/react'
 
 interface GridCellProps {
 	name: string

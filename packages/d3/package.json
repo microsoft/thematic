@@ -2,9 +2,12 @@
 	"name": "@thematic/d3",
 	"version": "0.8.0",
 	"license": "MIT",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"types": "dist/types/index.d.ts",
+	"main": "src/index.ts",
+	"publishConfig": {
+		"main": "dist/cjs/index.js",
+		"module": "dist/esm/index.js",
+		"types": "dist/types/index.d.ts"
+	},
 	"scripts": {
 		"clean": "essex clean",
 		"build": "essex build",
@@ -12,7 +15,18 @@
 	},
 	"dependencies": {
 		"@thematic/core": "^0.8.0",
-		"@types/d3-selection": "^1.4.1",
-		"d3-selection": "^1.4.0"
+		"d3-axis": "^1",
+		"d3-selection": "^1.4.2"
+	},
+	"devDependencies": {
+		"@essex/scripts": "^11.0.1",
+		"@types/d3-axis": "^1",
+		"@types/d3-selection": "^1.4.3",
+		"@types/node": "^14.14.0"
+	},
+	"peerDependencies": {
+		"@types/d3-axis": ">= 1",
+		"@types/d3-selection": ">= 1",
+		"@types/node": "*"
 	}
 }

@@ -7,23 +7,25 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x, 14.x]
-        
+
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-    - uses: actions/checkout@v2
+      - name: Use Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Use Node ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - run: yarn version check
+        if: "github.actor != 'dependabot-preview[bot]' && !contains(github.ref , 'release/') && !contains(github.head_ref , 'release/')"
+        name: SemVer Check
 
-    - run: yarn install
-      name: Install Dependencies
+      - run: yarn install
+        name: Install Dependencies
 
-    - run: yarn build
-      name: Build libs
-
-    - run: yarn ci
-      name: Execute Tests
-      env:
-        CI: true
+      - run: yarn ci
+        name: Execute Tests
+        env:
+          CI: true

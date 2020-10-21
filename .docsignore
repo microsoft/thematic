@@ -1,0 +1,6 @@
+storybook_static/
+build/
+lib/
+dist/
+.yarn/
+CODE_OF_CONDUCT.md

@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { merge, set } from 'lodash'
+import defaults from './themes/defaults.json'
 import { ThemeDefinition, ThemeSpec, ThemeVariant } from './types'
 import {
 	Params,
@@ -14,7 +15,6 @@ import {
 } from '@thematic/color'
 
 // these are static default settings for the marks that are not derived from the computed scheme
-import defaults from './themes/defaults.json'
 
 const DEFAULT_NOMINAL_ITEMS = 10
 const DEFAULT_SEQUENTIAL_ITEMS = 100

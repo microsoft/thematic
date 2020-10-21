@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
 import { TextField } from '@fluentui/react'
+import React from 'react'
 
 interface JSONEditorProps {
 	value: any

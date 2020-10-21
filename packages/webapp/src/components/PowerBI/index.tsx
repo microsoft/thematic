@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { useMemo } from 'react'
-import { powerbi } from '@thematic/core'
-import { useThematic } from '@thematic/react'
 import { DownloadLink } from '../DownloadLink'
 import { PowerBIPalette } from './PowerBIPalette'
+import { powerbi } from '@thematic/core'
+import { useThematic } from '@thematic/react'
 
 export const PowerBiEditor: React.FC = () => {
 	const theme = useThematic()
