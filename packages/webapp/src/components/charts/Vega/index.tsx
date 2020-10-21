@@ -5,8 +5,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React, { memo, useLayoutEffect, useRef, useMemo } from 'react'
 
-import { vega as decorator } from '@thematic/vega'
 import { useThematic } from '@thematic/react'
+import { vega as decorator } from '@thematic/vega'
 const vega = require('vega')
 
 export const charts = [
@@ -33,21 +33,23 @@ interface VegaChartProps {
 	height?: number
 }
 
-export const VegaChart: React.FC<VegaChartProps> = memo(
-	({ type, width = 800, height = 600 }) => {
-		const theme = useThematic()
-		const ref = useRef(null)
-		const view = useMemo(() => {
-			const spec = specs[type]
-			const merged = decorator(theme, spec, width, height)
-			const parsed = vega.parse(merged)
-			return new vega.View(parsed).renderer('svg')
-		}, [height, theme, type, width])
+export const VegaChart: React.FC<VegaChartProps> = memo(function VegaChart({
+	type,
+	width = 800,
+	height = 600,
+}) {
+	const theme = useThematic()
+	const ref = useRef(null)
+	const view = useMemo(() => {
+		const spec = specs[type]
+		const merged = decorator(theme, spec, width, height)
+		const parsed = vega.parse(merged)
+		return new vega.View(parsed).renderer('svg')
+	}, [height, theme, type, width])
 
-		useLayoutEffect(() => {
-			view.initialize(ref.current).run()
-		})
+	useLayoutEffect(() => {
+		view.initialize(ref.current).run()
+	})
 
-		return <div ref={ref} />
-	},
-)
+	return <div ref={ref} />
+})

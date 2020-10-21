@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React from 'react'
-import { FluentTheme } from '@thematic/fluent'
 import { ColorStrip } from '../ColorStrip'
+import { FluentTheme } from '@thematic/fluent'
 
 interface FluentPaletteProps {
 	theme: FluentTheme

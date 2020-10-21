@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Color } from '@thematic/color'
 import {
 	SVGChrome,
 	ChromeText,
@@ -23,6 +22,7 @@ import {
 	AxisTickLabelsSpec,
 	TooltipSpec,
 } from '../types'
+import { Color } from '@thematic/color'
 
 function SVGChromeImpl(spec: SVGSpec): SVGChrome {
 	return {

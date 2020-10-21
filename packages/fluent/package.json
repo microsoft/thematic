@@ -2,9 +2,12 @@
 	"name": "@thematic/fluent",
 	"version": "0.8.0",
 	"license": "MIT",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"types": "dist/types/index.d.ts",
+	"main": "src/index.ts",
+	"publishConfig": {
+		"main": "dist/cjs/index.js",
+		"module": "dist/esm/index.js",
+		"types": "dist/types/index.d.ts"
+	},
 	"scripts": {
 		"clean": "essex clean",
 		"build": "essex build",
@@ -18,10 +21,12 @@
 	},
 	"devDependencies": {
 		"@fluentui/react": "^7.147.1",
+		"@uifabric/icons": "^7.5.12",
 		"react": "^16.14.0"
 	},
 	"peerDependencies": {
-		"@fluentui/react": ">= 7.121.2",
+		"@fluentui/react": ">= 7",
+		"@uifabric/icons": ">= 7",
 		"react": ">= 16.8.0"
 	}
 }

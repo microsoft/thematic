@@ -4,12 +4,12 @@
  */
 import React from 'react'
 import { connect } from 'react-redux'
+import { ControlPanel } from './components/ControlPanel'
+import { ThemeEditor } from './components/ThemeEditor'
+import { ThemeViewer } from './components/ThemeViewer'
 import { Theme } from '@thematic/core'
 import { ThematicFluentProvider } from '@thematic/fluent'
 import { ApplicationStyles } from '@thematic/react'
-import { ControlPanel } from './components/ControlPanel'
-import { ThemeViewer } from './components/ThemeViewer'
-import { ThemeEditor } from './components/ThemeEditor'
 
 import './App.css'
 

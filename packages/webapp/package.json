@@ -5,7 +5,14 @@
 	"homepage": "https://microsoft.github.io/thematic/",
 	"private": true,
 	"license": "MIT",
+	"scripts": {
+		"start": "essex serve",
+		"start:webapp": "yarn start",
+		"bundle": "essex bundle",
+		"clean": "essex clean build"
+	},
 	"dependencies": {
+		"@essex/webpack-config": "^10.0.2",
 		"@fluentui/react": "^7.147.1",
 		"@thematic/color": "^0.8.0",
 		"@thematic/core": "^0.8.0",
@@ -13,7 +20,7 @@
 		"@thematic/fluent": "^0.8.0",
 		"@thematic/react": "^0.8.0",
 		"@thematic/vega": "^0.8.0",
-		"@types/d3-axis": "^1.0.14",
+		"@types/d3-axis": "^1",
 		"@types/d3-scale": "^2.2.4",
 		"@types/d3-selection": "^1.4.3",
 		"@types/node": "^14.14.0",
@@ -27,6 +34,7 @@
 		"d3-axis": "^1.0.12",
 		"d3-scale": "^3.2.3",
 		"d3-selection": "^1.4.2",
+		"office-ui-fabric-react": "^7.147.1",
 		"react": "^16.14.0",
 		"react-dom": "^16.14.0",
 		"react-redux": "^7.2.1",
@@ -37,16 +45,9 @@
 		"vega": "^5.17.0"
 	},
 	"devDependencies": {
+		"@essex/scripts": "^11.0.1",
 		"raw-loader": "^4.0.2",
 		"worker-loader": "^2.0.0"
-	},
-	"scripts": {
-		"start": "essex serve",
-		"bundle": "essex bundle",
-		"clean": "essex clean build"
-	},
-	"eslintConfig": {
-		"extends": "react-app"
 	},
 	"browserslist": [
 		">0.2%",

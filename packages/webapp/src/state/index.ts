@@ -3,12 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { createStore, applyMiddleware, compose, Dispatch } from 'redux'
-import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import { defaultThemes } from '@thematic/core'
-import { reducer } from './reducers'
-import { themeSelected, graphLoaded } from './actions'
+import thunk from 'redux-thunk'
 import { graph } from '../data'
+import { themeSelected, graphLoaded } from './actions'
+import { reducer } from './reducers'
+import { defaultThemes } from '@thematic/core'
 
 /**
  * State entry point for the app - kicks off async starter data, etc.

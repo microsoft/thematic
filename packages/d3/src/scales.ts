@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Theme, ScaleType, SelectionState } from '@thematic/core'
 import { Selection } from 'd3-selection'
+import { Theme, ScaleType, SelectionState } from '@thematic/core'
 
 /**
  * Creates a d3-compatible nominal scale using the theme.
@@ -153,6 +153,8 @@ export function applyNominalAttrWithSignalState(
 				return bold(key).hex()
 			case SelectionState.Suppressed:
 				return muted(key).hex()
+			default:
+				return null
 		}
 	})
 }

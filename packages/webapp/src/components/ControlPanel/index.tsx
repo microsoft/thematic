@@ -3,8 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { connect } from 'react-redux'
-import { ControlPanel as ControlPanelComponent } from './ControlPanel'
-
 import {
 	themeLoaded,
 	themeSelected,
@@ -15,6 +13,7 @@ import {
 	scaleItemCountChanged,
 	colorBlindnessModeChanged,
 } from '../../state/actions'
+import { ControlPanel as ControlPanelComponent } from './ControlPanel'
 
 export const ControlPanel = connect(
 	(state: any) => ({

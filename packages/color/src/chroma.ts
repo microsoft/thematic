@@ -6,8 +6,8 @@
 import { Rgb, Rgba, Hsv, Hsl } from './interfaces'
 
 /* eslint-disable @typescript-eslint/no-var-requires */
-const hsluv = require('hsluv')
 const chroma = require('chroma-js')
+const hsluv = require('hsluv')
 
 /**
  * This is a variety of color utilities to minimize additional direct dependencies

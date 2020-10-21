@@ -4,8 +4,8 @@
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { Params, Scheme } from './interfaces'
-const hsluv = require('hsluv')
 const chroma = require('chroma-js')
+const hsluv = require('hsluv')
 
 const lightTextLuminance = 95
 const darkTextLuminance = 20
@@ -49,7 +49,7 @@ export function polynomial_scale(
 ): number[] {
 	const base = 1 / (size - 1)
 	const interval = end - start
-	const result = []
+	const result: number[] = []
 	for (let i = 0; i < size; i++) {
 		result.push(start + interval * (i * base) ** exp)
 	}

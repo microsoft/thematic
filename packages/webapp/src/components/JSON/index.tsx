@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { useMemo } from 'react'
-import { useThematic } from '@thematic/react'
-import { JSONEditor } from '../JSONEditor'
-import { DownloadLink } from '../DownloadLink'
 import { connect } from 'react-redux'
+import { DownloadLink } from '../DownloadLink'
+import { JSONEditor } from '../JSONEditor'
+import { useThematic } from '@thematic/react'
 
 interface JSONPaneProps {
 	scaleItemCount?: number

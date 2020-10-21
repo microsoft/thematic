@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Theme } from '../Theme'
-import { defaultParams } from '@thematic/color'
 import { ScaleType } from '../types'
+import { defaultParams } from '@thematic/color'
 
 const lightSpec = {
 	name: 'light',

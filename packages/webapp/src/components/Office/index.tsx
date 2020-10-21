@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { useMemo } from 'react'
-import { useThematic } from '@thematic/react'
-import { OfficePalette } from './OfficePalette'
 import { DownloadLink } from '../DownloadLink'
+import { OfficePalette } from './OfficePalette'
 import { office } from '@thematic/core'
+import { useThematic } from '@thematic/react'
 export const Office: React.FC = () => {
 	const theme = useThematic()
 	const ofc = useMemo(() => theme.transform(office), [theme])

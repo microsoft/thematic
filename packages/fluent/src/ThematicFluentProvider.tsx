@@ -2,13 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { ThemeProvider } from '@fluentui/react/lib/Foundation'
+import { initializeIcons } from '@uifabric/icons'
 import * as React from 'react'
 import { useMemo, ReactNode } from 'react'
+import { loadFluentTheme } from './loader'
 import { Theme } from '@thematic/core'
 import { ThematicProvider } from '@thematic/react'
-import { initializeIcons } from '@uifabric/icons'
-import { ThemeProvider } from '@fluentui/react/lib/Foundation'
-import { loadFluentTheme } from './loader'
 
 export interface ThematicFluentProviderProps {
 	theme: Theme

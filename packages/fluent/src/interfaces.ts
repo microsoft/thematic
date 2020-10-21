@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Theme } from '@thematic/core'
 import { ITheme } from '@fluentui/react'
+import { Theme } from '@thematic/core'
 
 /**
  * This interface provides a mapping from thematic theme config to a theme suitable for use
