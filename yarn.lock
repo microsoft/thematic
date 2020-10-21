@@ -5025,10 +5025,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/color@workspace:packages/color"
   dependencies:
+    "@essex/scripts": ^11.0.1
     "@types/node": ^14.14.0
     chroma-js: ^2.1.0
     color-blind: ^0.1.1
     hsluv: ^0.1.0
+  peerDependencies:
+    "@types/node": "*"
   languageName: unknown
   linkType: soft
 
@@ -5036,13 +5039,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/core@workspace:packages/core"
   dependencies:
+    "@essex/scripts": ^11.0.1
     "@thematic/color": ^0.8.0
     "@types/d3-scale": ^2.2.4
     "@types/lodash": ^4.14.162
     "@types/murmurhash-js": ^1.0.3
+    "@types/ncp": ^2
+    "@types/node": ^14.14.0
     d3-scale: ^3.2.3
     lodash: ^4.17.20
     murmurhash-js: ^1.0.0
+    ncp: ^2.0.0
+    npm-run-all: ^4.1.5
+  peerDependencies:
+    "@types/d3-scale": ">= 2"
+    "@types/node": "*"
   languageName: unknown
   linkType: soft
 
@@ -5050,11 +5061,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/d3@workspace:packages/d3"
   dependencies:
+    "@essex/scripts": ^11.0.1
     "@thematic/core": ^0.8.0
     "@types/d3-axis": ^1
     "@types/d3-selection": ^1.4.3
+    "@types/node": ^14.14.0
     d3-axis: ^1
     d3-selection: ^1.4.2
+  peerDependencies:
+    "@types/d3-axis": ">= 1"
+    "@types/d3-selection": ">= 1"
+    "@types/node": "*"
   languageName: unknown
   linkType: soft
 
@@ -5062,15 +5079,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/fluent@workspace:packages/fluent"
   dependencies:
+    "@essex/scripts": ^11.0.1
     "@fluentui/react": ^7.147.1
     "@thematic/color": ^0.8.0
     "@thematic/core": ^0.8.0
     "@thematic/react": ^0.8.0
+    "@types/node": ^14.14.0
     "@types/react": ^16.9.53
     "@uifabric/icons": ^7.5.12
     react: ^16.14.0
   peerDependencies:
     "@fluentui/react": ">= 7"
+    "@types/node": "*"
+    "@types/react": ">= 16"
     "@uifabric/icons": ">= 7"
     react: ">= 16.8.0"
   languageName: unknown
@@ -5080,11 +5101,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/react@workspace:packages/react"
   dependencies:
+    "@essex/scripts": ^11.0.1
     "@thematic/color": ^0.8.0
     "@thematic/core": ^0.8.0
+    "@types/node": ^14.14.0
     "@types/react": ^16.9.53
     react: ^16.14.0
   peerDependencies:
+    "@types/node": "*"
+    "@types/react": "*"
     react: ">= 16.13.1"
   languageName: unknown
   linkType: soft
@@ -5109,7 +5134,6 @@ __metadata:
     husky: ^4.3.0
     lerna: ^3.22.1
     lint-staged: ^10.4.2
-    ncp: ^2.0.0
     npm-run-all: ^4.1.5
     react: ^17.0.0
     react-dom: ^17.0.0
@@ -5123,6 +5147,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/vega@workspace:packages/vega"
   dependencies:
+    "@essex/scripts": ^11.0.1
     "@thematic/core": ^0.8.0
     "@types/node": ^14.14.0
     vega: ^5.17.0
@@ -5573,6 +5598,15 @@ __metadata:
   version: 1.0.3
   resolution: "@types/murmurhash-js@npm:1.0.3"
   checksum: 14b6b8479c10022d1a726fcb23741318d62e03cf5e7a68afb7c1ef9d3a1f3761aa67d2e7355ebd0016528a4398b273effb362222931a29bb5848828512c4147a
+  languageName: node
+  linkType: hard
+
+"@types/ncp@npm:^2":
+  version: 2.0.4
+  resolution: "@types/ncp@npm:2.0.4"
+  dependencies:
+    "@types/node": "*"
+  checksum: 9d5f5b6eb74ebd712783eaf1c30517800a1378edee7c02a128fec0b084ad9df1d76e4b118a5a6606f34ec6114d305ae3eb55ecd01b9e8506cc4f34d0800d656c
   languageName: node
   linkType: hard
 
