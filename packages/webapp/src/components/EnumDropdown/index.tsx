@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { useCallback, useState } from 'react'
 import {
 	Dropdown,
 	IDropdownOption,
@@ -10,6 +9,7 @@ import {
 	IDropdownStyleProps,
 	IStyleFunctionOrObject,
 } from '@fluentui/react'
+import React, { useCallback, useState } from 'react'
 
 export interface EnumDropdownProps<E> {
 	enumeration: any

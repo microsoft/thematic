@@ -2,11 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { Dispatch } from 'redux'
 import { createAction } from 'redux-actions'
+import { Graph } from '../../interfaces'
 import { Params, ColorBlindnessMode } from '@thematic/color'
 import { loadById, Theme, ThemeListing } from '@thematic/core'
-import { Graph } from '../../interfaces'
-import { Dispatch } from 'redux'
 
 export const themesLoaded = createAction<ThemeListing[]>('App:Themes:Loaded')
 export const themeInfoSelected = createAction<ThemeListing>(

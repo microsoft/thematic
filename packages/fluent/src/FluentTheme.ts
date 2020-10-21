@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Theme, ThemeVariant } from '@thematic/core'
 import {
 	BaseSlots,
 	IThemeRules,
@@ -12,6 +11,7 @@ import {
 	ITheme,
 } from '@fluentui/react'
 import { FluentTheme as IFluentTheme } from './interfaces'
+import { Theme, ThemeVariant } from '@thematic/core'
 
 const initialize = (colors, inverted: boolean): IThemeRules => {
 	const themeRules = themeRulesStandardCreator()

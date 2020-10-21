@@ -2,15 +2,15 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import * as React from 'react'
-import { CSSProperties } from 'react'
-import { Theme } from '@thematic/core'
-import { css2hsluv } from '@thematic/color'
 import {
 	ColorPicker as FluentColorPicker,
 	Slider,
 	IColor,
 } from '@fluentui/react'
+import * as React from 'react'
+import { CSSProperties } from 'react'
+import { css2hsluv } from '@thematic/color'
+import { Theme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 
 export enum ColorPickerLayout {

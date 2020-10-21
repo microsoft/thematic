@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { useMemo } from 'react'
+import { DownloadLink } from '../DownloadLink'
+import { FluentPalette } from './FluentPalette'
 import { loadFluentTheme } from '@thematic/fluent'
 import { useThematic } from '@thematic/react'
-import { FluentPalette } from './FluentPalette'
-import { DownloadLink } from '../DownloadLink'
 
 /**
  * This component hosts the Fluent Theme slots in the style of Thematic.

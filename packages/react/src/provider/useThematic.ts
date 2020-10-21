@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { useContext } from 'react'
-import { Theme } from '@thematic/core'
 import { ThematicContext } from './ThematicContext'
+import { Theme } from '@thematic/core'
 
 /**
  * Hook to retrieve the thematic theme directly.

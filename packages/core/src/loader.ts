@@ -3,13 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Theme as ThemeImpl } from './Theme'
+import autumn from './themes/autumn.json'
+import defaultTheme from './themes/default.json'
+import metal from './themes/metal.json'
+import ocean from './themes/ocean.json'
 import { Theme, ThemeListing, ThemeConfig, ThemeSpec } from './types'
 import { hsluv2hex } from '@thematic/color'
-
-import defaultTheme from './themes/default.json'
-import autumn from './themes/autumn.json'
-import ocean from './themes/ocean.json'
-import metal from './themes/metal.json'
 
 const themes = {
 	default: defaultTheme,

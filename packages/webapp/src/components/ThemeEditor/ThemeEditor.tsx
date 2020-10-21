@@ -2,15 +2,15 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
 import { Pivot, PivotItem } from '@fluentui/react'
-import { CoolerPicker } from '../CoolerPicker'
+import React from 'react'
 import { ColorPalette } from '../ColorPalette'
-import { JSONPane } from '../JSON'
-import { Office } from '../Office'
+import { CoolerPicker } from '../CoolerPicker'
 import { FluentViewer } from '../FluentViewer'
-import { MarkGrid } from '../MarkGrid'
 import { GimpEditor } from '../GIMP'
+import { JSONPane } from '../JSON'
+import { MarkGrid } from '../MarkGrid'
+import { Office } from '../Office'
 import { PowerBiEditor } from '../PowerBI'
 import './index.css'
 
@@ -54,7 +54,7 @@ export const ThemeEditor: React.FC<ThemeEditorProps> = ({ scaleItemCount }) => {
 						rel="noreferrer"
 						href="https://privacy.microsoft.com/en-us/privacystatement/"
 					>
-						Read Microsoft's statement on Privacy and Cookies
+						Read Microsoft&apos;s statement on Privacy and Cookies
 					</a>
 					.
 				</div>

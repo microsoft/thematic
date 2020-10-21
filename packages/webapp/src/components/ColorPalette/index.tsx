@@ -3,12 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React from 'react'
-import { mark2style } from '@thematic/react'
-import { ColorStrip } from './ColorStrip'
-import { ColorBand } from './ColorBand'
-import { Contrast } from './Contrast'
 import { ApplicationPalette } from './ApplicationPalette'
-import { useThematic } from '@thematic/react'
+import { ColorBand } from './ColorBand'
+import { ColorStrip } from './ColorStrip'
+import { Contrast } from './Contrast'
+import { mark2style, useThematic } from '@thematic/react'
 
 // this is the same number we use under the hood when constructing the continuous scales,
 // so it makes sense to use here and potentially allow the gradation bands to be visible,

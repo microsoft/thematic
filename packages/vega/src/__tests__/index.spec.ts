@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { load } from '@thematic/core'
 import { vega } from '../index'
+import { load } from '@thematic/core'
 
 const theme = load()
 

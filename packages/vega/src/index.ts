@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Theme, SVGMark } from '@thematic/core'
 import { Spec } from 'vega'
+import { Theme, SVGMark } from '@thematic/core'
 
 function mark(mark: SVGMark) {
 	const { fill, fillOpacity, stroke, strokeOpacity, strokeWidth } = mark

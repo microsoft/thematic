@@ -2,10 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { useLayoutEffect, useRef, useState, useMemo } from 'react'
-import { select, Selection } from 'd3-selection'
-import { scaleLinear } from 'd3-scale'
 import { axisLeft, axisBottom } from 'd3-axis'
+import { scaleLinear } from 'd3-scale'
+import { select, Selection } from 'd3-selection'
+import React, { useLayoutEffect, useRef, useState, useMemo } from 'react'
 import { SelectionState } from '@thematic/core'
 import { chart, plotArea, axis, circle } from '@thematic/d3'
 import { useThematic } from '@thematic/react'
@@ -118,8 +118,8 @@ export const D3Chart: React.FC<ChartProps> = ({
 				.enter()
 				.append('circle')
 				.call(circle as any, circ)
-				.attr('cx', d => cxScale(d.x))
-				.attr('cy', d => cyScale(d.y))
+				.attr('cx', d => cxScale(d.x) as number)
+				.attr('cy', d => cyScale(d.y) as number)
 		}
 	}, [theme, plot, cxScale, cyScale, data])
 

@@ -2,10 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { handleAction, handleActions, Action } from 'redux-actions'
 import { combineReducers } from 'redux'
-import { defaultThemes, clone } from '@thematic/core'
-import { defaultParams } from '@thematic/color'
+import { handleAction, handleActions, Action } from 'redux-actions'
+import { Graph } from '../../interfaces'
 import {
 	themesLoaded,
 	themeInfoSelected,
@@ -16,10 +15,11 @@ import {
 	paramsChanged,
 	colorBlindnessModeChanged,
 } from '../actions'
+import { handle } from './handle'
 import { ui } from './ui'
 
-import { Graph } from '../../interfaces'
-import { handle } from './handle'
+import { defaultParams } from '@thematic/color'
+import { defaultThemes, clone } from '@thematic/core'
 
 const themes = handle(themesLoaded, defaultThemes)
 

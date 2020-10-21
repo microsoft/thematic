@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Theme } from '@thematic/core'
+import { Axis } from 'd3-axis'
 import { Selection } from 'd3-selection'
 import {
 	svg as svgCall,
@@ -10,7 +10,7 @@ import {
 	line as lineCall,
 	text as textCall,
 } from './svg'
-import { Axis } from 'd3-axis'
+import { Theme } from '@thematic/core'
 
 export interface SelectionOptions {
 	/**
@@ -88,9 +88,9 @@ function getPlotAreaOptions(
 	// for the dimensions we need to either use what is provided directly, or compute from parent
 	const w = options && options.width
 	const h = options && options.height
-	const parent = selection.select(function () {
+	const parent = selection.select(function (this: any) {
 		return this.parentNode
-	})
+	} as any)
 	const pw = (parent && +parent.attr('width')) || 0
 	const ph = (parent && +parent.attr('height')) || 0
 	const width = w || pw - marginLeft - marginRight
@@ -128,7 +128,7 @@ export function attr(
 	attrs?: { [key: string]: any },
 ): Selection<Element, any, Element, any> {
 	let ret = selection
-	Object.entries(attrs).forEach(entry => {
+	Object.entries(attrs || {}).forEach(entry => {
 		const [key, value] = entry
 		ret = selection.attr(key, value as any)
 	})
@@ -147,7 +147,7 @@ export function on(
 	ons?: { [key: string]: any },
 ): Selection<Element, any, Element, any> {
 	let ret = selection
-	Object.entries(ons).forEach(entry => {
+	Object.entries(ons || {}).forEach(entry => {
 		const [key, value] = entry
 		ret = selection.on(key, value as any)
 	})
@@ -167,7 +167,7 @@ export function classed(
 	classes?: { [key: string]: any },
 ): Selection<Element, any, Element, any> {
 	let ret = selection
-	Object.entries(classes).forEach(entry => {
+	Object.entries(classes || {}).forEach(entry => {
 		const [key, value] = entry
 		ret = selection.classed(key, value as any)
 	})
@@ -187,7 +187,7 @@ export function style(
 	styles?: { [key: string]: any },
 ): Selection<Element, any, Element, any> {
 	let ret = selection
-	Object.entries(styles).forEach(entry => {
+	Object.entries(styles || {}).forEach(entry => {
 		const [key, value] = entry
 		ret = selection.style(key, value as any)
 	})
@@ -201,10 +201,10 @@ function applyBaseOptions(
 	// TODO: we could enumate all of the core d3-selection functions
 	// html, text, etc., for completeness
 	return selection
-		.call(on, options.on)
-		.call(attr, options.attr)
-		.call(classed, options.classed)
-		.call(style, options.style)
+		.call(on, options?.on)
+		.call(attr, options?.attr)
+		.call(classed, options?.classed)
+		.call(style, options?.style)
 }
 /**
  * Applies chart properties to a selection.
@@ -248,8 +248,8 @@ export function plotArea(
 	group
 		.append('rect')
 		.classed('thematic-plot-area-background', true)
-		.call(rectCall, p)
-		.call(applyBaseOptions, opts)
+		.call(rectCall as any, p)
+		.call(applyBaseOptions as any, opts)
 	return group
 }
 
@@ -284,11 +284,11 @@ export function axis(
 	axisGenerator.tickSizeInner(ticks.innerSize())
 	axisGenerator.tickSizeOuter(ticks.outerSize())
 	group
-		.call(axisGenerator)
-		.call(g => g.select('.domain').call(lineCall, theme.axisLine()))
-		.call(g => g.selectAll('.tick > line').call(lineCall, ticks))
+		.call(axisGenerator as any)
+		.call(g => g.select('.domain').call(lineCall as any, theme.axisLine()))
+		.call(g => g.selectAll('.tick > line').call(lineCall as any, ticks))
 		.call(g =>
-			g.selectAll('.tick > text').call(textCall, theme.axisTickLabels()),
+			g.selectAll('.tick > text').call(textCall as any, theme.axisTickLabels()),
 		)
 		.call(applyBaseOptions, opts)
 	return group
