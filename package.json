@@ -16,7 +16,8 @@
 		"test:ci": "essex test --coverage",
 		"git-is-clean": "essex git-is-clean",
 		"ci": "npm-run-all -p lint:ci build_all bundle_all test:ci -s git-is-clean",
-		"release": "run-s build_all publish_all"
+		"release": "run-s build_all publish_all",
+		"start": "yarn start:webapp"
 	},
 	"workspaces": {
 		"packages": [
