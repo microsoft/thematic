@@ -1,0 +1,5 @@
+storybook_static/
+build/
+lib/
+dist/
+.yarn/
