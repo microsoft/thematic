@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { IconButton } from '@fluentui/react'
 import React, { CSSProperties } from 'react'
 import { contrast } from '@thematic/color'
-import { IconButton } from '@fluentui/react'
 
 interface ContrastProps {
 	foreground: string

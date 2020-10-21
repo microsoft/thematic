@@ -19,7 +19,7 @@ export function linear(
 	clamp = true,
 ): (value: number) => number {
 	const scale = scaleLinear().domain(domain).clamp(clamp)
-	return (value: number) => scale(value)
+	return (value: number) => scale(value) as number
 }
 
 /**
@@ -31,7 +31,7 @@ export function linear(
  */
 export function log(domain: number[], clamp = true): (value: number) => number {
 	const scale = scaleLog().domain(domain).clamp(clamp)
-	return (value: number) => scale(value)
+	return (value: number) => scale(value) as number
 }
 
 // holds an array of numbers along with the bounds
@@ -128,7 +128,7 @@ export function quantile(
 		max: x1,
 		size: length,
 	}))
-	return scale
+	return scale as (input: number) => number
 }
 
 interface LearningState {

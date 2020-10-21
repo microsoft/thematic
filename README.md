@@ -1,8 +1,8 @@
 # Thematic
 
-This repository holds all of the packages for creating sharable, perceptually-balanced and tastefully complementary (hopefully!) application and data viz themes. There are adapter libraries and tools to apply themes across several environments, which will be detailed below.
+This repository holds all of the packages for creating shareable, perceptually-balanced and tastefully complementary (hopefully!) application and data viz themes. There are adapter libraries and tools to apply themes across several environments, which will be detailed below.
 
-This repository is structured as a lerna monorepo. It contains separate packages for all of the theme generation, management, and applications. To use thematic in your app, you should only need to install the relevant packages for your use case(s).
+This repository is structured as a yarn monorepo. It contains separate packages for all of the theme generation, management, and applications. To use thematic in your app, you should only need to install the relevant packages for your use case(s).
 
 The webapp package is a guide for everything Thematic. In particular, it comprises:
 
@@ -26,15 +26,11 @@ These are the core Thematic libraries, see individual README.md files for greate
 
 ## Getting Started
 
-If you want to run locally and work on the app or any theme components, you can run the whole thing from the root folder. The web app will run using `yarn start` as with our typical development structure, and changes to any of the other packages will be reflected live thanks to lerna and watchers. See the Available Scripts section below.
+If you want to run locally and work on the app or any theme components, you can run the whole thing from the root folder. The web app will run using `yarn start:webapp` as with our typical development structure, and changes to any of the other packages will be reflected live. See the Available Scripts section below.
 
 ## Publishing
 
-Commits to `main` will automatically deploy to the hosted website. If changes need to be released so the libraries are published into npm, use `yarn release` and follow the steps presented by lerna.
-
-# Developing
-
-This monorepo uses [lerna](https://lerna.js.org/) to manage packages, and our team's [build infra scripts](https://github.com/microsoft/essex-alpha-build-infra).
+Commits to `main` will automatically deploy to the hosted website. Pull requests should use `yarn version check --interactive` to create semantic versioning documents describing the impact of the PR. When a release is ready, run`yarn release_all` to publish packages to npm.
 
 ## Available Scripts
 
@@ -52,15 +48,11 @@ You will also see any lint errors in the console.
 
 Launches the test runner using Jest.
 
-### `yarn build`
+### `yarn build_all`
 
 Builds packages for production to their respective `dist` and `lib` folders. Note that the webapp uses a `bundle` command more appropriate to creating an optimized web bundle. CI systems will want to invoke both of these to produce complete
 
-### `yarn clean`
-
-Cleans build artifacts as well as deleting the node_modules for every package.
-
-### `yarn clean:all`
+### `yarn clean_all`
 
 Cleans out the node_modules and built lib directories for every package.
 

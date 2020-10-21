@@ -3,7 +3,36 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { merge } from 'lodash'
-import { Params, Scheme, ColorBlindnessMode } from '@thematic/color'
+import {
+	nominal,
+	continuous,
+	ApplicationImpl,
+	ChartImpl,
+	PlotAreaImpl,
+	RectImpl,
+	AreaImpl,
+	ArcImpl,
+	TooltipImpl,
+	LineImpl,
+	LinkImpl,
+	FlowImpl,
+	GridLinesImpl,
+	AxisLineImpl,
+	AxisTicksImpl,
+	CircleImpl,
+	NodeImpl,
+	ProcessImpl,
+	TextImpl,
+	AxisTitleImpl,
+	AxisTickLabelsImpl,
+	RuleImpl,
+} from './impls'
+import {
+	applyParams,
+	applyScheme,
+	computeDefinition,
+	createScheme,
+} from './scheme'
 import {
 	Theme as ITheme,
 	ThemeSpec,
@@ -36,36 +65,7 @@ import {
 	Transformer,
 	ExportConfig,
 } from './types'
-import {
-	nominal,
-	continuous,
-	ApplicationImpl,
-	ChartImpl,
-	PlotAreaImpl,
-	RectImpl,
-	AreaImpl,
-	ArcImpl,
-	TooltipImpl,
-	LineImpl,
-	LinkImpl,
-	FlowImpl,
-	GridLinesImpl,
-	AxisLineImpl,
-	AxisTicksImpl,
-	CircleImpl,
-	NodeImpl,
-	ProcessImpl,
-	TextImpl,
-	AxisTitleImpl,
-	AxisTickLabelsImpl,
-	RuleImpl,
-} from './impls'
-import {
-	applyParams,
-	applyScheme,
-	computeDefinition,
-	createScheme,
-} from './scheme'
+import { Params, Scheme, ColorBlindnessMode } from '@thematic/color'
 
 const defaultConfig = {
 	variant: ThemeVariant.Light,

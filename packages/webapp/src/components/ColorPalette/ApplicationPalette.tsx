@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React from 'react'
-import { useThematic } from '@thematic/react'
 import { ColorStrip } from '../ColorStrip'
+import { useThematic } from '@thematic/react'
 
 import './index.css'
 

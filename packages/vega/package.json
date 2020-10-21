@@ -2,20 +2,24 @@
 	"name": "@thematic/vega",
 	"version": "0.8.0",
 	"license": "MIT",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"types": "dist/types/index.d.ts",
+	"main": "src/index.ts",
+	"publishConfig": {
+		"main": "dist/cjs/index.js",
+		"module": "dist/esm/index.js",
+		"types": "dist/types/index.d.ts"
+	},
 	"scripts": {
 		"clean": "essex clean",
 		"build": "essex build",
 		"start": "essex watch"
 	},
 	"dependencies": {
-		"@thematic/core": "^0.8.0",
-		"@types/node": "^14.0.13"
+		"@thematic/core": "^0.8.0"
 	},
 	"devDependencies": {
-		"vega": "^5.13.0"
+		"@essex/scripts": "^11.0.1",
+		"@types/node": "^14.14.0",
+		"vega": "^5.17.0"
 	},
 	"peerDependencies": {
 		"vega": ">= 5.13.0"

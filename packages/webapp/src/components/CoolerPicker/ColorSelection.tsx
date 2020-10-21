@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React from 'react'
-import { ColorPicker, ColorPickerLayout } from '@thematic/fluent'
 import { Theme } from '@thematic/core'
+import { ColorPicker, ColorPickerLayout } from '@thematic/fluent'
 
 import './index.css'
 

@@ -2,23 +2,30 @@
 	"name": "@thematic/react",
 	"version": "0.8.0",
 	"license": "MIT",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"types": "dist/types/index.d.ts",
+	"main": "src/index.ts",
+	"publishConfig": {
+		"main": "dist/cjs/index.js",
+		"module": "dist/esm/index.js",
+		"types": "dist/types/index.d.ts"
+	},
 	"scripts": {
 		"clean": "essex clean",
 		"build": "essex build",
 		"start": "essex watch"
 	},
 	"dependencies": {
+		"@essex/scripts": "^11.0.1",
 		"@thematic/color": "^0.8.0",
-		"@thematic/core": "^0.8.0",
-		"@types/react": "^16.9.38"
+		"@thematic/core": "^0.8.0"
 	},
 	"devDependencies": {
-		"react": "^16.13.1"
+		"@types/node": "^14.14.0",
+		"@types/react": "^16.9.53",
+		"react": "^16.14.0"
 	},
 	"peerDependencies": {
+		"@types/node": "*",
+		"@types/react": "*",
 		"react": ">= 16.13.1"
 	}
 }
