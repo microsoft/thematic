@@ -4,8 +4,7 @@
  */
 import { ThemeProvider } from '@fluentui/react/lib/Foundation'
 import { initializeIcons } from '@uifabric/icons'
-import * as React from 'react'
-import { useMemo, ReactNode } from 'react'
+import React, { useMemo, ReactNode } from 'react'
 import { loadFluentTheme } from './loader'
 import { Theme } from '@thematic/core'
 import { ThematicProvider } from '@thematic/react'

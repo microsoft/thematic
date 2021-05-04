@@ -14,23 +14,29 @@ import { css2rgbaVector, css2rgbaNumber, css2css, css2hex } from './chroma'
  * Note that the naming of these intentionally matches the string values on the ColorSpace enum.
  */
 export class Color {
-	private _css: string
+	private _raw: string
 	private _alpha: number
 	constructor(css: string, alpha?: number) {
-		this._css = css
+		this._raw = css
 		this._alpha = alpha !== undefined ? alpha : 1.0
 	}
+	/**
+	 * Direct passthrough of string used to create the color, to avoid any transform.
+	 */
+	get raw(): string {
+		return this._raw
+	}
 	hex(alpha?: number): string {
-		return css2hex(this._css, alpha || this._alpha)
+		return css2hex(this._raw, alpha || this._alpha)
 	}
 	css(alpha?: number): string {
-		return css2css(this._css, alpha || this._alpha)
+		return css2css(this._raw, alpha || this._alpha)
 	}
 	rgbav(alpha?: number): [number, number, number, number] {
-		return css2rgbaVector(this._css, alpha || this._alpha)
+		return css2rgbaVector(this._raw, alpha || this._alpha)
 	}
 	rgbaint(alpha?: number): number {
-		return css2rgbaNumber(this._css, alpha || this._alpha)
+		return css2rgbaNumber(this._raw, alpha || this._alpha)
 	}
 	toString(): string {
 		return this.hex()

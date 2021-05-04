@@ -36,7 +36,7 @@ export function log(domain: number[], clamp = true): (value: number) => number {
 
 // holds an array of numbers along with the bounds
 // this replicates the histogram format of d3
-interface Bin extends Array<number> {
+export interface Bin extends Array<number> {
 	x0?: number
 	x1?: number
 }
