@@ -3,9 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { IconButton, Label } from '@fluentui/react'
-import * as React from 'react'
-import { memo, CSSProperties } from 'react'
-import { ColorPicker } from './ColorPicker'
+import React, { memo, CSSProperties } from 'react'
+import { ColorPicker } from '../ColorPicker'
 import { Theme } from '@thematic/core'
 
 export interface ColorPickerButtonStyles {

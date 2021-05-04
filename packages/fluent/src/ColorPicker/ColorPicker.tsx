@@ -7,9 +7,9 @@ import {
 	Slider,
 	IColor,
 } from '@fluentui/react'
-import * as React from 'react'
-import { CSSProperties } from 'react'
-import { css2hsluv } from '@thematic/color'
+import React, { CSSProperties } from 'react'
+
+import { css2hsluv, Params } from '@thematic/color'
 import { Theme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 
@@ -23,21 +23,13 @@ export interface ColorPickerStyles {
 	slider?: CSSProperties
 }
 
-interface ColorPickerProps {
+export interface ColorPickerProps {
 	onChange?: (theme: Theme) => void
 	layout?: ColorPickerLayout
 	styles?: ColorPickerStyles
 }
 
-// TODO: this is a copy of the color/Params interface, but with each item optional
-interface PartialParams {
-	accentHue?: number
-	accentSaturation?: number
-	accentLuminance?: number
-	backgroundHueShift?: number
-	backgroundLevel?: number
-	nominalHueStep?: number
-}
+export type PartialParams = Partial<Params>
 
 /**
  * This is a simple ColorPicker that you can show users, allowing them to choose a custom accent color.

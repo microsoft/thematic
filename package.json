@@ -10,6 +10,7 @@
 		"start_all": "yarn workspaces foreach -piv run start",
 		"publish_all": "yarn workspaces foreach --exclude '@thematic/root' -pv npm publish --tolerate-republish --access public",
 		"lint": "essex lint",
+		"lint:fix": "essex lint --fix",
 		"lint:ci": "essex lint --docs",
 		"prettify": "essex prettify",
 		"test": "essex test",

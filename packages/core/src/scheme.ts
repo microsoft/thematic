@@ -15,9 +15,9 @@ import {
 } from '@thematic/color'
 
 // these are static default settings for the marks that are not derived from the computed scheme
-
 const DEFAULT_NOMINAL_ITEMS = 10
 const DEFAULT_SEQUENTIAL_ITEMS = 100
+
 /**
  * Creates a completed Params block from a ThemeDefinition, making sure missing optional fields are populated.
  * @param themeDefinition
