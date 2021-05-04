@@ -11,12 +11,11 @@
 		"publish_all": "yarn workspaces foreach --exclude '@thematic/root' -pv npm publish --tolerate-republish --access public",
 		"lint": "essex lint",
 		"lint:fix": "essex lint --fix",
-		"lint:ci": "essex lint --docs",
 		"prettify": "essex prettify",
 		"test": "essex test",
 		"test:ci": "essex test --coverage",
 		"git-is-clean": "essex git-is-clean",
-		"ci": "npm-run-all -p lint:ci build_all bundle_all test:ci -s git-is-clean",
+		"ci": "npm-run-all -p lint build_all bundle_all test:ci -s git-is-clean",
 		"release": "run-s build_all publish_all",
 		"start": "yarn start:webapp"
 	},
