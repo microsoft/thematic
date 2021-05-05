@@ -14,16 +14,20 @@
 		"start": "essex watch"
 	},
 	"dependencies": {
+		"@essex-js-toolkit/hooks": "^1.1.5",
 		"@thematic/color": "^0.9.0",
 		"@thematic/core": "^0.9.0",
-		"@thematic/react": "^0.9.0"
+		"@thematic/react": "^0.9.0",
+		"d3-scale": "^3.3.0"
 	},
 	"devDependencies": {
 		"@essex/scripts": "^11.0.1",
 		"@fluentui/react": "^7.147.1",
+		"@types/d3-scale": "^3.2.2",
 		"@types/node": "^14.14.0",
 		"@types/react": "^16.9.53",
 		"@uifabric/icons": "^7.5.12",
+		"core-js": "^3.11.2",
 		"react": "^16.14.0"
 	},
 	"peerDependencies": {
@@ -31,6 +35,7 @@
 		"@types/node": "*",
 		"@types/react": ">= 16",
 		"@uifabric/icons": ">= 7",
+		"core-js": "^3.11.2",
 		"react": ">= 16.8.0"
 	}
 }

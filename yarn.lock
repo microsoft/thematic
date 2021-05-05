@@ -2057,6 +2057,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@essex-js-toolkit/hooks@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "@essex-js-toolkit/hooks@npm:1.1.5"
+  dependencies:
+    "@essex-js-toolkit/toolbox": ^1.1.4
+    resize-observer-polyfill: ^1.5.1
+  peerDependencies:
+    "@types/node": "*"
+    "@types/react": "*"
+    "@types/react-dom": "*"
+    core-js: "*"
+    react: ">=16.8.0"
+  checksum: 4bfa97fd320691e185a8654f2409e2167fe2e5e72016202e6a21833bcddcd7583596e476d035a66e7437f5e5b0d8caeef57b128064417e707daa928dc0f5bda1
+  languageName: node
+  linkType: hard
+
+"@essex-js-toolkit/toolbox@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "@essex-js-toolkit/toolbox@npm:1.1.4"
+  peerDependencies:
+    core-js: "*"
+  checksum: 0903b8da2ef3a4ac21444a93625df92ecc2e8696ffccfcef87b9b0437a2cd1a050886a264ae6210ee08f1cea42b06e5b3f6b86deee65f3965945ff34cab7f3b3
+  languageName: node
+  linkType: hard
+
 "@essex/babel-config@npm:10.0.1":
   version: 10.0.1
   resolution: "@essex/babel-config@npm:10.0.1"
@@ -4061,20 +4086,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/fluent@workspace:packages/fluent"
   dependencies:
+    "@essex-js-toolkit/hooks": ^1.1.5
     "@essex/scripts": ^11.0.1
     "@fluentui/react": ^7.147.1
     "@thematic/color": ^0.9.0
     "@thematic/core": ^0.9.0
     "@thematic/react": ^0.9.0
+    "@types/d3-scale": ^3.2.2
     "@types/node": ^14.14.0
     "@types/react": ^16.9.53
     "@uifabric/icons": ^7.5.12
+    core-js: ^3.11.2
+    d3-scale: ^3.3.0
     react: ^16.14.0
   peerDependencies:
     "@fluentui/react": ">= 7"
     "@types/node": "*"
     "@types/react": ">= 16"
     "@uifabric/icons": ">= 7"
+    core-js: ^3.11.2
     react: ">= 16.8.0"
   languageName: unknown
   linkType: soft
@@ -4116,8 +4146,8 @@ __metadata:
     husky: ^4.3.0
     lint-staged: ^10.4.2
     npm-run-all: ^4.1.5
-    react: ^17.0.0
-    react-dom: ^17.0.0
+    react: ^16.14.0
+    react-dom: ^16.14.0
     regenerator-runtime: ^0.13.7
     ts-jest: ^26.4.1
     typescript: ^3.9.7
@@ -4296,10 +4326,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/d3-scale@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "@types/d3-scale@npm:3.2.2"
+  dependencies:
+    "@types/d3-time": "*"
+  checksum: 6bffb9dc2e7fb0056eff9aaf51cdc17001c27e06fe9fe74b29879e71e4cb933cfb8ff66469cb47a7be227d2c5f2e5b310e55c10f17fe3f72180d4f97b8394ab0
+  languageName: node
+  linkType: hard
+
 "@types/d3-selection@npm:^1, @types/d3-selection@npm:^1.4.3":
   version: 1.4.3
   resolution: "@types/d3-selection@npm:1.4.3"
   checksum: f6c5b0bc69430eeec412d7cdcf89285967ee0b8043138a34c0a8332800761778487ec9b4dda238ba2f32f967735cf15e776493161beb2f03ebef6a6cdb48330e
+  languageName: node
+  linkType: hard
+
+"@types/d3-time@npm:*":
+  version: 2.0.0
+  resolution: "@types/d3-time@npm:2.0.0"
+  checksum: 230ee3feb64af2e8289f1eed83193547f6a5fedb938621776e218d0ba61a7c414e84cef6156561a6d64006b7affafb6b04f91ac61c725fbabdcde3695aa1e9c8
   languageName: node
   linkType: hard
 
@@ -8288,6 +8334,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js@npm:^3.11.2":
+  version: 3.11.2
+  resolution: "core-js@npm:3.11.2"
+  checksum: a332ed594db0bbb01344c1a5e18796d9459911006a47f5e7ebb645c04cc63c26726ba7acdd81956324f58153450fb14c3de634bccfe127c2982d2bd5db9409f2
+  languageName: node
+  linkType: hard
+
 "core-util-is@npm:1.0.2, core-util-is@npm:~1.0.0":
   version: 1.0.2
   resolution: "core-util-is@npm:1.0.2"
@@ -8647,7 +8700,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"d3-array@npm:1 - 2, d3-array@npm:>=2.5, d3-array@npm:^2.3.0, d3-array@npm:^2.7.1":
+"d3-array@npm:1 - 2, d3-array@npm:2, d3-array@npm:>=2.5, d3-array@npm:^2.3.0, d3-array@npm:^2.7.1":
   version: 2.8.0
   resolution: "d3-array@npm:2.8.0"
   checksum: 2b57f05d0c666a282feb45e2bf9f948272942e45dfbe4318da582db5aff43ae387af86aba9f67f5f6ab08106f2b3e33252658c98aa317c946d54f2e365ef0261
@@ -8793,6 +8846,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"d3-scale@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "d3-scale@npm:3.3.0"
+  dependencies:
+    d3-array: ^2.3.0
+    d3-format: 1 - 2
+    d3-interpolate: 1.2.0 - 2
+    d3-time: ^2.1.1
+    d3-time-format: 2 - 3
+  checksum: 2a22d0f5381ccb208a9d593b64db3a6f069ea928f132f042f0e12d5836ea5999f0f58b20c5aeddff96946deb277ed8d6ba3958e3330610e0ebaa6085f42baf9e
+  languageName: node
+  linkType: hard
+
 "d3-selection@npm:^1.4.2":
   version: 1.4.2
   resolution: "d3-selection@npm:1.4.2"
@@ -8822,6 +8888,15 @@ __metadata:
   version: 2.0.0
   resolution: "d3-time@npm:2.0.0"
   checksum: fe10d9acd6ec8b7bd82e143320bf4a57aa8f9ff82a874f6762a2341b5719194f65f0b86141074d8becad52fe6911a79e578f7ca75e08cb2cc7a71d2bf68c539c
+  languageName: node
+  linkType: hard
+
+"d3-time@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "d3-time@npm:2.1.1"
+  dependencies:
+    d3-array: 2
+  checksum: 4f90b2ba35de50e8cc436be0cd2c660b27261fdb9d75ce3c5a943f09de1bf27f8d01e1607c892174ccdeb26147f973593a38c80a8e20a007cbf071aece02086b
   languageName: node
   linkType: hard
 
@@ -17847,19 +17922,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.0":
-  version: 17.0.0
-  resolution: "react-dom@npm:17.0.0"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-    scheduler: ^0.20.0
-  peerDependencies:
-    react: 17.0.0
-  checksum: 0c695ad4fc43d506e49199441806d84632ae714e21efbd1708cefa2fd2fc3a321b9b19e6f9d6fcf0277aa3d4998563821bb443107761ee58c36e419c95e6629d
-  languageName: node
-  linkType: hard
-
 "react-draggable@npm:^4.0.3":
   version: 4.4.3
   resolution: "react-draggable@npm:4.4.3"
@@ -18123,16 +18185,6 @@ fsevents@^1.2.7:
     object-assign: ^4.1.1
     prop-types: ^15.6.2
   checksum: 13dcc9ba8a7521ecc3d7e69998dbc5703ae9515308d06a94a474ad34b42f1fc109372265e924a8c9b11d20fa1828407c290b8f61617c36734c4ca907ae7e5f45
-  languageName: node
-  linkType: hard
-
-"react@npm:^17.0.0":
-  version: 17.0.0
-  resolution: "react@npm:17.0.0"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: 7dc305794dfcd4b7b20ba0a0e320b701544487fffb3dc64b31712c04989b36fc73fbe7e23b31913d811f5e7030385b468db2c25109608dd5402e5ff94dcbc68f
   languageName: node
   linkType: hard
 
@@ -18792,6 +18844,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"resize-observer-polyfill@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "resize-observer-polyfill@npm:1.5.1"
+  checksum: ba14bfaf584eda299eafd6a06233a65c76586bc2bab3cdfdd1edd25fc6479f4270788ddd082e65390049b3ed542558f02bdf1f123bd912624de5b11d48857ac8
+  languageName: node
+  linkType: hard
+
 "resolve-cwd@npm:^2.0.0":
   version: 2.0.0
   resolution: "resolve-cwd@npm:2.0.0"
@@ -19191,16 +19250,6 @@ fsevents@^1.2.7:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
   checksum: 804f990b9f370cca6d42b65f3cba2cc2bfed4973ee5623bed1ea36a6627842db8c891e2e5ac003f06f9ee892d1d3396921e27fa077346caf0213af05776e8dee
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.20.0":
-  version: 0.20.0
-  resolution: "scheduler@npm:0.20.0"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: 092f965d23704e280a79ac4919afbed96548228c58b338e9e6a6ba1e3e48a9ff3db059ac756b071d4112350d07bf3c58a3fe45d88ba44f4616b443f2ee2a4469
   languageName: node
   linkType: hard
 
