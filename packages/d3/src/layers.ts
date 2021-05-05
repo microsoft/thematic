@@ -198,7 +198,7 @@ function applyBaseOptions(
 	selection: Selection<Element, any, Element, any>,
 	options?: SelectionOptions,
 ): Selection<Element, any, Element, any> {
-	// TODO: we could enumate all of the core d3-selection functions
+	// TODO: we could enumerate all of the core d3-selection functions
 	// html, text, etc., for completeness
 	return selection
 		.call(on, options?.on)
