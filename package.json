@@ -47,10 +47,5 @@
 		"ts-jest": "^26.4.1",
 		"typescript": "^3.9.7"
 	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "essex pre-commit"
-		}
-	},
 	"prettier": "@essex/prettier-config"
 }

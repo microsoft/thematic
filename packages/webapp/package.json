@@ -13,7 +13,8 @@
 	},
 	"dependencies": {
 		"@essex/webpack-config": "^10.0.2",
-		"@fluentui/react": "^7.147.1",
+		"@fluentui/font-icons-mdl2": "^8.1.0",
+		"@fluentui/react": "^8.14.2",
 		"@thematic/color": "^0.9.0",
 		"@thematic/core": "^0.9.0",
 		"@thematic/d3": "^0.9.0",
@@ -34,7 +35,6 @@
 		"d3-axis": "^1.0.12",
 		"d3-scale": "^3.2.3",
 		"d3-selection": "^1.4.2",
-		"office-ui-fabric-react": "^7.147.1",
 		"react": "^16.14.0",
 		"react-dom": "^16.14.0",
 		"react-redux": "^7.2.1",
