@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React from 'react'
-import styled from 'styled-components'
 import { useSafeCollapseDimensions } from './hooks/useSafeDimensions'
 import { ScaleDropdownItemProps } from './types'
 import { selectColorPalette, useScale } from './util'
@@ -19,21 +18,22 @@ export const ScaleDropdownItem: React.FC<ScaleDropdownItemProps> = ({
 	const [width, height] = useSafeCollapseDimensions(paletteWidth, paletteHeight)
 	const scale = useScale(option.key, paletteWidth)
 	return (
-		<Container style={style}>
-			<Label>{option.text}</Label>
+		<div
+			style={{
+				...containerStyle,
+				...style,
+			}}
+		>
+			<div style={{ width: 74 }}>{option.text}</div>
 			<Palette scale={scale} width={width} height={height} />
-		</Container>
+		</div>
 	)
 }
 
-const Container = styled.div`
-	cursor: pointer;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	min-width: 10;
-`
-
-const Label = styled.div`
-	width: 74px;
-`
+const containerStyle = {
+	cursor: 'pointer',
+	display: 'flex',
+	justifyContent: 'space-between',
+	alignItems: 'center',
+	minWidth: 10,
+}

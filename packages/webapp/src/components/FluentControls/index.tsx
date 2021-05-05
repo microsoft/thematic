@@ -2,9 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
 import { connect } from 'react-redux'
-import styled from 'styled-components'
 import { themeLoaded } from '../../state/actions'
 import { ScaleType, Theme } from '@thematic/core'
 import {
@@ -28,53 +27,79 @@ const FluentControlsComponent: React.FC<FluentControlsComponentProps> = ({
 	const [scaleType, setScaleType] = useState<ScaleType>(ScaleType.Linear)
 	const handleScaleTypeChange = useCallback(type => setScaleType(type), [])
 	const handlePickerChange = useCallback(t => themeLoaded(t), [themeLoaded])
+	const labelStyle = useMemo(
+		() => ({
+			fontWeight: 'bold' as const,
+			color: theme.application().accent().hex(),
+		}),
+		[theme],
+	)
+	const actionStyle = useMemo(
+		() => ({
+			fontSize: 12,
+			fontFamily: 'monospace',
+			color: theme.application().warning().hex(),
+		}),
+		[theme],
+	)
 	return (
-		<Container>
-			<Description>
+		<div
+			style={{
+				fontSize: 14,
+				overflowY: 'scroll',
+			}}
+		>
+			<p>
 				The @thematic/fluent package contains a few custom Fluent controls you
 				can use in your applications to allow Thematic-specific interactions.
-			</Description>
-			<Controls>
-				<Control>
-					<Description>
-						<Label>ScaleDropdown:</Label> a Dropdown that pre-loads Thematic
-						scale options.
-					</Description>
+			</p>
+			<div style={controlsStyle}>
+				<div style={controlStyle}>
+					<p>
+						<span style={labelStyle}>ScaleDropdown:</span> a Dropdown that
+						pre-loads Thematic scale options.
+					</p>
 					<ScaleDropdown
 						placeholder={'Choose scale'}
 						onChange={handleScaleChange}
 					/>
-					<Action> onChange: {scale}</Action>
-				</Control>
-				<Control>
-					<Description>
-						<Label>ScaleTypeChoiceGroup:</Label> a ChoiceGroup that pre-loads
-						Thematic scale types.
-					</Description>
+					<p style={actionStyle}> onChange: {scale}</p>
+				</div>
+				<div style={controlStyle}>
+					<p>
+						<span style={labelStyle}>ScaleTypeChoiceGroup:</span> a ChoiceGroup
+						that pre-loads Thematic scale types.
+					</p>
 					<ScaleTypeChoiceGroup
 						selectedType={scaleType}
 						onChange={handleScaleTypeChange}
 					/>
-					<Action> onChange: {scaleType}</Action>
-				</Control>
-				<Control>
-					<Description>
-						<Label>ColorPicker:</Label> a ColorPicker that emits Thematic
-						parameters.
-					</Description>
+					<p style={actionStyle}> onChange: {scaleType}</p>
+				</div>
+				<div style={controlStyle}>
+					<p>
+						<span style={labelStyle}>ColorPicker:</span> a ColorPicker that
+						emits Thematic parameters.
+					</p>
 					<ColorPicker theme={theme} onChange={handlePickerChange} />
-					<Action> onChange: {theme.application().accent().hex()}</Action>
-				</Control>
-				<Control>
-					<Description>
-						<Label>ColorPickerButton:</Label> a DropdownButton that hosts a
-						Thematic ColorPicker.
-					</Description>
+					<p style={actionStyle}>
+						{' '}
+						onChange: {theme.application().accent().hex()}
+					</p>
+				</div>
+				<div style={controlStyle}>
+					<p>
+						<span style={labelStyle}>ColorPickerButton:</span> a DropdownButton
+						that hosts a Thematic ColorPicker.
+					</p>
 					<ColorPickerButton theme={theme} onChange={handlePickerChange} />
-					<Action> onChange: {theme.application().accent().hex()}</Action>
-				</Control>
-			</Controls>
-		</Container>
+					<p style={actionStyle}>
+						{' '}
+						onChange: {theme.application().accent().hex()}
+					</p>
+				</div>
+			</div>
+		</div>
 	)
 }
 
@@ -82,34 +107,15 @@ export const FluentControls = connect(null, {
 	themeLoaded,
 })(FluentControlsComponent)
 
-const Container = styled.div`
-	font-size: 14px;
-	overflow-y: scroll;
-`
+const controlsStyle = {
+	display: 'flex' as const,
+	flexDirection: 'row' as const,
+	flexWrap: 'wrap' as const,
+	justifyContent: 'space-around' as const,
+}
 
-const Description = styled.p``
-
-const Controls = styled.div`
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-`
-
-const Control = styled.div`
-	width: 320px;
-	padding: 8px;
-	margin: 8px;
-	//border: 1px solid ${({ theme }) => theme.application().border().hex()};
-`
-
-const Label = styled.span`
-	font-weight: bold;
-	color: ${({ theme }) => theme.application().accent().hex()};
-`
-
-const Action = styled.p`
-	font-size: 12px;
-	font-family: monospace;
-	color: ${({ theme }) => theme.application().warning().hex()};
-`
+const controlStyle = {
+	width: 320,
+	padding: 8,
+	margin: 8,
+}

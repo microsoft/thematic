@@ -6,15 +6,15 @@ export enum ScaleType {
 	/**
 	 * Maps using a linear transform.
 	 */
-	Linear,
+	Linear = 'linear',
 	/**
 	 * Maps with a log transform. Useful for wide data ranges, but cannot handle 0 values.
 	 */
-	Log,
+	Log = 'log',
 	/**
 	 * This creates a set of quantile bins to partition the data into, with an aim for equal size bins to smooth out the scale.
 	 */
-	Quantile,
+	Quantile = 'quantile',
 }
 
 /**

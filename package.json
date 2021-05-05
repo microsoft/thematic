@@ -41,8 +41,8 @@
 		"husky": "^4.3.0",
 		"lint-staged": "^10.4.2",
 		"npm-run-all": "^4.1.5",
-		"react": "^17.0.0",
-		"react-dom": "^17.0.0",
+		"react": "^16.14.0",
+		"react-dom": "^16.14.0",
 		"regenerator-runtime": "^0.13.7",
 		"ts-jest": "^26.4.1",
 		"typescript": "^3.9.7"

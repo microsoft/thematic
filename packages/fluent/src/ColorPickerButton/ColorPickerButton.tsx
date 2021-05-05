@@ -6,6 +6,7 @@ import { IconButton, Label } from '@fluentui/react'
 import React, { memo, CSSProperties } from 'react'
 import { ColorPicker } from '../ColorPicker'
 import { Theme } from '@thematic/core'
+import { useThematic } from '@thematic/react'
 
 export interface ColorPickerButtonStyles {
 	label?: CSSProperties
@@ -13,6 +14,7 @@ export interface ColorPickerButtonStyles {
 
 export interface ColorPickerButtonProps {
 	onChange?: (theme: Theme) => void
+	theme?: Theme
 	label?: string
 	styles?: ColorPickerButtonStyles
 }
@@ -21,7 +23,9 @@ export interface ColorPickerButtonProps {
  * This is a dropdown button that displays a thematic ColorPicker.
  */
 export const ColorPickerButton: React.FC<ColorPickerButtonProps> = memo(
-	function ColorPickerButton({ onChange, label, styles }) {
+	function ColorPickerButton({ onChange, theme, label, styles }) {
+		const contextTheme = useThematic()
+		const activeTheme = theme || contextTheme
 		const labelStyle = {
 			paddingTop: 0,
 			paddingBottom: 0,
@@ -41,13 +45,18 @@ export const ColorPickerButton: React.FC<ColorPickerButtonProps> = memo(
 							{
 								key: 'colorPicker',
 								// eslint-disable-next-line react/display-name
-								onRender: () => <ColorPicker onChange={onChange} />,
+								onRender: () => (
+									<ColorPicker theme={theme} onChange={onChange} />
+								),
 							},
 						],
 					}}
 					styles={{
 						root: {
 							width: 48,
+						},
+						icon: {
+							color: activeTheme.application().accent().hex(),
 						},
 					}}
 				/>

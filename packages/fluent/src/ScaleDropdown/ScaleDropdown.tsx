@@ -4,7 +4,6 @@
  */
 import { Dropdown } from '@fluentui/react'
 import React, { useCallback, useRef } from 'react'
-import styled from 'styled-components'
 import { ScaleDropdownItem } from './ScaleDropdownItem'
 import {
 	usePaletteWidth,
@@ -19,7 +18,6 @@ import { ScaleDropdownProps } from './types'
  * Represents a Fluent dropdown of Thematic scale options.
  * The scale names can be accompanied by a visual rendering of the scale colors.
  * This bascially extends Dropdown, overriding the options and item rendering.
- * TODO: move to @thematic/fluent
  */
 export const ScaleDropdown: React.FC<ScaleDropdownProps> = props => {
 	const ref = useRef(null)
@@ -58,15 +56,13 @@ export const ScaleDropdown: React.FC<ScaleDropdownProps> = props => {
 	)
 
 	return (
-		<Container ref={ref}>
+		<div ref={ref}>
 			<Dropdown
 				{...props}
 				options={options}
 				onRenderTitle={handleRenderTitle}
 				onRenderOption={handleRenderOption}
 			/>
-		</Container>
+		</div>
 	)
 }
-
-const Container = styled.div``

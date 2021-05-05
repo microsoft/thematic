@@ -25,6 +25,8 @@ export interface ColorPickerStyles {
 
 export interface ColorPickerProps {
 	onChange?: (theme: Theme) => void
+	/** Optional theme to use, otherwise it will be pulled from context */
+	theme?: Theme
 	layout?: ColorPickerLayout
 	styles?: ColorPickerStyles
 }
@@ -40,19 +42,21 @@ export type PartialParams = Partial<Params>
  */
 export const ColorPicker: React.FC<ColorPickerProps> = ({
 	onChange,
+	theme,
 	layout,
 	styles,
 }) => {
-	const theme = useThematic()
+	const contextTheme = useThematic()
+	const activeTheme = theme || contextTheme
 
 	const lyt = layout || ColorPickerLayout.PickerOnly
 
 	const updateParams = (params: PartialParams) => {
 		if (onChange) {
 			onChange(
-				theme.clone({
+				activeTheme.clone({
 					params: {
-						...theme.params,
+						...activeTheme.params,
 						...params,
 					},
 				}),
@@ -89,7 +93,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
 		backgroundLevel,
 		backgroundHueShift,
 		nominalHueStep,
-	} = theme.params
+	} = activeTheme.params
 
 	// TODO: it would be really nice to make these IStyle objects and pass directly to
 	// child component instead of wrapping them in a div
@@ -105,7 +109,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
 	return (
 		<div style={{ display: 'flex' }}>
 			<FluentColorPicker
-				color={theme.application().accent().hex()}
+				color={activeTheme.application().accent().hex()}
 				onChange={handlePickerChange}
 				alphaType="none"
 			/>

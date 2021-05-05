@@ -2,8 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { Pivot, PivotItem } from '@fluentui/react'
 import React from 'react'
 import { Graph } from '../../interfaces'
+import { FluentControls } from '../FluentControls'
 import { D3Chart } from '../charts/D3'
 import { VegaChart, charts } from '../charts/Vega'
 import { D3Graph } from '../graphs/D3'
@@ -55,21 +57,28 @@ export const ThemeViewer: React.FC<ThemeViewerProps> = ({
 
 	return (
 		<div className="theme-wrapper">
-			<div className="example-grid">
-				{graphs.map((graph, i) => (
-					<div className="example-grid-item" key={`example-graph-${i}`}>
-						{graph}
+			<Pivot>
+				<PivotItem headerText="Thematic controls">
+					<FluentControls />
+				</PivotItem>
+				<PivotItem headerText="Example visualizations">
+					<div className="example-grid">
+						{graphs.map((graph, i) => (
+							<div className="example-grid-item" key={`example-graph-${i}`}>
+								{graph}
+							</div>
+						))}
+						<div className="example-grid-item" key={`example-rar-chart`}>
+							<D3Chart {...common} />
+						</div>
+						{charts.map(chart => (
+							<div className="example-grid-item" key={`example-chart-${chart}`}>
+								<VegaChart type={chart} {...common} />
+							</div>
+						))}
 					</div>
-				))}
-				<div className="example-grid-item" key={`example-rar-chart`}>
-					<D3Chart {...common} />
-				</div>
-				{charts.map(chart => (
-					<div className="example-grid-item" key={`example-chart-${chart}`}>
-						<VegaChart type={chart} {...common} />
-					</div>
-				))}
-			</div>
+				</PivotItem>
+			</Pivot>
 		</div>
 	)
 }
