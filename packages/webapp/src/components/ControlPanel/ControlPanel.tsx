@@ -2,16 +2,21 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Dropdown, IDropdownOption, Toggle, SpinButton } from '@fluentui/react'
-import { Position } from 'office-ui-fabric-react/lib/utilities/positioning'
+import {
+	Dropdown,
+	IDropdownOption,
+	Toggle,
+	SpinButton,
+	Position,
+} from '@fluentui/react'
 import React, { useState, useCallback } from 'react'
 import { EnumDropdown } from '../EnumDropdown'
 import { ColorBlindnessMode, colorBlindnessInfo } from '@thematic/color'
 import { ThemeListing, Theme } from '@thematic/core'
 import { ColorPickerButton } from '@thematic/fluent'
-// XXX: @fluentui doesn't export everything correctly yet
 
 import './index.css'
+
 export interface ControlPanelProps {
 	themes: ThemeListing[]
 	themeInfo: ThemeListing

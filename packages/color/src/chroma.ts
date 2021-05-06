@@ -177,6 +177,7 @@ export function css2css(css: string, alpha?: number): string {
  * Note that we handle 'none' as 'none' here because it is used frequently to indicate empty fills and strokes in svg,
  * even though it is not a valid hex code.
  * Note: if you are using this for a css color, use css2css as it will return valid 'transparent' for our empty 'none'.
+ * Also note that if alpha is passed, chroma-js will create an 8-letter hex string.
  * @param css
  * @param alpha
  */

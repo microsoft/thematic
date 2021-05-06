@@ -22,8 +22,8 @@ Here is an example:
 import { load } from '@thematic/core'
 import { ThematicProvider } from '@thematic/react'
 import { loadFluentTheme } from '@thematic/fluent'
-import { initializeIcons } from '@uifabric/icons'
-import { ThemeProvider } from '@fluentui/react/lib/Foundation'
+import { initializeIcons } from '@fluentui/font-icons-mdl2'
+import { ThemeProvider } from '@fluentui/react'
 
 const theme = load()
 const fluentTheme = loadFluentTheme(theme)

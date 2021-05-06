@@ -10,12 +10,12 @@
 		"start_all": "yarn workspaces foreach -piv run start",
 		"publish_all": "yarn workspaces foreach --exclude '@thematic/root' -pv npm publish --tolerate-republish --access public",
 		"lint": "essex lint",
-		"lint:ci": "essex lint --docs",
+		"lint:fix": "essex lint --fix",
 		"prettify": "essex prettify",
 		"test": "essex test",
 		"test:ci": "essex test --coverage",
 		"git-is-clean": "essex git-is-clean",
-		"ci": "npm-run-all -p lint:ci build_all bundle_all test:ci -s git-is-clean",
+		"ci": "npm-run-all -p lint build_all bundle_all test:ci -s git-is-clean",
 		"release": "run-s build_all publish_all",
 		"start": "yarn start:webapp"
 	},
@@ -25,32 +25,29 @@
 		]
 	},
 	"devDependencies": {
-		"@essex/eslint-config": "^10.0.1",
-		"@essex/eslint-plugin": "^10.0.1",
-		"@essex/jest-config": "^10.0.2",
+		"@babel/core": "^7.14.0",
+		"@babel/preset-env": "^7.14.1",
+		"@babel/preset-react": "^7.13.13",
+		"@babel/preset-typescript": "^7.13.0",
+		"@essex/eslint-config": "^14.0.0",
+		"@essex/eslint-plugin": "^14.0.0",
+		"@essex/jest-config": "^14.0.0",
 		"@essex/prettier-config": "^10.0.0",
-		"@essex/scripts": "^11.0.1",
+		"@essex/scripts": "^14.0.0",
 		"@types/jest": "^26.0.15",
 		"@types/node": "^14.14.0",
 		"@types/prettier": "^2",
 		"@typescript-eslint/eslint-plugin": "^4.4.1",
 		"@typescript-eslint/parser": "^4.4.1",
-		"enzyme": "^3.11.0",
-		"enzyme-adapter-react-16": "^1.15.5",
 		"eslint-import-resolver-node": "^0.3.4",
 		"husky": "^4.3.0",
 		"lint-staged": "^10.4.2",
 		"npm-run-all": "^4.1.5",
-		"react": "^17.0.0",
-		"react-dom": "^17.0.0",
+		"react": "^16.14.0",
+		"react-dom": "^16.14.0",
 		"regenerator-runtime": "^0.13.7",
 		"ts-jest": "^26.4.1",
 		"typescript": "^3.9.7"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "essex pre-commit"
-		}
 	},
 	"prettier": "@essex/prettier-config"
 }
