@@ -22,7 +22,7 @@ export const ThemeEditor: React.FC<ThemeEditorProps> = ({ scaleItemCount }) => {
 	return (
 		<div className="editor-wrapper">
 			<Pivot>
-				<PivotItem className="tab" headerText="Cooler Picker">
+				<PivotItem className="tab" headerText="Color Picker">
 					<CoolerPicker />
 				</PivotItem>
 				<PivotItem className="tab" headerText="Marks">

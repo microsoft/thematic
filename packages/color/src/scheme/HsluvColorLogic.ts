@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { Params, Scheme } from './interfaces'
+import { Params, Scheme } from '../interfaces'
 const chroma = require('chroma-js')
 const hsluv = require('hsluv')
 

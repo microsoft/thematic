@@ -34,7 +34,7 @@ export const defaultThemes: ThemeListing[] = Object.entries(themes).map(
 )
 
 /**
- * Load the default Essex theme
+ * Load the default theme
  * Use config to supply overrides to specific definition blocks
  * @param config
  */
