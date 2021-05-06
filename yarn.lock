@@ -2823,7 +2823,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@thematic/color@^0.9.0, @thematic/color@workspace:packages/color":
+"@thematic/color@^1.0.0, @thematic/color@workspace:packages/color":
   version: 0.0.0-use.local
   resolution: "@thematic/color@workspace:packages/color"
   dependencies:
@@ -2839,12 +2839,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@thematic/core@^0.9.0, @thematic/core@workspace:packages/core":
+"@thematic/core@^1.0.0, @thematic/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@thematic/core@workspace:packages/core"
   dependencies:
     "@essex/scripts": ^14.0.0
-    "@thematic/color": ^0.9.0
+    "@thematic/color": ^1.0.0
     "@types/d3-scale": ^2.2.4
     "@types/lodash": ^4.14.162
     "@types/murmurhash-js": ^1.0.3
@@ -2863,12 +2863,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@thematic/d3@^0.9.0, @thematic/d3@workspace:packages/d3":
+"@thematic/d3@^1.0.0, @thematic/d3@workspace:packages/d3":
   version: 0.0.0-use.local
   resolution: "@thematic/d3@workspace:packages/d3"
   dependencies:
     "@essex/scripts": ^14.0.0
-    "@thematic/core": ^0.9.0
+    "@thematic/core": ^1.0.0
     "@types/d3-axis": ^1
     "@types/d3-selection": ^1.4.3
     "@types/node": ^14.14.0
@@ -2883,7 +2883,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@thematic/fluent@^0.9.0, @thematic/fluent@workspace:packages/fluent":
+"@thematic/fluent@^1.0.0, @thematic/fluent@workspace:packages/fluent":
   version: 0.0.0-use.local
   resolution: "@thematic/fluent@workspace:packages/fluent"
   dependencies:
@@ -2891,9 +2891,9 @@ __metadata:
     "@essex/scripts": ^14.0.0
     "@fluentui/font-icons-mdl2": ^8.1.0
     "@fluentui/react": ^8.14.2
-    "@thematic/color": ^0.9.0
-    "@thematic/core": ^0.9.0
-    "@thematic/react": ^0.9.0
+    "@thematic/color": ^1.0.0
+    "@thematic/core": ^1.0.0
+    "@thematic/react": ^1.0.0
     "@types/d3-scale": ^3.2.2
     "@types/node": ^14.14.0
     "@types/react": ^16.9.53
@@ -2910,13 +2910,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@thematic/react@^0.9.0, @thematic/react@workspace:packages/react":
+"@thematic/react@^1.0.0, @thematic/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@thematic/react@workspace:packages/react"
   dependencies:
     "@essex/scripts": ^14.0.0
-    "@thematic/color": ^0.9.0
-    "@thematic/core": ^0.9.0
+    "@thematic/color": ^1.0.0
+    "@thematic/core": ^1.0.0
     "@types/node": ^14.14.0
     "@types/react": ^16.9.53
     core-js: ^3.11.1
@@ -2959,12 +2959,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@thematic/vega@^0.9.0, @thematic/vega@workspace:packages/vega":
+"@thematic/vega@^1.0.0, @thematic/vega@workspace:packages/vega":
   version: 0.0.0-use.local
   resolution: "@thematic/vega@workspace:packages/vega"
   dependencies:
     "@essex/scripts": ^14.0.0
-    "@thematic/core": ^0.9.0
+    "@thematic/core": ^1.0.0
     "@types/node": ^14.14.0
     core-js: ^3.11.1
     vega: ^5.17.0
@@ -2982,12 +2982,12 @@ __metadata:
     "@essex/webpack-config": ^14.0.0
     "@fluentui/font-icons-mdl2": ^8.1.0
     "@fluentui/react": ^8.14.2
-    "@thematic/color": ^0.9.0
-    "@thematic/core": ^0.9.0
-    "@thematic/d3": ^0.9.0
-    "@thematic/fluent": ^0.9.0
-    "@thematic/react": ^0.9.0
-    "@thematic/vega": ^0.9.0
+    "@thematic/color": ^1.0.0
+    "@thematic/core": ^1.0.0
+    "@thematic/d3": ^1.0.0
+    "@thematic/fluent": ^1.0.0
+    "@thematic/react": ^1.0.0
+    "@thematic/vega": ^1.0.0
     "@types/d3-axis": ^1
     "@types/d3-scale": ^2.2.4
     "@types/d3-selection": ^1.4.3

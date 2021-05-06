@@ -1,6 +1,6 @@
 {
 	"name": "@thematic/fluent",
-	"version": "0.9.0",
+	"version": "1.0.0",
 	"license": "MIT",
 	"main": "src/index.ts",
 	"publishConfig": {
@@ -15,9 +15,9 @@
 	},
 	"dependencies": {
 		"@essex-js-toolkit/hooks": "^1.1.5",
-		"@thematic/color": "^0.9.0",
-		"@thematic/core": "^0.9.0",
-		"@thematic/react": "^0.9.0",
+		"@thematic/color": "^1.0.0",
+		"@thematic/core": "^1.0.0",
+		"@thematic/react": "^1.0.0",
 		"d3-scale": "^3.3.0"
 	},
 	"devDependencies": {
