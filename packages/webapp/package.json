@@ -12,7 +12,7 @@
 		"clean": "essex clean build"
 	},
 	"dependencies": {
-		"@essex/webpack-config": "^10.0.2",
+		"@essex/webpack-config": "^14.0.0",
 		"@fluentui/font-icons-mdl2": "^8.1.0",
 		"@fluentui/react": "^8.14.2",
 		"@thematic/color": "^0.9.0",
@@ -32,6 +32,7 @@
 		"@types/redux-actions": "^2.6.1",
 		"@types/redux-logger": "^3.0.8",
 		"@types/redux-thunk": "^2.1.32",
+		"core-js": "^3.11.1",
 		"d3-axis": "^1.0.12",
 		"d3-scale": "^3.2.3",
 		"d3-selection": "^1.4.2",
@@ -45,14 +46,14 @@
 		"vega": "^5.17.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^11.0.1",
+		"@essex/scripts": "^14.0.0",
 		"raw-loader": "^4.0.2",
 		"worker-loader": "^2.0.0"
 	},
 	"browserslist": [
 		">0.2%",
 		"not dead",
-		"not ie <= 11",
+		"not ie 11",
 		"not op_mini all"
 	]
 }
