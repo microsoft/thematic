@@ -14,7 +14,7 @@
 		"start": "essex watch"
 	},
 	"dependencies": {
-		"@thematic/core": "^1.0.0"
+		"@thematic/core": "workspace:packages/core"
 	},
 	"devDependencies": {
 		"@essex/scripts": "^14.0.0",

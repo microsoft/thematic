@@ -15,9 +15,9 @@
 	},
 	"dependencies": {
 		"@essex-js-toolkit/hooks": "^1.1.5",
-		"@thematic/color": "^1.0.0",
-		"@thematic/core": "^1.0.0",
-		"@thematic/react": "^1.0.0",
+		"@thematic/color": "workspace:packages/color",
+		"@thematic/core": "workspace:packages/core",
+		"@thematic/react": "workspace:packages/react",
 		"d3-scale": "^3.3.0"
 	},
 	"devDependencies": {
