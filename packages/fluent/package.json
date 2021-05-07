@@ -18,24 +18,23 @@
 		"@thematic/color": "workspace:packages/color",
 		"@thematic/core": "workspace:packages/core",
 		"@thematic/react": "workspace:packages/react",
+		"core-js": "^3.12.0",
 		"d3-scale": "^3.3.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^14.0.0",
+		"@essex/scripts": "^15.0.2",
 		"@fluentui/font-icons-mdl2": "^8.1.0",
-		"@fluentui/react": "^8.14.2",
+		"@fluentui/react": "^8.14.4",
 		"@types/d3-scale": "^3.2.2",
-		"@types/node": "^14.14.0",
-		"@types/react": "^16.9.53",
-		"core-js": "^3.11.1",
-		"react": "^16.14.0"
+		"@types/node": "^14.14.44",
+		"@types/react": "^17.0.5",
+		"react": "^17.0.2"
 	},
 	"peerDependencies": {
 		"@fluentui/react": ">= 8",
 		"@fluentuit/font-icons-mdl2": ">= 8",
 		"@types/node": "*",
 		"@types/react": ">= 16",
-		"core-js": "^3.11.1",
 		"react": ">= 16.8.0"
 	}
 }

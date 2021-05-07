@@ -19,24 +19,24 @@
 	},
 	"dependencies": {
 		"@thematic/color": "workspace:packages/color",
-		"@types/lodash": "^4.14.162",
+		"@types/lodash": "^4.14.168",
 		"@types/murmurhash-js": "^1.0.3",
+		"core-js": "^3.12.0",
 		"d3-scale": "^3.2.3",
 		"lodash": "^4.17.20",
 		"murmurhash-js": "^1.0.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^14.0.0",
+		"@essex/scripts": "^15.0.2",
 		"@types/d3-scale": "^2.2.4",
-		"@types/ncp": "^2",
-		"@types/node": "^14.14.0",
-		"core-js": "^3.11.1",
+		"@types/jest": "^26.0.23",
+		"@types/ncp": "^2.0.4",
+		"@types/node": "^14.14.44",
 		"ncp": "^2.0.0",
 		"npm-run-all": "^4.1.5"
 	},
 	"peerDependencies": {
 		"@types/d3-scale": ">= 2",
-		"@types/node": "*",
-		"core-js": "^3.11.1"
+		"@types/node": "*"
 	}
 }

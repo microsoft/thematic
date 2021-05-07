@@ -14,17 +14,16 @@
 		"start": "essex watch"
 	},
 	"dependencies": {
-		"chroma-js": "^2.1.0",
+		"chroma-js": "^2.1.1",
 		"color-blind": "^0.1.1",
+		"core-js": "^3.12.0",
 		"hsluv": "^0.1.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^14.0.0",
-		"@types/node": "^14.14.0",
-		"core-js": "^3.11.1"
+		"@essex/scripts": "^15.0.2",
+		"@types/node": "^14.14.44"
 	},
 	"peerDependencies": {
-		"@types/node": "*",
-		"core-js": "^3.11.1"
+		"@types/node": "*"
 	}
 }
