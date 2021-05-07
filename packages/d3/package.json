@@ -14,7 +14,7 @@
 		"start": "essex watch"
 	},
 	"dependencies": {
-		"@thematic/core": "^1.0.0",
+		"@thematic/core": "workspace:packages/core",
 		"d3-axis": "^1",
 		"d3-selection": "^1.4.2"
 	},
