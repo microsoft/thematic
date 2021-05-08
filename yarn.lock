@@ -1917,152 +1917,152 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/build-step-azure@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-azure@npm:15.1.1"
+"@essex/build-step-azure@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-azure@npm:15.1.2"
   dependencies:
     "@azure/storage-blob": ^12.5.0
-    "@essex/build-utils": 15.1.1
+    "@essex/build-utils": 15.1.2
     glob: ^7.1.7
     mime-types: ^2.1.30
-  checksum: d745b22c4a08796d481ae8bee1d86d0623509b8850b02078dfb68df16328125474d920fa98563c3fe110836b1e9898123b6e0ba14739f4af9ad76147f1cdd3d3
+  checksum: 534d161fb6e668d3affd12159184b36140fc6db5128f40a900113964e03cddb5387b7de1e03ff5393b2b687c398a8fc52794d2e089267791efdf8e4edbc1ae41
   languageName: node
   linkType: hard
 
-"@essex/build-step-babel@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-babel@npm:15.1.1"
+"@essex/build-step-babel@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-babel@npm:15.1.2"
   dependencies:
     "@babel/core": ^7.14.0
     "@babel/types": ^7.14.1
     "@essex/babel-config": 15.0.3
-    "@essex/tasklogger": 15.1.1
+    "@essex/tasklogger": 15.1.2
     chalk: ^4.1.1
     glob: ^7.1.7
     gulp: ^4.0.2
-  checksum: 89281dd1b796c17cb0af8b3a2d95b370c5aadc01452f143f7dc93582349af6b426403dccb2b03c4b052bd0dcc3a8e502201517d15ab280821afd19e4980aeaf4
+  checksum: 4b4ff147a363c426d7fcf73cec009cc827935087df62acd56a2138ee73c1944b68e8540dbfcb0392e7b9443d3c47ccd1851f4cdf8df9f291814f6ed4b2b904ef
   languageName: node
   linkType: hard
 
-"@essex/build-step-clean@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-clean@npm:15.1.1"
+"@essex/build-step-clean@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-clean@npm:15.1.2"
   dependencies:
-    "@essex/build-utils": 15.1.1
+    "@essex/build-utils": 15.1.2
     rimraf: ^3.0.2
-  checksum: 27c8f1fb65680c7cd0bff4411bf28c9524f95519725fdbbf96ab6becb01800c5cb9161e7c22eaaff9b26f639af3168f238c7aad5d598c45ac7e91b86ec18287f
+  checksum: c40d0b0aaa8aa96bbaec47da4b7921cab6d4671fac3e4cf6320ed1212cb117c7aa542158dd837be9b0070f6cf66c0bb2f05956a21e6197b7ea4eda808927e43a
   languageName: node
   linkType: hard
 
-"@essex/build-step-eslint@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-eslint@npm:15.1.1"
+"@essex/build-step-eslint@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-eslint@npm:15.1.2"
   dependencies:
-    "@essex/build-utils": 15.1.1
+    "@essex/build-utils": 15.1.2
     "@essex/eslint-config": 15.0.3
     "@essex/eslint-plugin": 15.0.3
     "@typescript-eslint/eslint-plugin": ^4.22.1
     "@typescript-eslint/parser": ^4.22.1
     eslint: ^7.25.0
     eslint-import-resolver-node: ^0.3.4
-  checksum: cd21a86abea7d4331a84ccce33393d6a7f29ccc562b3b5edbb29c817a300b369a8d84ff2cb90d2efcae86d85165c2f3ba81430bf3e99b2a2902c72c60d16b291
+  checksum: a1324122f9f0c9426f94a2d388aacdb0323ca4ad130805d9cbbb8b86277ec4d2fe025eecd33d941023594af00340d7ac9d93f00c7267d1a2822fad143ad13e4a
   languageName: node
   linkType: hard
 
-"@essex/build-step-init@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-init@npm:15.1.1"
+"@essex/build-step-init@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-init@npm:15.1.2"
   dependencies:
-    "@essex/build-step-recipes": 15.1.1
-    "@essex/build-utils": 15.1.1
-    "@essex/tasklogger": 15.1.1
-  checksum: 2c9b5f7f732c41ecb34d24f30f9625ead7b208e15fa6283f2c17e540a5bf7d5f842f7a2ccfefee2d420cdf42af2103bd97f76c7e16abe0404f814d77fa4742fd
+    "@essex/build-step-recipes": 15.1.2
+    "@essex/build-utils": 15.1.2
+    "@essex/tasklogger": 15.1.2
+  checksum: 35d015c30fcedee6ed1852fbe73dbdc6309fb6e5a29880672733427d6862ee073d08c6c7ad13287b21a538892a01ec11a31d7560bfe36ba9821e23c5b03f5449
   languageName: node
   linkType: hard
 
-"@essex/build-step-jest@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-jest@npm:15.1.1"
+"@essex/build-step-jest@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-jest@npm:15.1.2"
   dependencies:
-    "@essex/build-utils": 15.1.1
+    "@essex/build-utils": 15.1.2
     "@essex/jest-config": 15.0.3
-    "@essex/tasklogger": 15.1.1
+    "@essex/tasklogger": 15.1.2
     "@jest/core": ~26.6.3
     "@types/debug": ^4.1.5
     chalk: ^4.1.1
     debug: ^4.3.2
     jest: ~26.6.3
-  checksum: acd19dc69059992f09ca8b717f72d9a096ca68a6ae2d2298250cf06b418d8bf109e1b9ab7a96a1eb6bd35130b4c73877982e0a04b23ca476d0a83a42981dd9b8
+  checksum: 9080c63957f5c1a4f071753806373b9f0dd621a31b88b94af41c74cb08a8fa1368451110f836182dd01f3b94c0a1a89b2384ef447fcb7f94ec47a0cb194a9416
   languageName: node
   linkType: hard
 
-"@essex/build-step-lint-staged@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-lint-staged@npm:15.1.1"
+"@essex/build-step-lint-staged@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-lint-staged@npm:15.1.2"
   dependencies:
-    "@essex/build-utils": 15.1.1
+    "@essex/build-utils": 15.1.2
     "@essex/shellrunner": 15.0.3
   peerDependencies:
     lint-staged: ">= 10.2"
-  checksum: c49c150138aae9e1478583afa35e2385b3f00b06c2776ebaba3510d9fed717f6d2dc72361c1d8ab4526671ffe4f1ccf183fa9cf5508f16adb23ec0c1a28fc843
+  checksum: 0f015cf7cb6b1e1de17d5adb055e63289150bbc568955053680de5da7e22eac3ce7e182a7175aa8415f4bf8b35976b535b405aa1b6dd04dac61bb94352bd8a9b
   languageName: node
   linkType: hard
 
-"@essex/build-step-pretty-quick@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-pretty-quick@npm:15.1.1"
+"@essex/build-step-pretty-quick@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-pretty-quick@npm:15.1.2"
   dependencies:
-    "@essex/build-utils": 15.1.1
-    "@essex/tasklogger": 15.1.1
+    "@essex/build-utils": 15.1.2
+    "@essex/tasklogger": 15.1.2
     chalk: ^4.1.1
     prettier: ^2.2.1
     pretty-quick: ^3.1.0
-  checksum: a90dd748cfd05be4c262ffd4fb3e6a1965092611688852cad687d66cca4f2a5d51b4d7683f2152ff50e149d5709965309864ee02fd24a303739f727f3ac479ff
+  checksum: 5ab45da6a59f333950402c198f1255b59760d064bacc24b1b9b1e793d0491b932f127613cdb85f78fc0b2f017966f383d20ed18e878d7947bdf436a6d6075dba
   languageName: node
   linkType: hard
 
-"@essex/build-step-recipes@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-recipes@npm:15.1.1"
+"@essex/build-step-recipes@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-recipes@npm:15.1.2"
   dependencies:
-    "@essex/tasklogger": 15.1.1
-  checksum: 1f257bb05c9677369b4796828cce6f9c63e00a7d2b8b52f1111db1be8a1f20e97e5786612ef0c5132590f1f7d186da127661e42ce49277466b023082fb4094bc
+    "@essex/tasklogger": 15.1.2
+  checksum: 228a5015775afb29a0d3772b27f38d712b978b5680f50836b819ed8e33ec208b0792427e98a11719d4e4d3856e4ef9fa91b5d18e43da81da8b58b67571f0ae28
   languageName: node
   linkType: hard
 
-"@essex/build-step-rollup@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-rollup@npm:15.1.1"
+"@essex/build-step-rollup@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-rollup@npm:15.1.2"
   dependencies:
-    "@essex/build-utils": 15.1.1
+    "@essex/build-utils": 15.1.2
     "@essex/shellrunner": 15.0.3
-    "@essex/tasklogger": 15.1.1
+    "@essex/tasklogger": 15.1.2
   peerDependencies:
     rollup: ">= 2"
-  checksum: 8bd9ae131b44ddb038fe09765985bc8a58b8f5535b360175e0474540eef9247d84db531e70a2ca4fc908a1aea1dc248e44fad187cd83447a584042e6cd3fa375
+  checksum: 0c26cab2ccafa743a6814260610b457e8636175f783e0b3dc949db264b28cf3c3fc4cb21f13a99a57e9974e48fc9356468f51bb8a30ea0b17704ae2f42f703e0
   languageName: node
   linkType: hard
 
-"@essex/build-step-typedoc@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-typedoc@npm:15.1.1"
+"@essex/build-step-typedoc@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-typedoc@npm:15.1.2"
   dependencies:
-    "@essex/build-utils": 15.1.1
-    "@essex/tasklogger": 15.1.1
+    "@essex/build-utils": 15.1.2
+    "@essex/tasklogger": 15.1.2
     typedoc: ^0.20.36
     typescript: ^4.2.4
   peerDependencies:
     "@types/node": ">= 14"
-  checksum: 3b830a970bc0d0839cf23ff5abcc67248c9830fe2e750420dbc5d5fa0b83300d7ec4db80023d500978c5cc42f70fe8395f009bbc0a4d896a46f5f9c2bffab206
+  checksum: 37845a5b2f35fe68b94864d1b97ad3dfa42bf9e35c33d0374f319f687329fa06a4105d913df3d36010553cf2961ee1d40bdfc596b8982e1ed1d27ebb8f85b4b8
   languageName: node
   linkType: hard
 
-"@essex/build-step-typescript@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-typescript@npm:15.1.1"
+"@essex/build-step-typescript@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-typescript@npm:15.1.2"
   dependencies:
-    "@essex/build-utils": 15.1.1
-    "@essex/tasklogger": 15.1.1
+    "@essex/build-utils": 15.1.2
+    "@essex/tasklogger": 15.1.2
     gulp: ^4.0.2
     gulp-debug: ^4.0.0
     gulp-plumber: ^1.2.1
@@ -2071,20 +2071,20 @@ __metadata:
     typescript: ^4.2.4
   peerDependencies:
     "@types/node": ">= 14"
-  checksum: 64c1c882940cbdd4f59c6087e0ddf147e71d4d5fcdbb0799f0ab07d6aee2c9a8eb0ceb3b6b1eb9e03556dfcd077e1222f676b35731af2af2e5fed38e58804383
+  checksum: d7af1b649da14ee9cc982179bf0e8b4d094308704af949901d1b68ed7829cc8d90056022b59bfaf04cc8c4e7dc04d1c21fda77f584c8a6888ae0d8b8dca24e2f
   languageName: node
   linkType: hard
 
-"@essex/build-step-webpack@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-step-webpack@npm:15.1.1"
+"@essex/build-step-webpack@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-step-webpack@npm:15.1.2"
   dependencies:
-    "@essex/build-utils": 15.1.1
-    "@essex/tasklogger": 15.1.1
+    "@essex/build-utils": 15.1.2
+    "@essex/tasklogger": 15.1.2
     "@essex/webpack-config": 15.0.3
     webpack: ^5.36.2
     webpack-dev-server: ^3.11.2
-  checksum: 12b3054fa1bd98709c9df1e101285c992513397b9eb60bcecf1cb8e35805d55ab549e97e955dbac7610fb7c4aead8999332512e3166446d6ec196c9c136df401
+  checksum: 1e4298c2491e1ef8c7bcc8049aa7ab7d579ab9efca819c1ae486287448df56a82e72a8c8f09da01dfda4bfe4e87f9b9db09ac66626a74d47665eaff29f1ac0a9
   languageName: node
   linkType: hard
 
@@ -2098,17 +2098,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/build-utils@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/build-utils@npm:15.1.1"
+"@essex/build-utils@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/build-utils@npm:15.1.2"
   dependencies:
     "@essex/shellrunner": 15.0.3
-    "@essex/tasklogger": 15.1.1
+    "@essex/tasklogger": 15.1.2
     "@types/gulp": ^4.0.8
     "@types/through2": ^2.0.36
     gulp: ^4.0.2
     through2: ^4.0.2
-  checksum: c06e42dc7afbf1502324775bcbec15aeb0dfb89122f9a63f083b7247e2b420d36f4229f38ed2a2e22b084eee02d069e2b5c728c9f55af7a88d757a1497729e0d
+  checksum: 795e8a0b1628e6f0b4926cf0b57f507a84a2b5dd7749a5364899fb21989cdc7d7e730fa2adb78208b56f74feda8c9902dc4f8a6fb1e415699974d90c050f33be
   languageName: node
   linkType: hard
 
@@ -2174,29 +2174,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/scripts@npm:^15.1.1":
-  version: 15.1.1
-  resolution: "@essex/scripts@npm:15.1.1"
+"@essex/scripts@npm:^15.1.2":
+  version: 15.1.2
+  resolution: "@essex/scripts@npm:15.1.2"
   dependencies:
     "@babel/core": ^7.14.0
-    "@essex/build-step-azure": 15.1.1
-    "@essex/build-step-babel": 15.1.1
-    "@essex/build-step-clean": 15.1.1
-    "@essex/build-step-eslint": 15.1.1
-    "@essex/build-step-init": 15.1.1
-    "@essex/build-step-jest": 15.1.1
-    "@essex/build-step-lint-staged": 15.1.1
-    "@essex/build-step-pretty-quick": 15.1.1
-    "@essex/build-step-recipes": 15.1.1
-    "@essex/build-step-rollup": 15.1.1
-    "@essex/build-step-typedoc": 15.1.1
-    "@essex/build-step-typescript": 15.1.1
-    "@essex/build-step-webpack": 15.1.1
+    "@essex/build-step-azure": 15.1.2
+    "@essex/build-step-babel": 15.1.2
+    "@essex/build-step-clean": 15.1.2
+    "@essex/build-step-eslint": 15.1.2
+    "@essex/build-step-init": 15.1.2
+    "@essex/build-step-jest": 15.1.2
+    "@essex/build-step-lint-staged": 15.1.2
+    "@essex/build-step-pretty-quick": 15.1.2
+    "@essex/build-step-recipes": 15.1.2
+    "@essex/build-step-rollup": 15.1.2
+    "@essex/build-step-typedoc": 15.1.2
+    "@essex/build-step-typescript": 15.1.2
+    "@essex/build-step-webpack": 15.1.2
     "@essex/build-step-zip": 15.0.3
-    "@essex/build-utils": 15.1.1
+    "@essex/build-utils": 15.1.2
     "@essex/eslint-plugin": 15.0.3
     "@essex/shellrunner": 15.0.3
-    "@essex/tasklogger": 15.1.1
+    "@essex/tasklogger": 15.1.2
     "@essex/webpack-config": 15.0.3
     chalk: ^4.1.1
     commander: ^7.2.0
@@ -2242,7 +2242,7 @@ __metadata:
   bin:
     essex: ./lib/index.js
     essex-scripts: ./lib/index.js
-  checksum: 423fdcabec5f3394fd568bb8705a437f8458be49b795c104e01b0d11c603a4043ee27e9c715a1d87f43dec159cea3fbedfc9b0c1cf79d680d59e94345219c39d
+  checksum: e7734f88bad07bb1134a7178a2ef51306f244f7d2dda2f929bd1e70a20fcdb882a4a1980ebf4679b7302d4408308858702a092d67d53c9b98fe4baae6e9860b5
   languageName: node
   linkType: hard
 
@@ -2256,12 +2256,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/tasklogger@npm:15.1.1":
-  version: 15.1.1
-  resolution: "@essex/tasklogger@npm:15.1.1"
+"@essex/tasklogger@npm:15.1.2":
+  version: 15.1.2
+  resolution: "@essex/tasklogger@npm:15.1.2"
   dependencies:
     chalk: ^4.1.1
-  checksum: 56f8d0f01def0f5f31a955a33ee623065c34ca3bfd1b89eee2b21f27b826ab884496f59f695f5c1a53f7eb23ccadb13ba65afa3578aa4169bff2b9e4a79e7f11
+  checksum: d8696b36e4bbf361fe972652d0185e3884dab7c6d6637e84b4dfc7c974ed5cd0b3bb3bb7cd13c713ed37c065d3da635e07aee4b56ad1f5a92b83681c1d5f154f
   languageName: node
   linkType: hard
 
@@ -2824,7 +2824,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/color@workspace:packages/color"
   dependencies:
-    "@essex/scripts": ^15.1.1
+    "@essex/scripts": ^15.1.2
     "@types/node": ^14.14.44
     chroma-js: ^2.1.1
     color-blind: ^0.1.1
@@ -2839,7 +2839,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/core@workspace:packages/core"
   dependencies:
-    "@essex/scripts": ^15.1.1
+    "@essex/scripts": ^15.1.2
     "@thematic/color": "workspace:packages/color"
     "@types/d3-scale": ^2.2.4
     "@types/jest": ^26.0.23
@@ -2863,7 +2863,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/d3@workspace:packages/d3"
   dependencies:
-    "@essex/scripts": ^15.1.1
+    "@essex/scripts": ^15.1.2
     "@thematic/core": "workspace:packages/core"
     "@types/d3-axis": ^1.0.14
     "@types/d3-selection": ^1.4.3
@@ -2883,7 +2883,7 @@ __metadata:
   resolution: "@thematic/fluent@workspace:packages/fluent"
   dependencies:
     "@essex-js-toolkit/hooks": ^1.1.5
-    "@essex/scripts": ^15.1.1
+    "@essex/scripts": ^15.1.2
     "@fluentui/font-icons-mdl2": ^8.1.0
     "@fluentui/react": ^8.14.4
     "@thematic/color": "workspace:packages/color"
@@ -2908,7 +2908,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/react@workspace:packages/react"
   dependencies:
-    "@essex/scripts": ^15.1.1
+    "@essex/scripts": ^15.1.2
     "@thematic/color": "workspace:packages/color"
     "@thematic/core": "workspace:packages/core"
     "@types/node": ^14.14.44
@@ -2934,15 +2934,15 @@ __metadata:
     "@essex/eslint-plugin": ^15.0.3
     "@essex/jest-config": ^15.0.3
     "@essex/prettier-config": ^10.0.2
-    "@essex/scripts": ^15.1.1
+    "@essex/scripts": ^15.1.2
     "@types/jest": ^26.0.23
     "@types/node": ^14.14.44
     "@types/prettier": ^2.2.3
     "@typescript-eslint/eslint-plugin": ^4.22.1
     "@typescript-eslint/parser": ^4.22.1
     eslint-import-resolver-node: ^0.3.4
-    husky: ^4.3.0
-    lint-staged: ^10.4.2
+    husky: ^6.0.0
+    lint-staged: ^11.0.0
     npm-run-all: ^4.1.5
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -2956,7 +2956,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/vega@workspace:packages/vega"
   dependencies:
-    "@essex/scripts": ^15.1.1
+    "@essex/scripts": ^15.1.2
     "@thematic/core": "workspace:packages/core"
     "@types/node": ^14.14.44
     core-js: ^3.12.1
@@ -2970,7 +2970,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/webapp@workspace:packages/webapp"
   dependencies:
-    "@essex/scripts": ^15.1.1
+    "@essex/scripts": ^15.1.2
     "@essex/webpack-config": ^15.0.3
     "@fluentui/font-icons-mdl2": ^8.1.0
     "@fluentui/react": ^8.14.4
@@ -5728,13 +5728,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^6.0.0":
-  version: 6.1.0
-  resolution: "commander@npm:6.1.0"
-  checksum: ef1e310c3f430b84f8818ec9c6e5ce1b84909616eb2c1b1a79f646bc25fbca156eccf2ecf19f07e77a08dc519728d53d1300f94f3b2ad93de65add66044dfce6
-  languageName: node
-  linkType: hard
-
 "commander@npm:^7.2.0":
   version: 7.2.0
   resolution: "commander@npm:7.2.0"
@@ -5746,13 +5739,6 @@ __metadata:
   version: 1.0.1
   resolution: "commondir@npm:1.0.1"
   checksum: 98f18ad14f0ea38e0866db365bc8496f2a74250cf47ec96b94913e1b0574c99b4ff837a9f05dbc68d82505fd06b52dfba4f6bbe6fbda43094296cfaf33b475a0
-  languageName: node
-  linkType: hard
-
-"compare-versions@npm:^3.6.0":
-  version: 3.6.0
-  resolution: "compare-versions@npm:3.6.0"
-  checksum: 09525264502bda1f6667ad2429eaf5520b543d997e79e7a94b66a5896df8921cdc3a97140dfff75af6c9ba1859c872de1921c3cf8a6c48ed807bbf9f582cf093
   languageName: node
   linkType: hard
 
@@ -6383,7 +6369,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^4.3.2":
+"debug@npm:^4.3.1, debug@npm:^4.3.2":
   version: 4.3.2
   resolution: "debug@npm:4.3.2"
   dependencies:
@@ -7445,7 +7431,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"execa@npm:^4.0.0, execa@npm:^4.0.3":
+"execa@npm:^4.0.0":
   version: 4.0.3
   resolution: "execa@npm:4.0.3"
   dependencies:
@@ -7459,6 +7445,23 @@ __metadata:
     signal-exit: ^3.0.2
     strip-final-newline: ^2.0.0
   checksum: 65b237d178b468045ee57af6aa4e4124807b28aec9573d9b3b16b02a7e41bd65996236e0c5575d053d3888585ffc795cbed38847c6c9669e9c8481fc44ac05e4
+  languageName: node
+  linkType: hard
+
+"execa@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "execa@npm:5.0.0"
+  dependencies:
+    cross-spawn: ^7.0.3
+    get-stream: ^6.0.0
+    human-signals: ^2.1.0
+    is-stream: ^2.0.0
+    merge-stream: ^2.0.0
+    npm-run-path: ^4.0.1
+    onetime: ^5.1.2
+    signal-exit: ^3.0.3
+    strip-final-newline: ^2.0.0
+  checksum: bf9664702c981ae922ce465bc60d9bfd583e9ad47ab1a89168665e1fb330cc72f7080fda606bac85454bdc341198f454072018e616f0d03aa1e4b671ef04b94e
   languageName: node
   linkType: hard
 
@@ -7814,15 +7817,6 @@ __metadata:
     locate-path: ^5.0.0
     path-exists: ^4.0.0
   checksum: d612d28e02eaca6cd7128fc9bc9b456e2547a3f9875b2b2ae2dbdc6b8cec52bc2885efcb3ac6c18954e838f4c8e20565d196784b190e1d38565f9dc39aade722
-  languageName: node
-  linkType: hard
-
-"find-versions@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "find-versions@npm:3.2.0"
-  dependencies:
-    semver-regex: ^2.0.0
-  checksum: 2ddc16b4265184e2b7ab68bfd9d84835178fef4193abd957ebe328e0de98e8ca3b31e2a19201c1c8308e24786faa295aab46c0bc21fa89440e2a1bc8174987f0
   languageName: node
   linkType: hard
 
@@ -8211,6 +8205,13 @@ fsevents@~2.3.1:
   dependencies:
     pump: ^3.0.0
   checksum: 599dad0b6b9e41602c5a383d218e929209774e66bd3345d5ba6b87e305a16e5d4263936cab974804a30cfeebb1d9e6082f0dba4a463fcce0ba75b922b7c9d861
+  languageName: node
+  linkType: hard
+
+"get-stream@npm:^6.0.0":
+  version: 6.0.1
+  resolution: "get-stream@npm:6.0.1"
+  checksum: 83de1fde5b21f879b91e45c1be765f53cf041873d65aea3b5a15cd53d4bc7825118693b1f50efb5c33a5d979dd20b398b6af955ffd70a013017da933b18fa5c8
   languageName: node
   linkType: hard
 
@@ -8898,24 +8899,19 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"husky@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "husky@npm:4.3.0"
-  dependencies:
-    chalk: ^4.0.0
-    ci-info: ^2.0.0
-    compare-versions: ^3.6.0
-    cosmiconfig: ^7.0.0
-    find-versions: ^3.2.0
-    opencollective-postinstall: ^2.0.2
-    pkg-dir: ^4.2.0
-    please-upgrade-node: ^3.2.0
-    slash: ^3.0.0
-    which-pm-runs: ^1.0.0
+"human-signals@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "human-signals@npm:2.1.0"
+  checksum: 70bfd94d27b8ca94f76f92f56d294694860c15264393a8ffee83f49535a08da02e477064d91e2b511cc642ec5c7922675d2babcca2b6bf6f45e4d037b632759d
+  languageName: node
+  linkType: hard
+
+"husky@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "husky@npm:6.0.0"
   bin:
-    husky-run: bin/run.js
-    husky-upgrade: lib/upgrader/bin.js
-  checksum: c212d9732de84cbd7c25d907b874f7844503f85e28c0512518cddbac9854c54f1c569e81c5b70387f1e3c27d35c2b43256c811cf06fdad066565c5fc178f33f7
+    husky: lib/bin.js
+  checksum: 61e1f7f53f3c969d361c2a1d4ed8018b9447406ea6cd644a2526d18b76877d135001d8cbd48a1d201fc1614d96995e691ecd2b82a8d8513a6b4a313da1188ccd
   languageName: node
   linkType: hard
 
@@ -9592,6 +9588,13 @@ fsevents@~2.3.1:
   dependencies:
     unc-path-regex: ^0.1.2
   checksum: ee43c89aa0dcf0292e50b0994cdb02d8c14bebea54d87f447915374982a66ffdf6e24780c7306c23a454a083c5b05a87dc84c9432bb17bbeddb1a4c6e52575c0
+  languageName: node
+  linkType: hard
+
+"is-unicode-supported@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "is-unicode-supported@npm:0.1.0"
+  checksum: 00ca6f5581b81d55c567d259175cb1af08c60ae95f6aad69adadfdfbe098c60ef5617ad440770d821f1710773987c0b13ed6dd375cd9ab1bd7b7dd8f9a42625c
   languageName: node
   linkType: hard
 
@@ -10568,46 +10571,47 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^10.4.2":
-  version: 10.4.2
-  resolution: "lint-staged@npm:10.4.2"
+"lint-staged@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "lint-staged@npm:11.0.0"
   dependencies:
-    chalk: ^4.1.0
+    chalk: ^4.1.1
     cli-truncate: ^2.1.0
-    commander: ^6.0.0
+    commander: ^7.2.0
     cosmiconfig: ^7.0.0
-    debug: ^4.1.1
+    debug: ^4.3.1
     dedent: ^0.7.0
     enquirer: ^2.3.6
-    execa: ^4.0.3
-    listr2: ^2.6.0
-    log-symbols: ^4.0.0
-    micromatch: ^4.0.2
+    execa: ^5.0.0
+    listr2: ^3.8.2
+    log-symbols: ^4.1.0
+    micromatch: ^4.0.4
     normalize-path: ^3.0.0
     please-upgrade-node: ^3.2.0
     string-argv: 0.3.1
     stringify-object: ^3.3.0
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: bbd94e1dbf3e0eb361c262e7594dd4a4963cec87e8d90d3e2904d11f3b4cd9b14b3e923a97ca17ab76e460540f517d071557091890d4e1d8c54523741e882a28
+  checksum: e5d9c38f468fae090939d150f8a1676ca208e50c714f20c9957a16833eeae20ca9676c8679883d0a005fda58375581c26352e18a2227d6449a29adaca650f957
   languageName: node
   linkType: hard
 
-"listr2@npm:^2.6.0":
-  version: 2.6.2
-  resolution: "listr2@npm:2.6.2"
+"listr2@npm:^3.8.2":
+  version: 3.8.2
+  resolution: "listr2@npm:3.8.2"
   dependencies:
-    chalk: ^4.1.0
+    chalk: ^4.1.1
     cli-truncate: ^2.1.0
     figures: ^3.2.0
     indent-string: ^4.0.0
     log-update: ^4.0.0
     p-map: ^4.0.0
-    rxjs: ^6.6.2
+    rxjs: ^6.6.7
     through: ^2.3.8
+    wrap-ansi: ^7.0.0
   peerDependencies:
     enquirer: ">= 2.3.0 < 3"
-  checksum: 4d5fd1bc8f5ad63a38950bac0462cb35e7b51c8988bb263e63d181eab1572493d0f3d384fbeab69171efa0746bb8ea07038d11097216519c3117d935ce723b38
+  checksum: ecc039103c8d1065782d327b87045431b609105bcdada16cd209daf1b2f971605ba5c083fbe74e4d17a0002d7f8ab038c94c4feaaf48a0601dba628cd6f0b6e3
   languageName: node
   linkType: hard
 
@@ -10804,12 +10808,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"log-symbols@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "log-symbols@npm:4.0.0"
+"log-symbols@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "log-symbols@npm:4.1.0"
   dependencies:
-    chalk: ^4.0.0
-  checksum: 2cbdb0427d1853f2bd36645bff42aaca200902284f28aadacb3c0fa4c8c43fe6bfb71b5d61ab08b67063d066d7c55b8bf5fbb43b03e4a150dbcdd643e9cd1dbf
+    chalk: ^4.1.0
+    is-unicode-supported: ^0.1.0
+  checksum: 57be4aeb6a6ecb81d8267600836f81928da1d846ad13384a9a22d179e27590fdb680946edbd15642a31735183adaa3dc6aae2d20e619a19fa0d54e1aee945915
   languageName: node
   linkType: hard
 
@@ -11037,6 +11042,16 @@ fsevents@~2.3.1:
     braces: ^3.0.1
     picomatch: ^2.0.5
   checksum: 0cb0e11d647cbb65e398a0a8a1340a7fb751ae2722346219c435704cfac8b3275a94a6464236fe867f52ad46a24046d3bc4ac11b3d21ddb73bc44e27cf1e4904
+  languageName: node
+  linkType: hard
+
+"micromatch@npm:^4.0.4":
+  version: 4.0.4
+  resolution: "micromatch@npm:4.0.4"
+  dependencies:
+    braces: ^3.0.1
+    picomatch: ^2.2.3
+  checksum: bc522ad93c086aa176f50fea2dc8060a8f7d7a621c811cf9ba02a1912577cc100190508166d721231465f10a575a40ec8a1bffc23bbc2c0108fcbf02e4be04ed
   languageName: node
   linkType: hard
 
@@ -11494,7 +11509,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"npm-run-path@npm:^4.0.0":
+"npm-run-path@npm:^4.0.0, npm-run-path@npm:^4.0.1":
   version: 4.0.1
   resolution: "npm-run-path@npm:4.0.1"
   dependencies:
@@ -11776,21 +11791,21 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"onetime@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "onetime@npm:5.1.2"
+  dependencies:
+    mimic-fn: ^2.1.0
+  checksum: e425f6caeb20cf2598ffece94be5663932e34d074f1631b682b13d5f01cc1e0712a7dc711eff1706bb5a5aaab8a52e37bd5edcf560334e3222219d7e8b09c21c
+  languageName: node
+  linkType: hard
+
 "onigasm@npm:^2.2.5":
   version: 2.2.5
   resolution: "onigasm@npm:2.2.5"
   dependencies:
     lru-cache: ^5.1.1
   checksum: 9db74810f55bc0b9718991d36ea445e2095f09743f22d5e76bc37a31e34b9b5204b1224ea2fb30253e810fe57222bf86274d5b38073b1c14534fee4c6da300b4
-  languageName: node
-  linkType: hard
-
-"opencollective-postinstall@npm:^2.0.2":
-  version: 2.0.3
-  resolution: "opencollective-postinstall@npm:2.0.3"
-  bin:
-    opencollective-postinstall: index.js
-  checksum: d75b06b80eb426aaf099307ca4398f3119c8c86ff3806a95cfe234b979b80c07080040734fe2dc3c51fed5b15bd98dae88340807980bdc74aa1ebf045c74ef06
   languageName: node
   linkType: hard
 
@@ -12213,6 +12228,13 @@ fsevents@~2.3.1:
   version: 2.2.2
   resolution: "picomatch@npm:2.2.2"
   checksum: 20fa75e0a58b39d83425b3db68744d5f6f361fd4fd66ec7745d884036d502abba0d553a637703af79939b844164b13e60eea339ccb043d7fbd74c3da2592b864
+  languageName: node
+  linkType: hard
+
+"picomatch@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "picomatch@npm:2.2.3"
+  checksum: f8c9323bc3b21ff448e81dd32277135d781abae5d53a1415d69a4ce6317a2c11404d449c550110b8fa402c07d5e80ff0e2657f263a312517cc809e9010d25791
   languageName: node
   linkType: hard
 
@@ -13501,12 +13523,12 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"rxjs@npm:^6.6.2":
-  version: 6.6.3
-  resolution: "rxjs@npm:6.6.3"
+"rxjs@npm:^6.6.7":
+  version: 6.6.7
+  resolution: "rxjs@npm:6.6.7"
   dependencies:
     tslib: ^1.9.0
-  checksum: 61a3da6db947f69b7d805df3a619d8f60678b7372c4d571dd63e45ef3532be984a88307ea0aa2cd8d2578b62c3c022186e8da9dca47c9c1b8c9ecba6f5581deb
+  checksum: 1146975cbd5388ee5e61450235dc5670931e43cce71813f567977d334acc4d75c6e8d9d293df67e1fb31510b99fc8957943d4a9b550d109e4dc69967a8471543
   languageName: node
   linkType: hard
 
@@ -13679,13 +13701,6 @@ resolve@^2.0.0-next.3:
   dependencies:
     sver-compat: ^1.5.0
   checksum: 34c3302aee143f126771230e70955c66027cce1ede30c8894caf6bfd48f0fa4105dea0a6606d1614697326611ae6da1c48771a325df5caeb02a447dde3e033f6
-  languageName: node
-  linkType: hard
-
-"semver-regex@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "semver-regex@npm:2.0.0"
-  checksum: 9b96cc8bd559c1d46968b334ccc88115a2d9d2f7a2125d6838471114ed0c52057e77aae760fbe4932aee06687584733b32aed6d2c9654b2db33e383bfb8f26ce
   languageName: node
   linkType: hard
 
@@ -13906,7 +13921,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"signal-exit@npm:^3.0.0, signal-exit@npm:^3.0.2":
+"signal-exit@npm:^3.0.0, signal-exit@npm:^3.0.2, signal-exit@npm:^3.0.3":
   version: 3.0.3
   resolution: "signal-exit@npm:3.0.3"
   checksum: f8f3fec95c8d1f9ad7e3cce07e1195f84e7a85cdcb4e825e8a2b76aa5406a039083d2bc9662b3cf40e6948262f41277047d20e6fbd58c77edced0b18fab647d8
@@ -16155,13 +16170,6 @@ typescript@^4.2.4:
   languageName: node
   linkType: hard
 
-"which-pm-runs@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "which-pm-runs@npm:1.0.0"
-  checksum: 0bb79a782e98955afec8f35a3ae95c4711fdd3d0743772ee98211da67c2421fdd4c92c95c93532cc0b4dcc085d8e27f3ad2f8a9173cb632692379bd3d2818821
-  languageName: node
-  linkType: hard
-
 "which@npm:^1.2.14, which@npm:^1.2.9":
   version: 1.3.1
   resolution: "which@npm:1.3.1"
@@ -16248,6 +16256,17 @@ typescript@^4.2.4:
     string-width: ^4.1.0
     strip-ansi: ^6.0.0
   checksum: ee4ed8b2994cfbdcd571f4eadde9d8ba00b8a74113483fe5d0c5f9e84054e43df8e9092d7da35c5b051faeca8fe32bd6cea8bf5ae8ad4896d6ea676a347e90af
+  languageName: node
+  linkType: hard
+
+"wrap-ansi@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "wrap-ansi@npm:7.0.0"
+  dependencies:
+    ansi-styles: ^4.0.0
+    string-width: ^4.1.0
+    strip-ansi: ^6.0.0
+  checksum: 09939dd775ae565bb99a25a6c072fe3775a95fa71751b5533c94265fe986ba3e3ab071a027ab76cf26876bd9afd10ac3c2d06d7c4bcce148bf7d2d9514e3a0df
   languageName: node
   linkType: hard
 
