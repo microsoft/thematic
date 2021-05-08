@@ -5,7 +5,7 @@
 	"scripts": {
 		"clean:all": "yarn workspaces foreach -pv run clean",
 		"bundle:all": "yarn workspaces foreach -pv run bundle",
-		"build:all": "yarn workspaces foreach -pivt --topological-dev run build",
+		"build:all": "ESSEX_DEBUG=1 yarn workspaces foreach -piv run build",
 		"start:all": "yarn workspaces foreach -piv run start",
 		"publish:all": "yarn workspaces foreach --exclude '@thematic/root' -pv npm publish --tolerate-republish --access public",
 		"version:all": "yarn workspaces foreach --exclude '@thematic/root' -iv version -d",
