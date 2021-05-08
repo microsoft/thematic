@@ -18,7 +18,7 @@
 		"core-js": "^3.12.1"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^15.1.1",
+		"@essex/scripts": "^15.1.2",
 		"@types/node": "^14.14.44",
 		"vega": "^5.17.0"
 	},
