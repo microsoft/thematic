@@ -1,6 +1,6 @@
 {
 	"name": "@thematic/vega",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "MIT",
 	"main": "src/index.ts",
 	"publishConfig": {
@@ -14,16 +14,15 @@
 		"start": "essex watch"
 	},
 	"dependencies": {
-		"@thematic/core": "^1.0.0"
+		"@thematic/core": "workspace:packages/core",
+		"core-js": "^3.12.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^14.0.0",
-		"@types/node": "^14.14.0",
-		"core-js": "^3.11.1",
+		"@essex/scripts": "^15.0.2",
+		"@types/node": "^14.14.44",
 		"vega": "^5.17.0"
 	},
 	"peerDependencies": {
-		"core-js": "^3.11.1",
 		"vega": ">= 5.13.0"
 	}
 }
