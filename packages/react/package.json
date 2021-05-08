@@ -14,7 +14,7 @@
 		"start": "essex watch"
 	},
 	"dependencies": {
-		"@essex/scripts": "^15.0.2",
+		"@essex/scripts": "^15.1.0",
 		"@thematic/color": "workspace:packages/color",
 		"@thematic/core": "workspace:packages/core",
 		"core-js": "^3.12.0"

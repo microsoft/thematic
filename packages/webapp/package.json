@@ -46,7 +46,7 @@
 		"vega": "^5.17.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^15.0.2",
+		"@essex/scripts": "^15.1.0",
 		"raw-loader": "^4.0.2",
 		"worker-loader": "^2.0.0"
 	},

@@ -20,7 +20,7 @@
 		"hsluv": "^0.1.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^15.0.2",
+		"@essex/scripts": "^15.1.0",
 		"@types/node": "^14.14.44"
 	},
 	"peerDependencies": {

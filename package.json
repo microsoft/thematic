@@ -33,7 +33,7 @@
 		"@essex/eslint-plugin": "^15.0.2",
 		"@essex/jest-config": "^15.0.2",
 		"@essex/prettier-config": "^10.0.1",
-		"@essex/scripts": "^15.0.2",
+		"@essex/scripts": "^15.1.0",
 		"@types/jest": "^26.0.23",
 		"@types/node": "^14.14.44",
 		"@types/prettier": "^2.2.3",

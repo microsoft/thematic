@@ -1917,154 +1917,151 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/build-step-azure@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-azure@npm:15.0.2"
+"@essex/build-step-azure@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-azure@npm:15.1.0"
   dependencies:
     "@azure/storage-blob": ^12.5.0
-    "@essex/build-utils": 15.0.2
+    "@essex/build-utils": 15.1.0
     glob: ^7.1.7
     mime-types: ^2.1.30
-  checksum: 9c73f13e9501eb8afbf1c59927f677a6d5a97fa804b4c5917c134d5ae989c904f47e4768bc73a116ede4fd5135dbb94c83e5b3d85296cf48183e1bcbcfe39f5a
+  checksum: 548fe0e65d844c52cefb00633546134bde23b49379e34d5049c78d69d1d3b14fd37f7f9ccf7e1420d379c1585d6ecaab18d3a6c58db6273193061929bef37aee
   languageName: node
   linkType: hard
 
-"@essex/build-step-babel@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-babel@npm:15.0.2"
+"@essex/build-step-babel@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-babel@npm:15.1.0"
   dependencies:
     "@babel/core": ^7.14.0
     "@babel/types": ^7.14.1
     "@essex/babel-config": 15.0.2
-    "@essex/build-utils": 15.0.2
-    "@essex/tasklogger": 15.0.2
+    "@essex/tasklogger": 15.1.0
+    glob: ^7.1.7
     gulp: ^4.0.2
-    gulp-babel: ^8.0.0
-    gulp-debug: ^4.0.0
-    gulp-plumber: ^1.2.1
-  checksum: ca0265001bc7b950dcb184e3ebb396b3d7c25ea047cd796ec3edeb516d55ddc1276ecf2f1bd374339dfec12dc921f7dde6e2a64d12dd0f29f4d9403b62bf020c
+  checksum: bd5c184297c1ab4bb301212866bbd1801943f4a5eaad1fc1b6ba341af0f96a964eb045aba79065be1baef48020c72f3aea32908dfe6a162ef05760281e7dcb5e
   languageName: node
   linkType: hard
 
-"@essex/build-step-clean@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-clean@npm:15.0.2"
+"@essex/build-step-clean@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-clean@npm:15.1.0"
   dependencies:
-    "@essex/build-utils": 15.0.2
+    "@essex/build-utils": 15.1.0
     rimraf: ^3.0.2
-  checksum: 6984b4933ec53f8309e2ce3a67bfe3d091036992f44ea9ff69decb3582326f12fd623acb2e001d67090785ab63cfede9fcd96f386807979f202e5ea85b46778c
+  checksum: 0d57f75ecd7d7f909ca2af48d9425371e20c2d1b84302b8f62f9f7bcf551095ea1ec78c8de692e17436d856eb47b5811b77eefad6fc314b40e37360ff7c105f8
   languageName: node
   linkType: hard
 
-"@essex/build-step-eslint@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-eslint@npm:15.0.2"
+"@essex/build-step-eslint@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-eslint@npm:15.1.0"
   dependencies:
-    "@essex/build-utils": 15.0.2
+    "@essex/build-utils": 15.1.0
     "@essex/eslint-config": 15.0.2
     "@essex/eslint-plugin": 15.0.2
     "@typescript-eslint/eslint-plugin": ^4.22.1
     "@typescript-eslint/parser": ^4.22.1
     eslint: ^7.25.0
     eslint-import-resolver-node: ^0.3.4
-  checksum: 8e95a8118dfe49a84922411b7909a481691a3c2823cdf1684fdb182260c704fd3fc2cb847ff4e677219c8fef9db57bd905dc8d3e9f43cbb43d4c55dd98681526
+  checksum: 0d6d2a260cf220235f0dbb1466ece3a31e6a5702b5f0154d71a5203117f8b30712f05e904b2ee12a8b15f9441085731a148172ec6816c9f1e2cfc0760cfa6d1d
   languageName: node
   linkType: hard
 
-"@essex/build-step-init@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-init@npm:15.0.2"
+"@essex/build-step-init@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-init@npm:15.1.0"
   dependencies:
-    "@essex/build-step-recipes": 15.0.2
-    "@essex/build-utils": 15.0.2
-    "@essex/tasklogger": 15.0.2
-  checksum: f3c19e298d482c86c01228dbb16ecc86affefc89bbdee7d2e29d9be5b612931ff9acd8e78d3961ed44d89a12b883dd74f017cd605ce4f6b7b4a4d48927601846
+    "@essex/build-step-recipes": 15.1.0
+    "@essex/build-utils": 15.1.0
+    "@essex/tasklogger": 15.1.0
+  checksum: 49506beb45dff9e823b08022f68bc16942099a340be7b7c1a97e58dd4c9488b97417ab1b16e894751c928a92926a50e01cb3b342f943997c1aa53445ef2d6c4c
   languageName: node
   linkType: hard
 
-"@essex/build-step-jest@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-jest@npm:15.0.2"
+"@essex/build-step-jest@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-jest@npm:15.1.0"
   dependencies:
-    "@essex/build-utils": 15.0.2
+    "@essex/build-utils": 15.1.0
     "@essex/jest-config": 15.0.2
-    "@essex/tasklogger": 15.0.2
+    "@essex/tasklogger": 15.1.0
     "@jest/core": ~26.6.3
     "@types/debug": ^4.1.5
     chalk: ^4.1.1
     debug: ^4.3.2
     jest: ~26.6.3
-  checksum: a315368d3baf7e1ddc8b5ec1acecf06a337ff4a8655313ff70dd9a9db4f63a6682c359b2f1730b6c937cade6d39e7707c666948046d03fff5ab79a0c72d912b7
+  checksum: a1e0f937dd368b41122448dcc76ec31f1f9ef1a7ae575290205d404f36c5a042f83726d839a6394da368c11e93de308182be5ec58580d8c0064ed2fed2b32bca
   languageName: node
   linkType: hard
 
-"@essex/build-step-lint-staged@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-lint-staged@npm:15.0.2"
+"@essex/build-step-lint-staged@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-lint-staged@npm:15.1.0"
   dependencies:
-    "@essex/build-utils": 15.0.2
+    "@essex/build-utils": 15.1.0
     "@essex/shellrunner": 15.0.2
   peerDependencies:
     lint-staged: ">= 10.2"
-  checksum: 6ffc91b1b24daba00e51a880766bf56272c0316dd7890cd2d63c879220c898111d80dcfc9ba2d7c4f6f32e308c48a1e202d75b2fd2653e60a188b4841a39c1c6
+  checksum: e981742eddfb3c2f58e191ae6c24987fd71bf8acfd180dc770a8d657c0323dbf896da4f1a2d7ebe4e1c9063844dfc1d64b0b8fcd9d45558e7abb7db70aa6b232
   languageName: node
   linkType: hard
 
-"@essex/build-step-pretty-quick@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-pretty-quick@npm:15.0.2"
+"@essex/build-step-pretty-quick@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-pretty-quick@npm:15.1.0"
   dependencies:
-    "@essex/build-utils": 15.0.2
-    "@essex/tasklogger": 15.0.2
+    "@essex/build-utils": 15.1.0
+    "@essex/tasklogger": 15.1.0
     chalk: ^4.1.1
     prettier: ^2.2.1
     pretty-quick: ^3.1.0
-  checksum: 1ebdea2f759cb60ca53d5679fad3b16d54c476da59043d18704beddf7db1377842d8fa85c4abc46c69e9e6583ff44e888027cbd58d2d0fceef18afef22408e4a
+  checksum: 95d55522b1c635d6798ebbe9623c0e39766938035330112665680cb6d44d8699a090cf444313afff397850189591ce9f6a9585f9af01245b823f3399e469ada1
   languageName: node
   linkType: hard
 
-"@essex/build-step-recipes@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-recipes@npm:15.0.2"
+"@essex/build-step-recipes@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-recipes@npm:15.1.0"
   dependencies:
-    "@essex/tasklogger": 15.0.2
-  checksum: ce89f9ea4d14130492e9d7e37563cb61aa829aa3977a8f9af823ed1cebb6c468154d6b0ae408f3e67ee02a4b979c04882ee7afe89fa1effe4bae7f9c5354518b
+    "@essex/tasklogger": 15.1.0
+  checksum: 6e0eaa82eb469eaa7cfa8da723841116075307ce9dd293e54cad70f967c31edb53d6ac5eed9dc8a6cc0f163c07157483479aa1b62eabc7b39e81945981d3e6d7
   languageName: node
   linkType: hard
 
-"@essex/build-step-rollup@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-rollup@npm:15.0.2"
+"@essex/build-step-rollup@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-rollup@npm:15.1.0"
   dependencies:
-    "@essex/build-utils": 15.0.2
+    "@essex/build-utils": 15.1.0
     "@essex/shellrunner": 15.0.2
-    "@essex/tasklogger": 15.0.2
+    "@essex/tasklogger": 15.1.0
   peerDependencies:
     rollup: ">= 2"
-  checksum: 646088d4599ed5e0fe57a89439cef6b8d66d9234431264177307c572b151ca610eb8bb9829feba4a8de20107f014d82e51c74b7f25a5a6fd8f244066afa41c47
+  checksum: a69b9d40706a3c52a2b1b8754f51b81e2ac0e94473c329ee7ec369ad99cb090a4008b2dfbbbd02207b7097a7c444ef66ce6b8f31070d0816d95b089e1243e0c0
   languageName: node
   linkType: hard
 
-"@essex/build-step-typedoc@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-typedoc@npm:15.0.2"
+"@essex/build-step-typedoc@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-typedoc@npm:15.1.0"
   dependencies:
-    "@essex/build-utils": 15.0.2
-    "@essex/tasklogger": 15.0.2
+    "@essex/build-utils": 15.1.0
+    "@essex/tasklogger": 15.1.0
     typedoc: ^0.20.36
     typescript: ^4.2.4
   peerDependencies:
     "@types/node": ">= 14"
-  checksum: fc4088db805160116b1a73e4a72789ed7a2d859e56968ec090ccf579491374ef6cd9adc319d14f5a34aff325454f7214961aa3c258906aaf52380844be188501
+  checksum: 1cd8d6baf9a6d8073da6ae520a0937c9391d8aff62bd3986db0dec3358667ac98dedccd645c3b830ac3a1c17474f900320e851c3b14c5cf37d459688f46133b4
   languageName: node
   linkType: hard
 
-"@essex/build-step-typescript@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-typescript@npm:15.0.2"
+"@essex/build-step-typescript@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-typescript@npm:15.1.0"
   dependencies:
-    "@essex/build-utils": 15.0.2
-    "@essex/tasklogger": 15.0.2
+    "@essex/build-utils": 15.1.0
+    "@essex/tasklogger": 15.1.0
     gulp: ^4.0.2
     gulp-debug: ^4.0.0
     gulp-plumber: ^1.2.1
@@ -2073,20 +2070,20 @@ __metadata:
     typescript: ^4.2.4
   peerDependencies:
     "@types/node": ">= 14"
-  checksum: 35f64e18ec9b6d8631250d989918c66c91e5d739e651f9aaff10c681c39bfb3d329f76acbb62b95554745fb2d16c976417580d39fb9735dc23f8a3670978e798
+  checksum: 47d1034a52fe422b8ca8791d7a7056789151b1d62d90e64d235ff08d4a93bcf6a20dc56d00810ba852ec495d3301c7c54c310dbb07c7e722904d72486c692ea0
   languageName: node
   linkType: hard
 
-"@essex/build-step-webpack@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-step-webpack@npm:15.0.2"
+"@essex/build-step-webpack@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-step-webpack@npm:15.1.0"
   dependencies:
-    "@essex/build-utils": 15.0.2
-    "@essex/tasklogger": 15.0.2
+    "@essex/build-utils": 15.1.0
+    "@essex/tasklogger": 15.1.0
     "@essex/webpack-config": 15.0.2
     webpack: ^5.36.2
     webpack-dev-server: ^3.11.2
-  checksum: 20182bc8773852735cd3ec930cfe6a27e9d602400341cef25b8934d41029d8fe61ad338bc3e2c74dcb9a23f6610ce3f572cd71d75109afc40b08c0dfa6109d54
+  checksum: fa6caf788db3f17a3a95120dde8217de8cecf563ae0ae860b93442100e58e3b791eaa90046ce14f8491132dae4bb4beb0584073c87c7604c1e6c7a3d717134c6
   languageName: node
   linkType: hard
 
@@ -2100,17 +2097,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/build-utils@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/build-utils@npm:15.0.2"
+"@essex/build-utils@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/build-utils@npm:15.1.0"
   dependencies:
     "@essex/shellrunner": 15.0.2
-    "@essex/tasklogger": 15.0.2
+    "@essex/tasklogger": 15.1.0
     "@types/gulp": ^4.0.8
     "@types/through2": ^2.0.36
     gulp: ^4.0.2
     through2: ^4.0.2
-  checksum: f5b87aef5e0c565ed6913efb266b947a5113f9673727c4ce3360e249acddf190810c8eeb0065c10a8654f6b2244ded0161e508c515065e398c4df52f1c9c3582
+  checksum: 1796cb89cd23cc50c5318b676464b4052c30045da311e2c6d14f141ed9a2b49e3489b862a80f2b1e3b04281461d37915f1fbd7a41c9e04732540b523701027f9
   languageName: node
   linkType: hard
 
@@ -2176,39 +2173,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/scripts@npm:^15.0.2":
-  version: 15.0.2
-  resolution: "@essex/scripts@npm:15.0.2"
+"@essex/scripts@npm:^15.1.0":
+  version: 15.1.0
+  resolution: "@essex/scripts@npm:15.1.0"
   dependencies:
     "@babel/core": ^7.14.0
-    "@essex/build-step-azure": 15.0.2
-    "@essex/build-step-babel": 15.0.2
-    "@essex/build-step-clean": 15.0.2
-    "@essex/build-step-eslint": 15.0.2
-    "@essex/build-step-init": 15.0.2
-    "@essex/build-step-jest": 15.0.2
-    "@essex/build-step-lint-staged": 15.0.2
-    "@essex/build-step-pretty-quick": 15.0.2
-    "@essex/build-step-recipes": 15.0.2
-    "@essex/build-step-rollup": 15.0.2
-    "@essex/build-step-typedoc": 15.0.2
-    "@essex/build-step-typescript": 15.0.2
-    "@essex/build-step-webpack": 15.0.2
+    "@essex/build-step-azure": 15.1.0
+    "@essex/build-step-babel": 15.1.0
+    "@essex/build-step-clean": 15.1.0
+    "@essex/build-step-eslint": 15.1.0
+    "@essex/build-step-init": 15.1.0
+    "@essex/build-step-jest": 15.1.0
+    "@essex/build-step-lint-staged": 15.1.0
+    "@essex/build-step-pretty-quick": 15.1.0
+    "@essex/build-step-recipes": 15.1.0
+    "@essex/build-step-rollup": 15.1.0
+    "@essex/build-step-typedoc": 15.1.0
+    "@essex/build-step-typescript": 15.1.0
+    "@essex/build-step-webpack": 15.1.0
     "@essex/build-step-zip": 15.0.2
-    "@essex/build-utils": 15.0.2
+    "@essex/build-utils": 15.1.0
     "@essex/eslint-plugin": 15.0.2
     "@essex/shellrunner": 15.0.2
-    "@essex/tasklogger": 15.0.2
+    "@essex/tasklogger": 15.1.0
     "@essex/webpack-config": 15.0.2
     chalk: ^4.1.1
     commander: ^7.2.0
-    core-js: ^3.12.0
     debug: ^4.3.2
     gulp: ^4.0.2
     gulp-debug: ^4.0.0
     gulp-prettier: ^3.0.0
     prettier: ^2.2.1
-    regenerator-runtime: ^0.13.8
   peerDependencies:
     "@essex/eslint-config": ">=15.0.2"
     "@essex/jest-config": ">=15.0.2"
@@ -2246,7 +2241,7 @@ __metadata:
   bin:
     essex: ./lib/index.js
     essex-scripts: ./lib/index.js
-  checksum: 6732a7bd7ed49e3dfa27601548821476518c0e2fa18aea26073a0b1866c463f081b55167b5be62f25866d257fad49b4cbb8e5c20faeb0fca474afef93fde6574
+  checksum: 2272a2d350c9d6401746dc9b3fd6dccfe5df7924b759c93efef5f687fa08bdbde67a991c26b47359bd98e17bc14abb9f8f44310eb182455335b428cc4166cb11
   languageName: node
   linkType: hard
 
@@ -2260,12 +2255,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/tasklogger@npm:15.0.2":
-  version: 15.0.2
-  resolution: "@essex/tasklogger@npm:15.0.2"
+"@essex/tasklogger@npm:15.1.0":
+  version: 15.1.0
+  resolution: "@essex/tasklogger@npm:15.1.0"
   dependencies:
     chalk: ^4.1.1
-  checksum: bf857884ab0d65bfb366bcb0f9566af8e15e7ebd31da4d12f5b069d77ab42a4b27071de587643a6a6e4da90eb9258b1c6281c91fad61fc8fdb0b2910950815d1
+  checksum: 9774ea976dde127aac6057ffaceb71795de0eb8d8e7e7599244b2565e01212f4b3c22acf71ef6b142de929f03ce2fb08aed91a863deff253c4a84b106b82f980
   languageName: node
   linkType: hard
 
@@ -2828,7 +2823,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/color@workspace:packages/color"
   dependencies:
-    "@essex/scripts": ^15.0.2
+    "@essex/scripts": ^15.1.0
     "@types/node": ^14.14.44
     chroma-js: ^2.1.1
     color-blind: ^0.1.1
@@ -2843,7 +2838,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/core@workspace:packages/core"
   dependencies:
-    "@essex/scripts": ^15.0.2
+    "@essex/scripts": ^15.1.0
     "@thematic/color": "workspace:packages/color"
     "@types/d3-scale": ^2.2.4
     "@types/jest": ^26.0.23
@@ -2867,7 +2862,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/d3@workspace:packages/d3"
   dependencies:
-    "@essex/scripts": ^15.0.2
+    "@essex/scripts": ^15.1.0
     "@thematic/core": "workspace:packages/core"
     "@types/d3-axis": ^1.0.14
     "@types/d3-selection": ^1.4.3
@@ -2887,7 +2882,7 @@ __metadata:
   resolution: "@thematic/fluent@workspace:packages/fluent"
   dependencies:
     "@essex-js-toolkit/hooks": ^1.1.5
-    "@essex/scripts": ^15.0.2
+    "@essex/scripts": ^15.1.0
     "@fluentui/font-icons-mdl2": ^8.1.0
     "@fluentui/react": ^8.14.4
     "@thematic/color": "workspace:packages/color"
@@ -2912,7 +2907,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/react@workspace:packages/react"
   dependencies:
-    "@essex/scripts": ^15.0.2
+    "@essex/scripts": ^15.1.0
     "@thematic/color": "workspace:packages/color"
     "@thematic/core": "workspace:packages/core"
     "@types/node": ^14.14.44
@@ -2938,7 +2933,7 @@ __metadata:
     "@essex/eslint-plugin": ^15.0.2
     "@essex/jest-config": ^15.0.2
     "@essex/prettier-config": ^10.0.1
-    "@essex/scripts": ^15.0.2
+    "@essex/scripts": ^15.1.0
     "@types/jest": ^26.0.23
     "@types/node": ^14.14.44
     "@types/prettier": ^2.2.3
@@ -2960,7 +2955,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/vega@workspace:packages/vega"
   dependencies:
-    "@essex/scripts": ^15.0.2
+    "@essex/scripts": ^15.1.0
     "@thematic/core": "workspace:packages/core"
     "@types/node": ^14.14.44
     core-js: ^3.12.0
@@ -2974,7 +2969,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/webapp@workspace:packages/webapp"
   dependencies:
-    "@essex/scripts": ^15.0.2
+    "@essex/scripts": ^15.1.0
     "@essex/webpack-config": ^15.0.2
     "@fluentui/font-icons-mdl2": ^8.1.0
     "@fluentui/react": ^8.14.4
@@ -8417,20 +8412,6 @@ fsevents@~2.3.1:
   version: 1.3.0
   resolution: "growly@npm:1.3.0"
   checksum: c87f7e8c785cac6ee60719c9d62f7d790a85dafa13d62c4667664e3a21ee771f5fd19df3f374d2f7bdf297b8f687cf70e19bb066aba4832e6f6caa5190812578
-  languageName: node
-  linkType: hard
-
-"gulp-babel@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "gulp-babel@npm:8.0.0"
-  dependencies:
-    plugin-error: ^1.0.1
-    replace-ext: ^1.0.0
-    through2: ^2.0.0
-    vinyl-sourcemaps-apply: ^0.2.0
-  peerDependencies:
-    "@babel/core": ^7.0.0
-  checksum: d4589095f5de3f9b823e119186966550a713d4aa5868e4efd094c84054e0864f336d5140fb9418d0b17d27c18224fc982be70e8ae53ad60c9c64915b080e817f
   languageName: node
   linkType: hard
 
@@ -14065,7 +14046,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"source-map@npm:^0.5.0, source-map@npm:^0.5.1, source-map@npm:^0.5.6":
+"source-map@npm:^0.5.0, source-map@npm:^0.5.6":
   version: 0.5.7
   resolution: "source-map@npm:0.5.7"
   checksum: 737face96577a2184a42f141607fcc2c9db5620cb8517ae8ab3924476defa138fc26b0bab31e98cbd6f19211ecbf78400b59f801ff7a0f87aa9faa79f7433e10
@@ -15908,15 +15889,6 @@ typescript@^4.2.4:
     remove-bom-buffer: ^3.0.0
     vinyl: ^2.0.0
   checksum: 372d6f0797596bb7d86a3c86029a93f08a98816a615e418d482c77a2de95de5f65f46f6b488a56994d8dcb639b16b1e680b19e41e993479ef4729fc65cc45fb4
-  languageName: node
-  linkType: hard
-
-"vinyl-sourcemaps-apply@npm:^0.2.0":
-  version: 0.2.1
-  resolution: "vinyl-sourcemaps-apply@npm:0.2.1"
-  dependencies:
-    source-map: ^0.5.1
-  checksum: c1d826acf474831a58609e0d19f0f7e907cd6f2a347a67c2879aa44e149491f0b47449bfe906e9da54f026806196b3ac92f8ae4dfe3d3a44353baab1885a03b4
   languageName: node
   linkType: hard
 

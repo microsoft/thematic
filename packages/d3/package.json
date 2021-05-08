@@ -20,7 +20,7 @@
 		"d3-selection": "^1.4.2"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^15.0.2",
+		"@essex/scripts": "^15.1.0",
 		"@types/d3-axis": "^1.0.14",
 		"@types/d3-selection": "^1.4.3",
 		"@types/node": "^14.14.44"
