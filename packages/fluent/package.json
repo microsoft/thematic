@@ -22,7 +22,7 @@
 		"d3-scale": "^3.3.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^15.0.2",
+		"@essex/scripts": "^15.1.0",
 		"@fluentui/font-icons-mdl2": "^8.1.0",
 		"@fluentui/react": "^8.14.4",
 		"@types/d3-scale": "^3.2.2",
