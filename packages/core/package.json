@@ -21,13 +21,13 @@
 		"@thematic/color": "workspace:packages/color",
 		"@types/lodash": "^4.14.168",
 		"@types/murmurhash-js": "^1.0.3",
-		"core-js": "^3.12.0",
+		"core-js": "^3.12.1",
 		"d3-scale": "^3.2.3",
 		"lodash": "^4.17.20",
 		"murmurhash-js": "^1.0.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^15.0.2",
+		"@essex/scripts": "^15.1.1",
 		"@types/d3-scale": "^2.2.4",
 		"@types/jest": "^26.0.23",
 		"@types/ncp": "^2.0.4",
