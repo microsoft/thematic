@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import { connect } from 'react-redux'
 import { DownloadLink } from '../DownloadLink'
 import { JSONEditor } from '../JSONEditor'

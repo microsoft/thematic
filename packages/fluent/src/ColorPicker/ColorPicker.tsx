@@ -7,7 +7,7 @@ import {
 	Slider,
 	IColor,
 } from '@fluentui/react'
-import React, { CSSProperties } from 'react'
+import { CSSProperties } from 'react'
 
 import { css2hsluv, Params } from '@thematic/color'
 import { Theme } from '@thematic/core'
@@ -98,11 +98,11 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
 	// TODO: it would be really nice to make these IStyle objects and pass directly to
 	// child component instead of wrapping them in a div
 	// however, there are type incompatibilities that make it wonky
-	const slidersStyles = {
+	const slidersStyles: CSSProperties = {
 		width: 300, // default max width of color picker, so the sliders match
 		...(styles && styles.sliders),
 	}
-	const sliderStyles = {
+	const sliderStyles: CSSProperties = {
 		marginTop: 8,
 		...(styles && styles.slider),
 	}

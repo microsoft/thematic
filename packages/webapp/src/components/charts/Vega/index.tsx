@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import React, { memo, useLayoutEffect, useRef, useMemo } from 'react'
+import { memo, useLayoutEffect, useRef, useMemo } from 'react'
 
 import { useThematic } from '@thematic/react'
 import { vega as decorator } from '@thematic/vega'

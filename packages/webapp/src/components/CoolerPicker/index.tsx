@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
 import { connect } from 'react-redux'
 import { themeLoaded } from '../../state/actions'
 import { ColorSelection } from './ColorSelection'

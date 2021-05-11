@@ -8,7 +8,7 @@ import {
 	ILinkStyleProps,
 	ILinkStyles,
 } from '@fluentui/react'
-import React from 'react'
+import { FC } from 'react'
 
 export interface DownloadLinkProps {
 	/**
@@ -34,7 +34,7 @@ export interface DownloadLinkProps {
 	styles?: IStyleFunctionOrObject<ILinkStyleProps, ILinkStyles>
 }
 
-export const DownloadLink: React.FC<DownloadLinkProps> = ({
+export const DownloadLink: FC<DownloadLinkProps> = ({
 	filename,
 	blobParts,
 	options,
