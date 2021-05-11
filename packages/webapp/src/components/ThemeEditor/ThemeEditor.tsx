@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Pivot, PivotItem } from '@fluentui/react'
-import React from 'react'
+import { FC } from 'react'
 import { ColorPalette } from '../ColorPalette'
 import { CoolerPicker } from '../CoolerPicker'
 import { FluentViewer } from '../FluentViewer'
@@ -18,7 +18,7 @@ export interface ThemeEditorProps {
 	scaleItemCount: number
 }
 
-export const ThemeEditor: React.FC<ThemeEditorProps> = ({ scaleItemCount }) => {
+export const ThemeEditor: FC<ThemeEditorProps> = ({ scaleItemCount }) => {
 	return (
 		<div className="editor-wrapper">
 			<Pivot>

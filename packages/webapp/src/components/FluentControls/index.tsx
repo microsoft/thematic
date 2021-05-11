@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { useState, useCallback, useMemo } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 import { connect } from 'react-redux'
 import { themeLoaded } from '../../state/actions'
 import { ScaleType, Theme } from '@thematic/core'

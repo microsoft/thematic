@@ -2899,8 +2899,8 @@ __metadata:
     "@fluentui/react": ">= 8"
     "@fluentuit/font-icons-mdl2": ">= 8"
     "@types/node": "*"
-    "@types/react": ">= 16"
-    react: ">= 16.8.0"
+    "@types/react": ">= 17"
+    react: ">= 17"
   languageName: unknown
   linkType: soft
 
@@ -2917,8 +2917,8 @@ __metadata:
     react: ^17.0.2
   peerDependencies:
     "@types/node": "*"
-    "@types/react": "*"
-    react: ">= 16.13.1"
+    "@types/react": ">= 17"
+    react: ">= 17"
   languageName: unknown
   linkType: soft
 

@@ -8,7 +8,6 @@ It looks something like this:
 
 ```
 	// in your App.tsx or other 'root'
-	import React from 'react'
 	import { load } from '@thematic/core'
 	import { ThematicProvider } from '@thematic/react'
 
@@ -26,7 +25,6 @@ It looks something like this:
 Later, in some other component:
 
 ```
-	import React from 'react'
 	import { useThematic } from '@thematic/react'
 
 	const Child = () => {
@@ -51,7 +49,6 @@ For example:
 
 ```
 	// in your App.tsx or other 'root'
-	import React from 'react'
 	import { load } from '@thematic/core'
 	import { ThematicProvider, ApplicationStyles } from '@thematic/react'
 
