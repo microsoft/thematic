@@ -2,14 +2,17 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-interface ColorStripProps {
+
+import { FC } from 'react'
+
+export interface ColorStripProps {
 	colors: string[]
 	labelColors?: string[]
 	foreground: string
 	background: string
 	label: string
 }
-export const ColorStrip: React.FC<ColorStripProps> = ({
+export const ColorStrip: FC<ColorStripProps> = ({
 	colors,
 	labelColors,
 	foreground,

@@ -4,6 +4,7 @@
  */
 import { Theme } from '@thematic/core'
 import { ColorPicker, ColorPickerLayout } from '@thematic/fluent'
+import { FC } from 'react'
 
 import './index.css'
 
@@ -11,9 +12,7 @@ export interface ColorSelectionProps {
 	onThemeLoaded: (theme: Theme) => void
 }
 
-export const ColorSelection: React.FC<ColorSelectionProps> = ({
-	onThemeLoaded,
-}) => {
+export const ColorSelection: FC<ColorSelectionProps> = ({ onThemeLoaded }) => {
 	return (
 		<div className="color-controls-area">
 			<ColorPicker

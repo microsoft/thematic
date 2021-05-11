@@ -7,7 +7,7 @@ import {
 	Slider,
 	IColor,
 } from '@fluentui/react'
-import { CSSProperties } from 'react'
+import { CSSProperties, FC } from 'react'
 
 import { css2hsluv, Params } from '@thematic/color'
 import { Theme } from '@thematic/core'
@@ -40,7 +40,7 @@ export type PartialParams = Partial<Params>
  * parameterization and leave room for additional functionality.
  * Note also that it does NOT expose an alpha control, because this is not allowed in thematic params.
  */
-export const ColorPicker: React.FC<ColorPickerProps> = ({
+export const ColorPicker: FC<ColorPickerProps> = ({
 	onChange,
 	theme,
 	layout,

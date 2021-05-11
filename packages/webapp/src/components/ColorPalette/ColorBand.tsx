@@ -2,13 +2,16 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-interface ColorBandProps {
+
+import { FC } from 'react'
+
+export interface ColorBandProps {
 	colors: string[]
 	foreground: string
 	label: string
 	width: number
 }
-export const ColorBand: React.FC<ColorBandProps> = ({
+export const ColorBand: FC<ColorBandProps> = ({
 	colors,
 	foreground,
 	label,

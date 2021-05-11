@@ -5,12 +5,12 @@
 import { axisLeft, axisBottom } from 'd3-axis'
 import { scaleLinear } from 'd3-scale'
 import { select, Selection } from 'd3-selection'
-import { useLayoutEffect, useRef, useState, useMemo } from 'react'
+import { useLayoutEffect, useRef, useState, useMemo, FC } from 'react'
 import { SelectionState } from '@thematic/core'
 import { chart, plotArea, axis, circle } from '@thematic/d3'
 import { useThematic } from '@thematic/react'
 
-interface ChartProps {
+export interface ChartProps {
 	width?: number
 	height?: number
 }
@@ -25,18 +25,14 @@ const DATA_LENGTH = 20
 /**
  * Simple chart using raw d3, intended to show how scale bindings work
  */
-export const D3Chart: React.FC<ChartProps> = ({
-	width = 800,
-	height = 600,
-}) => {
+export const D3Chart: FC<ChartProps> = ({ width = 800, height = 600 }) => {
 	const theme = useThematic()
 	const ref = useRef(null)
 
 	const [svg, setSvg] = useState<Selection<SVGElement, any, SVGElement, any>>()
 
-	const [plot, setPlot] = useState<
-		Selection<SVGGElement, any, SVGGElement, any>
-	>()
+	const [plot, setPlot] =
+		useState<Selection<SVGGElement, any, SVGGElement, any>>()
 
 	// random data for scatterplot
 	// TODO: load in a meaningful dataset to demonstrate the scatterplot better?
@@ -51,9 +47,10 @@ export const D3Chart: React.FC<ChartProps> = ({
 	const plotHeight = useMemo(() => height - MARGIN * 2, [height])
 	const plotWidth = useMemo(() => width - MARGIN * 2 - LEGEND_WIDTH, [width])
 	const xScale = useMemo(() => scaleLinear().range([0, plotWidth]), [plotWidth])
-	const yScale = useMemo(() => scaleLinear().range([plotHeight, 0]), [
-		plotHeight,
-	])
+	const yScale = useMemo(
+		() => scaleLinear().range([plotHeight, 0]),
+		[plotHeight],
+	)
 	const cxScale = useMemo(
 		() => scaleLinear().range([MAX_RADIUS, plotWidth - MAX_RADIUS]),
 		[plotWidth],

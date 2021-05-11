@@ -4,7 +4,7 @@
  */
 import { initializeIcons } from '@fluentui/font-icons-mdl2'
 import { ThemeProvider } from '@fluentui/react'
-import { useMemo, ReactNode } from 'react'
+import { useMemo, ReactNode, FC } from 'react'
 import { loadFluentTheme } from './loader'
 import { Theme } from '@thematic/core'
 import { ThematicProvider } from '@thematic/react'
@@ -21,7 +21,7 @@ initializeIcons()
  * Just treat it like a typical Context.Provider, wrapping it around your app.
  * Your Fluent controls should automatically inherit the Thematic colors as semantically applied by Fluent.
  */
-export const ThematicFluentProvider: React.FC<ThematicFluentProviderProps> = ({
+export const ThematicFluentProvider: FC<ThematicFluentProviderProps> = ({
 	theme,
 	children,
 }) => {

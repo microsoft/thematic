@@ -4,12 +4,12 @@
  */
 import { FC, ReactNode } from 'react'
 
-interface MarkProps {
+export interface MarkProps {
 	children: ReactNode
 	size: number
 }
 
-interface ThemedMarkProps {
+export interface ThemedMarkProps {
 	config: any
 	size: number
 }

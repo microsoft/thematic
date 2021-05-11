@@ -12,7 +12,7 @@ import { ApplicationStyles } from '@thematic/react'
 
 import './App.css'
 
-interface AppProps {
+export interface AppProps {
 	theme: Theme
 }
 

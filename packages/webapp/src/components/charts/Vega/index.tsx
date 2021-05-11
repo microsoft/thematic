@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { memo, useLayoutEffect, useRef, useMemo } from 'react'
+import { memo, useLayoutEffect, useRef, useMemo, FC } from 'react'
 
 import { useThematic } from '@thematic/react'
 import { vega as decorator } from '@thematic/vega'
@@ -27,13 +27,13 @@ const specs = charts.reduce((acc, cur) => {
 	return acc
 }, {})
 
-interface VegaChartProps {
+export interface VegaChartProps {
 	type: string
 	width?: number
 	height?: number
 }
 
-export const VegaChart: React.FC<VegaChartProps> = memo(function VegaChart({
+export const VegaChart: FC<VegaChartProps> = memo(function VegaChart({
 	type,
 	width = 800,
 	height = 600,

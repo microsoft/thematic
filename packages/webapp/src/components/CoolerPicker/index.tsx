@@ -7,14 +7,13 @@ import { themeLoaded } from '../../state/actions'
 import { ColorSelection } from './ColorSelection'
 import { Theme } from '@thematic/core'
 import './index.css'
+import { FC } from 'react'
 
 export interface CoolerPickerProps {
 	themeLoaded: (theme: Theme) => void
 }
 
-const CoolerPickerComponent: React.FC<CoolerPickerProps> = ({
-	themeLoaded,
-}) => {
+const CoolerPickerComponent: FC<CoolerPickerProps> = ({ themeLoaded }) => {
 	return (
 		<div className="cooler-picker">
 			<ColorSelection onThemeLoaded={themeLoaded} />
