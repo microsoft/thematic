@@ -6,12 +6,13 @@ import { ColorStrip } from '../ColorStrip'
 import { useThematic } from '@thematic/react'
 
 import './index.css'
+import { FC } from 'react'
 
 const applicationPrimaryKeys = ['accent', 'foreground', 'background']
 const applicationSignalKeys = ['success', 'warning', 'error']
 const applicationSecondaryKeys = ['lowContrast', 'midContrast', 'highContrast']
 const applicationElementKeys = ['border', 'faint']
-export const ApplicationPalette: React.FC = () => {
+export const ApplicationPalette: FC = () => {
 	const theme = useThematic()
 	const app = theme.application()
 	const mapkeys = keys =>

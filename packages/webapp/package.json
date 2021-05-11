@@ -1,7 +1,7 @@
 {
 	"name": "@thematic/webapp",
 	"title": "Thematic",
-	"version": "1.0.3",
+	"version": "1.1.0",
 	"homepage": "https://microsoft.github.io/thematic/",
 	"private": true,
 	"license": "MIT",

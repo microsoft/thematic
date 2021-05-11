@@ -9,7 +9,7 @@ import {
 	SpinButton,
 	Position,
 } from '@fluentui/react'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, FC } from 'react'
 import { EnumDropdown } from '../EnumDropdown'
 import { ColorBlindnessMode, colorBlindnessInfo } from '@thematic/color'
 import { ThemeListing, Theme } from '@thematic/core'
@@ -38,7 +38,7 @@ export interface ControlPanelProps {
 const SCALE_MIN = 1
 const SCALE_MAX = 1000
 
-export const ControlPanel: React.FC<ControlPanelProps> = ({
+export const ControlPanel: FC<ControlPanelProps> = ({
 	themes,
 	themeInfo,
 	chartSize,
@@ -99,18 +99,20 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
 		},
 		[onScaleItemCountChange],
 	)
-	const handleScaleValidate = useCallback((v: string) => changeValue(v), [
-		changeValue,
-	])
+	const handleScaleValidate = useCallback(
+		(v: string) => changeValue(v),
+		[changeValue],
+	)
 	const handleScaleIncrement = useCallback(
 		v => {
 			changeValue(v, 1)
 		},
 		[changeValue],
 	)
-	const handleScaleDecrement = useCallback(v => changeValue(v, -1), [
-		changeValue,
-	])
+	const handleScaleDecrement = useCallback(
+		v => changeValue(v, -1),
+		[changeValue],
+	)
 
 	const handleColorBlindnessChange = (e: ColorBlindnessMode) => {
 		onColorBlindnessModeChange(e)

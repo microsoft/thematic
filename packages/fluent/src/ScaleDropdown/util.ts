@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { useMemo } from 'react'
+import { FC, useMemo } from 'react'
 import { ColorChips } from './ColorChips'
 import { ContinuousBand } from './ContinuousBand'
 import { ChipsProps } from './types'
@@ -54,7 +54,7 @@ export function chooseScale(
 	}
 }
 
-export function selectColorPalette(key: string): React.FC<ChipsProps> {
+export function selectColorPalette(key: string): FC<ChipsProps> {
 	if (key === 'nominal' || key === 'nominalMuted' || key === 'nominalBold') {
 		return ColorChips
 	}

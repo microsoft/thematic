@@ -2,11 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { FC } from 'react'
 import { useSafeCollapseDimensions } from './hooks/useSafeDimensions'
 import { ScaleDropdownItemProps } from './types'
 import { selectColorPalette, useScale } from './util'
 
-export const ScaleDropdownItem: React.FC<ScaleDropdownItemProps> = ({
+export const ScaleDropdownItem: FC<ScaleDropdownItemProps> = ({
 	option,
 	paletteWidth,
 	paletteHeight,

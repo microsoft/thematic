@@ -5,7 +5,7 @@
 import { TextField } from '@fluentui/react'
 import { FC } from 'react'
 
-interface JSONEditorProps {
+export interface JSONEditorProps {
 	value: any
 }
 

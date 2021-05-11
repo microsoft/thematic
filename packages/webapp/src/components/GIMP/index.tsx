@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { TextField } from '@fluentui/react'
-import { useMemo } from 'react'
+import { FC, useMemo } from 'react'
 import { DownloadLink } from '../DownloadLink'
 import { gimp } from '@thematic/core'
 import { useThematic } from '@thematic/react'
@@ -25,7 +25,7 @@ const styles = {
 		fontSize: 11,
 	},
 }
-export const GimpEditor: React.FC = () => {
+export const GimpEditor: FC = () => {
 	const theme = useThematic()
 	const value: string = useMemo(() => theme.transform(gimp) as string, [theme])
 	return (

@@ -13,12 +13,12 @@ import {
 import { useCallback, useMemo } from 'react'
 import { useThematic } from '@thematic/react'
 
-interface WrapperStyles {
+export interface WrapperStyles {
 	root: React.CSSProperties
 	label: React.CSSProperties
 }
 
-interface EnumButtonBarProps<E> {
+export interface EnumButtonBarProps<E> {
 	enumeration: any
 	selected?: E
 	onChange?: (selected: string | number) => void

@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { useState, useCallback, useMemo } from 'react'
+import { useState, useCallback, useMemo, FC } from 'react'
 import { EnumButtonBar } from '../EnumButtonBar'
 import { GridCell } from './GridCell'
 
@@ -35,7 +35,7 @@ const chromeKeys = [
 	'tooltip',
 ]
 
-export const MarkGrid: React.FC = () => {
+export const MarkGrid: FC = () => {
 	const theme = useThematic()
 	const [selectionState, setSelectionState] = useState<SelectionState>(
 		SelectionState.Normal,

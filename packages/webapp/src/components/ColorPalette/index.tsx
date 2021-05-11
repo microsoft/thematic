@@ -17,7 +17,7 @@ import { mark2style, useThematic } from '@thematic/react'
 const BAND_SLICES = 100
 const BAND_WIDTH = 720
 
-interface ColorPaletteProps {
+export interface ColorPaletteProps {
 	scaleItemCount: number
 }
 

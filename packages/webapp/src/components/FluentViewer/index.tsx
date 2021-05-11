@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { useMemo } from 'react'
+import { FC, useMemo } from 'react'
 import { DownloadLink } from '../DownloadLink'
 import { FluentPalette } from './FluentPalette'
 import { loadFluentTheme } from '@thematic/fluent'
@@ -12,12 +12,13 @@ import { useThematic } from '@thematic/react'
  * This component hosts the Fluent Theme slots in the style of Thematic.
  * A running version can be found here: https://aka.ms/themedesigner
  */
-export const FluentViewer: React.FC = () => {
+export const FluentViewer: FC = () => {
 	const theme = useThematic()
 	const fluentTheme = useMemo(() => loadFluentTheme(theme), [theme])
-	const value = useMemo(() => JSON.stringify(fluentTheme.toJSON(), null, 2), [
-		fluentTheme,
-	])
+	const value = useMemo(
+		() => JSON.stringify(fluentTheme.toJSON(), null, 2),
+		[fluentTheme],
+	)
 	return (
 		<div>
 			<FluentPalette theme={fluentTheme} />
