@@ -131,7 +131,7 @@ export function quantile(
 	return scale as (input: number) => number
 }
 
-interface LearningState {
+export interface LearningState {
 	/**
 	 * Current value of the learning. When elapsed time is 0 (i.e., the learning was just applied),
 	 * this will be 1.0. As time elapses and the learning fades, this declines toward 0.

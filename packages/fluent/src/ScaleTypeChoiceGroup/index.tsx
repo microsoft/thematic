@@ -7,10 +7,10 @@ import {
 	IChoiceGroupOption,
 	IChoiceGroupStyles,
 } from '@fluentui/react'
-import { useCallback, useMemo } from 'react'
+import { FC, useCallback, useMemo } from 'react'
 import { ScaleType } from '@thematic/core'
 
-interface ScaleTypeChoiceGroupProps {
+export interface ScaleTypeChoiceGroupProps {
 	selectedType: ScaleType
 	onChange?: (scaleType: ScaleType) => void
 	label?: string
@@ -25,7 +25,7 @@ const CHOICE_STYLE = {
 /**
  * Represents a strongly typed ChoiceGroup for selecting thematic ScaleTypes.
  */
-export const ScaleTypeChoiceGroup: React.FC<ScaleTypeChoiceGroupProps> = ({
+export const ScaleTypeChoiceGroup: FC<ScaleTypeChoiceGroupProps> = ({
 	selectedType,
 	onChange,
 	label,

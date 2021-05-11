@@ -10,6 +10,7 @@ import {
 	useRef,
 	useEffect,
 	useCallback,
+	FC,
 } from 'react'
 import { Graph, Node, Edge } from '../../../interfaces'
 import { bounds } from '../../../util/graph'
@@ -24,7 +25,7 @@ import {
 } from '@thematic/d3'
 import { useThematic } from '@thematic/react'
 
-interface GraphProps {
+export interface GraphProps {
 	graph: Graph
 	width?: number
 	height?: number
@@ -34,7 +35,7 @@ interface GraphProps {
 	sequentialFill?: boolean
 }
 
-export const D3Graph: React.FC<GraphProps> = ({
+export const D3Graph: FC<GraphProps> = ({
 	graph,
 	width = 800,
 	height = 600,

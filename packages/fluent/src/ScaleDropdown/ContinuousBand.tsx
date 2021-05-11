@@ -2,14 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { useMemo } from 'react'
+import { FC, useMemo } from 'react'
 import { ChipsProps } from './types'
 
-export const ContinuousBand: React.FC<ChipsProps> = ({
-	scale,
-	width,
-	height,
-}) => {
+export const ContinuousBand: FC<ChipsProps> = ({ scale, width, height }) => {
 	const blocks = useMemo(() => {
 		return scale
 			.toArray(width)

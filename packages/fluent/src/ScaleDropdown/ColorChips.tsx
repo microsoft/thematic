@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { scaleLinear } from 'd3-scale'
-import { useMemo } from 'react'
+import { FC, useMemo } from 'react'
 import { ChipsProps } from './types'
 
-export const ColorChips: React.FC<ChipsProps> = ({
+export const ColorChips: FC<ChipsProps> = ({
 	scale,
 	width = 200,
 	height = 10,

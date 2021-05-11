@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { ReactNode, useMemo } from 'react'
+import { FC, ReactNode, useMemo } from 'react'
 import { ThematicContext, defaultTheme } from './ThematicContext'
 import { Theme } from '@thematic/core'
 
@@ -14,7 +14,7 @@ export interface ThematicProviderProps {
 /**
  * Provider component from the default context for Thematic
  */
-export const ThematicProvider: React.FC<ThematicProviderProps> = ({
+export const ThematicProvider: FC<ThematicProviderProps> = ({
 	theme,
 	children,
 }) => {
