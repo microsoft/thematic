@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Dropdown } from '@fluentui/react'
-import { useCallback, useRef } from 'react'
+import { FC, useCallback, useRef } from 'react'
 import { ScaleDropdownItem } from './ScaleDropdownItem'
 import {
 	usePaletteWidth,
@@ -19,7 +19,7 @@ import { ScaleDropdownProps } from './types'
  * The scale names can be accompanied by a visual rendering of the scale colors.
  * This bascially extends Dropdown, overriding the options and item rendering.
  */
-export const ScaleDropdown: React.FC<ScaleDropdownProps> = props => {
+export const ScaleDropdown: FC<ScaleDropdownProps> = props => {
 	const ref = useRef(null)
 	const { width, height } = useSafeDimensions(ref)
 	const paletteWidth = usePaletteWidth(width)

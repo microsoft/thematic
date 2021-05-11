@@ -2,12 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { FC } from 'react'
 import { useThematic } from './'
 
 /**
  * This component applies root-level styles to your application using the theme defaults.
  */
-export const ApplicationStyles: React.FC = () => {
+export const ApplicationStyles: FC = () => {
 	const theme = useThematic()
 	return (
 		<style>

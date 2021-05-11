@@ -6,7 +6,7 @@ import { FC } from 'react'
 import { ColorStrip } from '../ColorStrip'
 import { useThematic } from '@thematic/react'
 
-interface OfficePaletteProps {
+export interface OfficePaletteProps {
 	colors: any
 }
 

@@ -7,7 +7,7 @@ import { Rect, Circle, Line, Arc, Text } from '../svg'
 import { SelectionState } from '@thematic/core'
 import { useThematic, mark2style } from '@thematic/react'
 
-interface GridCellProps {
+export interface GridCellProps {
 	name: string
 	size: number
 	selectionState?: SelectionState

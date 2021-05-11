@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { CSSProperties } from 'react'
+import { CSSProperties, FC } from 'react'
 
 import './index.css'
 
@@ -18,7 +18,7 @@ interface ColorBlockProps extends ColorDefinition {
 	labelStyle?: CSSProperties
 }
 
-interface ColorStripProps {
+export interface ColorStripProps {
 	colorDefinitions: any[]
 	vertical?: boolean
 	swatchStyle?: CSSProperties
@@ -57,7 +57,7 @@ const ColorBlock = ({
 	)
 }
 
-export const ColorStrip: React.FC<ColorStripProps> = ({
+export const ColorStrip: FC<ColorStripProps> = ({
 	colorDefinitions,
 	vertical,
 	swatchStyle,

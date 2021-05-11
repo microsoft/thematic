@@ -6,7 +6,7 @@ import { FC } from 'react'
 import { ColorStrip } from '../ColorStrip'
 import { FluentTheme } from '@thematic/fluent'
 
-interface FluentPaletteProps {
+export interface FluentPaletteProps {
 	theme: FluentTheme
 }
 

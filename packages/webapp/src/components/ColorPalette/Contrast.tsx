@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { IconButton } from '@fluentui/react'
-import { CSSProperties } from 'react'
+import { CSSProperties, FC } from 'react'
 import { contrast } from '@thematic/color'
 
-interface ContrastProps {
+export interface ContrastProps {
 	foreground: string
 	background: string
 	error: string
@@ -17,7 +17,7 @@ const WCAG = 4.5
 const ICON_SIZE = '0.7em'
 const NOTE = 'WCAG guidelines recommend a minimum contrast ratio of 4.5:1'
 
-export const Contrast: React.FC<ContrastProps> = ({
+export const Contrast: FC<ContrastProps> = ({
 	foreground,
 	background,
 	error,
