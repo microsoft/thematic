@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { TextField } from '@fluentui/react'
-import React from 'react'
+import { FC } from 'react'
 
 interface JSONEditorProps {
 	value: any
@@ -27,9 +27,7 @@ const styles = {
 		fontSize: 11,
 	},
 }
-export const JSONEditor: React.FC<JSONEditorProps> = ({
-	value,
-}: JSONEditorProps) => {
+export const JSONEditor: FC<JSONEditorProps> = ({ value }: JSONEditorProps) => {
 	return (
 		<TextField
 			styles={styles}

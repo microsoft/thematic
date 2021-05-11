@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
+import { FC, Fragment } from 'react'
 import { ApplicationPalette } from './ApplicationPalette'
 import { ColorBand } from './ColorBand'
 import { ColorStrip } from './ColorStrip'
@@ -21,32 +21,30 @@ interface ColorPaletteProps {
 	scaleItemCount: number
 }
 
-export const ColorPalette: React.FC<ColorPaletteProps> = ({
-	scaleItemCount,
-}) => {
+export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
 	const theme = useThematic()
 	const accentColor = theme.application().accent().hex()
 	const foregroundColor = theme.application().foreground().hex()
 	const backgroundColor = theme.application().background().hex()
 	const errorColor = theme.application().error().hex()
 	const accent = (
-		<React.Fragment>
+		<Fragment>
 			<span style={{ color: accentColor }}>Accent {accentColor}</span>
-		</React.Fragment>
+		</Fragment>
 	)
 	const background = (
-		<React.Fragment>
+		<Fragment>
 			<span style={{ color: foregroundColor }}>
 				Background {backgroundColor}
 			</span>
-		</React.Fragment>
+		</Fragment>
 	)
 	const foreground = (
-		<React.Fragment>
+		<Fragment>
 			<span style={{ color: foregroundColor }}>
 				Foreground {foregroundColor}
 			</span>
-		</React.Fragment>
+		</Fragment>
 	)
 	const bandDomain = [0, BAND_SLICES - 1]
 	const nominal = theme.scales().nominal(scaleItemCount).toArray()

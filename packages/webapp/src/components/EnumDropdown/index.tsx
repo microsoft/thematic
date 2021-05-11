@@ -9,7 +9,7 @@ import {
 	IDropdownStyleProps,
 	IStyleFunctionOrObject,
 } from '@fluentui/react'
-import React, { useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 export interface EnumDropdownProps<E> {
 	enumeration: any

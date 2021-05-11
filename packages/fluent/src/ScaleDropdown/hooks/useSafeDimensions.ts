@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Dimensions, useDimensions } from '@essex-js-toolkit/hooks'
-import React from 'react'
 
 const DEFAULT_WIDTH = 200
 const DEFAULT_HEIGHT = 32

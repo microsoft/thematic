@@ -2,10 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
+import { FC, ReactNode } from 'react'
 
 interface MarkProps {
-	children: React.ReactNode
+	children: ReactNode
 	size: number
 }
 
@@ -22,7 +22,7 @@ const svgAttrs = config => ({
 	strokeWidth: config.strokeWidth(),
 })
 
-const Mark: React.FC<MarkProps> = props => {
+const Mark: FC<MarkProps> = props => {
 	const { children, size } = props
 	return (
 		<svg width={size} height={size} style={{ backgroundColor: 'none' }}>
@@ -31,7 +31,7 @@ const Mark: React.FC<MarkProps> = props => {
 	)
 }
 
-export const Rect: React.FC<ThemedMarkProps> = props => {
+export const Rect: FC<ThemedMarkProps> = props => {
 	const { config, size } = props
 	return (
 		<Mark {...props}>
@@ -40,7 +40,7 @@ export const Rect: React.FC<ThemedMarkProps> = props => {
 	)
 }
 
-export const Circle: React.FC<ThemedMarkProps> = props => {
+export const Circle: FC<ThemedMarkProps> = props => {
 	const { config, size } = props
 	return (
 		<Mark {...props}>
@@ -54,7 +54,7 @@ export const Circle: React.FC<ThemedMarkProps> = props => {
 	)
 }
 
-export const Line: React.FC<ThemedMarkProps> = props => {
+export const Line: FC<ThemedMarkProps> = props => {
 	const { config, size } = props
 	return (
 		<Mark {...props}>
@@ -69,7 +69,7 @@ export const Line: React.FC<ThemedMarkProps> = props => {
 	)
 }
 
-export const Arc: React.FC<ThemedMarkProps> = props => {
+export const Arc: FC<ThemedMarkProps> = props => {
 	const { config, size } = props
 	const d = `M0 0 L ${size} 0 A ${size / 4} ${size / 5} 0 0 1 0 0`
 
@@ -80,7 +80,7 @@ export const Arc: React.FC<ThemedMarkProps> = props => {
 	)
 }
 
-export const Text: React.FC<ThemedMarkProps> = props => {
+export const Text: FC<ThemedMarkProps> = props => {
 	const { config, size } = props
 	return (
 		<Mark {...props}>

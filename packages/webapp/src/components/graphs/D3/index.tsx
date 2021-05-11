@@ -4,7 +4,7 @@
  */
 import { scaleLinear } from 'd3-scale'
 import { select } from 'd3-selection'
-import React, {
+import {
 	useLayoutEffect,
 	useState,
 	useRef,

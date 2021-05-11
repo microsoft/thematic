@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
+import { FC } from 'react'
 import { ColorStrip } from '../ColorStrip'
 import { FluentTheme } from '@thematic/fluent'
 
@@ -10,7 +10,7 @@ interface FluentPaletteProps {
 	theme: FluentTheme
 }
 
-export const FluentPalette: React.FC<FluentPaletteProps> = ({ theme }) => {
+export const FluentPalette: FC<FluentPaletteProps> = ({ theme }) => {
 	const json = theme.toJSON()
 	const mapkeys = keys =>
 		keys.map(key => ({

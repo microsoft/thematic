@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { TextField } from '@fluentui/react'
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import { DownloadLink } from '../DownloadLink'
 import { gimp } from '@thematic/core'
 import { useThematic } from '@thematic/react'

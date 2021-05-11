@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
+import { CSSProperties, FC, useMemo } from 'react'
 import { Rect, Circle, Line, Arc, Text } from '../svg'
 import { SelectionState } from '@thematic/core'
 import { useThematic, mark2style } from '@thematic/react'
@@ -43,19 +43,18 @@ const selectMark = (key: string) => {
 	}
 }
 
-export const GridCell: React.FC<GridCellProps> = ({
-	name,
-	size,
-	selectionState,
-}) => {
+export const GridCell: FC<GridCellProps> = ({ name, size, selectionState }) => {
 	const theme = useThematic()
 	const Mark = selectMark(name)
 	const exampleSize = size * 1.5
-	const exampleStyle = {
-		...mark2style(theme.plotArea()),
-		width: exampleSize,
-		height: exampleSize,
-	}
+	const exampleStyle: CSSProperties = useMemo(
+		() => ({
+			...mark2style(theme.plotArea()),
+			width: exampleSize,
+			height: exampleSize,
+		}),
+		[theme, exampleSize],
+	)
 	const config = theme[name]({ selectionState })
 	return (
 		<div className="mark-grid-cell">

@@ -5,7 +5,7 @@
 import { axisLeft, axisBottom } from 'd3-axis'
 import { scaleLinear } from 'd3-scale'
 import { select, Selection } from 'd3-selection'
-import React, { useLayoutEffect, useRef, useState, useMemo } from 'react'
+import { useLayoutEffect, useRef, useState, useMemo } from 'react'
 import { SelectionState } from '@thematic/core'
 import { chart, plotArea, axis, circle } from '@thematic/d3'
 import { useThematic } from '@thematic/react'
