@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
+import { FC } from 'react'
 import { ColorStrip } from '../ColorStrip'
 import { useThematic } from '@thematic/react'
 
@@ -12,7 +12,7 @@ interface PowerBIPaletteProps {
 
 const mainKeys = ['foreground', 'background', 'tableAccent']
 
-export const PowerBIPalette: React.FC<PowerBIPaletteProps> = ({ colors }) => {
+export const PowerBIPalette: FC<PowerBIPaletteProps> = ({ colors }) => {
 	const theme = useThematic()
 	const mapkeys = keys =>
 		keys.map(key => ({

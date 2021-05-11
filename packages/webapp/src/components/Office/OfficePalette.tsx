@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
+import { FC } from 'react'
 import { ColorStrip } from '../ColorStrip'
 import { useThematic } from '@thematic/react'
 
@@ -27,7 +27,7 @@ const accentKeys = [
 	'accent6',
 ]
 
-export const OfficePalette: React.FC<OfficePaletteProps> = ({ colors }) => {
+export const OfficePalette: FC<OfficePaletteProps> = ({ colors }) => {
 	const theme = useThematic()
 	const mapkeys = keys =>
 		keys.map(key => ({

@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Pivot, PivotItem } from '@fluentui/react'
-import React from 'react'
+import { FC } from 'react'
 import { Graph } from '../../interfaces'
 import { FluentControls } from '../FluentControls'
 import { D3Chart } from '../charts/D3'
@@ -18,7 +18,7 @@ export interface ThemeViewerProps {
 	drawLinks: boolean
 }
 
-export const ThemeViewer: React.FC<ThemeViewerProps> = ({
+export const ThemeViewer: FC<ThemeViewerProps> = ({
 	graph,
 	chartSize,
 	drawNodes,

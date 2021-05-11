@@ -34,7 +34,7 @@
 		"@fluentui/react": ">= 8",
 		"@fluentuit/font-icons-mdl2": ">= 8",
 		"@types/node": "*",
-		"@types/react": ">= 16",
-		"react": ">= 16.8.0"
+		"@types/react": ">= 17",
+		"react": ">= 17"
 	}
 }

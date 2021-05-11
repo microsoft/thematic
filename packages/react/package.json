@@ -26,7 +26,7 @@
 	},
 	"peerDependencies": {
 		"@types/node": "*",
-		"@types/react": "*",
-		"react": ">= 16.13.1"
+		"@types/react": ">= 17",
+		"react": ">= 17"
 	}
 }

@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { IconButton } from '@fluentui/react'
-import React, { CSSProperties } from 'react'
+import { CSSProperties } from 'react'
 import { contrast } from '@thematic/color'
 
 interface ContrastProps {
