@@ -27,5 +27,13 @@
 	"peerDependencies": {
 		"@types/chroma-js": "*",
 		"@types/node": "*"
+	},
+	"peerDependenciesMeta": {
+		"@types/chroma-js": {
+			"optional": true
+		},
+		"@types/node": {
+			"optional": true
+		}
 	}
 }

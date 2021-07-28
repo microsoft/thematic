@@ -38,5 +38,13 @@
 	"peerDependencies": {
 		"@types/d3-scale": ">= 2",
 		"@types/node": "*"
+	},
+	"peerDependenciesMeta": {
+		"@types/d3-scale": {
+			"optional": true
+		},
+		"@types/node": {
+			"optional": true
+		}
 	}
 }

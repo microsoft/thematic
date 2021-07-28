@@ -2834,6 +2834,11 @@ __metadata:
   peerDependencies:
     "@types/chroma-js": "*"
     "@types/node": "*"
+  peerDependenciesMeta:
+    "@types/chroma-js":
+      optional: true
+    "@types/node":
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2858,6 +2863,11 @@ __metadata:
   peerDependencies:
     "@types/d3-scale": ">= 2"
     "@types/node": "*"
+  peerDependenciesMeta:
+    "@types/d3-scale":
+      optional: true
+    "@types/node":
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2877,6 +2887,13 @@ __metadata:
     "@types/d3-axis": ">= 1"
     "@types/d3-selection": ">= 1"
     "@types/node": "*"
+  peerDependenciesMeta:
+    "@types/d3-axis":
+      optional: true
+    "@types/d3-selection":
+      optional: true
+    "@types/node":
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -2903,6 +2920,17 @@ __metadata:
     "@types/node": "*"
     "@types/react": ">= 17"
     react: ">= 17"
+  peerDependenciesMeta:
+    "@fluentui/react":
+      optional: false
+    "@fluentuit/font-icons-mdl2":
+      optional: false
+    "@types/node":
+      optional: true
+    "@types/react":
+      optional: true
+    react:
+      optional: false
   languageName: unknown
   linkType: soft
 
@@ -2921,6 +2949,13 @@ __metadata:
     "@types/node": "*"
     "@types/react": ">= 17"
     react: ">= 17"
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    "@types/react":
+      optional: true
+    react:
+      optional: false
   languageName: unknown
   linkType: soft
 
@@ -2965,6 +3000,9 @@ __metadata:
     vega: ^5.17.0
   peerDependencies:
     vega: ">= 5.13.0"
+  peerDependenciesMeta:
+    vega:
+      optional: false
   languageName: unknown
   linkType: soft
 

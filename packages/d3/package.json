@@ -29,5 +29,16 @@
 		"@types/d3-axis": ">= 1",
 		"@types/d3-selection": ">= 1",
 		"@types/node": "*"
+	},
+	"peerDependenciesMeta": {
+		"@types/d3-axis": {
+			"optional": true
+		},
+		"@types/d3-selection": {
+			"optional": true
+		},
+		"@types/node": {
+			"optional": true
+		}
 	}
 }
