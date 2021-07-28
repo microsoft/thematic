@@ -2832,6 +2832,7 @@ __metadata:
     core-js: ^3.12.1
     hsluv: ^0.1.0
   peerDependencies:
+    "@types/chroma-js": "*"
     "@types/node": "*"
   languageName: unknown
   linkType: soft
