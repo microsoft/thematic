@@ -2,11 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-/* eslint-disable @typescript-eslint/no-var-requires */
-
-import { ColorBlindnessMode, ColorBlindnessMeta, Scheme } from './interfaces'
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import cb from 'color-blind'
+import { ColorBlindnessMode, ColorBlindnessMeta, Scheme } from './interfaces'
 
 const noop = (color: string) => color
 

@@ -49,12 +49,12 @@ const theme = handleActions(
 
 const graph = handleAction(
 	graphLoaded,
-	(s: Graph, action: Action<any>) => {
+	(s: Graph, action: Action<Graph>) => {
 		// strip off the outer 'graph' root field used in rainbow hydra datasets
 		// return action.payload.graph
 		return {
-			nodes: action.payload.graph.nodes,
-			edges: action.payload.graph.edges,
+			nodes: action.payload.nodes,
+			edges: action.payload.edges,
 		}
 	},
 	{ nodes: [], edges: [] },
