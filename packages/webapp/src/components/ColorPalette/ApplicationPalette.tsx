@@ -2,11 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { ColorStrip } from '../ColorStrip'
-import { useThematic } from '@thematic/react'
 
 import './index.css'
 import { FC } from 'react'
+import { ColorStrip } from '../ColorStrip'
+import { useThematic } from '@thematic/react'
 
 const applicationPrimaryKeys = ['accent', 'foreground', 'background']
 const applicationSignalKeys = ['success', 'warning', 'error']

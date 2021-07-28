@@ -4801,7 +4801,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@thematic/color", "virtual:df0cda6d056a0cb6ca064db063e8e506a65237f84361910e73720f5f539024f05a630172617a45a6cdf20ca8ece2f76155376051535eac100e49f997a6944199#workspace:packages/color"],
             ["@essex/scripts", "virtual:f09dfa1a0441e0127a900f40cca34a52327ceda6c6039a98b59c346cebc146ffafea7bd148c4ef1d5d88a3678436e63df3803eacbca026931de2e24667a58d58#npm:15.1.2"],
+            ["@types/chroma-js", "npm:2.1.3"],
             ["@types/node", "npm:14.14.44"],
+            ["@types/types__chroma-js", null],
             ["@types/types__node", null],
             ["chroma-js", "npm:2.1.1"],
             ["color-blind", "npm:0.1.1"],
@@ -4810,6 +4812,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "packagePeers": [
             "@types/node",
+            "@types/types__chroma-js",
             "@types/types__node"
           ],
           "linkType": "SOFT",
@@ -4819,6 +4822,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@thematic/color", "workspace:packages/color"],
             ["@essex/scripts", "virtual:f09dfa1a0441e0127a900f40cca34a52327ceda6c6039a98b59c346cebc146ffafea7bd148c4ef1d5d88a3678436e63df3803eacbca026931de2e24667a58d58#npm:15.1.2"],
+            ["@types/chroma-js", "npm:2.1.3"],
             ["@types/node", "npm:14.14.44"],
             ["chroma-js", "npm:2.1.1"],
             ["color-blind", "npm:0.1.1"],
@@ -5224,6 +5228,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/body-parser", "npm:1.19.0"],
             ["@types/connect", "npm:3.4.33"],
             ["@types/node", "npm:14.0.26"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/chroma-js", [
+        ["npm:2.1.3", {
+          "packageLocation": "./.yarn/cache/@types-chroma-js-npm-2.1.3-945104b6c5-5be07205db.zip/node_modules/@types/chroma-js/",
+          "packageDependencies": [
+            ["@types/chroma-js", "npm:2.1.3"]
           ],
           "linkType": "HARD",
         }]

@@ -24,5 +24,10 @@
 	},
 	"peerDependencies": {
 		"vega": ">= 5.13.0"
+	},
+	"peerDependenciesMeta": {
+		"vega": {
+			"optional": false
+		}
 	}
 }

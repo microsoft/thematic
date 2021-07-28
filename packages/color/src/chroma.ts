@@ -3,11 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import chroma, { contrast as chromaContrast } from 'chroma-js'
+import { hexToHsluv, hsluvToHex } from 'hsluv'
 import { Rgb, Rgba, Hsv, Hsl } from './interfaces'
-
-/* eslint-disable @typescript-eslint/no-var-requires */
-const chroma = require('chroma-js')
-const hsluv = require('hsluv')
 
 /**
  * This is a variety of color utilities to minimize additional direct dependencies
@@ -18,11 +16,15 @@ const hsluv = require('hsluv')
  * Convert a standard CSS-compatible string to [h, s, l] array
  */
 export function css2hsluv(css: string): [number, number, number] {
-	return hsluv.hexToHsluv(chroma(css).hex()).map((v: number) => Math.round(v))
+	return hexToHsluv(chroma(css).hex()).map((v: number) => Math.round(v)) as [
+		number,
+		number,
+		number,
+	]
 }
 
 export function hsluv2hex(h: number, s: number, l: number): string {
-	return hsluv.hsluvToHex([h, s, l])
+	return hsluvToHex([h, s, l])
 }
 
 /**
@@ -32,7 +34,7 @@ export function hsluv2hex(h: number, s: number, l: number): string {
 export function css2lch(css: string): [number, number, number] {
 	return chroma(css)
 		.lch()
-		.map((v: number) => Math.round(v))
+		.map((v: number) => Math.round(v)) as [number, number, number]
 }
 
 /**
@@ -66,7 +68,7 @@ export function lighten(css: string, value?: number): string {
  * @param background
  */
 export function contrast(foreground: string, background: string): number {
-	return chroma.contrast(foreground, background)
+	return chromaContrast(foreground, background)
 }
 
 /**
