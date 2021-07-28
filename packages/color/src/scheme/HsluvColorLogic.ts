@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { Params, Scheme } from '../interfaces'
 import { hex as chromaHex } from 'chroma-js'
 import { hsluvToHex } from 'hsluv'
+import { Params, Scheme } from '../interfaces'
 
 const lightTextLuminance = 95
 const darkTextLuminance = 20
