@@ -2852,7 +2852,6 @@ __metadata:
     "@types/jest": ^26.0.23
     "@types/lodash": ^4.14.168
     "@types/murmurhash-js": ^1.0.3
-    "@types/ncp": ^2.0.4
     "@types/node": ^14.14.44
     core-js: ^3.12.1
     d3-scale: ^3.2.3
@@ -2862,9 +2861,14 @@ __metadata:
     npm-run-all: ^4.1.5
   peerDependencies:
     "@types/d3-scale": ">= 2"
+    "@types/lodash": ">= 4"
     "@types/node": "*"
   peerDependenciesMeta:
     "@types/d3-scale":
+      optional: true
+    "@types/lodash":
+      optional: true
+    "@types/murmurhash-js":
       optional: true
     "@types/node":
       optional: true
@@ -3434,15 +3438,6 @@ __metadata:
   version: 1.0.3
   resolution: "@types/murmurhash-js@npm:1.0.3"
   checksum: 14b6b8479c10022d1a726fcb23741318d62e03cf5e7a68afb7c1ef9d3a1f3761aa67d2e7355ebd0016528a4398b273effb362222931a29bb5848828512c4147a
-  languageName: node
-  linkType: hard
-
-"@types/ncp@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "@types/ncp@npm:2.0.4"
-  dependencies:
-    "@types/node": "*"
-  checksum: 9d5f5b6eb74ebd712783eaf1c30517800a1378edee7c02a128fec0b084ad9df1d76e4b118a5a6606f34ec6114d305ae3eb55ecd01b9e8506cc4f34d0800d656c
   languageName: node
   linkType: hard
 

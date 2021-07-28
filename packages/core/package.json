@@ -19,8 +19,6 @@
 	},
 	"dependencies": {
 		"@thematic/color": "workspace:packages/color",
-		"@types/lodash": "^4.14.168",
-		"@types/murmurhash-js": "^1.0.3",
 		"core-js": "^3.12.1",
 		"d3-scale": "^3.2.3",
 		"lodash": "^4.17.20",
@@ -30,17 +28,25 @@
 		"@essex/scripts": "^15.1.2",
 		"@types/d3-scale": "^2.2.4",
 		"@types/jest": "^26.0.23",
-		"@types/ncp": "^2.0.4",
+		"@types/lodash": "^4.14.168",
+		"@types/murmurhash-js": "^1.0.3",
 		"@types/node": "^14.14.44",
 		"ncp": "^2.0.0",
 		"npm-run-all": "^4.1.5"
 	},
 	"peerDependencies": {
 		"@types/d3-scale": ">= 2",
+		"@types/lodash": ">= 4",
 		"@types/node": "*"
 	},
 	"peerDependenciesMeta": {
 		"@types/d3-scale": {
+			"optional": true
+		},
+		"@types/lodash": {
+			"optional": true
+		},
+		"@types/murmurhash-js": {
 			"optional": true
 		},
 		"@types/node": {
