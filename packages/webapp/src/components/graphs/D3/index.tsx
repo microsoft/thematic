@@ -150,7 +150,9 @@ export const D3Graph: FC<GraphProps> = ({
 		if (drawNodes) {
 			if (categoricalFill) {
 				const unique = nodes.reduce((acc, cur) => {
-					acc[cur.community] = true
+					if (cur.community != null) {
+						acc[cur.community] = true
+					}
 					return acc
 				}, {})
 				n.call(

@@ -4843,9 +4843,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:26.0.23"],
             ["@types/lodash", "npm:4.14.168"],
             ["@types/murmurhash-js", "npm:1.0.3"],
-            ["@types/ncp", "npm:2.0.4"],
             ["@types/node", "npm:14.14.44"],
             ["@types/types__d3-scale", null],
+            ["@types/types__lodash", null],
             ["@types/types__node", null],
             ["core-js", "npm:3.12.1"],
             ["d3-scale", "npm:3.2.3"],
@@ -4858,6 +4858,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/d3-scale",
             "@types/node",
             "@types/types__d3-scale",
+            "@types/types__lodash",
             "@types/types__node"
           ],
           "linkType": "SOFT",
@@ -4872,9 +4873,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:26.0.23"],
             ["@types/lodash", "npm:4.14.168"],
             ["@types/murmurhash-js", "npm:1.0.3"],
-            ["@types/ncp", "npm:2.0.4"],
             ["@types/node", "npm:14.14.44"],
             ["@types/types__d3-scale", null],
+            ["@types/types__lodash", null],
             ["@types/types__node", null],
             ["core-js", "npm:3.12.1"],
             ["d3-scale", "npm:3.2.3"],
@@ -4886,6 +4887,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [
             "@types/node",
             "@types/types__d3-scale",
+            "@types/types__lodash",
             "@types/types__node"
           ],
           "linkType": "SOFT",
@@ -4900,7 +4902,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:26.0.23"],
             ["@types/lodash", "npm:4.14.168"],
             ["@types/murmurhash-js", "npm:1.0.3"],
-            ["@types/ncp", "npm:2.0.4"],
             ["@types/node", "npm:14.14.44"],
             ["core-js", "npm:3.12.1"],
             ["d3-scale", "npm:3.2.3"],
@@ -5585,16 +5586,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-murmurhash-js-npm-1.0.3-8fb4cae3ec-14b6b8479c.zip/node_modules/@types/murmurhash-js/",
           "packageDependencies": [
             ["@types/murmurhash-js", "npm:1.0.3"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@types/ncp", [
-        ["npm:2.0.4", {
-          "packageLocation": "./.yarn/cache/@types-ncp-npm-2.0.4-3a6b65e2ac-9d5f5b6eb7.zip/node_modules/@types/ncp/",
-          "packageDependencies": [
-            ["@types/ncp", "npm:2.0.4"],
-            ["@types/node", "npm:14.0.26"]
           ],
           "linkType": "HARD",
         }]

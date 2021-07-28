@@ -2,17 +2,18 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+export type NodeId = string | number
 export interface Node {
-	id: string
+	id: NodeId
 	weight: number
-	community: number
+	community?: number
 	x: number
 	y: number
 }
 
 export interface Edge {
-	source: string
-	target: string
+	source: NodeId
+	target: NodeId
 	weight: number
 }
 
