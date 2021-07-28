@@ -36,5 +36,22 @@
 		"@types/node": "*",
 		"@types/react": ">= 17",
 		"react": ">= 17"
+	},
+	"peerDependenciesMeta": {
+		"@fluentui/react": {
+			"optional": false
+		},
+		"@fluentuit/font-icons-mdl2": {
+			"optional": false
+		},
+		"@types/node": {
+			"optional": true
+		},
+		"@types/react": {
+			"optional": true
+		},
+		"react": {
+			"optional": false
+		}
 	}
 }
