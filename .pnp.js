@@ -4803,6 +4803,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@essex/scripts", "virtual:f09dfa1a0441e0127a900f40cca34a52327ceda6c6039a98b59c346cebc146ffafea7bd148c4ef1d5d88a3678436e63df3803eacbca026931de2e24667a58d58#npm:15.1.2"],
             ["@types/chroma-js", "npm:2.1.3"],
             ["@types/node", "npm:14.14.44"],
+            ["@types/types__chroma-js", null],
             ["@types/types__node", null],
             ["chroma-js", "npm:2.1.1"],
             ["color-blind", "npm:0.1.1"],
@@ -4811,6 +4812,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "packagePeers": [
             "@types/node",
+            "@types/types__chroma-js",
             "@types/types__node"
           ],
           "linkType": "SOFT",
