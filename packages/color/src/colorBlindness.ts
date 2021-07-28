@@ -3,9 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { ColorBlindnessMode, ColorBlindnessMeta, Scheme } from './interfaces'
 
-const cb = require('color-blind')
+import { ColorBlindnessMode, ColorBlindnessMeta, Scheme } from './interfaces'
+// @ts-ignore
+import cb from 'color-blind'
+
 const noop = (color: string) => color
 
 /**
