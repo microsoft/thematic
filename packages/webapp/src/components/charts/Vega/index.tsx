@@ -2,12 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-/* eslint-disable @typescript-eslint/no-var-requires */
 import { memo, useLayoutEffect, useRef, useMemo, FC } from 'react'
 
+import { parse, View } from 'vega'
 import { useThematic } from '@thematic/react'
 import { vega as decorator } from '@thematic/vega'
-const vega = require('vega')
 
 export const charts = [
 	'heatmap',
@@ -39,16 +38,18 @@ export const VegaChart: FC<VegaChartProps> = memo(function VegaChart({
 	height = 600,
 }) {
 	const theme = useThematic()
-	const ref = useRef(null)
+	const ref = useRef<HTMLDivElement>(null)
 	const view = useMemo(() => {
 		const spec = specs[type]
 		const merged = decorator(theme, spec, width, height)
-		const parsed = vega.parse(merged)
-		return new vega.View(parsed).renderer('svg')
+		const parsed = parse(merged)
+		return new View(parsed).renderer('svg')
 	}, [height, theme, type, width])
 
 	useLayoutEffect(() => {
-		view.initialize(ref.current).run()
+		if (ref.current != null) {
+			view.initialize(ref.current).run()
+		}
 	})
 
 	return <div ref={ref} />
