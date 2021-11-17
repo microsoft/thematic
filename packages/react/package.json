@@ -8,6 +8,11 @@
 		"module": "dist/esm/index.js",
 		"types": "dist/types/index.d.ts"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/microsoft/thematic.git",
+		"directory": "packages/react"
+	},
 	"scripts": {
 		"clean": "essex clean",
 		"build": "essex build",
