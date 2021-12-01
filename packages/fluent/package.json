@@ -36,17 +36,17 @@
 		"react": "^17.0.2"
 	},
 	"peerDependencies": {
+		"@fluentui/font-icons-mdl2": ">= 8",
 		"@fluentui/react": ">= 8",
-		"@fluentuit/font-icons-mdl2": ">= 8",
 		"@types/node": "*",
 		"@types/react": ">= 17",
 		"react": ">= 17"
 	},
 	"peerDependenciesMeta": {
-		"@fluentui/react": {
+		"@fluentui/font-icons-mdl2": {
 			"optional": false
 		},
-		"@fluentuit/font-icons-mdl2": {
+		"@fluentui/react": {
 			"optional": false
 		},
 		"@types/node": {
