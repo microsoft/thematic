@@ -6,6 +6,16 @@ import { FC, useMemo } from 'react'
 import { ChipsProps } from './types'
 
 export const ContinuousBand: FC<ChipsProps> = ({ scale, width, height }) => {
+	const style = useMemo(
+		() => ({
+			width,
+			height,
+			minWidth: width,
+			minHeight: height,
+		}),
+		[width, height],
+	)
+
 	const blocks = useMemo(() => {
 		return scale
 			.toArray(width)
@@ -21,7 +31,7 @@ export const ContinuousBand: FC<ChipsProps> = ({ scale, width, height }) => {
 			))
 	}, [scale, width, height])
 	return (
-		<svg width={width} height={height}>
+		<svg style={style} width={width} height={height}>
 			{blocks}
 		</svg>
 	)

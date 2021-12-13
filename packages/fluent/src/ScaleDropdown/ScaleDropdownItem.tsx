@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { FC } from 'react'
+import { TEXT_WIDTH } from './hooks/theme'
 import { useSafeCollapseDimensions } from './hooks/useSafeDimensions'
 import { ScaleDropdownItemProps } from './types'
 import { selectColorPalette, useScale } from './util'
@@ -24,16 +25,21 @@ export const ScaleDropdownItem: FC<ScaleDropdownItemProps> = ({
 				...style,
 			}}
 		>
-			<div style={{ width: 74 }}>{option.text}</div>
+			<div style={labelStyle}>{option.text}</div>
 			<Palette scale={scale} width={width} height={height} />
 		</div>
 	)
 }
 
+const labelStyle = {
+	width: TEXT_WIDTH,
+	minWidth: TEXT_WIDTH,
+}
+
 const containerStyle = {
 	cursor: 'pointer',
 	display: 'flex',
-	justifyContent: 'space-between',
+	justifyContent: 'flex-start',
 	alignItems: 'center',
 	minWidth: 10,
 }

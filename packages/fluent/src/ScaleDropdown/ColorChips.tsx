@@ -12,14 +12,26 @@ export const ColorChips: FC<ChipsProps> = ({
 	height = 10,
 	maxItems = 10,
 }) => {
+	const style = useMemo(
+		() => ({
+			width,
+			height,
+			minWidth: width,
+			minHeight: height,
+		}),
+		[width, height],
+	)
+
 	const blocks = useMemo(() => {
 		if (height <= 1) {
 			return []
 		}
-		const r = height / 2 - 1
+
+		const r = height / 2
 		const x = scaleLinear()
 			.domain([0, maxItems - 1])
 			.range([r, width - r])
+
 		return scale
 			.toArray(maxItems)
 			.map((color, i) => (
@@ -35,7 +47,7 @@ export const ColorChips: FC<ChipsProps> = ({
 			))
 	}, [scale, width, height, maxItems])
 	return (
-		<svg width={width} height={height}>
+		<svg style={style} width={width} height={height}>
 			{blocks}
 		</svg>
 	)
