@@ -6,9 +6,10 @@ import { IDropdownOption } from '@fluentui/react'
 import { useMemo } from 'react'
 import { useThematic } from '@thematic/react'
 
-const ITEM_LEFT_PADDING = 8 // defined default in fluent dropdown
-const CARET_PADDING = 30 // defined default in fluent dropdown
-const TEXT_WIDTH = 80 // TODO: adjust this based on font size/max measured
+const ITEM_LEFT_PADDING = 8 // default right padding in fluent item
+const ITEM_BORDER_MODIFIER = 1 // accounts for transparent border on outer container
+const CARET_PADDING = 28 // defined default in fluent dropdown is 28 (this also aligns with item right padding)
+export const TEXT_WIDTH = 80 // TODO: adjust this based on font size/max measured
 const LABEL_HEIGHT = 29 // defined default in fluent dropdown
 
 // we may want this to be an optional prop once extracted
@@ -16,8 +17,15 @@ const LABEL_HEIGHT = 29 // defined default in fluent dropdown
 const TITLE_CASE = false
 
 export function usePaletteWidth(width: number): number {
-	// subtract space for the caret, left pad, and text
-	return width - CARET_PADDING - ITEM_LEFT_PADDING - TEXT_WIDTH
+	// subtract space for the caret, pad, text, etc.
+	return (
+		width -
+		ITEM_BORDER_MODIFIER -
+		ITEM_LEFT_PADDING -
+		TEXT_WIDTH -
+		CARET_PADDING -
+		ITEM_BORDER_MODIFIER
+	)
 }
 
 export function usePaletteHeight(height: number, label?: string): number {
@@ -25,6 +33,20 @@ export function usePaletteHeight(height: number, label?: string): number {
 	const root = label ? height - LABEL_HEIGHT : height
 	return root / 2
 }
+
+/**
+ * Provides style overrides for root dropdown container
+ * @returns
+ */
+export function useContainerStyle(): React.CSSProperties {
+	return useMemo(
+		() => ({
+			textAlign: 'left',
+		}),
+		[],
+	)
+}
+
 /**
  * This provides unique style overrides for the dropdown items,
  * NOT the title. The paddings here are to align the item
@@ -35,7 +57,7 @@ export function useItemStyle(width: number): React.CSSProperties {
 	return useMemo(
 		() => ({
 			width: width - CARET_PADDING,
-			paddingLeft: ITEM_LEFT_PADDING,
+			paddingLeft: ITEM_BORDER_MODIFIER,
 			paddingRight: CARET_PADDING,
 		}),
 		[width],
