@@ -40,9 +40,17 @@ export interface Application {
 	 */
 	lowContrast: () => Color
 	/**
+	 * Provides a color that is low/mid contrast against the background for subtle annotations.
+	 */
+	lowMidContrast: () => Color
+	/**
 	 * Provides a color that is medium contrast against the background for moderate annotations.
 	 */
 	midContrast: () => Color
+	/**
+	 * Provides a color that is mid/high contrast against the background for brighter annotations.
+	 */
+	midHighContrast: () => Color
 	/**
 	 * Provides a color that is high contrast against the background for bright annotations.
 	 */

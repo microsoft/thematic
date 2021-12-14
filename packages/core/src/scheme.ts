@@ -149,8 +149,13 @@ export function computeDefinition(
 				'axisTicks.stroke',
 				'gridLines.stroke',
 				'arc.stroke',
+				'application.border',
 				'application.lowContrast',
 			],
+		},
+		{
+			value: scheme.lowMidContrastAnnotation,
+			paths: ['application.lowMidContrast'],
 		},
 		{
 			// medium contrast grey, for general, non-aggressive mark bounds
@@ -161,8 +166,11 @@ export function computeDefinition(
 				'process.fill',
 				'tooltip.stroke',
 				'application.midContrast',
-				'application.border',
 			],
+		},
+		{
+			value: scheme.midHighContrastAnnotation,
+			paths: ['application.midHighContrast'],
 		},
 		{
 			// high contrast grey for bolder annotation such as labels

@@ -24,7 +24,7 @@ const AppComponent = ({ theme }: AppProps) => (
 				className="controls"
 				style={{
 					backgroundColor: theme.application().faint().hex(),
-					borderBottom: `1px solid ${theme.application().lowContrast().hex()}`,
+					borderBottom: `1px solid ${theme.application().border().hex()}`,
 				}}
 			>
 				<ControlPanel />
