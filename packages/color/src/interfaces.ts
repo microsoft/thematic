@@ -28,7 +28,9 @@ export interface Scheme {
 	error: string
 	faintAnnotation: string
 	lowContrastAnnotation: string
+	lowMidContrastAnnotation: string
 	midContrastAnnotation: string
+	midHighContrastAnnotation: string
 	highContrastAnnotation: string
 	sequential: string[]
 	sequential2: string[]

@@ -18,7 +18,9 @@ export interface ApplicationSpec {
 	warning?: string
 	error?: string
 	lowContrast?: string
+	lowMidContrast?: string
 	midContrast?: string
+	midHighContrast?: string
 	highContrast?: string
 	border?: string
 	faint?: string
