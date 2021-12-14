@@ -8,6 +8,7 @@ import { ScaleDropdownItem } from './ScaleDropdownItem'
 import {
 	usePaletteWidth,
 	usePaletteHeight,
+	useContainerStyle,
 	useItemStyle,
 	useThematicScaleOptions,
 } from './hooks/theme'
@@ -24,9 +25,9 @@ export const ScaleDropdown: FC<ScaleDropdownProps> = props => {
 	const { width, height } = useSafeDimensions(ref)
 	const paletteWidth = usePaletteWidth(width)
 	const paletteHeight = usePaletteHeight(height, props.label)
+	const containerStyle = useContainerStyle()
 	const itemStyle = useItemStyle(width)
 	const options = useThematicScaleOptions()
-
 	const handleRenderTitle = useCallback(
 		([option]) => {
 			return (
@@ -56,7 +57,7 @@ export const ScaleDropdown: FC<ScaleDropdownProps> = props => {
 	)
 
 	return (
-		<div ref={ref}>
+		<div style={containerStyle} ref={ref}>
 			<Dropdown
 				{...props}
 				options={options}

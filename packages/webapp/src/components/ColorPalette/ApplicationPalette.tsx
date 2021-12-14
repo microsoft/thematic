@@ -8,10 +8,11 @@ import { FC } from 'react'
 import { ColorStrip } from '../ColorStrip'
 import { useThematic } from '@thematic/react'
 
-const applicationPrimaryKeys = ['accent', 'foreground', 'background']
+const applicationPrimaryKeys = ['accent', 'foreground', 'background', 'border']
 const applicationSignalKeys = ['success', 'warning', 'error']
-const applicationSecondaryKeys = ['lowContrast', 'midContrast', 'highContrast']
-const applicationElementKeys = ['border', 'faint']
+const applicationLowKeys = ['faint', 'lowContrast', 'lowMidContrast']
+const applicationHighKeys = ['midContrast', 'midHighContrast', 'highContrast']
+
 export const ApplicationPalette: FC = () => {
 	const theme = useThematic()
 	const app = theme.application()
@@ -23,8 +24,8 @@ export const ApplicationPalette: FC = () => {
 		}))
 	const primaries = mapkeys(applicationPrimaryKeys)
 	const signals = mapkeys(applicationSignalKeys)
-	const secondaries = mapkeys(applicationSecondaryKeys)
-	const elements = mapkeys(applicationElementKeys)
+	const secondaries = mapkeys(applicationLowKeys)
+	const elements = mapkeys(applicationHighKeys)
 	const styles = {
 		swatch: {
 			border: `1px solid ${app.border().hex()}`,

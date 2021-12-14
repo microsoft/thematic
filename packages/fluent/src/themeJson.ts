@@ -1,0 +1,60 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+import {
+	BaseSlots,
+	ThemeGenerator,
+	themeRulesStandardCreator,
+} from '@fluentui/react'
+import { correctShades } from './shades'
+import { Theme, ThemeVariant } from '@thematic/core'
+
+/**
+ * Generates a full set of Fluent palette colors using required base input colors.
+ * See https://github.com/microsoft/fluentui/tree/master/packages/react/src/components/ThemeGenerator
+ * And https://fabricweb.z5.web.core.windows.net/pr-deploy-site/refs/heads/master/theming-designer/index.html
+ * And https://github.com/microsoft/fluentui/blob/master/apps/theming-designer/src/components/ThemingDesigner.tsx
+ * WARNING: this generates incorrect shades for foreground/background.
+ * @param colors
+ * @param inverted
+ */
+const fluentJson = (colors, inverted = false) => {
+	const themeRules = themeRulesStandardCreator()
+	ThemeGenerator.insureSlots(themeRules, inverted)
+	ThemeGenerator.setSlot(
+		themeRules[BaseSlots[BaseSlots.primaryColor]],
+		colors.primaryColor,
+		inverted,
+	)
+	ThemeGenerator.setSlot(
+		themeRules[BaseSlots[BaseSlots.foregroundColor]],
+		colors.foregroundColor,
+		inverted,
+	)
+	ThemeGenerator.setSlot(
+		themeRules[BaseSlots[BaseSlots.backgroundColor]],
+		colors.backgroundColor,
+		inverted,
+	)
+	ThemeGenerator.insureSlots(themeRules, inverted)
+	return ThemeGenerator.getThemeAsJson(themeRules)
+}
+
+/**
+ * Generates a full set of Fluent palette colors given an input Thematic theme.
+ * Corrects the shading issues present in the default Fluent generator
+ * @param theme
+ * @returns
+ */
+export const themeJson = (theme: Theme): Record<string, string> => {
+	const inverted = theme.variant === ThemeVariant.Dark
+	const colors = {
+		primaryColor: theme.application().accent().hex(),
+		foregroundColor: theme.application().foreground().hex(),
+		backgroundColor: theme.application().background().hex(),
+	}
+	const json = fluentJson(colors, inverted)
+	const fixed = correctShades(json, inverted)
+	return fixed
+}

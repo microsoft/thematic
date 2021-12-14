@@ -132,7 +132,9 @@ export class ColorMaker {
 	public readonly foregroundHsl: [number, number, number]
 	public readonly faintAnnotationHsl: [number, number, number]
 	public readonly lowContrastAnnotationHsl: [number, number, number]
+	public readonly lowMidContrastAnnotationHsl: [number, number, number]
 	public readonly midContrastAnnotationHsl: [number, number, number]
+	public readonly midHighContrastAnnotationHsl: [number, number, number]
 	public readonly highContrastAnnotationHsl: [number, number, number]
 	public readonly greyLuminance: number
 
@@ -169,10 +171,12 @@ export class ColorMaker {
 			: this.backgroundHsl[2] + lowContrastBackgroundShift
 
 		const boldGreyLuminance = this.light ? darkestGrey : lightestGrey
-		const greys = this.explicitGrey(3, mutedGreyLuminance, boldGreyLuminance)
+		const greys = this.explicitGrey(5, mutedGreyLuminance, boldGreyLuminance)
 		this.lowContrastAnnotationHsl = greys[0]
-		this.midContrastAnnotationHsl = greys[1]
-		this.highContrastAnnotationHsl = greys[2]
+		this.lowMidContrastAnnotationHsl = greys[1]
+		this.midContrastAnnotationHsl = greys[2]
+		this.midHighContrastAnnotationHsl = greys[3]
+		this.highContrastAnnotationHsl = greys[4]
 		// halfway to the background from the darkest/lightest
 		const faintLuminance = this.light
 			? (100 - lightestGrey) / 2 + lightestGrey
@@ -424,7 +428,13 @@ export function getScheme(
 		foreground: hsluvToHex(colorMaker.foregroundHsl),
 		accent: hsluvToHex(colorMaker.accentHsl),
 		lowContrastAnnotation: hsluvToHex(colorMaker.lowContrastAnnotationHsl),
+		lowMidContrastAnnotation: hsluvToHex(
+			colorMaker.lowMidContrastAnnotationHsl,
+		),
 		midContrastAnnotation: hsluvToHex(colorMaker.midContrastAnnotationHsl),
+		midHighContrastAnnotation: hsluvToHex(
+			colorMaker.midHighContrastAnnotationHsl,
+		),
 		highContrastAnnotation: hsluvToHex(colorMaker.highContrastAnnotationHsl),
 		faintAnnotation: hsluvToHex(colorMaker.faintAnnotationHsl),
 		sequential: hsluv_to_hex(colorMaker.sequential(sequentialItemCount, 0)),
