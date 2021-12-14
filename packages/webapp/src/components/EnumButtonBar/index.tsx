@@ -86,7 +86,7 @@ export function EnumButtonBar<E>({
 	}
 	const commandStyles = {
 		primarySet: {
-			border: `1px solid ${theme.application().lowContrast().hex()}`,
+			border: `1px solid ${theme.application().border().hex()}`,
 			paddingleft: 0,
 			paddingRight: 0,
 		},
