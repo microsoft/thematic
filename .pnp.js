@@ -4968,6 +4968,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@thematic/color", "virtual:df0cda6d056a0cb6ca064db063e8e506a65237f84361910e73720f5f539024f05a630172617a45a6cdf20ca8ece2f76155376051535eac100e49f997a6944199#workspace:packages/color"],
             ["@thematic/core", "virtual:169ee6d22953dd0ed990a4a72ce49e0cf852c77158e5f2a5c23d523e3a753a95183a7c06f26a56bd29def804eaa0ba28810258f3768a81bef8e641f027a1e80f#workspace:packages/core"],
             ["@thematic/react", "virtual:169ee6d22953dd0ed990a4a72ce49e0cf852c77158e5f2a5c23d523e3a753a95183a7c06f26a56bd29def804eaa0ba28810258f3768a81bef8e641f027a1e80f#workspace:packages/react"],
+            ["@types/chroma-js", "npm:2.1.3"],
             ["@types/d3-scale", "npm:3.2.2"],
             ["@types/fluentui__font-icons-mdl2", null],
             ["@types/fluentui__react", null],
@@ -4975,6 +4976,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:17.0.5"],
             ["@types/types__node", null],
             ["@types/types__react", null],
+            ["chroma-js", "npm:2.1.1"],
             ["core-js", "npm:3.12.1"],
             ["d3-scale", "npm:3.3.0"],
             ["react", "npm:17.0.2"]
@@ -5003,9 +5005,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@thematic/color", "virtual:df0cda6d056a0cb6ca064db063e8e506a65237f84361910e73720f5f539024f05a630172617a45a6cdf20ca8ece2f76155376051535eac100e49f997a6944199#workspace:packages/color"],
             ["@thematic/core", "virtual:169ee6d22953dd0ed990a4a72ce49e0cf852c77158e5f2a5c23d523e3a753a95183a7c06f26a56bd29def804eaa0ba28810258f3768a81bef8e641f027a1e80f#workspace:packages/core"],
             ["@thematic/react", "virtual:169ee6d22953dd0ed990a4a72ce49e0cf852c77158e5f2a5c23d523e3a753a95183a7c06f26a56bd29def804eaa0ba28810258f3768a81bef8e641f027a1e80f#workspace:packages/react"],
+            ["@types/chroma-js", "npm:2.1.3"],
             ["@types/d3-scale", "npm:3.2.2"],
             ["@types/node", "npm:14.14.44"],
             ["@types/react", "npm:17.0.5"],
+            ["chroma-js", "npm:2.1.1"],
             ["core-js", "npm:3.12.1"],
             ["d3-scale", "npm:3.3.0"],
             ["react", "npm:17.0.2"]
