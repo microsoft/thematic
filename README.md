@@ -48,11 +48,11 @@ You will also see any lint errors in the console.
 
 Launches the test runner using Jest.
 
-### `yarn build:all`
+### `yarn build:`
 
 Builds packages for production to their respective `dist` and `lib` folders. Note that the webapp uses a `bundle` command more appropriate to creating an optimized web bundle. CI systems will want to invoke both of these to produce complete
 
-### `yarn clean:all`
+### `yarn clean:`
 
 Cleans out the node_modules and built lib directories for every package.
 
