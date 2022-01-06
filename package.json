@@ -34,7 +34,7 @@
 		"@essex/eslint-plugin": "^19.0.1",
 		"@essex/jest-config": "^19.0.1",
 		"@essex/prettier-config": "^18.0.2",
-		"@essex/scripts": "^19.0.1",
+		"@essex/scripts": "^19.0.2",
 		"@types/jest": "^26.0.24",
 		"@types/node": "^14.18.5",
 		"@types/prettier": "^2.4.2",
