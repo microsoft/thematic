@@ -2998,11 +2998,13 @@ __metadata:
     "@essex/jest-config": ^19.0.1
     "@essex/prettier-config": ^18.0.2
     "@essex/scripts": ^19.0.2
+    "@types/eslint": ^8
     "@types/jest": ^26.0.24
     "@types/node": ^14.18.5
     "@types/prettier": ^2.4.2
     "@typescript-eslint/eslint-plugin": ^5.9.0
     "@typescript-eslint/parser": ^5.9.0
+    eslint: ^8.6.0
     eslint-import-resolver-node: ^0.3.6
     husky: ^6.0.0
     jest: ^27.4.7
@@ -3243,6 +3245,16 @@ __metadata:
     "@types/estree": "*"
     "@types/json-schema": "*"
   checksum: 9c82e4733c22d9ebfb55b790985aaca8e7cf407a62deff1db4e7f21ccffee97ce9c0f8014782f8000742d85d1fddfd714ac4133cd92c8d8ae369fa9e865845e8
+  languageName: node
+  linkType: hard
+
+"@types/eslint@npm:^8":
+  version: 8.2.1
+  resolution: "@types/eslint@npm:8.2.1"
+  dependencies:
+    "@types/estree": "*"
+    "@types/json-schema": "*"
+  checksum: f32753ba184c212056f2bb7ee16937150a36e01da7eed15e2e179b7df76d0bbcbfa49972f30e9336f22be471c7f67fd91bcc8c25ff532462598de0f489df0cd8
   languageName: node
   linkType: hard
 

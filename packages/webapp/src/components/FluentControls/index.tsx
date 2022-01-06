@@ -2,9 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { useState, useCallback, useMemo, FC } from 'react'
-import { connect } from 'react-redux'
-import { themeLoaded } from '../../state/actions'
 import { ScaleType, Theme } from '@thematic/core'
 import {
 	ScaleDropdown,
@@ -13,6 +10,9 @@ import {
 	ColorPickerButton,
 } from '@thematic/fluent'
 import { useThematic } from '@thematic/react'
+import { useState, useCallback, useMemo, FC } from 'react'
+import { connect } from 'react-redux'
+import { themeLoaded } from '../../state/actions'
 
 export interface FluentControlsComponentProps {
 	themeLoaded: (theme: Theme) => void

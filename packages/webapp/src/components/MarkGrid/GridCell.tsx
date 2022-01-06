@@ -2,10 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { CSSProperties, FC, useMemo } from 'react'
-import { Rect, Circle, Line, Arc, Text } from '../svg'
 import { SelectionState } from '@thematic/core'
 import { useThematic, mark2style } from '@thematic/react'
+import { CSSProperties, FC, useMemo } from 'react'
+import { Rect, Circle, Line, Arc, Text } from '../svg'
 
 export interface GridCellProps {
 	name: string

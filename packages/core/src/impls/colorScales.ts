@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { Color } from '@thematic/color'
 import murmur from 'murmurhash-js'
 import { linear, log, quantile } from '../scales'
 import {
@@ -9,7 +10,6 @@ import {
 	NominalColorScaleFunction,
 	ContinuousColorScaleFunction,
 } from '../types'
-import { Color } from '@thematic/color'
 
 /**
  * Nominal (categorical) scale generator.

@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Application, Chart, ApplicationSpec, ChartSpec } from '../types'
 import { Color } from '@thematic/color'
+import { Application, Chart, ApplicationSpec, ChartSpec } from '../types'
 
 export * from './colorScales'
 export * from './svg-marks'

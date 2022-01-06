@@ -2,11 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { useThematic } from '@thematic/react'
+import { vega as decorator } from '@thematic/vega'
 import { memo, useLayoutEffect, useRef, useMemo, FC } from 'react'
 
 import { parse, View } from 'vega'
-import { useThematic } from '@thematic/react'
-import { vega as decorator } from '@thematic/vega'
 
 export const charts = [
 	'heatmap',

@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { IconButton } from '@fluentui/react'
-import { CSSProperties, FC } from 'react'
 import { contrast } from '@thematic/color'
+import { CSSProperties, FC } from 'react'
 
 export interface ContrastProps {
 	foreground: string

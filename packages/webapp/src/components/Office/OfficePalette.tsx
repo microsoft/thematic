@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { useThematic } from '@thematic/react'
 import { FC } from 'react'
 import { ColorStrip } from '../ColorStrip'
-import { useThematic } from '@thematic/react'
 
 export interface OfficePaletteProps {
 	colors: any

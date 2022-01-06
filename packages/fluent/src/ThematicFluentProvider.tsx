@@ -4,10 +4,10 @@
  */
 import { initializeIcons } from '@fluentui/font-icons-mdl2'
 import { ThemeProvider } from '@fluentui/react'
-import { useMemo, ReactNode, FC } from 'react'
-import { loadFluentTheme } from './loader'
 import { Theme } from '@thematic/core'
 import { ThematicProvider } from '@thematic/react'
+import { useMemo, ReactNode, FC } from 'react'
+import { loadFluentTheme } from './loader'
 
 export interface ThematicFluentProviderProps {
 	theme: Theme

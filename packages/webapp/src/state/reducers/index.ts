@@ -2,6 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { defaultParams } from '@thematic/color'
+import { defaultThemes, clone } from '@thematic/core'
 import { combineReducers } from 'redux'
 import { handleAction, handleActions, Action } from 'redux-actions'
 import { Graph } from '../../interfaces'
@@ -17,9 +19,6 @@ import {
 } from '../actions'
 import { handle } from './handle'
 import { ui } from './ui'
-
-import { defaultParams } from '@thematic/color'
-import { defaultThemes, clone } from '@thematic/core'
 
 const themes = handle(themesLoaded, defaultThemes)
 

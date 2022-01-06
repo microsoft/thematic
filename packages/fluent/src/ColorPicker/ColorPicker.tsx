@@ -7,11 +7,11 @@ import {
 	Slider,
 	IColor,
 } from '@fluentui/react'
-import { CSSProperties, FC } from 'react'
 
 import { css2hsluv, Params } from '@thematic/color'
 import { Theme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
+import { CSSProperties, FC } from 'react'
 
 export enum ColorPickerLayout {
 	PickerOnly,
