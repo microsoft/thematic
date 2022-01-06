@@ -21,10 +21,10 @@ jobs:
       - run: yarn install
         name: Install dependencies
 
-      - run: yarn build:all
+      - run: yarn build:
         name: Build libs
 
-      - run: yarn bundle:all
+      - run: yarn bundle:
         name: Bundle webapp
 
       - name: Deploy static site

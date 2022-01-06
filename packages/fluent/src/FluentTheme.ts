@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { createTheme, ITheme } from '@fluentui/react'
+import { Theme, ThemeVariant } from '@thematic/core'
 import { FluentTheme as IFluentTheme } from './interfaces'
 import { themeJson } from './themeJson'
-import { Theme, ThemeVariant } from '@thematic/core'
 
 /**
  * Wraps a thematic theme to output Fluent palettes.

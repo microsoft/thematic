@@ -2,11 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { Params, ColorBlindnessMode } from '@thematic/color'
+import { loadById, Theme, ThemeListing } from '@thematic/core'
 import { Dispatch } from 'redux'
 import { createAction } from 'redux-actions'
 import { Graph } from '../../interfaces'
-import { Params, ColorBlindnessMode } from '@thematic/color'
-import { loadById, Theme, ThemeListing } from '@thematic/core'
 
 export const themesLoaded = createAction<ThemeListing[]>('App:Themes:Loaded')
 export const themeInfoSelected = createAction<ThemeListing>(
@@ -37,10 +37,10 @@ export const colorBlindnessModeChanged = createAction<ColorBlindnessMode>(
 	'App:Viewer:ColorBlindnessMode:Changed',
 )
 
-export const themeSelected = (themeInfo: ThemeListing) => (
-	dispatch: Dispatch,
-): void => {
-	const theme = loadById(themeInfo.id)
-	dispatch(themeInfoSelected(themeInfo))
-	dispatch(themeLoaded(theme))
-}
+export const themeSelected =
+	(themeInfo: ThemeListing) =>
+	(dispatch: Dispatch): void => {
+		const theme = loadById(themeInfo.id)
+		dispatch(themeInfoSelected(themeInfo))
+		dispatch(themeLoaded(theme))
+	}

@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { defaultParams } from '@thematic/color'
 import { Theme } from '../Theme'
 import { ScaleType } from '../types'
-import { defaultParams } from '@thematic/color'
 
 const lightSpec = {
 	name: 'light',
@@ -29,19 +29,13 @@ const lightConfig = {
 // TODO: mock this out better so it isn't unstable
 
 const SCALE_VECTOR = [
-	0.9725490196078431,
-	0.5490196078431373,
-	0.5529411764705883,
-	1.0,
+	0.9725490196078431, 0.5490196078431373, 0.5529411764705883, 1.0,
 ]
 const SCALE_NUMBER = -7500552
 
 // these are variants from the mock theme config above
 const STROKE_VECTOR = [
-	0.996078431372549,
-	0.996078431372549,
-	0.996078431372549,
-	1.0,
+	0.996078431372549, 0.996078431372549, 0.996078431372549, 1.0,
 ]
 const STROKE_NUMBER = -65794
 

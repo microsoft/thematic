@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { Params, Scheme, ColorBlindnessMode } from '@thematic/color'
 import { merge } from 'lodash'
 import {
 	nominal,
@@ -65,7 +66,6 @@ import {
 	Transformer,
 	ExportConfig,
 } from './types'
-import { Params, Scheme, ColorBlindnessMode } from '@thematic/color'
 
 const defaultConfig = {
 	variant: ThemeVariant.Light,

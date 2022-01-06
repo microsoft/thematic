@@ -2,13 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { Theme } from '@thematic/core'
+import { ThematicFluentProvider } from '@thematic/fluent'
+import { ApplicationStyles } from '@thematic/react'
 import { connect } from 'react-redux'
 import { ControlPanel } from './components/ControlPanel'
 import { ThemeEditor } from './components/ThemeEditor'
 import { ThemeViewer } from './components/ThemeViewer'
-import { Theme } from '@thematic/core'
-import { ThematicFluentProvider } from '@thematic/fluent'
-import { ApplicationStyles } from '@thematic/react'
 
 import './App.css'
 

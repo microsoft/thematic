@@ -2,27 +2,26 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { FC, useMemo } from 'react'
-import { ColorChips } from './ColorChips'
-import { ContinuousBand } from './ContinuousBand'
-import { ChipsProps } from './types'
 import {
 	Theme,
 	NominalColorScaleFunction,
 	ContinuousColorScaleFunction,
 } from '@thematic/core'
 import { useThematic } from '@thematic/react'
+import { FC, useMemo } from 'react'
+import { ColorChips } from './ColorChips'
+import { ContinuousBand } from './ContinuousBand'
+import { ChipsProps } from './types'
 
 export function useScale(
 	key: string,
 	width: number,
 ): NominalColorScaleFunction | ContinuousColorScaleFunction {
 	const theme = useThematic()
-	const scale = useMemo(() => chooseScale(theme, key, width), [
-		theme,
-		key,
-		width,
-	])
+	const scale = useMemo(
+		() => chooseScale(theme, key, width),
+		[theme, key, width],
+	)
 	return scale
 }
 

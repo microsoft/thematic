@@ -9,11 +9,11 @@ import {
 	SpinButton,
 	Position,
 } from '@fluentui/react'
-import { useState, useCallback, FC } from 'react'
-import { EnumDropdown } from '../EnumDropdown'
 import { ColorBlindnessMode, colorBlindnessInfo } from '@thematic/color'
 import { ThemeListing, Theme } from '@thematic/core'
 import { ColorPickerButton } from '@thematic/fluent'
+import { useState, useCallback, FC } from 'react'
+import { EnumDropdown } from '../EnumDropdown'
 
 import './index.css'
 

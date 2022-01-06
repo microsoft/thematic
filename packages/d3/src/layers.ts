@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { Theme } from '@thematic/core'
 import { Axis } from 'd3-axis'
 import { Selection } from 'd3-selection'
 import {
@@ -10,7 +11,6 @@ import {
 	line as lineCall,
 	text as textCall,
 } from './svg'
-import { Theme } from '@thematic/core'
 
 export interface SelectionOptions {
 	/**
