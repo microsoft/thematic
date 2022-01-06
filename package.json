@@ -16,7 +16,7 @@
 		"test:": "jest",
 		"test:ci": "jest --coverage",
 		"git-is-clean": "essex git-is-clean",
-		"ci": "npm-run-all -p lint: build: bundle: test:ci -s git-is-clean",
+		"ci": "run-s lint: build: bundle: test:ci git-is-clean",
 		"release": "run-s clean: build: publish:",
 		"start": "yarn start:webapp"
 	},
