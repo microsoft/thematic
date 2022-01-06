@@ -2,12 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { mark2style, useThematic } from '@thematic/react'
 import { FC, Fragment } from 'react'
 import { ApplicationPalette } from './ApplicationPalette'
 import { ColorBand } from './ColorBand'
 import { ColorStrip } from './ColorStrip'
 import { Contrast } from './Contrast'
-import { mark2style, useThematic } from '@thematic/react'
 
 // this is the same number we use under the hood when constructing the continuous scales,
 // so it makes sense to use here and potentially allow the gradation bands to be visible,

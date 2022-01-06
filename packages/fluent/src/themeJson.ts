@@ -7,8 +7,8 @@ import {
 	ThemeGenerator,
 	themeRulesStandardCreator,
 } from '@fluentui/react'
-import { correctShades } from './shades'
 import { Theme, ThemeVariant } from '@thematic/core'
+import { correctShades } from './shades'
 
 /**
  * Generates a full set of Fluent palette colors using required base input colors.

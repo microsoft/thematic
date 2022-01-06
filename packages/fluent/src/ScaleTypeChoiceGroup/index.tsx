@@ -7,8 +7,8 @@ import {
 	IChoiceGroupOption,
 	IChoiceGroupStyles,
 } from '@fluentui/react'
-import { FC, useCallback, useMemo } from 'react'
 import { ScaleType } from '@thematic/core'
+import { FC, useCallback, useMemo } from 'react'
 
 export interface ScaleTypeChoiceGroupProps {
 	selectedType: ScaleType

@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { TextField } from '@fluentui/react'
-import { FC, useMemo } from 'react'
-import { DownloadLink } from '../DownloadLink'
 import { gimp } from '@thematic/core'
 import { useThematic } from '@thematic/react'
+import { FC, useMemo } from 'react'
+import { DownloadLink } from '../DownloadLink'
 // the deep nesting of the component requires several layers of size adjustment
 const styles = {
 	root: {

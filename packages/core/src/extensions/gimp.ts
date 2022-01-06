@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Theme, Transformer } from '../types'
 import { css2rgba } from '@thematic/color'
+import { Theme, Transformer } from '../types'
 
 /**
  * Creates a text string of the scheme colors compatible with GIMP/Inkscape palette files (*.gpl)

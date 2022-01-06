@@ -10,8 +10,8 @@ import {
 	Label,
 	ICommandBarItemProps,
 } from '@fluentui/react'
-import { useCallback, useMemo } from 'react'
 import { useThematic } from '@thematic/react'
+import { useCallback, useMemo } from 'react'
 
 export interface WrapperStyles {
 	root: React.CSSProperties

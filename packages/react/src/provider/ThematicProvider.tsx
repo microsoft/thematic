@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { Theme } from '@thematic/core'
 import { FC, ReactNode, useMemo } from 'react'
 import { ThematicContext, defaultTheme } from './ThematicContext'
-import { Theme } from '@thematic/core'
 
 export interface ThematicProviderProps {
 	theme?: Theme

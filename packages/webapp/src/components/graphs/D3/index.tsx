@@ -2,6 +2,16 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { ScaleType, SelectionState } from '@thematic/core'
+import {
+	circle,
+	line,
+	applyNominalAttrWithSignalState,
+	sequential,
+	chart,
+	plotArea,
+} from '@thematic/d3'
+import { useThematic } from '@thematic/react'
 import { scaleLinear } from 'd3-scale'
 import { select } from 'd3-selection'
 import {
@@ -14,16 +24,6 @@ import {
 } from 'react'
 import { Graph, Node, Edge } from '../../../interfaces'
 import { bounds } from '../../../util/graph'
-import { ScaleType, SelectionState } from '@thematic/core'
-import {
-	circle,
-	line,
-	applyNominalAttrWithSignalState,
-	sequential,
-	chart,
-	plotArea,
-} from '@thematic/d3'
-import { useThematic } from '@thematic/react'
 
 export interface GraphProps {
 	graph: Graph
