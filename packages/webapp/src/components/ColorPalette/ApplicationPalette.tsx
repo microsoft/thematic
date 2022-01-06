@@ -4,9 +4,9 @@
  */
 
 import './index.css'
+import { useThematic } from '@thematic/react'
 import { FC } from 'react'
 import { ColorStrip } from '../ColorStrip'
-import { useThematic } from '@thematic/react'
 
 const applicationPrimaryKeys = ['accent', 'foreground', 'background', 'border']
 const applicationSignalKeys = ['success', 'warning', 'error']

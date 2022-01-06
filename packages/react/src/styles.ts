@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { CSSProperties } from 'react'
 import { css2css } from '@thematic/color'
 import { SVGMark, Application } from '@thematic/core'
+import { CSSProperties } from 'react'
 
 /**
  * Converts a basic mark config to CSS-compatible object

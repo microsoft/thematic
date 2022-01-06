@@ -2,13 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { SelectionState } from '@thematic/core'
+import { useThematic } from '@thematic/react'
 import { useState, useCallback, useMemo, FC } from 'react'
 import { EnumButtonBar } from '../EnumButtonBar'
 import { GridCell } from './GridCell'
-
 import './index.css'
-import { SelectionState } from '@thematic/core'
-import { useThematic } from '@thematic/react'
 
 const SIZE = 30
 

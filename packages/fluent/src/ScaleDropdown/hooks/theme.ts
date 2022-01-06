@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { IDropdownOption } from '@fluentui/react'
-import { useMemo } from 'react'
 import { useThematic } from '@thematic/react'
+import { useMemo } from 'react'
 
 const ITEM_LEFT_PADDING = 8 // default right padding in fluent item
 const ITEM_BORDER_MODIFIER = 1 // accounts for transparent border on outer container

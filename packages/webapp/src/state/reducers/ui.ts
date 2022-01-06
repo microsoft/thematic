@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { ColorBlindnessMode } from '@thematic/color'
 import { combineReducers } from 'redux'
 import {
 	chartSizeChanged,
@@ -11,7 +12,6 @@ import {
 	colorBlindnessModeChanged,
 } from '../actions'
 import { handle } from './handle'
-import { ColorBlindnessMode } from '@thematic/color'
 
 // chart width for the examples
 // for the main charts this'll be a 4/3 aspect ratio
