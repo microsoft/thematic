@@ -10,6 +10,37 @@ export interface FluentPaletteProps {
 	theme: FluentTheme
 }
 
+const primaryKeys: string[] = [
+	'themeDarker',
+	'themeDark',
+	'themeDarkAlt',
+	'themePrimary',
+	'themeSecondary',
+	'themeTertiary',
+	'themeLight',
+	'themeLighter',
+	'themeLighterAlt',
+]
+
+const foregroundKeys: string[] = [
+	'black',
+	'neutralDark',
+	'neutralPrimary',
+	'neutralPrimaryAlt',
+	'neutralSecondary',
+	'neutralTertiary',
+	'white',
+]
+
+const backgroundKeys: string[] = [
+	'neutralTertiaryAlt',
+	'neutralQuaternary',
+	'neutralQuaternaryAlt',
+	'neutralLight',
+	'neutralLighter',
+	'neutralLighterAlt',
+]
+
 export const FluentPalette: FC<FluentPaletteProps> = ({ theme }) => {
 	const json = theme.toJSON()
 	const mapkeys = keys =>
@@ -18,9 +49,9 @@ export const FluentPalette: FC<FluentPaletteProps> = ({ theme }) => {
 			label: key,
 			secondaryLabel: json[key],
 		}))
-	const primaries = mapkeys(theme.primaryKeys)
-	const foregrounds = mapkeys(theme.foregroundKeys)
-	const backgrounds = mapkeys(theme.backgroundKeys)
+	const primaries = mapkeys(primaryKeys)
+	const foregrounds = mapkeys(foregroundKeys)
+	const backgrounds = mapkeys(backgroundKeys)
 	const styles = {
 		root: {
 			display: 'flex',
