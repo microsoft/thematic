@@ -17,18 +17,6 @@ export interface FluentTheme {
 	 */
 	theme: Theme
 	/**
-	 * List of keys for the primary theme colors
-	 */
-	primaryKeys: string[]
-	/**
-	 * List of keys for the foreground theme colors
-	 */
-	foregroundKeys: string[]
-	/**
-	 * List of keys for the background theme colors
-	 */
-	backgroundKeys: string[]
-	/**
 	 * Returns a Fluent-compatible theme object, suitable to apply to the ThemeProvider component
 	 * See https://developer.microsoft.com/en-us/fluentui#/controls/web/themes
 	 */

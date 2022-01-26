@@ -29,50 +29,6 @@ export class FluentTheme implements IFluentTheme {
 		})
 	}
 	toJSON(): Record<string, string> {
-		// the full theme includes a variety of additional color mappings, for this we just want the core palette
-		const json = themeJson(this._theme)
-		const jsonkeys = [
-			...this.primaryKeys,
-			...this.foregroundKeys,
-			...this.backgroundKeys,
-		]
-		return jsonkeys.reduce((acc, cur) => {
-			acc[cur] = json[cur]
-			return acc
-		}, {})
-	}
-	get primaryKeys(): string[] {
-		return [
-			'themeDarker',
-			'themeDark',
-			'themeDarkAlt',
-			'themePrimary',
-			'themeSecondary',
-			'themeTertiary',
-			'themeLight',
-			'themeLighter',
-			'themeLighterAlt',
-		]
-	}
-	get foregroundKeys(): string[] {
-		return [
-			'black',
-			'neutralDark',
-			'neutralPrimary',
-			'neutralPrimaryAlt',
-			'neutralSecondary',
-			'neutralTertiary',
-			'white',
-		]
-	}
-	get backgroundKeys(): string[] {
-		return [
-			'neutralTertiaryAlt',
-			'neutralQuaternary',
-			'neutralQuaternaryAlt',
-			'neutralLight',
-			'neutralLighter',
-			'neutralLighterAlt',
-		]
+		return themeJson(this._theme)
 	}
 }
