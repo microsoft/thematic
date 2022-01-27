@@ -3,9 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { createTheme, Theme as IFluentTheme } from '@fluentui/react'
-import { Theme as IThematicTheme, ThemeImpl, ThemeVariant } from '@thematic/core'
-import { FluentTheme as IThematicFluentTheme } from './interfaces'
-import { themeJson } from './themeJson'
+import {
+	Theme as IThematicTheme,
+	ThemeImpl,
+	ThemeVariant,
+} from '@thematic/core'
+import { themeJson } from './theme'
+import { FluentTheme as IThematicFluentTheme } from './types'
 
 /**
  * Wraps a thematic theme to output Fluent palettes.
@@ -45,7 +49,7 @@ export class FluentTheme extends ThemeImpl implements IThematicFluentTheme {
 	get palette() {
 		return this._fTheme.palette
 	}
-	get semanticColors () {
+	get semanticColors() {
 		return this._fTheme.semanticColors
 	}
 	get rtl() {
