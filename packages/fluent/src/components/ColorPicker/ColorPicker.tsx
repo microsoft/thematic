@@ -10,8 +10,8 @@ import {
 
 import { css2hsluv, Params } from '@thematic/color'
 import { Theme } from '@thematic/core'
-import { useThematic } from '@thematic/react'
 import { CSSProperties, FC } from 'react'
+import { useThematicFluent } from '../../provider'
 
 export enum ColorPickerLayout {
 	PickerOnly,
@@ -46,7 +46,7 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 	layout,
 	styles,
 }) => {
-	const contextTheme = useThematic()
+	const contextTheme = useThematicFluent()
 	const activeTheme = theme || contextTheme
 
 	const lyt = layout || ColorPickerLayout.PickerOnly
