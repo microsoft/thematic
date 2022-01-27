@@ -42,12 +42,12 @@ const backgroundKeys: string[] = [
 ]
 
 export const FluentPalette: FC<FluentPaletteProps> = ({ theme }) => {
-	const json = theme.toJSON()
+	const json = theme.toFluent()
 	const mapkeys = keys =>
 		keys.map(key => ({
-			color: json[key],
+			color: json.palette[key],
 			label: key,
-			secondaryLabel: json[key],
+			secondaryLabel: json.palette[key],
 		}))
 	const primaries = mapkeys(primaryKeys)
 	const foregrounds = mapkeys(foregroundKeys)
@@ -57,10 +57,10 @@ export const FluentPalette: FC<FluentPaletteProps> = ({ theme }) => {
 			display: 'flex',
 		},
 		swatch: {
-			border: `1px solid ${theme.theme.application().border().hex()}`,
+			border: `1px solid ${theme.application().border().hex()}`,
 		},
 		header: {
-			color: theme.theme.application().foreground().hex(),
+			color: theme.application().foreground().hex(),
 			fontSize: 14,
 		},
 	}
