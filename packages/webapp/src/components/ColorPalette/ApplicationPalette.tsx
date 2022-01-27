@@ -4,8 +4,9 @@
  */
 
 import './index.css'
+import { Theme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import { ColorStrip } from '../ColorStrip'
 
 const applicationPrimaryKeys = ['accent', 'foreground', 'background', 'border']
@@ -15,20 +16,13 @@ const applicationHighKeys = ['midContrast', 'midHighContrast', 'highContrast']
 
 export const ApplicationPalette: FC = () => {
 	const theme = useThematic()
-	const app = theme.application()
-	const mapkeys = keys =>
-		keys.map(key => ({
-			color: app[key]().hex(),
-			label: key,
-			secondaryLabel: app[key]().hex(),
-		}))
-	const primaries = mapkeys(applicationPrimaryKeys)
-	const signals = mapkeys(applicationSignalKeys)
-	const secondaries = mapkeys(applicationLowKeys)
-	const elements = mapkeys(applicationHighKeys)
+	const primaries = useColors(applicationPrimaryKeys, theme)
+	const signals = useColors(applicationSignalKeys, theme)
+	const secondaries = useColors(applicationLowKeys, theme)
+	const elements = useColors(applicationHighKeys, theme)
 	const styles = {
 		swatch: {
-			border: `1px solid ${app.border().hex()}`,
+			border: `1px solid ${theme.application().border().hex()}`,
 		},
 		label: {
 			width: 80,
@@ -62,4 +56,15 @@ export const ApplicationPalette: FC = () => {
 			/>
 		</div>
 	)
+}
+
+function useColors(keys: string[], theme: Theme) {
+	return useMemo(() => {
+		const app = theme.application()
+		return keys.map(key => ({
+			color: app[key]().hex(),
+			label: key,
+			secondaryLabel: app[key]().hex(),
+		}))
+	}, [keys, theme])
 }
