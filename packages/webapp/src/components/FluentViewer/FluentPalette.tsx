@@ -29,7 +29,6 @@ const foregroundKeys: string[] = [
 	'neutralPrimaryAlt',
 	'neutralSecondary',
 	'neutralTertiary',
-	'white',
 ]
 
 const backgroundKeys: string[] = [
@@ -39,6 +38,7 @@ const backgroundKeys: string[] = [
 	'neutralLight',
 	'neutralLighter',
 	'neutralLighterAlt',
+	'white',
 ]
 
 export const FluentPalette: FC<FluentPaletteProps> = ({ theme }) => {
