@@ -16,7 +16,7 @@ export const FluentViewer: FC = () => {
 	const theme = useThematic()
 	const fluentTheme = useMemo(() => loadFluentTheme(theme), [theme])
 	const value = useMemo(
-		() => JSON.stringify(fluentTheme.toJSON(), null, 2),
+		() => JSON.stringify(fluentTheme.toFluent(), null, 2),
 		[fluentTheme],
 	)
 	return (

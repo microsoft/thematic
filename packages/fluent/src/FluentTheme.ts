@@ -2,33 +2,56 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { createTheme, ITheme } from '@fluentui/react'
-import { Theme, ThemeVariant } from '@thematic/core'
-import { FluentTheme as IFluentTheme } from './interfaces'
+import { createTheme, Theme as IFluentTheme } from '@fluentui/react'
+import { Theme as IThematicTheme, ThemeImpl, ThemeVariant } from '@thematic/core'
+import { FluentTheme as IThematicFluentTheme } from './interfaces'
 import { themeJson } from './themeJson'
 
 /**
  * Wraps a thematic theme to output Fluent palettes.
- * TODO: it would be nice if this implemented Fluent's theme interface
- * directly so it could be passed as is to a ThemeContext.
+ * This implements both interfaces, so it can be passed to providers for
+ * Thematic alone, Fluent alone, or combined (see ThematicFluentProvider).
  */
-export class FluentTheme implements IFluentTheme {
-	private _theme: Theme
-	constructor(theme: Theme) {
-		this._theme = theme
-	}
-	get theme(): Theme {
-		return this._theme
-	}
-	toFluent(): ITheme {
-		const inverted = this._theme.variant === ThemeVariant.Dark
-		const json = themeJson(this._theme)
-		return createTheme({
-			...{ palette: json },
-			isInverted: inverted,
+export class FluentTheme extends ThemeImpl implements IThematicFluentTheme {
+	private _tTheme: IThematicTheme
+	private _fTheme: IFluentTheme
+	constructor(theme: IThematicTheme) {
+		super(theme.spec, theme.config)
+		this._tTheme = theme
+		this._fTheme = createTheme({
+			palette: themeJson(theme),
+			isInverted: theme.variant === ThemeVariant.Dark,
 		})
 	}
-	toJSON(): Record<string, string> {
-		return themeJson(this._theme)
+	toThematic(): IThematicTheme {
+		return this._tTheme
+	}
+	toFluent(): IFluentTheme {
+		return this._fTheme
+	}
+	// these are core interface properties of the Fluent IScheme
+	get disableGlobalClassNames() {
+		return this._fTheme.disableGlobalClassNames
+	}
+	get effects() {
+		return this._fTheme.effects
+	}
+	get fonts() {
+		return this._fTheme.fonts
+	}
+	get isInverted() {
+		return this._fTheme.isInverted
+	}
+	get palette() {
+		return this._fTheme.palette
+	}
+	get semanticColors () {
+		return this._fTheme.semanticColors
+	}
+	get rtl() {
+		return this._fTheme.rtl
+	}
+	get spacing() {
+		return this._fTheme.spacing
 	}
 }
