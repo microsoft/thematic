@@ -27,8 +27,8 @@ export const ThematicFluentProvider: FC<ThematicFluentProviderProps> = ({
 }) => {
 	const fluentTheme = useMemo(() => loadFluentTheme(theme), [theme])
 	return (
-		<ThematicProvider theme={theme}>
-			<ThemeProvider theme={fluentTheme.toFluent()}>{children}</ThemeProvider>
+		<ThematicProvider theme={fluentTheme}>
+			<ThemeProvider theme={fluentTheme}>{children}</ThemeProvider>
 		</ThematicProvider>
 	)
 }

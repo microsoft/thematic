@@ -10,26 +10,57 @@ export interface FluentPaletteProps {
 	theme: FluentTheme
 }
 
+const primaryKeys: string[] = [
+	'themeDarker',
+	'themeDark',
+	'themeDarkAlt',
+	'themePrimary',
+	'themeSecondary',
+	'themeTertiary',
+	'themeLight',
+	'themeLighter',
+	'themeLighterAlt',
+]
+
+const foregroundKeys: string[] = [
+	'black',
+	'neutralDark',
+	'neutralPrimary',
+	'neutralPrimaryAlt',
+	'neutralSecondary',
+	'neutralTertiary',
+]
+
+const backgroundKeys: string[] = [
+	'neutralTertiaryAlt',
+	'neutralQuaternary',
+	'neutralQuaternaryAlt',
+	'neutralLight',
+	'neutralLighter',
+	'neutralLighterAlt',
+	'white',
+]
+
 export const FluentPalette: FC<FluentPaletteProps> = ({ theme }) => {
-	const json = theme.toJSON()
+	const json = theme.toFluent()
 	const mapkeys = keys =>
 		keys.map(key => ({
-			color: json[key],
+			color: json.palette[key],
 			label: key,
-			secondaryLabel: json[key],
+			secondaryLabel: json.palette[key],
 		}))
-	const primaries = mapkeys(theme.primaryKeys)
-	const foregrounds = mapkeys(theme.foregroundKeys)
-	const backgrounds = mapkeys(theme.backgroundKeys)
+	const primaries = mapkeys(primaryKeys)
+	const foregrounds = mapkeys(foregroundKeys)
+	const backgrounds = mapkeys(backgroundKeys)
 	const styles = {
 		root: {
 			display: 'flex',
 		},
 		swatch: {
-			border: `1px solid ${theme.theme.application().border().hex()}`,
+			border: `1px solid ${theme.application().border().hex()}`,
 		},
 		header: {
-			color: theme.theme.application().foreground().hex(),
+			color: theme.application().foreground().hex(),
 			fontSize: 14,
 		},
 	}
