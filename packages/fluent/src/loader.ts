@@ -4,7 +4,7 @@
  */
 import { Theme } from '@thematic/core'
 import { FluentTheme } from './FluentTheme'
-import { FluentTheme as IFluentTheme } from './interfaces'
+import { FluentTheme as IFluentTheme } from './types'
 
 /**
  * Load a Fluent theme instance derived from a thematic theme
