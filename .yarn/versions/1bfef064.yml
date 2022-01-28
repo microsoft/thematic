@@ -1,0 +1,4 @@
+releases:
+  "@thematic/fluent": minor
+  "@thematic/react": patch
+  "@thematic/webapp": patch
