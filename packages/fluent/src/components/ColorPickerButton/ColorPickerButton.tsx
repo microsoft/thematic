@@ -4,8 +4,8 @@
  */
 import { IconButton, Label } from '@fluentui/react'
 import { Theme } from '@thematic/core'
-import { useThematic } from '@thematic/react'
 import { memo, CSSProperties, FC } from 'react'
+import { useThematicFluent } from '../../provider'
 import { ColorPicker } from '../ColorPicker'
 
 export interface ColorPickerButtonStyles {
@@ -24,7 +24,7 @@ export interface ColorPickerButtonProps {
  */
 export const ColorPickerButton: FC<ColorPickerButtonProps> = memo(
 	function ColorPickerButton({ onChange, theme, label, styles }) {
-		const contextTheme = useThematic()
+		const contextTheme = useThematicFluent()
 		const activeTheme = theme || contextTheme
 		const labelStyle = {
 			paddingTop: 0,

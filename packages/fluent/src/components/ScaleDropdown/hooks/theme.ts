@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { IDropdownOption } from '@fluentui/react'
-import { useThematic } from '@thematic/react'
 import { useMemo } from 'react'
+import { useThematicFluent } from '../../../provider'
 
 const ITEM_LEFT_PADDING = 8 // default right padding in fluent item
 const ITEM_BORDER_MODIFIER = 1 // accounts for transparent border on outer container
@@ -67,7 +67,7 @@ export function useItemStyle(width: number): React.CSSProperties {
 // TODO: it would be helpful to provide a filter function so scales can be
 // constrained to categorical or sequential when data is string versus numeric
 export function useThematicScaleOptions(): IDropdownOption[] {
-	const theme = useThematic()
+	const theme = useThematicFluent()
 	return useMemo(() => {
 		const keys = Object.keys(theme.scales())
 		return keys.map(key => {
