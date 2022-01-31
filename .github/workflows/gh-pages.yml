@@ -13,10 +13,10 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Use Node 12.x
+      - name: Use Node 14.x
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 14.x
 
       - run: yarn install
         name: Install dependencies
