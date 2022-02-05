@@ -15,8 +15,7 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build",
-		"start": "essex watch"
+		"build": "essex build"
 	},
 	"dependencies": {
 		"@essex-js-toolkit/hooks": "^1.1.5",

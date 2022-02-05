@@ -17,8 +17,7 @@
 		"test:ci": "jest --coverage",
 		"git-is-clean": "essex git-is-clean",
 		"ci": "run-s lint: build: bundle: test:ci git-is-clean",
-		"release": "run-s clean: build: publish:",
-		"start": "yarn start:webapp"
+		"release": "run-s clean: build: publish:"
 	},
 	"workspaces": {
 		"packages": [
