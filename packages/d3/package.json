@@ -15,8 +15,7 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build",
-		"start": "essex watch"
+		"build": "essex build"
 	},
 	"dependencies": {
 		"@thematic/core": "workspace:packages/core",
