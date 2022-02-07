@@ -7,23 +7,10 @@ import {
 	NominalColorScaleFunction,
 	ContinuousColorScaleFunction,
 } from '@thematic/core'
-import { FC, useMemo } from 'react'
-import { useThematicFluent } from '../../provider'
+import { FC } from 'react'
 import { ColorChips } from './ColorChips'
 import { ContinuousBand } from './ContinuousBand'
 import { ChipsProps } from './types'
-
-export function useScale(
-	key: string,
-	width: number,
-): NominalColorScaleFunction | ContinuousColorScaleFunction {
-	const theme = useThematicFluent()
-	const scale = useMemo(
-		() => chooseScale(theme, key, width),
-		[theme, key, width],
-	)
-	return scale
-}
 
 export function chooseScale(
 	theme: Theme,

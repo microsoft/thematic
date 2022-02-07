@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import { useThematic } from './'
 
 /**
@@ -10,9 +10,10 @@ import { useThematic } from './'
  */
 export const ApplicationStyles: FC = () => {
 	const theme = useThematic()
-	return (
-		<style>
-			{`
+	return useMemo(
+		() => (
+			<style>
+				{`
         html,
         body {
             background-color: ${theme.application().background().hex()};
@@ -22,6 +23,8 @@ export const ApplicationStyles: FC = () => {
             color: ${theme.application().accent().hex()};
         }
     `}
-		</style>
+			</style>
+		),
+		[theme],
 	)
 }
