@@ -6,7 +6,7 @@
 	"private": true,
 	"license": "MIT",
 	"scripts": {
-		"clean": "essex clean build",
+		"clean": "essex clean",
 		"build": "tsc -b . && vite build",
 		"start": "vite",
 		"start:webapp": "yarn start"
