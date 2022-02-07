@@ -3,8 +3,14 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { IDropdownOption } from '@fluentui/react'
-import { useMemo } from 'react'
+import {
+	NominalColorScaleFunction,
+	ContinuousColorScaleFunction,
+} from '@thematic/core'
+import React, { useMemo } from 'react'
 import { useThematicFluent } from '../../../provider'
+import { ChipsProps } from '../types'
+import { chooseScale, selectColorPalette } from '../util'
 
 const ITEM_LEFT_PADDING = 8 // default right padding in fluent item
 const ITEM_BORDER_MODIFIER = 1 // accounts for transparent border on outer container
@@ -84,4 +90,20 @@ export function useThematicScaleOptions(): IDropdownOption[] {
 			}
 		})
 	}, [theme])
+}
+
+export function useScale(
+	key: string,
+	width: number,
+): NominalColorScaleFunction | ContinuousColorScaleFunction {
+	const theme = useThematicFluent()
+	const scale = useMemo(
+		() => chooseScale(theme, key, width),
+		[theme, key, width],
+	)
+	return scale
+}
+
+export function usePaletteComponent(key: string): React.FC<ChipsProps> {
+	return useMemo(() => selectColorPalette(key), [key])
 }

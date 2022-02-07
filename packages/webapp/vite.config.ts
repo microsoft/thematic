@@ -6,7 +6,8 @@ import essexViteConfig from '@essex/vite-config'
 import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
-export default {
+const merged = {
 	...defineConfig(essexViteConfig),
 	base: '',
 }
+export default merged
