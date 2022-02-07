@@ -24,13 +24,10 @@ jobs:
       - run: 'yarn build:'
         name: Build libs
 
-      - run: 'yarn bundle:'
-        name: Bundle webapp
-
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.2.3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: packages/webapp/build
+          FOLDER: packages/webapp/dist
           CLEAN: true
