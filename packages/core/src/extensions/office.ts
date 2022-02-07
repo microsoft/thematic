@@ -4,11 +4,26 @@
  */
 import { Theme, ThemeVariant, Transformer } from '../types'
 
+export type OfficeTheme = {
+	dark1: string
+	light1: string
+	dark2: string
+	light2: string
+	accent1: string
+	accent2: string
+	accent3: string
+	accent4: string
+	accent5: string
+	accent6: string
+	hyperlink: string
+	followedHyperlink: string
+}
+
 /**
  * Creates an object with the properties of a standard Office color theme.
  * @param theme
  */
-export const office: Transformer = (theme: Theme) => {
+export const office: Transformer<OfficeTheme> = (theme: Theme) => {
 	const nominal = theme.scales().nominal().toArray()
 	return {
 		dark1:
