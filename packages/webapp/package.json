@@ -7,7 +7,7 @@
 	"license": "MIT",
 	"scripts": {
 		"clean": "essex clean build",
-		"build": "tsc && vite build",
+		"build": "tsc -b . && vite build",
 		"start": "vite",
 		"start:webapp": "yarn start"
 	},
