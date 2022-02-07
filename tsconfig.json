@@ -10,7 +10,8 @@
 		// However, application code can use it to write idiomatic react imports.
 		"allowSyntheticDefaultImports": false,
 		"forceConsistentCasingInFileNames": true,
-		"strict": true
+		"strict": true,
+		"esModuleInterop": true
 	},
 	"exclude": ["**/node_modules/**", "**/__tests__/**"]
 }

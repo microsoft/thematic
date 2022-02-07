@@ -8,23 +8,31 @@ import { memo, useLayoutEffect, useRef, useMemo, FC } from 'react'
 
 import { parse, View } from 'vega'
 
-export const charts = [
-	'heatmap',
-	'bar',
-	'stacked-bar',
-	'line',
-	'area',
-	'stacked-area',
-	'scatter-plot',
-	'donut',
-	'pyramid',
-	'sunburst',
-]
+import area from './specs/area.json'
+import bar from './specs/bar.json'
+import donut from './specs/donut.json'
+import heatmap from './specs/heatmap.json'
+import line from './specs/line.json'
+import pyramid from './specs/pyramid.json'
+import scatterPlot from './specs/scatter-plot.json'
+import stackedArea from './specs/stacked-area.json'
+import stackedBar from './specs/stacked-bar.json'
+import sunburst from './specs/sunburst.json'
 
-const specs = charts.reduce((acc, cur) => {
-	acc[cur] = require(`./specs/${cur}.json`)
-	return acc
-}, {})
+const specs = {
+	heatmap,
+	bar,
+	stackedBar,
+	line,
+	area,
+	stackedArea,
+	scatterPlot,
+	donut,
+	pyramid,
+	sunburst,
+}
+
+export const charts = Object.keys(specs)
 
 export interface VegaChartProps {
 	type: string
