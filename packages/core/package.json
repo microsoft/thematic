@@ -19,8 +19,7 @@
 		"build_lib": "essex build",
 		"copy_json_esm": "ncp src/themes dist/esm/themes",
 		"copy_json_cjs": "ncp src/themes dist/cjs/themes",
-		"assets": "run-p copy_json_esm copy_json_cjs",
-		"start": "essex watch"
+		"assets": "run-p copy_json_esm copy_json_cjs"
 	},
 	"dependencies": {
 		"@thematic/color": "workspace:packages/color",
