@@ -2,18 +2,18 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { SelectionState } from '@thematic/core'
+import { SelectionState, ThemeElementType } from '@thematic/core'
 import { useThematic, mark2style } from '@thematic/react'
 import { CSSProperties, FC, useMemo } from 'react'
 import { Rect, Circle, Line, Arc, Text } from '../svg'
 
 export interface GridCellProps {
-	name: string
+	name: ThemeElementType
 	size: number
 	selectionState?: SelectionState
 }
 
-const selectMark = (key: string) => {
+const selectMark = (key: ThemeElementType) => {
 	switch (key) {
 		case 'rect':
 		case 'plotArea':

@@ -10,6 +10,11 @@ import {
 import { Theme, ThemeVariant } from '@thematic/core'
 import { correctShades } from './shades'
 
+type ThemeInputColors = {
+	primaryColor: string
+	foregroundColor: string
+	backgroundColor: string
+}
 /**
  * Generates a full set of Fluent palette colors using required base input colors.
  * See https://github.com/microsoft/fluentui/tree/master/packages/react/src/components/ThemeGenerator
@@ -19,7 +24,7 @@ import { correctShades } from './shades'
  * @param colors
  * @param inverted
  */
-const fluentJson = (colors, inverted = false) => {
+const fluentJson = (colors: ThemeInputColors, inverted = false): any => {
 	const themeRules = themeRulesStandardCreator()
 	ThemeGenerator.insureSlots(themeRules, inverted)
 	ThemeGenerator.setSlot(
@@ -49,7 +54,7 @@ const fluentJson = (colors, inverted = false) => {
  */
 export const themeJson = (theme: Theme): Record<string, string> => {
 	const inverted = theme.variant === ThemeVariant.Dark
-	const colors = {
+	const colors: ThemeInputColors = {
 		primaryColor: theme.application().accent().hex(),
 		foregroundColor: theme.application().foreground().hex(),
 		backgroundColor: theme.application().background().hex(),

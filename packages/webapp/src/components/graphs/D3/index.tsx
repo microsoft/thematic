@@ -88,7 +88,7 @@ export const D3Graph: FC<GraphProps> = ({
 		const nmap = nodes.reduce((acc, cur) => {
 			acc[cur.id] = cur
 			return acc
-		}, {})
+		}, {} as Record<string, Node>)
 
 		g.selectAll('line')
 			.data(edges)
@@ -154,12 +154,12 @@ export const D3Graph: FC<GraphProps> = ({
 						acc[cur.community] = true
 					}
 					return acc
-				}, {})
+				}, {} as Record<string, boolean>)
 				n.call(
 					applyNominalAttrWithSignalState,
 					'fill',
 					getNodeSelectionState,
-					d => d.community,
+					(d: Node) => d.community,
 					theme,
 					Object.keys(unique).length,
 				)

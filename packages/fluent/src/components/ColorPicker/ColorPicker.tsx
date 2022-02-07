@@ -64,7 +64,10 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 		}
 	}
 
-	const handlePickerChange = (e, color: IColor) => {
+	const handlePickerChange = (
+		ev: React.SyntheticEvent<HTMLElement>,
+		color: IColor,
+	) => {
 		const [h, s, l] = css2hsluv(color.hex)
 		updateParams({
 			accentHue: h,

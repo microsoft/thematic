@@ -4,17 +4,24 @@
  */
 import { Theme, Transformer } from '../types'
 
+export type PowerBITheme = {
+	name: string
+	dataColors: string[]
+	background: string
+	foreground: string
+	tableAccent: string
+}
 /**
  * Creates a JSON format that is compatible with Power BI theming.
  * https://docs.microsoft.com/en-us/power-bi/desktop-report-themes
  * @param theme
  */
-export const powerbi: Transformer = (theme: Theme) => {
+export const powerbi: Transformer<PowerBITheme> = (theme: Theme) => {
 	// TODO: this is the very most basic theme properties available. we could do much more with semantic mappings, akin to the Fluent themes
 	const nominal = theme.scales().nominal(12)
 	const dataColors = new Array(12).fill(1).map((a, i) => nominal(i).hex())
 	const application = theme.application()
-	const pbi = {
+	const pbi: PowerBITheme = {
 		name: `${theme.name} - ${theme.variant}`,
 		dataColors,
 		background: application.background().hex(),

@@ -19,7 +19,7 @@ import stackedArea from './specs/stacked-area.json'
 import stackedBar from './specs/stacked-bar.json'
 import sunburst from './specs/sunburst.json'
 
-const specs = {
+const specs: Record<string, any> = {
 	heatmap,
 	bar,
 	stackedBar,
