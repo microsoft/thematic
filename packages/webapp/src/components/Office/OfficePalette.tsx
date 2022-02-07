@@ -29,7 +29,7 @@ const accentKeys = [
 
 export const OfficePalette: FC<OfficePaletteProps> = ({ colors }) => {
 	const theme = useThematic()
-	const mapkeys = keys =>
+	const mapkeys = (keys: string[]) =>
 		keys.map(key => ({
 			color: colors[key],
 			label: key,

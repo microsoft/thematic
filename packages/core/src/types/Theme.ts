@@ -5,7 +5,7 @@
 import { Params, Scheme, Color, ColorBlindnessMode } from '@thematic/color'
 import { ThemeConfig } from './ThemeConfig'
 import { ThemeSpec, ThemeDefinition } from './ThemeDefinition'
-import { ScaleType, SelectionState, ThemeVariant } from './interfaces'
+import { ScaleType, SelectionState, ThemeVariant } from './enums'
 
 /**
  * Overall application level config, e.g., 'chrome'.
@@ -231,8 +231,8 @@ export interface MarkConfig {
 	}
 }
 
-export interface Transformer {
-	(theme: Theme): unknown
+export interface Transformer<T = unknown> {
+	(theme: Theme): T
 }
 
 export interface ExportConfig {
@@ -241,6 +241,16 @@ export interface ExportConfig {
 	 */
 	scaleItemCount?: number
 }
+
+/**
+ * Function that produces an SVGMark config
+ */
+export type MarkFunction<T> = (markConfig?: MarkConfig) => T
+
+/**
+ * Function that produces a SVGChrome config
+ */
+export type ChromeFunction<T> = () => T
 
 /**
  * This is the theme interface applications will use.
@@ -256,28 +266,28 @@ export interface Theme {
 	config: ThemeConfig
 	definition: ThemeDefinition
 	// top-level application/chrome config
-	application: () => Application
-	chart: () => Chart
+	application: ChromeFunction<Application>
+	chart: ChromeFunction<Chart>
 	// chart svg chrome
-	plotArea: () => PlotArea
-	axisLine: () => AxisLine
-	axisTicks: () => AxisTicks
-	axisTickLabels: () => AxisTickLabels
-	axisTitle: () => AxisTitle
-	gridLines: () => GridLines
-	tooltip: () => Tooltip
-	// on-chart svg visual encodings
-	circle: (markConfig?: MarkConfig) => Circle
-	rect: (markConfig?: MarkConfig) => Rect
-	line: (markConfig?: MarkConfig) => Line
-	rule: (markConfig?: MarkConfig) => Rule
-	area: (markConfig?: MarkConfig) => Area
-	arc: (markConfig?: MarkConfig) => Arc
-	node: (markConfig?: MarkConfig) => Node
-	link: (markConfig?: MarkConfig) => Link
-	process: (markConfig?: MarkConfig) => Process
-	flow: (markConfig?: MarkConfig) => Flow
-	text: (markConfig?: MarkConfig) => Text
+	plotArea: ChromeFunction<PlotArea>
+	axisLine: ChromeFunction<AxisLine>
+	axisTicks: ChromeFunction<AxisTicks>
+	axisTickLabels: ChromeFunction<AxisTickLabels>
+	axisTitle: ChromeFunction<AxisTitle>
+	gridLines: ChromeFunction<GridLines>
+	tooltip: ChromeFunction<Tooltip>
+	// on-chart svg visual mark encodings
+	circle: MarkFunction<Circle>
+	rect: MarkFunction<Rect>
+	line: MarkFunction<Line>
+	rule: MarkFunction<Rule>
+	area: MarkFunction<Area>
+	arc: MarkFunction<Arc>
+	node: MarkFunction<Node>
+	link: MarkFunction<Link>
+	process: MarkFunction<Process>
+	flow: MarkFunction<Flow>
+	text: MarkFunction<Text>
 	clone(update: ThemeSpec, updatedConfig?: ThemeConfig): Theme
 	toJSON(config?: ExportConfig): ThemeSpec
 	scales: () => ColorScales

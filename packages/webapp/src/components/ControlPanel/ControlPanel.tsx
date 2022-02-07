@@ -81,12 +81,14 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 		[onChartSizeChange],
 	)
 
-	const handleDarkChange = (e: any, v) => {
+	const handleDarkChange = () => {
 		setDark(!dark)
 		onThemeVariantToggled()
 	}
-	const handleDrawNodesChange = (e: any, v) => onDrawNodesChange(v)
-	const handleDrawLinksChange = (e: any, v) => onDrawLinksChange(v)
+	const handleDrawNodesChange = (e: any, checked?: boolean) =>
+		onDrawNodesChange(!!checked)
+	const handleDrawLinksChange = (e: any, checked?: boolean) =>
+		onDrawLinksChange(!!checked)
 	const changeValue = useCallback(
 		(value: string, change = 0) => {
 			const num = parseInt(value, 10)

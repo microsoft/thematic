@@ -4,7 +4,7 @@
  */
 
 import './index.css'
-import { Theme } from '@thematic/core'
+import { Theme, Application } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import { FC, useMemo } from 'react'
 import { ColorStrip } from '../ColorStrip'
@@ -62,9 +62,9 @@ function useColors(keys: string[], theme: Theme) {
 	return useMemo(() => {
 		const app = theme.application()
 		return keys.map(key => ({
-			color: app[key]().hex(),
+			color: app[key as keyof Application]().hex(),
 			label: key,
-			secondaryLabel: app[key]().hex(),
+			secondaryLabel: app[key as keyof Application]().hex(),
 		}))
 	}, [keys, theme])
 }

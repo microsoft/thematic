@@ -2,23 +2,24 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { PowerBITheme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import { FC } from 'react'
 import { ColorStrip } from '../ColorStrip'
 
 export interface PowerBIPaletteProps {
-	colors: any
+	colors: PowerBITheme
 }
 
 const mainKeys = ['foreground', 'background', 'tableAccent']
 
 export const PowerBIPalette: FC<PowerBIPaletteProps> = ({ colors }) => {
 	const theme = useThematic()
-	const mapkeys = keys =>
+	const mapkeys = (keys: string[]) =>
 		keys.map(key => ({
-			color: colors[key],
+			color: colors[key as keyof PowerBITheme],
 			label: key,
-			secondaryLabel: colors[key],
+			secondaryLabel: colors[key as keyof PowerBITheme],
 		}))
 	const mains = mapkeys(mainKeys)
 	const dataColorsLeft = colors.dataColors.slice(0, 6).map(c => ({
