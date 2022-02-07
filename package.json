@@ -25,6 +25,10 @@
 		]
 	},
 	"devDependencies": {
+		"@babel/core": "^7.16.0",
+		"@babel/preset-env": "^7.16.4",
+		"@babel/preset-react": "^7.16.0",
+		"@babel/preset-typescript": "^7.16.0",
 		"@essex/eslint-config": "^19.0.1",
 		"@essex/eslint-plugin": "^19.0.1",
 		"@essex/jest-config": "^19.0.1",
