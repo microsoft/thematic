@@ -4,7 +4,7 @@
  */
 import { IconButton } from '@fluentui/react'
 import { contrast } from '@thematic/color'
-import { CSSProperties, FC } from 'react'
+import { CSSProperties, FC, useMemo } from 'react'
 
 export interface ContrastProps {
 	foreground: string
@@ -23,22 +23,20 @@ export const Contrast: FC<ContrastProps> = ({
 	error,
 	showLink,
 }) => {
-	const c = contrast(foreground, background)
-	const style: CSSProperties = {}
+	const c = useMemo(
+		() => contrast(foreground, background),
+		[foreground, background],
+	)
 	const low = c < WCAG
-	if (low) {
-		style.color = error
-	}
+	const style = useMemo(() => {
+		const s: CSSProperties = {}
+		if (low) {
+			s.color = error
+		}
+		return s
+	}, [low, error])
+
 	const display = Math.round(c * 100) / 100
-	const buttonStyles = {
-		root: {
-			width: ICON_SIZE,
-			height: ICON_SIZE,
-		},
-		icon: {
-			fontSize: ICON_SIZE,
-		},
-	}
 	return (
 		<>
 			<span style={style} title={NOTE}>
@@ -55,4 +53,14 @@ export const Contrast: FC<ContrastProps> = ({
 			) : null}
 		</>
 	)
+}
+
+const buttonStyles = {
+	root: {
+		width: ICON_SIZE,
+		height: ICON_SIZE,
+	},
+	icon: {
+		fontSize: ICON_SIZE,
+	},
 }

@@ -18,12 +18,13 @@ const JSONPaneComponent: FC<JSONPaneProps> = ({ scaleItemCount }) => {
 		() => theme.toJSON({ scaleItemCount }),
 		[theme, scaleItemCount],
 	)
+	const blobParts = useMemo(() => [JSON.stringify(value, null, 2)], [value])
 	return (
 		<div style={{ width: '100%', height: '90%' }}>
 			<JSONEditor value={value} />
 			<DownloadLink
 				filename={`${theme.name}-${theme.variant}.json`}
-				blobParts={[JSON.stringify(value, null, 2)]}
+				blobParts={blobParts}
 				styles={{ root: { fontSize: '0.5em' } }}
 			/>
 		</div>
