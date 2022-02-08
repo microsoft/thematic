@@ -55,14 +55,18 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 	onScaleItemCountChange,
 	onColorBlindnessModeChange,
 }) => {
-	const handleThemeChange = (e: any, v: IDropdownOption | undefined) => {
-		if (v) {
-			const found = themes.find(t => t.id === v!.key)
-			if (found) {
-				onThemeChange(found)
+	const [dark, setDark] = useState(false)
+	const handleThemeChange = useCallback(
+		(event: React.FormEvent<HTMLDivElement>, option?: IDropdownOption) => {
+			if (option) {
+				const found = themes.find(t => t.id === option.key)
+				if (found) {
+					onThemeChange(found)
+				}
 			}
-		}
-	}
+		},
+		[themes, onThemeChange],
+	)
 	const handleChartIncrement = useCallback(
 		() => onChartSizeChange(chartSize + 100),
 		[onChartSizeChange, chartSize],
@@ -81,14 +85,21 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 		[onChartSizeChange],
 	)
 
-	const handleDarkChange = () => {
+	const handleDarkChange = useCallback(() => {
 		setDark(!dark)
 		onThemeVariantToggled()
-	}
-	const handleDrawNodesChange = (e: any, checked?: boolean) =>
-		onDrawNodesChange(!!checked)
-	const handleDrawLinksChange = (e: any, checked?: boolean) =>
-		onDrawLinksChange(!!checked)
+	}, [dark, setDark, onThemeVariantToggled])
+
+	const handleDrawNodesChange = useCallback(
+		(event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
+			onDrawNodesChange(!!checked),
+		[onDrawNodesChange],
+	)
+	const handleDrawLinksChange = useCallback(
+		(event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
+			onDrawLinksChange(!!checked),
+		[onDrawLinksChange],
+	)
 	const changeValue = useCallback(
 		(value: string, change = 0) => {
 			const num = parseInt(value, 10)
@@ -116,10 +127,13 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 		[changeValue],
 	)
 
-	const handleColorBlindnessChange = (e: ColorBlindnessMode) => {
-		onColorBlindnessModeChange(e)
-	}
-	const [dark, setDark] = useState(false)
+	const handleColorBlindnessChange = useCallback(
+		(v: string | number) => {
+			onColorBlindnessModeChange(v as ColorBlindnessMode)
+		},
+		[onColorBlindnessModeChange],
+	)
+
 	const cbInfo = colorBlindnessInfo(colorBlindnessMode)
 	const renderDropdownOption = useCallback(option => {
 		return (
@@ -215,7 +229,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 						enumeration={ColorBlindnessMode}
 						label="Color blindness"
 						selected={colorBlindnessMode}
-						onChange={handleColorBlindnessChange as any}
+						onChange={handleColorBlindnessChange}
 						styles={{
 							root: {
 								display: 'flex',

@@ -2,12 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { OfficeTheme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import { FC } from 'react'
 import { ColorStrip } from '../ColorStrip'
 
 export interface OfficePaletteProps {
-	colors: any
+	colors: OfficeTheme
 }
 
 const mainKeys = [
@@ -31,9 +32,9 @@ export const OfficePalette: FC<OfficePaletteProps> = ({ colors }) => {
 	const theme = useThematic()
 	const mapkeys = (keys: string[]) =>
 		keys.map(key => ({
-			color: colors[key],
+			color: colors[key as keyof OfficeTheme],
 			label: key,
-			secondaryLabel: colors[key],
+			secondaryLabel: colors[key as keyof OfficeTheme],
 		}))
 	const mains = mapkeys(mainKeys)
 	const accents = mapkeys(accentKeys)

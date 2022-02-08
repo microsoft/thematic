@@ -12,11 +12,16 @@ import {
 } from '@thematic/color'
 import { merge, set } from 'lodash'
 import defaults from './themes/defaults.json'
-import { ThemeDefinition, ThemeSpec, ThemeVariant } from './types'
+import { ThemeDefinition, ThemeSpec, ThemeVariant, SVGSpec } from './types'
 
 // these are static default settings for the marks that are not derived from the computed scheme
 const DEFAULT_NOMINAL_ITEMS = 10
 const DEFAULT_SEQUENTIAL_ITEMS = 100
+
+type Config = {
+	value: string | number
+	paths: string[]
+}
 
 /**
  * Creates a completed Params block from a ThemeDefinition, making sure missing optional fields are populated.
@@ -98,7 +103,7 @@ export function computeDefinition(
 	// https://lodash.com/docs/#merge
 	// lodash also lets us target very specific properties dynamically with set
 	// https://lodash.com/docs#set
-	const baseConfigs = [
+	const baseConfigs: Config[] = [
 		{
 			value: scheme.background,
 			paths: ['application.background'],
@@ -187,17 +192,13 @@ export function computeDefinition(
 		},
 	]
 
-	const base = baseConfigs.reduce((acc, cur) => {
-		const { value, paths } = cur
-		paths.forEach(path => set(acc, path, value))
-		return acc
-	}, {})
+	const base = reduceConfig(baseConfigs)
 
 	// this is the core populated overlay with all computed colors but no signals
 	// note that theme definition goes last because it may contain manual overrides
-	const baseOverlay = merge({}, defaults, base, overrides)
+	const baseOverlay: ThemeDefinition = merge({}, defaults, base, overrides)
 
-	const signalConfigs = [
+	const signalConfigs: Config[] = [
 		{
 			value: scheme.nominalBold[0],
 			paths: [
@@ -272,7 +273,6 @@ export function computeDefinition(
 			value: scheme.highContrastAnnotation,
 			paths: ['process.hovered.fill', 'process.selected.fill'],
 		},
-		// TODO: specify default opacities in a JSON or other overridable format
 		{
 			value: 1,
 			paths: [
@@ -382,11 +382,7 @@ export function computeDefinition(
 		},
 	]
 
-	const signalOverlay = signalConfigs.reduce((acc, cur) => {
-		const { value, paths } = cur
-		paths.forEach(path => set(acc, path, value))
-		return acc
-	}, {})
+	const signalOverlay = reduceConfig(signalConfigs)
 
 	const signalMarks = [
 		'circle',
@@ -403,20 +399,35 @@ export function computeDefinition(
 	]
 
 	// this gives a fully-complete set of marks with populated signal props as copies of the originals
-	const signalDefaultsOverlay = signalMarks.reduce((acc: any, cur: any) => {
-		const b = (baseOverlay as any)[cur]
-		const s = {
-			hovered: { ...b },
-			selected: { ...b },
-			suppressed: { ...b },
-			hidden: { ...b },
-			nodata: { ...b },
-		}
-		acc[cur] = s
-		return acc
-	}, {})
+	const signalDefaultsOverlay = signalMarks.reduce(
+		(acc: ThemeDefinition, cur: string) => {
+			const b = baseOverlay[cur as keyof ThemeDefinition] as SVGSpec
+			const s = {
+				hovered: { ...b },
+				selected: { ...b },
+				suppressed: { ...b },
+				hidden: { ...b },
+				nodata: { ...b },
+			}
+			acc[cur as keyof ThemeDefinition] = s
+			return acc
+		},
+		{} as ThemeDefinition,
+	)
 
-	const merged = merge(baseOverlay, signalDefaultsOverlay, signalOverlay)
+	const merged: ThemeDefinition = merge(
+		baseOverlay,
+		signalDefaultsOverlay,
+		signalOverlay,
+	)
 
 	return merged
+}
+
+function reduceConfig(configs: Config[]): ThemeDefinition {
+	return configs.reduce((acc, cur) => {
+		const { value, paths } = cur
+		paths.forEach(path => set(acc, path, value))
+		return acc
+	}, {} as ThemeDefinition)
 }

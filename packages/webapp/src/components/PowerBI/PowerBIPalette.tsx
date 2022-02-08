@@ -5,7 +5,7 @@
 import { PowerBITheme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import { FC } from 'react'
-import { ColorStrip } from '../ColorStrip'
+import { ColorDefinition, ColorStrip } from '../ColorStrip'
 
 export interface PowerBIPaletteProps {
 	colors: PowerBITheme
@@ -13,15 +13,16 @@ export interface PowerBIPaletteProps {
 
 const mainKeys = ['foreground', 'background', 'tableAccent']
 
+const mapkeys = (theme: PowerBITheme, keys: string[]) =>
+	keys.map(key => ({
+		color: theme[key as keyof PowerBITheme],
+		label: key,
+		secondaryLabel: theme[key as keyof PowerBITheme],
+	}))
+
 export const PowerBIPalette: FC<PowerBIPaletteProps> = ({ colors }) => {
 	const theme = useThematic()
-	const mapkeys = (keys: string[]) =>
-		keys.map(key => ({
-			color: colors[key as keyof PowerBITheme],
-			label: key,
-			secondaryLabel: colors[key as keyof PowerBITheme],
-		}))
-	const mains = mapkeys(mainKeys)
+	const mains = mapkeys(colors, mainKeys) as ColorDefinition[]
 	const dataColorsLeft = colors.dataColors.slice(0, 6).map(c => ({
 		color: c,
 		label: c,
