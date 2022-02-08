@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { mark2style, useThematic } from '@thematic/react'
-import { FC, Fragment } from 'react'
+import { FC, Fragment, useMemo } from 'react'
 import { ApplicationPalette } from './ApplicationPalette'
 import { ColorBand } from './ColorBand'
 import { ColorStrip } from './ColorStrip'
@@ -23,10 +23,8 @@ export interface ColorPaletteProps {
 
 export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
 	const theme = useThematic()
-	const accentColor = theme.application().accent().hex()
-	const foregroundColor = theme.application().foreground().hex()
-	const backgroundColor = theme.application().background().hex()
-	const errorColor = theme.application().error().hex()
+	const [accentColor, foregroundColor, backgroundColor, errorColor] =
+		usePalette()
 	const accent = (
 		<Fragment>
 			<span style={{ color: accentColor }}>Accent {accentColor}</span>
@@ -46,15 +44,17 @@ export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
 			</span>
 		</Fragment>
 	)
-	const bandDomain = [0, BAND_SLICES - 1]
-	const nominal = theme.scales().nominal(scaleItemCount).toArray()
-	const nominalBold = theme.scales().nominalBold(scaleItemCount).toArray()
-	const nominalMuted = theme.scales().nominalMuted(scaleItemCount).toArray()
-	const sequential = theme.scales().sequential(bandDomain).toArray()
-	const diverging = theme.scales().diverging(bandDomain).toArray()
-	const sequential2 = theme.scales().sequential2(bandDomain).toArray()
-	const diverging2 = theme.scales().diverging2(bandDomain).toArray()
-	const greys = theme.scales().greys(bandDomain).toArray()
+
+	const [
+		nominal,
+		nominalBold,
+		nominalMuted,
+		sequential,
+		diverging,
+		sequential2,
+		diverging2,
+		greys,
+	] = useScales(scaleItemCount)
 	return (
 		<div
 			style={{
@@ -159,4 +159,32 @@ export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
 			</div>
 		</div>
 	)
+}
+
+function usePalette() {
+	const theme = useThematic()
+	return useMemo(() => {
+		return [
+			theme.application().accent().hex(),
+			theme.application().foreground().hex(),
+			theme.application().background().hex(),
+			theme.application().error().hex(),
+		]
+	}, [theme])
+}
+function useScales(scaleItemCount: number) {
+	const theme = useThematic()
+	return useMemo(() => {
+		const bandDomain = [0, BAND_SLICES - 1]
+		return [
+			theme.scales().nominal(scaleItemCount).toArray(),
+			theme.scales().nominalBold(scaleItemCount).toArray(),
+			theme.scales().nominalMuted(scaleItemCount).toArray(),
+			theme.scales().sequential(bandDomain).toArray(),
+			theme.scales().diverging(bandDomain).toArray(),
+			theme.scales().sequential2(bandDomain).toArray(),
+			theme.scales().diverging2(bandDomain).toArray(),
+			theme.scales().greys(bandDomain).toArray(),
+		]
+	}, [theme, scaleItemCount])
 }

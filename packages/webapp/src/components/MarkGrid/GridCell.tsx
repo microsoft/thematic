@@ -45,7 +45,7 @@ const selectMark = (key: ThemeElementType) => {
 
 export const GridCell: FC<GridCellProps> = ({ name, size, selectionState }) => {
 	const theme = useThematic()
-	const Mark = selectMark(name)
+	const Mark = useMemo(() => selectMark(name), [name])
 	const exampleSize = size * 1.5
 	const exampleStyle: CSSProperties = useMemo(
 		() => ({
@@ -55,7 +55,10 @@ export const GridCell: FC<GridCellProps> = ({ name, size, selectionState }) => {
 		}),
 		[theme, exampleSize],
 	)
-	const config = theme[name]({ selectionState })
+	const config = useMemo(
+		() => theme[name]({ selectionState }),
+		[theme, name, selectionState],
+	)
 	return (
 		<div className="mark-grid-cell">
 			<h2 className="mark-grid-cell-title">{name}</h2>

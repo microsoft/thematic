@@ -67,14 +67,7 @@ export const MarkGrid: FC = () => {
 					enumeration={SelectionState}
 					selected={selectionState}
 					onChange={handleSelectionStateChange}
-					iconNames={[
-						'CheckMark',
-						'CheckBoxComposite',
-						'CheckBoxCompositeReversed',
-						'GenericScanFilled',
-						'Hide',
-						'StatusCircleQuestionMark',
-					]}
+					iconNames={iconNames}
 					iconOnly
 					label={'Selection state'}
 				/>
@@ -88,3 +81,12 @@ export const MarkGrid: FC = () => {
 		</div>
 	)
 }
+
+const iconNames = [
+	'CheckMark',
+	'CheckBoxComposite',
+	'CheckBoxCompositeReversed',
+	'GenericScanFilled',
+	'Hide',
+	'StatusCircleQuestionMark',
+]

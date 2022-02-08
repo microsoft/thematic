@@ -73,7 +73,6 @@ export const Line: FC<ThemedMarkProps> = props => {
 export const Arc: FC<ThemedMarkProps> = props => {
 	const { config, size } = props
 	const d = `M0 0 L ${size} 0 A ${size / 4} ${size / 5} 0 0 1 0 0`
-
 	return (
 		<Mark {...props}>
 			<path {...svgAttrs(config)} d={d} />

@@ -4,7 +4,7 @@
  */
 import { PowerBITheme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import { ColorDefinition, ColorStrip } from '../ColorStrip'
 
 export interface PowerBIPaletteProps {
@@ -22,27 +22,41 @@ const mapkeys = (theme: PowerBITheme, keys: string[]) =>
 
 export const PowerBIPalette: FC<PowerBIPaletteProps> = ({ colors }) => {
 	const theme = useThematic()
-	const mains = mapkeys(colors, mainKeys) as ColorDefinition[]
-	const dataColorsLeft = colors.dataColors.slice(0, 6).map(c => ({
-		color: c,
-		label: c,
-	}))
-	const dataColorsRight = colors.dataColors.slice(6).map(c => ({
-		color: c,
-		secondaryLabel: c,
-	}))
-	const styles = {
-		root: {
-			display: 'flex',
-		},
-		header: {
-			color: theme.application().foreground().hex(),
-			fontSize: 14,
-		},
-		swatch: {
-			border: `1px solid ${theme.application().border().hex()}`,
-		},
-	}
+	const mains = useMemo(
+		() => mapkeys(colors, mainKeys) as ColorDefinition[],
+		[colors],
+	)
+	const dataColorsLeft = useMemo(
+		() =>
+			colors.dataColors.slice(0, 6).map(c => ({
+				color: c,
+				label: c,
+			})),
+		[colors],
+	)
+	const dataColorsRight = useMemo(
+		() =>
+			colors.dataColors.slice(6).map(c => ({
+				color: c,
+				secondaryLabel: c,
+			})),
+		[colors],
+	)
+	const styles = useMemo(
+		() => ({
+			root: {
+				display: 'flex',
+			},
+			header: {
+				color: theme.application().foreground().hex(),
+				fontSize: 14,
+			},
+			swatch: {
+				border: `1px solid ${theme.application().border().hex()}`,
+			},
+		}),
+		[theme],
+	)
 	return (
 		<div style={styles.root}>
 			<div>

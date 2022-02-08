@@ -12,7 +12,7 @@ import {
 import { ColorBlindnessMode, colorBlindnessInfo } from '@thematic/color'
 import { ThemeListing, Theme } from '@thematic/core'
 import { ColorPickerButton } from '@thematic/fluent'
-import { useState, useCallback, FC } from 'react'
+import { useState, useCallback, FC, useMemo } from 'react'
 import { EnumDropdown } from '../EnumDropdown'
 
 import './index.css'
@@ -134,7 +134,10 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 		[onColorBlindnessModeChange],
 	)
 
-	const cbInfo = colorBlindnessInfo(colorBlindnessMode)
+	const cbInfo = useMemo(
+		() => colorBlindnessInfo(colorBlindnessMode),
+		[colorBlindnessMode],
+	)
 	const renderDropdownOption = useCallback(option => {
 		return (
 			<div
@@ -147,6 +150,15 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 			</div>
 		)
 	}, [])
+	const options = useMemo(
+		() =>
+			themes.map(t => ({
+				key: t.id,
+				text: t.name,
+				data: t,
+			})),
+		[themes],
+	)
 	return (
 		<div className="control-wrapper">
 			<h1>thematic</h1>
@@ -156,11 +168,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 						label="Theme"
 						selectedKey={themeInfo.id}
 						onChange={handleThemeChange}
-						options={themes.map(t => ({
-							key: t.id,
-							text: t.name,
-							data: t,
-						}))}
+						options={options}
 						onRenderOption={renderDropdownOption}
 						styles={{
 							root: {

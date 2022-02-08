@@ -20,14 +20,17 @@ export const ApplicationPalette: FC = () => {
 	const signals = useColors(applicationSignalKeys, theme)
 	const secondaries = useColors(applicationLowKeys, theme)
 	const elements = useColors(applicationHighKeys, theme)
-	const styles = {
-		swatch: {
-			border: `1px solid ${theme.application().border().hex()}`,
-		},
-		label: {
-			width: 80,
-		},
-	}
+	const styles = useMemo(
+		() => ({
+			swatch: {
+				border: `1px solid ${theme.application().border().hex()}`,
+			},
+			label: {
+				width: 80,
+			},
+		}),
+		[theme],
+	)
 	return (
 		<div className="application-palette">
 			<ColorStrip

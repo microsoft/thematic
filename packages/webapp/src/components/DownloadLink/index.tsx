@@ -8,7 +8,7 @@ import {
 	ILinkStyleProps,
 	ILinkStyles,
 } from '@fluentui/react'
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 
 export interface DownloadLinkProps {
 	/**
@@ -41,8 +41,10 @@ export const DownloadLink: FC<DownloadLinkProps> = ({
 	label,
 	styles,
 }: DownloadLinkProps) => {
-	const blob = new Blob(blobParts, options)
-	const url = URL.createObjectURL(blob)
+	const url = useMemo(() => {
+		const blob = new Blob(blobParts, options)
+		return URL.createObjectURL(blob)
+	}, [blobParts, options])
 	const lbl = label || `Download ${filename}`
 	return (
 		<Link styles={styles} title={lbl} href={url} download={filename}>
