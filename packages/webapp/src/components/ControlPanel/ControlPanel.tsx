@@ -12,7 +12,7 @@ import {
 import { ColorBlindnessMode, colorBlindnessInfo } from '@thematic/color'
 import { ThemeListing, Theme } from '@thematic/core'
 import { ColorPickerButton } from '@thematic/fluent'
-import { useState, useCallback, FC } from 'react'
+import { useCallback, FC, useMemo } from 'react'
 import { EnumDropdown } from '../EnumDropdown'
 
 import './index.css'
@@ -25,14 +25,15 @@ export interface ControlPanelProps {
 	drawLinks: boolean
 	scaleItemCount: number
 	colorBlindnessMode: ColorBlindnessMode
+	darkMode: boolean
 	onThemeLoaded: (theme: Theme) => void
 	onThemeChange: (t: ThemeListing) => void
-	onThemeVariantToggled: () => void
 	onChartSizeChange: (n: number) => void
 	onDrawNodesChange: (d: boolean) => void
 	onDrawLinksChange: (d: boolean) => void
 	onScaleItemCountChange: (value: number) => void
 	onColorBlindnessModeChange: (mode: ColorBlindnessMode) => void
+	onDarkModeChange: (d: boolean) => void
 }
 
 const SCALE_MIN = 1
@@ -46,23 +47,27 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 	drawLinks,
 	scaleItemCount,
 	colorBlindnessMode,
+	darkMode,
 	onThemeLoaded,
 	onThemeChange,
-	onThemeVariantToggled,
 	onChartSizeChange,
 	onDrawNodesChange,
 	onDrawLinksChange,
 	onScaleItemCountChange,
 	onColorBlindnessModeChange,
+	onDarkModeChange,
 }) => {
-	const handleThemeChange = (e: any, v: IDropdownOption | undefined) => {
-		if (v) {
-			const found = themes.find(t => t.id === v!.key)
-			if (found) {
-				onThemeChange(found)
+	const handleThemeChange = useCallback(
+		(event: React.FormEvent<HTMLDivElement>, option?: IDropdownOption) => {
+			if (option) {
+				const found = themes.find(t => t.id === option.key)
+				if (found) {
+					onThemeChange(found)
+				}
 			}
-		}
-	}
+		},
+		[themes, onThemeChange],
+	)
 	const handleChartIncrement = useCallback(
 		() => onChartSizeChange(chartSize + 100),
 		[onChartSizeChange, chartSize],
@@ -81,12 +86,20 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 		[onChartSizeChange],
 	)
 
-	const handleDarkChange = (e: any, v) => {
-		setDark(!dark)
-		onThemeVariantToggled()
-	}
-	const handleDrawNodesChange = (e: any, v) => onDrawNodesChange(v)
-	const handleDrawLinksChange = (e: any, v) => onDrawLinksChange(v)
+	const handleDarkChange = useCallback(() => {
+		onDarkModeChange(!darkMode)
+	}, [darkMode, onDarkModeChange])
+
+	const handleDrawNodesChange = useCallback(
+		(event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
+			onDrawNodesChange(!!checked),
+		[onDrawNodesChange],
+	)
+	const handleDrawLinksChange = useCallback(
+		(event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
+			onDrawLinksChange(!!checked),
+		[onDrawLinksChange],
+	)
 	const changeValue = useCallback(
 		(value: string, change = 0) => {
 			const num = parseInt(value, 10)
@@ -114,11 +127,17 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 		[changeValue],
 	)
 
-	const handleColorBlindnessChange = (e: ColorBlindnessMode) => {
-		onColorBlindnessModeChange(e)
-	}
-	const [dark, setDark] = useState(false)
-	const cbInfo = colorBlindnessInfo(colorBlindnessMode)
+	const handleColorBlindnessChange = useCallback(
+		(v: string | number) => {
+			onColorBlindnessModeChange(v as ColorBlindnessMode)
+		},
+		[onColorBlindnessModeChange],
+	)
+
+	const cbInfo = useMemo(
+		() => colorBlindnessInfo(colorBlindnessMode),
+		[colorBlindnessMode],
+	)
 	const renderDropdownOption = useCallback(option => {
 		return (
 			<div
@@ -131,6 +150,15 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 			</div>
 		)
 	}, [])
+	const options = useMemo(
+		() =>
+			themes.map(t => ({
+				key: t.id,
+				text: t.name,
+				data: t,
+			})),
+		[themes],
+	)
 	return (
 		<div className="control-wrapper">
 			<h1>thematic</h1>
@@ -140,11 +168,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 						label="Theme"
 						selectedKey={themeInfo.id}
 						onChange={handleThemeChange}
-						options={themes.map(t => ({
-							key: t.id,
-							text: t.name,
-							data: t,
-						}))}
+						options={options}
 						onRenderOption={renderDropdownOption}
 						styles={{
 							root: {
@@ -160,7 +184,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 				<div className="control">
 					<Toggle
 						label="Dark mode"
-						checked={dark}
+						checked={darkMode}
 						onChange={handleDarkChange}
 					/>
 				</div>
@@ -213,7 +237,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 						enumeration={ColorBlindnessMode}
 						label="Color blindness"
 						selected={colorBlindnessMode}
-						onChange={handleColorBlindnessChange as any}
+						onChange={handleColorBlindnessChange}
 						styles={{
 							root: {
 								display: 'flex',

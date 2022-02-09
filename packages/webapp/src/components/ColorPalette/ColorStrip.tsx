@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 
 export interface ColorStripProps {
 	colors: string[]
@@ -19,47 +19,51 @@ export const ColorStrip: FC<ColorStripProps> = ({
 	background,
 	label,
 }) => {
-	const colorBlocks = colors.map((color, index) => {
-		return (
-			<div
-				key={`Color-${index}`}
-				title={`${label} color ${color}`}
-				style={{
-					width: 50,
-					flexShrink: 0,
-					background: color,
-					height: 20,
-					lineHeight: '20px',
-					color: labelColors != null ? labelColors[index] : background,
-					textAlign: 'center',
-					margin: 2,
-					padding: 5,
-				}}
-			>
-				{color}
-			</div>
-		)
-	})
+	const colorBlocks = useMemo(
+		() =>
+			colors.map((color, index) => {
+				return (
+					<div
+						key={`Color-${index}`}
+						title={`${label} color ${color}`}
+						style={{
+							width: 50,
+							flexShrink: 0,
+							background: color,
+							height: 20,
+							lineHeight: '20px',
+							color: labelColors != null ? labelColors[index] : background,
+							textAlign: 'center',
+							margin: 2,
+							padding: 5,
+						}}
+					>
+						{color}
+					</div>
+				)
+			}),
+		[colors, background, label, labelColors],
+	)
+	const foregroundStyle = useMemo(
+		() => ({
+			width: 65,
+			flexShrink: 0,
+			height: 20,
+			lineHeight: '20px',
+			color: foreground,
+			textAlign: 'right' as const,
+			margin: 2,
+			padding: 5,
+		}),
+		[foreground],
+	)
 	return (
 		<div
 			style={{
 				display: 'flex',
 			}}
 		>
-			<div
-				style={{
-					width: 65,
-					flexShrink: 0,
-					height: 20,
-					lineHeight: '20px',
-					color: foreground,
-					textAlign: 'right',
-					margin: 2,
-					padding: 5,
-				}}
-			>
-				{label}
-			</div>
+			<div style={foregroundStyle}>{label}</div>
 			<div
 				style={{
 					display: 'flex',

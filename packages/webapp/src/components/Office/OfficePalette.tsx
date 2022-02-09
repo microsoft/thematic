@@ -2,12 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { OfficeTheme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import { ColorStrip } from '../ColorStrip'
 
 export interface OfficePaletteProps {
-	colors: any
+	colors: OfficeTheme
 }
 
 const mainKeys = [
@@ -29,26 +30,23 @@ const accentKeys = [
 
 export const OfficePalette: FC<OfficePaletteProps> = ({ colors }) => {
 	const theme = useThematic()
-	const mapkeys = keys =>
-		keys.map(key => ({
-			color: colors[key],
-			label: key,
-			secondaryLabel: colors[key],
-		}))
-	const mains = mapkeys(mainKeys)
-	const accents = mapkeys(accentKeys)
-	const styles = {
-		root: {
-			display: 'flex',
-		},
-		swatch: {
-			border: `1px solid ${theme.application().border().hex()}`,
-		},
-		header: {
-			color: theme.application().foreground().hex(),
-			fontSize: 14,
-		},
-	}
+	const mains = useColors(colors, mainKeys)
+	const accents = useColors(colors, accentKeys)
+	const styles = useMemo(
+		() => ({
+			root: {
+				display: 'flex',
+			},
+			swatch: {
+				border: `1px solid ${theme.application().border().hex()}`,
+			},
+			header: {
+				color: theme.application().foreground().hex(),
+				fontSize: 14,
+			},
+		}),
+		[theme],
+	)
 	return (
 		<div style={styles.root}>
 			<div>
@@ -68,5 +66,17 @@ export const OfficePalette: FC<OfficePaletteProps> = ({ colors }) => {
 				/>
 			</div>
 		</div>
+	)
+}
+
+function useColors(theme: OfficeTheme, keys: string[]) {
+	return useMemo(
+		() =>
+			keys.map(key => ({
+				color: theme[key as keyof OfficeTheme],
+				label: key,
+				secondaryLabel: theme[key as keyof OfficeTheme],
+			})),
+		[theme, keys],
 	)
 }

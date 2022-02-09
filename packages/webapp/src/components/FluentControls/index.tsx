@@ -11,8 +11,7 @@ import {
 } from '@thematic/fluent'
 import { useThematic } from '@thematic/react'
 import { useState, useCallback, useMemo, FC } from 'react'
-import { connect } from 'react-redux'
-import { themeLoaded } from '../../state/actions'
+import { useSetTheme } from '../../state'
 
 export interface FluentControlsComponentProps {
 	themeLoaded: (theme: Theme) => void
@@ -103,9 +102,10 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 	)
 }
 
-export const FluentControls = connect(null, {
-	themeLoaded,
-})(FluentControlsComponent)
+export const FluentControls = () => {
+	const themeLoaded = useSetTheme()
+	return <FluentControlsComponent themeLoaded={themeLoaded} />
+}
 
 const controlsStyle = {
 	display: 'flex' as const,

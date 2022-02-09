@@ -66,7 +66,7 @@ const applyDarken = (color: string, mapping: Record<string, number>) => {
 		const [key, value] = cur
 		acc[key] = darken(color, value)
 		return acc
-	}, {})
+	}, {} as Record<string, string>)
 }
 
 const applyLighten = (color: string, mapping: Record<string, number>) => {
@@ -74,7 +74,7 @@ const applyLighten = (color: string, mapping: Record<string, number>) => {
 		const [key, value] = cur
 		acc[key] = lighten(color, value)
 		return acc
-	}, {})
+	}, {} as Record<string, string>)
 }
 
 /**

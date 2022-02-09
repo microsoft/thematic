@@ -9,7 +9,7 @@ import {
 	IDropdownStyleProps,
 	IStyleFunctionOrObject,
 } from '@fluentui/react'
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
 export interface EnumDropdownProps<E> {
 	enumeration: any
@@ -31,9 +31,13 @@ export function EnumDropdown<E>({
 	onChange = () => null,
 	styles,
 }: EnumDropdownProps<E>): JSX.Element {
-	const options = Object.entries(enumeration)
-		.filter(m => isNaN(parseInt(m[0])))
-		.map(m => ({ key: m[1] as any, text: m[0] }))
+	const options = useMemo(
+		() =>
+			Object.entries(enumeration)
+				.filter(m => isNaN(parseInt(m[0])))
+				.map(m => ({ key: m[1] as any, text: m[0] })),
+		[enumeration],
+	)
 	const handleChange = useCallback(
 		(e: React.FormEvent, v: IDropdownOption | undefined) => {
 			if (v) {

@@ -17,9 +17,9 @@ export function getNamedSchemeColor(scheme: Scheme, path?: string): Color {
 	}
 	const indexed = indexedTest(path)
 	if (indexed) {
-		return new Color((scheme as any)[indexed.name][indexed.index])
+		return new Color(scheme[indexed.name as keyof Scheme][indexed.index])
 	}
-	return new Color((scheme as any)[path])
+	return new Color(scheme[path as keyof Scheme] as string)
 }
 
 function indexedTest(path: string) {

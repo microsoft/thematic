@@ -75,23 +75,33 @@ export function EnumButtonBar<E>({
 		[enumeration, handleChange, iconNames, iconOnly, selectedKey],
 	)
 
-	const rootStyle = {
-		// TODO: this width is used to prevent automatic collapsing with overflow items
-		// it may not be what we always want, however
-		width: options.length * 46.75,
-		...(wrapperStyles ? wrapperStyles.root : {}),
-	}
-	const labelStyle = {
-		...(wrapperStyles ? wrapperStyles.label : {}),
-	}
-	const commandStyles = {
-		primarySet: {
-			border: `1px solid ${theme.application().border().hex()}`,
-			paddingleft: 0,
-			paddingRight: 0,
-		},
-		...commandBarStyles,
-	}
+	const rootStyle = useMemo(
+		() => ({
+			// TODO: this width is used to prevent automatic collapsing with overflow items
+			// it may not be what we always want, however
+			width: options.length * 46.75,
+			...(wrapperStyles ? wrapperStyles.root : {}),
+		}),
+		[wrapperStyles, options],
+	)
+
+	const labelStyle = useMemo(
+		() => ({
+			...(wrapperStyles ? wrapperStyles.label : {}),
+		}),
+		[wrapperStyles],
+	)
+	const commandStyles = useMemo(
+		() => ({
+			primarySet: {
+				border: `1px solid ${theme.application().border().hex()}`,
+				paddingleft: 0,
+				paddingRight: 0,
+			},
+			...commandBarStyles,
+		}),
+		[theme, commandBarStyles],
+	)
 	return (
 		<div style={rootStyle}>
 			{label && <Label style={labelStyle}>{label}</Label>}

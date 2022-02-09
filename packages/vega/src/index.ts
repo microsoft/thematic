@@ -195,7 +195,7 @@ export function vega(
 		'legend',
 	]
 
-	const merged = {
+	const merged: Spec = {
 		...clone(spec),
 		...chart(theme),
 		width,

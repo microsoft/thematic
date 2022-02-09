@@ -9,7 +9,7 @@ import { Theme, Transformer } from '../types'
  * Creates a text string of the scheme colors compatible with GIMP/Inkscape palette files (*.gpl)
  * @param theme
  */
-export const gimp: Transformer = (theme: Theme) => {
+export const gimp: Transformer<string> = (theme: Theme) => {
 	const headers = [
 		'GIMP Palette',
 		`Name: ${theme.name} - ${theme.variant}`,
