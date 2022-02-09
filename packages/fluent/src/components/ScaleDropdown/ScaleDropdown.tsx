@@ -4,16 +4,16 @@
  */
 import { Dropdown } from '@fluentui/react'
 import { FC, useCallback, useRef } from 'react'
-import { ScaleDropdownItem } from './ScaleDropdownItem'
+import { ScaleDropdownItem } from './ScaleDropdownItem.js'
 import {
 	usePaletteWidth,
 	usePaletteHeight,
 	useContainerStyle,
 	useItemStyle,
 	useThematicScaleOptions,
-} from './hooks/theme'
-import { useSafeDimensions } from './hooks/useSafeDimensions'
-import { ScaleDropdownProps } from './types'
+} from './hooks/theme.js'
+import { useSafeDimensions } from './hooks/useSafeDimensions.js'
+import type { ScaleDropdownProps } from './types.js'
 
 /**
  * Represents a Fluent dropdown of Thematic scale options.

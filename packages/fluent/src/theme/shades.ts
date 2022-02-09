@@ -88,6 +88,12 @@ export const correctShades = (
 	inverted = false,
 ): Record<string, string> => {
 	const { foregroundColor, backgroundColor } = fluentJson
+	if (!foregroundColor) {
+		throw new Error('foregroundColor not defined')
+	}
+	if (!backgroundColor) {
+		throw new Error('backgroundColor not defined')
+	}
 	if (inverted) {
 		return {
 			...fluentJson,

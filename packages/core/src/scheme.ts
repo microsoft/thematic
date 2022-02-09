@@ -10,9 +10,15 @@ import {
 	ColorBlindnessMode,
 	colorBlindness,
 } from '@thematic/color'
-import { merge, set } from 'lodash'
-import defaults from './themes/defaults.json'
-import { ThemeDefinition, ThemeSpec, ThemeVariant, SVGSpec } from './types'
+import merge from 'lodash/merge.js'
+import set from 'lodash/set.js'
+import defaults from './themes/defaults.js'
+import {
+	ThemeDefinition,
+	ThemeSpec,
+	ThemeVariant,
+	SVGSpec,
+} from './types/index.js'
 
 // these are static default settings for the marks that are not derived from the computed scheme
 const DEFAULT_NOMINAL_ITEMS = 10
@@ -129,7 +135,7 @@ export function computeDefinition(
 			paths: ['application.error'],
 		},
 		{
-			value: scheme.nominal[0],
+			value: scheme.nominal[0] as string,
 			paths: [
 				'rect.fill',
 				'area.fill',
@@ -200,7 +206,7 @@ export function computeDefinition(
 
 	const signalConfigs: Config[] = [
 		{
-			value: scheme.nominalBold[0],
+			value: scheme.nominalBold[0] as string,
 			paths: [
 				'rect.hovered.fill',
 				'area.hovered.fill',
@@ -217,7 +223,7 @@ export function computeDefinition(
 			],
 		},
 		{
-			value: scheme.nominalMuted[0],
+			value: scheme.nominalMuted[0] as string,
 			paths: [
 				'rect.suppressed.fill',
 				'area.suppressed.fill',

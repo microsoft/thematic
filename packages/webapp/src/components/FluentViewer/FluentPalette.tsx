@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { IPalette, Theme } from '@fluentui/react'
-import { FluentTheme } from '@thematic/fluent'
+import type { IPalette, Theme } from '@fluentui/react'
+import type { FluentTheme } from '@thematic/fluent'
 import { FC, useMemo } from 'react'
 import { ColorStrip } from '../ColorStrip'
 

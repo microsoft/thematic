@@ -22,7 +22,7 @@ import {
 	useCallback,
 	FC,
 } from 'react'
-import { Graph, Node, Edge } from '../../../interfaces'
+import type { Graph, Node, Edge } from '../../../interfaces'
 import { bounds } from '../../../util/graph'
 
 export interface GraphProps {
@@ -95,10 +95,10 @@ export const D3Graph: FC<GraphProps> = ({
 			.enter()
 			.append('line')
 			.attr('class', 'link')
-			.attr('x1', d => xScale(nmap[d.source].x) as number)
-			.attr('x2', d => xScale(nmap[d.target].x) as number)
-			.attr('y1', d => yScale(nmap[d.source].y) as number)
-			.attr('y2', d => yScale(nmap[d.target].y) as number)
+			.attr('x1', d => xScale(nmap[d.source]!.x) as number)
+			.attr('x2', d => xScale(nmap[d.target]!.x) as number)
+			.attr('y1', d => yScale(nmap[d.source]!.y) as number)
+			.attr('y2', d => yScale(nmap[d.target]!.y) as number)
 			.call(line as any, theme.link({ selectionState: SelectionState.Hidden }))
 
 		g.selectAll('.node')

@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { OfficeTheme } from '@thematic/core'
+import type { OfficeTheme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import { FC, useMemo } from 'react'
 import { ColorStrip } from '../ColorStrip'

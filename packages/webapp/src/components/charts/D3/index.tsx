@@ -158,8 +158,8 @@ export const D3Chart: FC<ChartProps> = ({ width = 800, height = 600 }) => {
 				.attr('width', LEGEND_WIDTH)
 				.attr('height', 1)
 				.attr('x', 1)
-				.attr('y', (d, i) => plotHeight - i)
-				.attr('fill', (d, i) => scale(i).hex())
+				.attr('y', (_d, i) => plotHeight - i)
+				.attr('fill', (_d, i) => scale(i).hex())
 				.attr('fill-opacity', CIRCLE_FILL_OPACITY)
 			const labels = [
 				{

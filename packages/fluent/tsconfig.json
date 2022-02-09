@@ -1,10 +1,8 @@
 {
-	"extends": "../../tsconfig.json",
+	"extends": "@essex/tsconfig-base",
 	"compilerOptions": {
 		"outDir": "lib",
-		"strict": false,
-		"resolveJsonModule": true,
-		"allowSyntheticDefaultImports": true
+		"jsx": "react-jsx"
 	},
 	"include": ["src/**/*"]
 }

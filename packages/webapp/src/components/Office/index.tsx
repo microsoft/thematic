@@ -7,6 +7,7 @@ import { useThematic } from '@thematic/react'
 import { FC, useMemo } from 'react'
 import { DownloadLink } from '../DownloadLink'
 import { OfficePalette } from './OfficePalette'
+
 export const Office: FC = () => {
 	const theme = useThematic()
 	const ofc = useMemo(() => theme.transform(office) as OfficeTheme, [theme])

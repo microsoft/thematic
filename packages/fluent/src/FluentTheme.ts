@@ -8,8 +8,8 @@ import {
 	ThemeImpl,
 	ThemeVariant,
 } from '@thematic/core'
-import { themeJson } from './theme'
-import { FluentTheme as IThematicFluentTheme } from './types'
+import { themeJson } from './theme/index.js'
+import type { FluentTheme as IThematicFluentTheme } from './types.js'
 
 /**
  * Wraps a thematic theme to output Fluent palettes.

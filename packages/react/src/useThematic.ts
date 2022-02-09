@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Theme } from '@thematic/core'
+import type { Theme } from '@thematic/core'
 import { useContext } from 'react'
-import { ThematicContext } from './ThematicContext'
+import { ThematicContext } from './ThematicContext.js'
 
 /**
  * Hook to retrieve the thematic theme directly.

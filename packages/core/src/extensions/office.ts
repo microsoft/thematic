@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Theme, ThemeVariant, Transformer } from '../types'
+import { Theme, ThemeVariant, Transformer } from '../types/index.js'
 
 export type OfficeTheme = {
 	dark1: string
@@ -43,13 +43,13 @@ export const office: Transformer<OfficeTheme> = (theme: Theme) => {
 			theme.variant === ThemeVariant.Dark
 				? theme.application().accent().hex()
 				: theme.plotArea().fill().hex(),
-		accent1: nominal[0],
-		accent2: nominal[1],
-		accent3: nominal[2],
-		accent4: nominal[3],
-		accent5: nominal[4],
-		accent6: nominal[5],
+		accent1: nominal[0] as string,
+		accent2: nominal[1] as string,
+		accent3: nominal[2] as string,
+		accent4: nominal[3] as string,
+		accent5: nominal[4] as string,
+		accent6: nominal[5] as string,
 		hyperlink: theme.application().accent().hex(),
-		followedHyperlink: nominal[0],
+		followedHyperlink: nominal[0] as string,
 	}
 }

@@ -31,7 +31,7 @@ export function useThemes() {
 
 const themeInfoState = atom<ThemeListing>({
 	key: 'theme-info',
-	default: defaultThemes[0],
+	default: defaultThemes[0]!,
 })
 
 // we drive the theme by the params, so if a pre-defined theme

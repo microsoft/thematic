@@ -9,9 +9,9 @@ import {
 } from '@fluentui/react'
 
 import { css2hsluv, Params } from '@thematic/color'
-import { Theme } from '@thematic/core'
+import type { Theme } from '@thematic/core'
 import { CSSProperties, FC, useCallback, useMemo } from 'react'
-import { useThematicFluent } from '../../provider'
+import { useThematicFluent } from '../../provider/index.js'
 
 export enum ColorPickerLayout {
 	PickerOnly,
@@ -67,7 +67,7 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 	)
 
 	const handlePickerChange = useCallback(
-		(ev: React.SyntheticEvent<HTMLElement>, color: IColor) => {
+		(_ev: React.SyntheticEvent<HTMLElement>, color: IColor) => {
 			const [h, s, l] = css2hsluv(color.hex)
 			updateParams({
 				accentHue: h,

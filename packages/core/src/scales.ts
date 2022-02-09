@@ -84,8 +84,8 @@ function quantizeHistogram(data: number[], bins: number, smoothing?: boolean) {
 		const newEnd = smoothing && moveBackward ? end - backward : end + forward
 		const bin: Bin = values.slice(start, newEnd)
 		if (bin.length > 0) {
-			bin.x0 = bin[0]
-			bin.x1 = bin[bin.length - 1]
+			bin.x0 = bin[0] as number
+			bin.x1 = bin[bin.length - 1] as number
 			binStructure.push(bin)
 		}
 

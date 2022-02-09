@@ -4,7 +4,7 @@
  */
 
 import './index.css'
-import { Theme, Application } from '@thematic/core'
+import type { Theme, Application } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import { FC, useMemo } from 'react'
 import { ColorStrip } from '../ColorStrip'

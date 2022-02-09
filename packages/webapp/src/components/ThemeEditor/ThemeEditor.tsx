@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Pivot, PivotItem } from '@fluentui/react'
-import { FC } from 'react'
+import type { FC } from 'react'
 import { ColorPalette } from '../ColorPalette'
 import { CoolerPicker } from '../CoolerPicker'
 import { FluentViewer } from '../FluentViewer'

@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { useContext } from 'react'
-import { FluentTheme } from '../types'
-import { ThematicFluentContext } from './ThematicFluentContext'
+import type { FluentTheme } from '../types.js'
+import { ThematicFluentContext } from './ThematicFluentContext.js'
 
 /**
  * Hook to retrieve the thematic theme directly.

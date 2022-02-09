@@ -27,19 +27,19 @@ export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
 		usePalette()
 	const accent = (
 		<Fragment>
-			<span style={{ color: accentColor }}>Accent {accentColor}</span>
+			<span style={{ color: accentColor! }}>Accent {accentColor}</span>
 		</Fragment>
 	)
 	const background = (
 		<Fragment>
-			<span style={{ color: foregroundColor }}>
+			<span style={{ color: foregroundColor! }}>
 				Background {backgroundColor}
 			</span>
 		</Fragment>
 	)
 	const foreground = (
 		<Fragment>
-			<span style={{ color: foregroundColor }}>
+			<span style={{ color: foregroundColor! }}>
 				Foreground {foregroundColor}
 			</span>
 		</Fragment>
@@ -59,13 +59,13 @@ export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
 		<div
 			style={{
 				border: `1px solid ${foregroundColor}`,
-				background: backgroundColor,
+				background: backgroundColor!,
 				padding: '10px 30px 30px 30px',
-				color: foregroundColor,
+				color: foregroundColor!,
 				textAlign: 'left',
 			}}
 		>
-			<h2 style={{ color: foregroundColor }}>Application colors</h2>
+			<h2 style={{ color: foregroundColor! }}>Application colors</h2>
 			<ApplicationPalette />
 			<ul
 				style={{
@@ -77,9 +77,9 @@ export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
 				<li>
 					{foreground} on {background} (contrast ratio:{' '}
 					<Contrast
-						foreground={foregroundColor}
-						background={backgroundColor}
-						error={errorColor}
+						foreground={foregroundColor!}
+						background={backgroundColor!}
+						error={errorColor!}
 						showLink
 					/>
 					)
@@ -87,15 +87,15 @@ export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
 				<li>
 					{accent} on {background} (contrast ratio:{' '}
 					<Contrast
-						foreground={accentColor}
-						background={backgroundColor}
-						error={errorColor}
+						foreground={accentColor!}
+						background={backgroundColor!}
+						error={errorColor!}
 						showLink
 					/>
 					)
 				</li>
 			</ul>
-			<h2 style={{ color: foregroundColor }}>Scales</h2>
+			<h2 style={{ color: foregroundColor! }}>Scales</h2>
 			<div
 				style={{
 					display: 'flex',
@@ -108,52 +108,52 @@ export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
 			>
 				<ColorStrip
 					label="Nominal "
-					foreground={foregroundColor}
-					background={backgroundColor}
-					colors={nominal}
+					foreground={foregroundColor!}
+					background={backgroundColor!}
+					colors={nominal!}
 				/>
 				<ColorStrip
 					label="Nominal+"
-					foreground={foregroundColor}
-					background={backgroundColor}
-					colors={nominalBold}
-					labelColors={nominalMuted}
+					foreground={foregroundColor!}
+					background={backgroundColor!}
+					colors={nominalBold!}
+					labelColors={nominalMuted!}
 				/>
 				<ColorStrip
 					label="Nominal-"
-					foreground={foregroundColor}
-					background={backgroundColor}
-					colors={nominalMuted}
-					labelColors={nominalBold}
+					foreground={foregroundColor!}
+					background={backgroundColor!}
+					colors={nominalMuted!}
+					labelColors={nominalBold!}
 				/>
 				<ColorBand
 					label="Sequential"
-					foreground={foregroundColor}
-					colors={sequential}
+					foreground={foregroundColor!}
+					colors={sequential!}
 					width={BAND_WIDTH}
 				/>
 				<ColorBand
 					label="Sequential2"
-					foreground={foregroundColor}
-					colors={sequential2}
+					foreground={foregroundColor!}
+					colors={sequential2!}
 					width={BAND_WIDTH}
 				/>
 				<ColorBand
 					label="Diverging"
-					foreground={foregroundColor}
-					colors={diverging}
+					foreground={foregroundColor!}
+					colors={diverging!}
 					width={BAND_WIDTH}
 				/>
 				<ColorBand
 					label="Diverging2"
-					foreground={foregroundColor}
-					colors={diverging2}
+					foreground={foregroundColor!}
+					colors={diverging2!}
 					width={BAND_WIDTH}
 				/>
 				<ColorBand
 					label="Greys"
-					foreground={foregroundColor}
-					colors={greys}
+					foreground={foregroundColor!}
+					colors={greys!}
 					width={BAND_WIDTH}
 				/>
 			</div>

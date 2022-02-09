@@ -2,33 +2,33 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Theme } from '@thematic/core'
-import { Axis } from 'd3-axis'
-import { Selection } from 'd3-selection'
+import type { Theme } from '@thematic/core'
+import type { Axis } from 'd3-axis'
+import type { Selection } from 'd3-selection'
 import {
 	svg as svgCall,
 	rect as rectCall,
 	line as lineCall,
 	text as textCall,
-} from './svg'
+} from './svg.js'
 
 export interface SelectionOptions {
 	/**
 	 * This is a map of event handlers to apply to the selection.
 	 */
-	on?: { [key: string]: any }
+	on: { [key: string]: any }
 	/**
 	 * This is a map of ad-hoc attrs to apply to the selection.
 	 */
-	attr?: { [key: string]: any }
+	attr: { [key: string]: any }
 	/**
 	 * Map of ad-hoc classes to add or remove from the selection.
 	 */
-	classed?: { [key: string]: any }
+	classed: { [key: string]: any }
 	/**
 	 * Map of ad-hoc styles to add or remove from the selection.
 	 */
-	style?: { [key: string]: any }
+	style: { [key: string]: any }
 }
 
 export interface ChartOptions extends SelectionOptions {
@@ -44,8 +44,8 @@ export interface PlotAreaOptions extends ChartOptions {
 }
 
 function getSelectionOptions(
-	selection: Selection<Element, any, Element, any>,
-	options?: SelectionOptions,
+	_selection: Selection<Element, any, Element, any>,
+	options?: Partial<SelectionOptions>,
 ): SelectionOptions {
 	const _on = (options && options.on) || {}
 	const _attr = (options && options.attr) || {}

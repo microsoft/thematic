@@ -4,7 +4,7 @@
  */
 import { Pivot, PivotItem } from '@fluentui/react'
 import { FC, useMemo } from 'react'
-import { Graph } from '../../interfaces'
+import type { Graph } from '../../interfaces'
 import { FluentControls } from '../FluentControls'
 import { D3Chart } from '../charts/D3'
 import { VegaChart, charts } from '../charts/Vega'

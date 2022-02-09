@@ -5,7 +5,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import cb from 'color-blind'
-import { ColorBlindnessMode, ColorBlindnessMeta, Scheme } from './interfaces'
+import { ColorBlindnessMode, ColorBlindnessMeta, Scheme } from './interfaces.js'
 
 const noop = (color: string) => color
 
@@ -19,7 +19,10 @@ export function colorBlindness(
 	mode?: ColorBlindnessMode,
 ): Scheme {
 	const m = mode || ColorBlindnessMode.None
-	const fnName = ColorBlindnessMode[m].toLowerCase()
+	const fnName = ColorBlindnessMode[m]?.toLowerCase()
+	if (!fnName) {
+		throw new Error(`could not find ColorBlindnessMode ${mode}`)
+	}
 	const fn = cb[fnName] || noop
 	return Object.entries(scheme).reduce((acc, cur) => {
 		const [key, value] = cur
@@ -77,6 +80,9 @@ const cbMeta: CBMetaMap = {
 export function colorBlindnessInfo(
 	mode: ColorBlindnessMode,
 ): ColorBlindnessMeta {
-	const key = ColorBlindnessMode[mode]
-	return cbMeta[key]
+	const key = ColorBlindnessMode[mode] as string
+	if (!key) {
+		throw new Error(`could not find ColorBlindnessMode ${mode}`)
+	}
+	return cbMeta[key] as ColorBlindnessMeta
 }

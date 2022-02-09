@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Params, Scheme, ColorBlindnessMode } from '@thematic/color'
-import { merge } from 'lodash'
+import merge from 'lodash/merge.js'
 import {
 	nominal,
 	continuous,
@@ -27,13 +27,13 @@ import {
 	AxisTitleImpl,
 	AxisTickLabelsImpl,
 	RuleImpl,
-} from './impls'
+} from './impls/index.js'
 import {
 	applyParams,
 	applyScheme,
 	computeDefinition,
 	createScheme,
-} from './scheme'
+} from './scheme.js'
 import {
 	Theme as ITheme,
 	ThemeSpec,
@@ -65,7 +65,7 @@ import {
 	Rule,
 	Transformer,
 	ExportConfig,
-} from './types'
+} from './types/index.js'
 
 const defaultConfig = {
 	variant: ThemeVariant.Light,
@@ -309,6 +309,10 @@ export class Theme implements ITheme {
 				size,
 			)
 		}
-		return this._schemeCache[size]
+		const result = this._schemeCache[size]
+		if (!result) {
+			throw new Error(`could not locate schema with size ${size}`)
+		}
+		return result
 	}
 }

@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { Color } from '../Color'
-import { Scheme } from '../interfaces'
+import { Color } from '../Color.js'
+import type { Scheme } from '../interfaces.js'
 
 /**
  * Extracts a thematic Color using its scheme "path".
@@ -17,7 +17,11 @@ export function getNamedSchemeColor(scheme: Scheme, path?: string): Color {
 	}
 	const indexed = indexedTest(path)
 	if (indexed) {
-		return new Color(scheme[indexed.name as keyof Scheme][indexed.index])
+		const selectedScheme = scheme[indexed.name as keyof Scheme] as
+			| string
+			| string[]
+		const css = selectedScheme[indexed.index as number] as string
+		return new Color(css)
 	}
 	return new Color(scheme[path as keyof Scheme] as string)
 }
@@ -28,7 +32,7 @@ function indexedTest(path: string) {
 	if (indexedName && indexedIndex) {
 		return {
 			name: indexedName[1],
-			index: +indexedIndex[1],
+			index: +indexedIndex![1]!,
 		}
 	}
 }

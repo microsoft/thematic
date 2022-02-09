@@ -7,13 +7,13 @@ import {
 	IChoiceGroupOption,
 	IChoiceGroupStyles,
 } from '@fluentui/react'
-import { ScaleType } from '@thematic/core'
+import type { ScaleType } from '@thematic/core'
 import { FC, useCallback, useMemo } from 'react'
 
 export interface ScaleTypeChoiceGroupProps {
 	selectedType: ScaleType
 	onChange?: (scaleType: ScaleType) => void
-	label?: string
+	label: string
 	suppressQuantile?: boolean
 	styles?: IChoiceGroupStyles
 }

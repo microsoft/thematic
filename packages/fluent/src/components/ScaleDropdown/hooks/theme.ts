@@ -2,15 +2,15 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { IDropdownOption } from '@fluentui/react'
-import {
+import type { IDropdownOption } from '@fluentui/react'
+import type {
 	NominalColorScaleFunction,
 	ContinuousColorScaleFunction,
 } from '@thematic/core'
 import React, { useMemo } from 'react'
-import { useThematicFluent } from '../../../provider'
-import { ChipsProps } from '../types'
-import { chooseScale, selectColorPalette } from '../util'
+import { useThematicFluent } from '../../../provider/index.js'
+import type { ChipsProps } from '../types.js'
+import { chooseScale, selectColorPalette } from '../util.js'
 
 const ITEM_LEFT_PADDING = 8 // default right padding in fluent item
 const ITEM_BORDER_MODIFIER = 1 // accounts for transparent border on outer container

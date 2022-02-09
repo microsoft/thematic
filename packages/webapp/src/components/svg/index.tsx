@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { SVGMark, Text as TextMark } from '@thematic/core'
-import { FC, ReactNode } from 'react'
+import type { SVGMark, Text as TextMark } from '@thematic/core'
+import type { FC, ReactNode } from 'react'
 
 export interface MarkProps {
 	children: ReactNode

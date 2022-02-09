@@ -2,10 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Params, Scheme, Color, ColorBlindnessMode } from '@thematic/color'
-import { ThemeConfig } from './ThemeConfig'
-import { ThemeSpec, ThemeDefinition } from './ThemeDefinition'
-import { ScaleType, SelectionState, ThemeVariant } from './enums'
+import type { Params, Scheme, Color, ColorBlindnessMode } from '@thematic/color'
+import type { ThemeConfig } from './ThemeConfig.js'
+import type { ThemeSpec, ThemeDefinition } from './ThemeDefinition.js'
+import type { ScaleType, SelectionState, ThemeVariant } from './enums.js'
 
 /**
  * Overall application level config, e.g., 'chrome'.

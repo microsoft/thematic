@@ -4,8 +4,8 @@
  */
 import { loadById } from '@thematic/core'
 import { createContext } from 'react'
-import { loadFluentTheme } from '../loader'
-import { FluentTheme } from '../types'
+import { loadFluentTheme } from '../loader.js'
+import type { FluentTheme } from '../types.js'
 
 const defaultTheme = loadById('default')
 const defaultFluentTheme = loadFluentTheme(defaultTheme)

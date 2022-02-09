@@ -4,7 +4,7 @@
  */
 import { ThematicFluentProvider } from '@thematic/fluent'
 import { ApplicationStyles } from '@thematic/react'
-import { FC } from 'react'
+import type { FC } from 'react'
 import { useTheme } from '../../state'
 import { ControlPanel } from '../ControlPanel'
 import { ThemeEditor } from '../ThemeEditor'

@@ -1,9 +1,7 @@
 {
-	"extends": "../../tsconfig.json",
+	"extends": "@essex/tsconfig-base",
 	"compilerOptions": {
-		"outDir": "lib",
-		"allowSyntheticDefaultImports": true,
-		"types": ["node"]
+		"outDir": "lib"
 	},
 	"include": ["src/**/*"]
 }
