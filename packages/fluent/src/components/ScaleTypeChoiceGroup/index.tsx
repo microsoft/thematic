@@ -13,7 +13,7 @@ import { FC, useCallback, useMemo } from 'react'
 export interface ScaleTypeChoiceGroupProps {
 	selectedType: ScaleType
 	onChange?: (scaleType: ScaleType) => void
-	label?: string
+	label: string
 	suppressQuantile?: boolean
 	styles?: IChoiceGroupStyles
 }
@@ -51,7 +51,7 @@ export const ScaleTypeChoiceGroup: FC<ScaleTypeChoiceGroupProps> = ({
 	return (
 		<ChoiceGroup
 			styles={style}
-			label={label as string}
+			label={label}
 			options={typeOptions}
 			selectedKey={selectedType}
 			onChange={handleTypeChange}
