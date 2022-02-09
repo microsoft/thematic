@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { css2rgbaVector, css2rgbaNumber, css2css, css2hex } from './chroma'
+import { css2rgbaVector, css2rgbaNumber, css2css, css2hex } from './chroma.js'
 
 /**
  * This class represents an instance of a color.

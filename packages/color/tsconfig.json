@@ -3,7 +3,8 @@
 	"compilerOptions": {
 		"outDir": "lib",
 		"allowSyntheticDefaultImports": true,
-		"types": ["node"]
+		"types": ["node"],
+		"skipLibCheck": true
 	},
 	"include": ["src/**/*"]
 }

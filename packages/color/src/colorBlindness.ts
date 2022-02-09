@@ -5,7 +5,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import cb from 'color-blind'
-import { ColorBlindnessMode, ColorBlindnessMeta, Scheme } from './interfaces'
+import { ColorBlindnessMode, ColorBlindnessMeta, Scheme } from './interfaces.js'
 
 const noop = (color: string) => color
 

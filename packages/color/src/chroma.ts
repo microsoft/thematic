@@ -5,7 +5,7 @@
 
 import chroma, { contrast as chromaContrast } from 'chroma-js'
 import { hexToHsluv, hsluvToHex } from 'hsluv'
-import { Rgb, Rgba, Hsv, Hsl } from './interfaces'
+import type { Rgb, Rgba, Hsv, Hsl } from './interfaces.js'
 
 /**
  * This is a variety of color utilities to minimize additional direct dependencies
