@@ -2824,6 +2824,7 @@ __metadata:
   resolution: "@thematic/d3@workspace:packages/d3"
   dependencies:
     "@essex/scripts": ^20.0.0
+    "@essex/tsconfig-base": ^1.0.0
     "@thematic/core": "workspace:packages/core"
     "@types/d3-axis": ^1.0.16
     "@types/d3-selection": ^1.4.3

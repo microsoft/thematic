@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import {
+import type {
 	Chart,
 	SVGMark,
 	PlotArea,
@@ -15,7 +15,7 @@ import {
 	Link,
 	Text,
 } from '@thematic/core'
-import { Selection } from 'd3-selection'
+import type { Selection } from 'd3-selection'
 
 export function svg(
 	selection: Selection<Element, any, Element, any>,

@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Theme } from '@thematic/core'
-import { Axis } from 'd3-axis'
-import { Selection } from 'd3-selection'
+import type { Theme } from '@thematic/core'
+import type { Axis } from 'd3-axis'
+import type { Selection } from 'd3-selection'
 import {
 	svg as svgCall,
 	rect as rectCall,
@@ -44,7 +44,7 @@ export interface PlotAreaOptions extends ChartOptions {
 }
 
 function getSelectionOptions(
-	selection: Selection<Element, any, Element, any>,
+	_selection: Selection<Element, any, Element, any>,
 	options?: SelectionOptions,
 ): SelectionOptions {
 	const _on = (options && options.on) || {}
@@ -64,15 +64,15 @@ function getChartOptions(
 	const height = h || +selection.attr('height') || 0
 	const sOpts = getSelectionOptions(selection, options)
 	return {
-		on: sOpts.on,
+		on: sOpts.on ?? {},
 		attr: {
 			// stick these on for application later
 			width,
 			height,
 			...sOpts.attr,
 		},
-		classed: sOpts.classed,
-		style: sOpts.style,
+		classed: sOpts.classed ?? {},
+		style: sOpts.style ?? {},
 	}
 }
 
@@ -104,15 +104,15 @@ function getPlotAreaOptions(
 		marginBottom,
 		marginLeft,
 		marginRight,
-		on: sOpts.on,
+		on: sOpts.on ?? {},
 		attr: {
 			// stick these on for application later
 			width,
 			height,
 			...sOpts.attr,
 		},
-		classed: sOpts.classed,
-		style: sOpts.style,
+		classed: sOpts.classed ?? {},
+		style: sOpts.style ?? {},
 	}
 }
 
