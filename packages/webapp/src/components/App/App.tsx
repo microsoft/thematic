@@ -5,10 +5,10 @@
 import { Theme } from '@thematic/core'
 import { ThematicFluentProvider } from '@thematic/fluent'
 import { ApplicationStyles } from '@thematic/react'
-import { connect } from 'react-redux'
-import { ControlPanel } from './components/ControlPanel'
-import { ThemeEditor } from './components/ThemeEditor'
-import { ThemeViewer } from './components/ThemeViewer'
+import { useTheme } from '../../state'
+import { ControlPanel } from '../ControlPanel'
+import { ThemeEditor } from '../ThemeEditor'
+import { ThemeViewer } from '../ThemeViewer'
 
 import './App.css'
 
@@ -41,6 +41,7 @@ const AppComponent = ({ theme }: AppProps) => (
 	</ThematicFluentProvider>
 )
 
-export const App = connect((state: any) => ({
-	theme: state.theme,
-}))(AppComponent)
+export const App = () => {
+	const theme = useTheme()
+	return <AppComponent theme={theme} />
+}

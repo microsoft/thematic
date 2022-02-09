@@ -3,20 +3,20 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { App } from './App'
-import { store, init } from './state'
+import { App } from './components/App'
+import { DataContext } from './components/App/DataContext'
 
-import './index.css'
-
-store.dispatch(init)
-
-const root = document.createElement('div')
-document.body.appendChild(root)
-
-render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
-	root,
-)
+function mount(): void {
+	try {
+		const root = document.getElementById('root')
+		render(
+			<DataContext>
+				<App />
+			</DataContext>,
+			root,
+		)
+	} catch (err) {
+		console.error('error rendering application', err)
+	}
+}
+mount()

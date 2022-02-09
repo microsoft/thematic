@@ -12,7 +12,7 @@ import {
 import { ColorBlindnessMode, colorBlindnessInfo } from '@thematic/color'
 import { ThemeListing, Theme } from '@thematic/core'
 import { ColorPickerButton } from '@thematic/fluent'
-import { useState, useCallback, FC, useMemo } from 'react'
+import { useCallback, FC, useMemo } from 'react'
 import { EnumDropdown } from '../EnumDropdown'
 
 import './index.css'
@@ -25,14 +25,15 @@ export interface ControlPanelProps {
 	drawLinks: boolean
 	scaleItemCount: number
 	colorBlindnessMode: ColorBlindnessMode
+	darkMode: boolean
 	onThemeLoaded: (theme: Theme) => void
 	onThemeChange: (t: ThemeListing) => void
-	onThemeVariantToggled: () => void
 	onChartSizeChange: (n: number) => void
 	onDrawNodesChange: (d: boolean) => void
 	onDrawLinksChange: (d: boolean) => void
 	onScaleItemCountChange: (value: number) => void
 	onColorBlindnessModeChange: (mode: ColorBlindnessMode) => void
+	onDarkModeChange: (d: boolean) => void
 }
 
 const SCALE_MIN = 1
@@ -46,16 +47,16 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 	drawLinks,
 	scaleItemCount,
 	colorBlindnessMode,
+	darkMode,
 	onThemeLoaded,
 	onThemeChange,
-	onThemeVariantToggled,
 	onChartSizeChange,
 	onDrawNodesChange,
 	onDrawLinksChange,
 	onScaleItemCountChange,
 	onColorBlindnessModeChange,
+	onDarkModeChange,
 }) => {
-	const [dark, setDark] = useState(false)
 	const handleThemeChange = useCallback(
 		(event: React.FormEvent<HTMLDivElement>, option?: IDropdownOption) => {
 			if (option) {
@@ -86,9 +87,8 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 	)
 
 	const handleDarkChange = useCallback(() => {
-		setDark(!dark)
-		onThemeVariantToggled()
-	}, [dark, setDark, onThemeVariantToggled])
+		onDarkModeChange(!darkMode)
+	}, [darkMode, onDarkModeChange])
 
 	const handleDrawNodesChange = useCallback(
 		(event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
@@ -184,7 +184,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 				<div className="control">
 					<Toggle
 						label="Dark mode"
-						checked={dark}
+						checked={darkMode}
 						onChange={handleDarkChange}
 					/>
 				</div>
