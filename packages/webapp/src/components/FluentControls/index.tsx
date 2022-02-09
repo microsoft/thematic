@@ -73,6 +73,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 						that pre-loads Thematic scale types.
 					</p>
 					<ScaleTypeChoiceGroup
+						label=""
 						selectedType={scaleType}
 						onChange={handleScaleTypeChange}
 					/>
