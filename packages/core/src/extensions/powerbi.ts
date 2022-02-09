@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { Theme, Transformer } from '../types'
+import type { Theme, Transformer } from '../types/index.js'
 
 export type PowerBITheme = {
 	name: string

@@ -10,8 +10,9 @@ import {
 	ColorBlindnessMode,
 	colorBlindness,
 } from '@thematic/color'
-import { merge, set } from 'lodash'
-import defaults from './themes/defaults'
+import merge from 'lodash/merge.js'
+import set from 'lodash/set.js'
+import defaults from './themes/defaults.js'
 import {
 	ThemeDefinition,
 	ThemeSpec,

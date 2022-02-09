@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type { ColorBlindnessMode } from '@thematic/color'
-import type { ThemeDefinition } from './ThemeDefinition'
+import type { ThemeDefinition } from './ThemeDefinition.js'
 import type { ThemeVariant } from './enums.js'
 
 export interface ThemeConfig {

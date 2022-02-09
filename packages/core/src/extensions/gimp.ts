@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { css2rgba } from '@thematic/color'
-import type { Theme, Transformer } from '../types'
+import type { Theme, Transformer } from '../types/index.js'
 
 /**
  * Creates a text string of the scheme colors compatible with GIMP/Inkscape palette files (*.gpl)

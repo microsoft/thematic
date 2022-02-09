@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type { Params, Scheme, Color, ColorBlindnessMode } from '@thematic/color'
-import type { ThemeConfig } from './ThemeConfig'
-import type { ThemeSpec, ThemeDefinition } from './ThemeDefinition'
-import type { ScaleType, SelectionState, ThemeVariant } from './enums'
+import type { ThemeConfig } from './ThemeConfig.js'
+import type { ThemeSpec, ThemeDefinition } from './ThemeDefinition.js'
+import type { ScaleType, SelectionState, ThemeVariant } from './enums.js'
 
 /**
  * Overall application level config, e.g., 'chrome'.

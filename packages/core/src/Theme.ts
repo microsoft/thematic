@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Params, Scheme, ColorBlindnessMode } from '@thematic/color'
-import { merge } from 'lodash'
+import merge from 'lodash/merge.js'
 import {
 	nominal,
 	continuous,

@@ -30,7 +30,7 @@
 		"murmurhash-js": "^1.0.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^20.0.0",
+		"@essex/scripts": "^20.0.1",
 		"@essex/tsconfig-base": "^1.0.0",
 		"@types/d3-scale": "^2.2.6",
 		"@types/jest": "^26.0.24",
