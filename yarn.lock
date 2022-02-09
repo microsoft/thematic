@@ -1942,9 +1942,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/scripts@npm:^20.0.0":
-  version: 20.0.0
-  resolution: "@essex/scripts@npm:20.0.0"
+"@essex/scripts@npm:^20.0.1":
+  version: 20.0.1
+  resolution: "@essex/scripts@npm:20.0.1"
   dependencies:
     "@azure/storage-blob": ^12.8.0
     "@essex/eslint-config": 20.0.0
@@ -2005,7 +2005,7 @@ __metadata:
   bin:
     essex: ./lib/index.mjs
     essex-scripts: ./lib/index.mjs
-  checksum: 81dd7819f314b6eed9f40ae4d88d9f69934661f1b4585bbc7a5681f974a7c9af9ffa7849d8dafe0bbeacaac0c67fce429fe8ca7512c23ef84a60acdb5b609dea
+  checksum: ec4c108bc725bfb737a31a9f5ec387d685f9c2b774b36787e1bbd289a7d5cba846f9dac654e3a07ba86edf384bc6d5c637e6c31851bb7135db671284ef344752
   languageName: node
   linkType: hard
 
@@ -2766,7 +2766,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/color@workspace:packages/color"
   dependencies:
-    "@essex/scripts": ^20.0.0
+    "@essex/scripts": ^20.0.1
     "@essex/tsconfig-base": ^1.0.0
     "@types/chroma-js": ^2.1.3
     "@types/node": ^14.18.5
@@ -2789,7 +2789,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/core@workspace:packages/core"
   dependencies:
-    "@essex/scripts": ^20.0.0
+    "@essex/scripts": ^20.0.1
     "@essex/tsconfig-base": ^1.0.0
     "@thematic/color": "workspace:packages/color"
     "@types/d3-scale": ^2.2.6
@@ -2823,7 +2823,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/d3@workspace:packages/d3"
   dependencies:
-    "@essex/scripts": ^20.0.0
+    "@essex/scripts": ^20.0.1
     "@essex/tsconfig-base": ^1.0.0
     "@thematic/core": "workspace:packages/core"
     "@types/d3-axis": ^1.0.16
@@ -2851,7 +2851,7 @@ __metadata:
   resolution: "@thematic/fluent@workspace:packages/fluent"
   dependencies:
     "@essex-js-toolkit/hooks": ^1.1.5
-    "@essex/scripts": ^20.0.0
+    "@essex/scripts": ^20.0.1
     "@essex/tsconfig-base": ^1.0.0
     "@fluentui/font-icons-mdl2": ^8.1.20
     "@fluentui/react": ^8.49.0
@@ -2890,7 +2890,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/react@workspace:packages/react"
   dependencies:
-    "@essex/scripts": ^20.0.0
+    "@essex/scripts": ^20.0.1
     "@essex/tsconfig-base": ^1.0.0
     "@thematic/color": "workspace:packages/color"
     "@thematic/core": "workspace:packages/core"
@@ -2924,7 +2924,7 @@ __metadata:
     "@essex/eslint-plugin": ^20.0.0
     "@essex/jest-config": ^20.0.0
     "@essex/prettier-config": ^18.0.2
-    "@essex/scripts": ^20.0.0
+    "@essex/scripts": ^20.0.1
     "@types/eslint": ^8
     "@types/jest": ^26.0.24
     "@types/node": ^14.18.5
@@ -2949,7 +2949,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/vega@workspace:packages/vega"
   dependencies:
-    "@essex/scripts": ^20.0.0
+    "@essex/scripts": ^20.0.1
     "@essex/tsconfig-base": ^1.0.0
     "@thematic/core": "workspace:packages/core"
     "@types/node": ^14.18.5
@@ -2967,7 +2967,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/webapp@workspace:packages/webapp"
   dependencies:
-    "@essex/scripts": ^20.0.0
+    "@essex/scripts": ^20.0.1
     "@essex/vite-config": ^19.0.0
     "@fluentui/font-icons-mdl2": ^8.1.20
     "@fluentui/react": ^8.49.0
