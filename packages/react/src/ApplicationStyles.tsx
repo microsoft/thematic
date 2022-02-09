@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { FC, useMemo } from 'react'
-import { useThematic } from './'
+import { useThematic } from './useThematic.js'
 
 /**
  * This component applies root-level styles to your application using the theme defaults.

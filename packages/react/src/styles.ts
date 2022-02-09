@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { css2css } from '@thematic/color'
-import { SVGMark, Application } from '@thematic/core'
-import { CSSProperties } from 'react'
+import type { SVGMark, Application } from '@thematic/core'
+import type { CSSProperties } from 'react'
 
 /**
  * Converts a basic mark config to CSS-compatible object
