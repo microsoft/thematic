@@ -10,7 +10,7 @@ import {
 	rect as rectCall,
 	line as lineCall,
 	text as textCall,
-} from './svg'
+} from './svg.js'
 
 export interface SelectionOptions {
 	/**
