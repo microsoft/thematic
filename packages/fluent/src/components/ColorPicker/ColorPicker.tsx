@@ -11,7 +11,7 @@ import {
 import { css2hsluv, Params } from '@thematic/color'
 import type { Theme } from '@thematic/core'
 import { CSSProperties, FC, useCallback, useMemo } from 'react'
-import { useThematicFluent } from '../../provider'
+import { useThematicFluent } from '../../provider/index.js'
 
 export enum ColorPickerLayout {
 	PickerOnly,

@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { FC, useMemo } from 'react'
-import { TEXT_WIDTH, useScale, usePaletteComponent } from './hooks/theme'
-import { useSafeCollapseDimensions } from './hooks/useSafeDimensions'
-import type { ScaleDropdownItemProps } from './types'
+import { TEXT_WIDTH, useScale, usePaletteComponent } from './hooks/theme.js'
+import { useSafeCollapseDimensions } from './hooks/useSafeDimensions.js'
+import type { ScaleDropdownItemProps } from './types.js'
 
 export const ScaleDropdownItem: FC<ScaleDropdownItemProps> = ({
 	option,

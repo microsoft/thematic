@@ -8,9 +8,9 @@ import type {
 	ContinuousColorScaleFunction,
 } from '@thematic/core'
 import type { FC } from 'react'
-import { ColorChips } from './ColorChips'
-import { ContinuousBand } from './ContinuousBand'
-import type { ChipsProps } from './types'
+import { ColorChips } from './ColorChips.js'
+import { ContinuousBand } from './ContinuousBand.js'
+import type { ChipsProps } from './types.js'
 
 export function chooseScale(
 	theme: Theme,

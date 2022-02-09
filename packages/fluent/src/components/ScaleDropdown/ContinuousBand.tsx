@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { FC, useMemo, CSSProperties } from 'react'
-import type { ChipsProps } from './types'
+import type { ChipsProps } from './types.js'
 
 export const ContinuousBand: FC<ChipsProps> = ({ scale, width, height }) => {
 	const style: CSSProperties = useMemo(
