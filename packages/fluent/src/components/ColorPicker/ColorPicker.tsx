@@ -9,7 +9,7 @@ import {
 } from '@fluentui/react'
 
 import { css2hsluv, Params } from '@thematic/color'
-import { Theme } from '@thematic/core'
+import type { Theme } from '@thematic/core'
 import { CSSProperties, FC, useCallback, useMemo } from 'react'
 import { useThematicFluent } from '../../provider'
 
@@ -24,11 +24,11 @@ export interface ColorPickerStyles {
 }
 
 export interface ColorPickerProps {
-	onChange?: (theme: Theme) => void
+	onChange?: ((theme: Theme) => void) | undefined
 	/** Optional theme to use, otherwise it will be pulled from context */
-	theme?: Theme
-	layout?: ColorPickerLayout
-	styles?: ColorPickerStyles
+	theme?: Theme | undefined
+	layout?: ColorPickerLayout | undefined
+	styles?: ColorPickerStyles | undefined
 }
 
 export type PartialParams = Partial<Params>
@@ -67,7 +67,7 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 	)
 
 	const handlePickerChange = useCallback(
-		(ev: React.SyntheticEvent<HTMLElement>, color: IColor) => {
+		(_ev: React.SyntheticEvent<HTMLElement>, color: IColor) => {
 			const [h, s, l] = css2hsluv(color.hex)
 			updateParams({
 				accentHue: h,

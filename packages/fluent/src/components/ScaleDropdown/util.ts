@@ -2,15 +2,15 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import {
+import type {
 	Theme,
 	NominalColorScaleFunction,
 	ContinuousColorScaleFunction,
 } from '@thematic/core'
-import { FC } from 'react'
+import type { FC } from 'react'
 import { ColorChips } from './ColorChips'
 import { ContinuousBand } from './ContinuousBand'
-import { ChipsProps } from './types'
+import type { ChipsProps } from './types'
 
 export function chooseScale(
 	theme: Theme,

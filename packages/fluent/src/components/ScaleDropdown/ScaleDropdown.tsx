@@ -13,7 +13,7 @@ import {
 	useThematicScaleOptions,
 } from './hooks/theme'
 import { useSafeDimensions } from './hooks/useSafeDimensions'
-import { ScaleDropdownProps } from './types'
+import type { ScaleDropdownProps } from './types'
 
 /**
  * Represents a Fluent dropdown of Thematic scale options.

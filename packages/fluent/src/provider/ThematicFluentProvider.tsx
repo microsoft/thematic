@@ -4,7 +4,7 @@
  */
 import { initializeIcons } from '@fluentui/font-icons-mdl2'
 import { ThemeProvider } from '@fluentui/react'
-import { Theme } from '@thematic/core'
+import type { Theme } from '@thematic/core'
 import { ThematicProvider } from '@thematic/react'
 import { useMemo, FC } from 'react'
 import { loadFluentTheme } from '../loader'

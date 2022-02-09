@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { IDropdownOption, IDropdownProps } from '@fluentui/react'
-import {
+import type { IDropdownOption, IDropdownProps } from '@fluentui/react'
+import type {
 	ContinuousColorScaleFunction,
 	NominalColorScaleFunction,
 } from '@thematic/core'

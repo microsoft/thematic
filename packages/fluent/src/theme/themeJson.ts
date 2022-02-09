@@ -8,7 +8,7 @@ import {
 	themeRulesStandardCreator,
 } from '@fluentui/react'
 import { Theme, ThemeVariant } from '@thematic/core'
-import { correctShades } from './shades'
+import { correctShades } from './shades.js'
 
 type ThemeInputColors = {
 	primaryColor: string
@@ -28,17 +28,17 @@ const fluentJson = (colors: ThemeInputColors, inverted = false): any => {
 	const themeRules = themeRulesStandardCreator()
 	ThemeGenerator.insureSlots(themeRules, inverted)
 	ThemeGenerator.setSlot(
-		themeRules[BaseSlots[BaseSlots.primaryColor]],
+		themeRules[BaseSlots[BaseSlots.primaryColor]!]!,
 		colors.primaryColor,
 		inverted,
 	)
 	ThemeGenerator.setSlot(
-		themeRules[BaseSlots[BaseSlots.foregroundColor]],
+		themeRules[BaseSlots[BaseSlots.foregroundColor]!]!,
 		colors.foregroundColor,
 		inverted,
 	)
 	ThemeGenerator.setSlot(
-		themeRules[BaseSlots[BaseSlots.backgroundColor]],
+		themeRules[BaseSlots[BaseSlots.backgroundColor]!]!,
 		colors.backgroundColor,
 		inverted,
 	)

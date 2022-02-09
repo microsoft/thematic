@@ -2,17 +2,18 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { FC, useMemo } from 'react'
-import { ChipsProps } from './types'
+import { FC, useMemo, CSSProperties } from 'react'
+import type { ChipsProps } from './types'
 
 export const ContinuousBand: FC<ChipsProps> = ({ scale, width, height }) => {
-	const style = useMemo(
-		() => ({
-			width,
-			height,
-			minWidth: width,
-			minHeight: height,
-		}),
+	const style: CSSProperties = useMemo(
+		() =>
+			({
+				width,
+				height,
+				minWidth: width,
+				minHeight: height,
+			} as CSSProperties),
 		[width, height],
 	)
 
