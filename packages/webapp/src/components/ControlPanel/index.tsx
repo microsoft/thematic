@@ -2,37 +2,47 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { connect } from 'react-redux'
 import {
-	themeLoaded,
-	themeSelected,
-	themeVariantToggled,
-	chartSizeChanged,
-	drawNodesChanged,
-	drawLinksChanged,
-	scaleItemCountChanged,
-	colorBlindnessModeChanged,
-} from '../../state/actions'
+	useDarkMode,
+	useThemeInfo,
+	useThemes,
+	useSetTheme,
+	useChartSize,
+	useColorBlindnessMode,
+	useDrawLinks,
+	useDrawNodes,
+	useScaleItemCount,
+} from '../../state'
 import { ControlPanel as ControlPanelComponent } from './ControlPanel'
 
-export const ControlPanel = connect(
-	(state: any) => ({
-		themes: state.themes,
-		themeInfo: state.themeInfo,
-		chartSize: state.ui.chartSize,
-		drawNodes: state.ui.drawNodes,
-		drawLinks: state.ui.drawLinks,
-		scaleItemCount: state.ui.scaleItemCount,
-		colorBlindnessMode: state.ui.colorBlindnessMode,
-	}),
-	{
-		onThemeLoaded: themeLoaded,
-		onThemeChange: themeSelected,
-		onThemeVariantToggled: themeVariantToggled,
-		onChartSizeChange: chartSizeChanged,
-		onDrawNodesChange: drawNodesChanged,
-		onDrawLinksChange: drawLinksChanged,
-		onScaleItemCountChange: scaleItemCountChanged,
-		onColorBlindnessModeChange: colorBlindnessModeChanged,
-	},
-)(ControlPanelComponent)
+export const ControlPanel = () => {
+	const [drawNodes, setDrawNodes] = useDrawNodes()
+	const [drawLinks, setDrawLinks] = useDrawLinks()
+	const [chartSize, setChartSize] = useChartSize()
+	const [scaleItemCount, setScaleItemCount] = useScaleItemCount()
+	const [colorBlindnessMode, setColorBlindnessMode] = useColorBlindnessMode()
+	const [darkMode, setDarkMode] = useDarkMode()
+	const [themes] = useThemes()
+	const [themeInfo, setThemeInfo] = useThemeInfo()
+	const setTheme = useSetTheme()
+	return (
+		<ControlPanelComponent
+			drawNodes={drawNodes}
+			onDrawNodesChange={setDrawNodes}
+			drawLinks={drawLinks}
+			onDrawLinksChange={setDrawLinks}
+			chartSize={chartSize}
+			onChartSizeChange={setChartSize}
+			scaleItemCount={scaleItemCount}
+			onScaleItemCountChange={setScaleItemCount}
+			colorBlindnessMode={colorBlindnessMode}
+			onColorBlindnessModeChange={setColorBlindnessMode}
+			darkMode={darkMode}
+			onDarkModeChange={setDarkMode}
+			themes={themes}
+			themeInfo={themeInfo}
+			onThemeChange={setThemeInfo}
+			onThemeLoaded={setTheme}
+		/>
+	)
+}

@@ -10,7 +10,7 @@ import {
 
 import { css2hsluv, Params } from '@thematic/color'
 import { Theme } from '@thematic/core'
-import { CSSProperties, FC } from 'react'
+import { CSSProperties, FC, useCallback, useMemo } from 'react'
 import { useThematicFluent } from '../../provider'
 
 export enum ColorPickerLayout {
@@ -51,40 +51,58 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 
 	const lyt = layout || ColorPickerLayout.PickerOnly
 
-	const updateParams = (params: PartialParams) => {
-		if (onChange) {
-			onChange(
-				activeTheme.clone({
-					params: {
-						...activeTheme.params,
-						...params,
-					},
-				}),
-			)
-		}
-	}
+	const updateParams = useCallback(
+		(params: PartialParams) => {
+			onChange &&
+				onChange(
+					activeTheme.clone({
+						params: {
+							...activeTheme.params,
+							...params,
+						},
+					}),
+				)
+		},
+		[activeTheme, onChange],
+	)
 
-	const handlePickerChange = (e, color: IColor) => {
-		const [h, s, l] = css2hsluv(color.hex)
-		updateParams({
-			accentHue: h,
-			accentSaturation: s,
-			accentLuminance: l,
-		})
-	}
+	const handlePickerChange = useCallback(
+		(ev: React.SyntheticEvent<HTMLElement>, color: IColor) => {
+			const [h, s, l] = css2hsluv(color.hex)
+			updateParams({
+				accentHue: h,
+				accentSaturation: s,
+				accentLuminance: l,
+			})
+		},
+		[updateParams],
+	)
 
 	// TODO: debounce sliders so the value can be shown updating
-	const handleAccentHueChange = (v: number) => updateParams({ accentHue: v })
-	const handleaccentSaturationChange = (v: number) =>
-		updateParams({ accentSaturation: v })
-	const handleAccentLuminanceChange = (v: number) =>
-		updateParams({ accentLuminance: v })
-	const handleBackgroundLevelChange = (v: number) =>
-		updateParams({ backgroundLevel: v })
-	const handleBackgroundHueShiftChange = (v: number) =>
-		updateParams({ backgroundHueShift: v })
-	const handleNominalHueStepChange = (v: number) =>
-		updateParams({ nominalHueStep: v })
+	const handleAccentHueChange = useCallback(
+		(v: number) => updateParams({ accentHue: v }),
+		[updateParams],
+	)
+	const handleaccentSaturationChange = useCallback(
+		(v: number) => updateParams({ accentSaturation: v }),
+		[updateParams],
+	)
+	const handleAccentLuminanceChange = useCallback(
+		(v: number) => updateParams({ accentLuminance: v }),
+		[updateParams],
+	)
+	const handleBackgroundLevelChange = useCallback(
+		(v: number) => updateParams({ backgroundLevel: v }),
+		[updateParams],
+	)
+	const handleBackgroundHueShiftChange = useCallback(
+		(v: number) => updateParams({ backgroundHueShift: v }),
+		[updateParams],
+	)
+	const handleNominalHueStepChange = useCallback(
+		(v: number) => updateParams({ nominalHueStep: v }),
+		[updateParams],
+	)
 
 	const {
 		accentHue,
@@ -98,18 +116,28 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 	// TODO: it would be really nice to make these IStyle objects and pass directly to
 	// child component instead of wrapping them in a div
 	// however, there are type incompatibilities that make it wonky
-	const slidersStyles: CSSProperties = {
-		width: 300, // default max width of color picker, so the sliders match
-		...(styles && styles.sliders),
-	}
-	const sliderStyles: CSSProperties = {
-		marginTop: 8,
-		...(styles && styles.slider),
-	}
+	const slidersStyles: CSSProperties = useMemo(
+		() => ({
+			width: 300, // default max width of color picker, so the sliders match
+			...(styles && styles.sliders),
+		}),
+		[styles],
+	)
+	const sliderStyles: CSSProperties = useMemo(
+		() => ({
+			marginTop: 8,
+			...(styles && styles.slider),
+		}),
+		[styles],
+	)
+	const color = useMemo(
+		() => activeTheme.application().accent().hex(),
+		[activeTheme],
+	)
 	return (
 		<div style={{ display: 'flex' }}>
 			<FluentColorPicker
-				color={activeTheme.application().accent().hex()}
+				color={color}
 				onChange={handlePickerChange}
 				alphaType="none"
 			/>

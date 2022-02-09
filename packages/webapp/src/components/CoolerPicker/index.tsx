@@ -4,8 +4,7 @@
  */
 import { Theme } from '@thematic/core'
 import { FC } from 'react'
-import { connect } from 'react-redux'
-import { themeLoaded } from '../../state/actions'
+import { useSetTheme } from '../../state'
 import { ColorSelection } from './ColorSelection'
 import './index.css'
 
@@ -21,6 +20,7 @@ const CoolerPickerComponent: FC<CoolerPickerProps> = ({ themeLoaded }) => {
 	)
 }
 
-export const CoolerPicker = connect(null, {
-	themeLoaded,
-})(CoolerPickerComponent)
+export const CoolerPicker = () => {
+	const themeLoaded = useSetTheme()
+	return <CoolerPickerComponent themeLoaded={themeLoaded} />
+}

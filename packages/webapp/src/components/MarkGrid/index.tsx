@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { SelectionState } from '@thematic/core'
+import { SelectionState, MarkType, ChromeType } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import { useState, useCallback, useMemo, FC } from 'react'
 import { EnumButtonBar } from '../EnumButtonBar'
@@ -11,7 +11,7 @@ import './index.css'
 
 const SIZE = 30
 
-const markKeys = [
+const markKeys: MarkType[] = [
 	'rect',
 	'area',
 	'circle',
@@ -24,7 +24,7 @@ const markKeys = [
 	'flow',
 	'text',
 ]
-const chromeKeys = [
+const chromeKeys: ChromeType[] = [
 	'plotArea',
 	'gridLines',
 	'axisLine',
@@ -67,14 +67,7 @@ export const MarkGrid: FC = () => {
 					enumeration={SelectionState}
 					selected={selectionState}
 					onChange={handleSelectionStateChange}
-					iconNames={[
-						'CheckMark',
-						'CheckBoxComposite',
-						'CheckBoxCompositeReversed',
-						'GenericScanFilled',
-						'Hide',
-						'StatusCircleQuestionMark',
-					]}
+					iconNames={iconNames}
 					iconOnly
 					label={'Selection state'}
 				/>
@@ -88,3 +81,12 @@ export const MarkGrid: FC = () => {
 		</div>
 	)
 }
+
+const iconNames = [
+	'CheckMark',
+	'CheckBoxComposite',
+	'CheckBoxCompositeReversed',
+	'GenericScanFilled',
+	'Hide',
+	'StatusCircleQuestionMark',
+]

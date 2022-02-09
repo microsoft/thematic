@@ -6,7 +6,7 @@ import { CSSProperties, FC } from 'react'
 
 import './index.css'
 
-interface ColorDefinition {
+export interface ColorDefinition {
 	color: string
 	label?: string
 	secondaryLabel?: string
@@ -19,7 +19,7 @@ interface ColorBlockProps extends ColorDefinition {
 }
 
 export interface ColorStripProps {
-	colorDefinitions: any[]
+	colorDefinitions: ColorDefinition[]
 	vertical?: boolean
 	swatchStyle?: CSSProperties
 	labelStyle?: CSSProperties

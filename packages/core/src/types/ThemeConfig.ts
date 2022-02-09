@@ -4,7 +4,7 @@
  */
 import { ColorBlindnessMode } from '@thematic/color'
 import { ThemeDefinition } from './ThemeDefinition'
-import { ThemeVariant } from './interfaces'
+import { ThemeVariant } from './enums'
 
 export interface ThemeConfig {
 	/**

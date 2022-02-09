@@ -2,11 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { FC } from 'react'
-import { TEXT_WIDTH } from './hooks/theme'
+import { FC, useMemo } from 'react'
+import { TEXT_WIDTH, useScale, usePaletteComponent } from './hooks/theme'
 import { useSafeCollapseDimensions } from './hooks/useSafeDimensions'
 import { ScaleDropdownItemProps } from './types'
-import { selectColorPalette, useScale } from './util'
 
 export const ScaleDropdownItem: FC<ScaleDropdownItemProps> = ({
 	option,
@@ -15,16 +14,18 @@ export const ScaleDropdownItem: FC<ScaleDropdownItemProps> = ({
 	style,
 }) => {
 	const { key } = option
-	const Palette = selectColorPalette(key)
+	const Palette = usePaletteComponent(key as string)
 	const [width, height] = useSafeCollapseDimensions(paletteWidth, paletteHeight)
-	const scale = useScale(option.key, paletteWidth)
+	const scale = useScale(option.key as string, paletteWidth)
+	const cStyle = useMemo(
+		() => ({
+			...containerStyle,
+			...style,
+		}),
+		[style],
+	)
 	return (
-		<div
-			style={{
-				...containerStyle,
-				...style,
-			}}
-		>
+		<div style={cStyle}>
 			<div style={labelStyle}>{option.text}</div>
 			<Palette scale={scale} width={width} height={height} />
 		</div>

@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Pivot, PivotItem } from '@fluentui/react'
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import { Graph } from '../../interfaces'
 import { FluentControls } from '../FluentControls'
 import { D3Chart } from '../charts/D3'
@@ -24,10 +24,13 @@ export const ThemeViewer: FC<ThemeViewerProps> = ({
 	drawNodes,
 	drawLinks,
 }) => {
-	const common = {
-		width: chartSize,
-		height: chartSize * 0.75,
-	}
+	const common = useMemo(
+		() => ({
+			width: chartSize,
+			height: chartSize * 0.75,
+		}),
+		[chartSize],
+	)
 
 	const graphs = [
 		<D3Graph

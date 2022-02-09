@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { powerbi } from '@thematic/core'
+import { powerbi, PowerBITheme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import { FC, useMemo } from 'react'
 import { DownloadLink } from '../DownloadLink'
@@ -10,7 +10,7 @@ import { PowerBIPalette } from './PowerBIPalette'
 
 export const PowerBiEditor: FC = () => {
 	const theme = useThematic()
-	const pbi = useMemo(() => theme.transform(powerbi), [theme])
+	const pbi = useMemo(() => theme.transform(powerbi) as PowerBITheme, [theme])
 	const str = useMemo(() => JSON.stringify(pbi, null, 2), [pbi])
 	return (
 		<div>

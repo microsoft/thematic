@@ -4,7 +4,7 @@
  */
 
 import './index.css'
-import { Theme } from '@thematic/core'
+import { Theme, Application } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import { FC, useMemo } from 'react'
 import { ColorStrip } from '../ColorStrip'
@@ -20,14 +20,17 @@ export const ApplicationPalette: FC = () => {
 	const signals = useColors(applicationSignalKeys, theme)
 	const secondaries = useColors(applicationLowKeys, theme)
 	const elements = useColors(applicationHighKeys, theme)
-	const styles = {
-		swatch: {
-			border: `1px solid ${theme.application().border().hex()}`,
-		},
-		label: {
-			width: 80,
-		},
-	}
+	const styles = useMemo(
+		() => ({
+			swatch: {
+				border: `1px solid ${theme.application().border().hex()}`,
+			},
+			label: {
+				width: 80,
+			},
+		}),
+		[theme],
+	)
 	return (
 		<div className="application-palette">
 			<ColorStrip
@@ -62,9 +65,9 @@ function useColors(keys: string[], theme: Theme) {
 	return useMemo(() => {
 		const app = theme.application()
 		return keys.map(key => ({
-			color: app[key]().hex(),
+			color: app[key as keyof Application]().hex(),
 			label: key,
-			secondaryLabel: app[key]().hex(),
+			secondaryLabel: app[key as keyof Application]().hex(),
 		}))
 	}, [keys, theme])
 }

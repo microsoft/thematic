@@ -4,7 +4,7 @@
  */
 import { IconButton, Label } from '@fluentui/react'
 import { Theme } from '@thematic/core'
-import { memo, CSSProperties, FC } from 'react'
+import { memo, CSSProperties, FC, useMemo, useCallback } from 'react'
 import { useThematicFluent } from '../../provider'
 import { ColorPicker } from '../ColorPicker'
 
@@ -26,41 +26,59 @@ export const ColorPickerButton: FC<ColorPickerButtonProps> = memo(
 	function ColorPickerButton({ onChange, theme, label, styles }) {
 		const contextTheme = useThematicFluent()
 		const activeTheme = theme || contextTheme
-		const labelStyle = {
-			paddingTop: 0,
-			paddingBottom: 0,
-			marginBottom: -3,
-			...(styles && styles.label),
-		}
+		const labelStyle = useMemo(
+			() => ({
+				paddingTop: 0,
+				paddingBottom: 0,
+				marginBottom: -3,
+				...(styles && styles.label),
+			}),
+			[styles],
+		)
+		const handleRender = useCallback(
+			() => <ColorPicker theme={theme} onChange={onChange} />,
+			[theme, onChange],
+		)
+		const menuProps = useMemo(
+			() => ({
+				items: [
+					{
+						key: 'colorPicker',
+						onRender: handleRender,
+					},
+				],
+			}),
+			[handleRender],
+		)
+		const iconStyles = useMemo(
+			() => ({
+				root: {
+					width: 48,
+				},
+				icon: {
+					color: activeTheme.application().accent().hex(),
+				},
+			}),
+			[activeTheme],
+		)
 		return (
-			<div style={{ display: 'flex', flexDirection: 'column' }}>
+			<div style={containerStyle}>
 				{label && <Label style={labelStyle}>{label}</Label>}
 				<IconButton
 					title={label}
-					iconProps={{
-						iconName: 'CheckBoxFill',
-					}}
-					menuProps={{
-						items: [
-							{
-								key: 'colorPicker',
-								// eslint-disable-next-line react/display-name
-								onRender: () => (
-									<ColorPicker theme={theme} onChange={onChange} />
-								),
-							},
-						],
-					}}
-					styles={{
-						root: {
-							width: 48,
-						},
-						icon: {
-							color: activeTheme.application().accent().hex(),
-						},
-					}}
+					iconProps={iconProps}
+					menuProps={menuProps}
+					styles={iconStyles}
 				/>
 			</div>
 		)
 	},
 )
+
+const containerStyle: React.CSSProperties = {
+	display: 'flex',
+	flexDirection: 'column',
+}
+const iconProps = {
+	iconName: 'CheckBoxFill',
+}

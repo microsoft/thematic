@@ -6,7 +6,7 @@ import { TextField } from '@fluentui/react'
 import { FC } from 'react'
 
 export interface JSONEditorProps {
-	value: any
+	value: unknown
 }
 
 // the deep nesting of the component requires several layers of size adjustment

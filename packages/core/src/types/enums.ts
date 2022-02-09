@@ -51,3 +51,25 @@ export enum ThemeVariant {
 	Light = 'light',
 	Dark = 'dark',
 }
+
+export type MarkType =
+	| 'rect'
+	| 'area'
+	| 'circle'
+	| 'process'
+	| 'node'
+	| 'line'
+	| 'rule'
+	| 'flow'
+	| 'link'
+	| 'arc'
+	| 'text'
+export type ChromeType =
+	| 'plotArea'
+	| 'tooltip'
+	| 'axisLine'
+	| 'axisTicks'
+	| 'gridLines'
+	| 'axisTickLabels'
+	| 'axisTitle'
+export type ThemeElementType = MarkType | ChromeType
