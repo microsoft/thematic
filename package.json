@@ -5,19 +5,19 @@
 	"scripts": {
 		"preinstall": "npx only-allow yarn",
 		"postinstall": "husky install",
-		"clean:": "yarn workspaces foreach -pv run clean",
-		"bundle:": "yarn workspaces foreach -pv run bundle",
-		"build:": "yarn workspaces foreach -piv run build",
-		"start:": "yarn workspaces foreach -piv run start",
-		"publish:": "yarn workspaces foreach --exclude '@thematic/root' -pv npm publish --tolerate-republish --access public",
-		"version:": "yarn workspaces foreach --exclude '@thematic/root' -iv version -d",
-		"lint:": "essex lint --fix --strict",
+		"clean": "yarn workspaces foreach -pv run clean",
+		"bundle": "yarn workspaces foreach -pv run bundle",
+		"build": "yarn workspaces foreach -pivt run build",
+		"start": "yarn workspaces foreach -piv run start",
+		"publish": "yarn workspaces foreach --exclude '@thematic/root' -pv npm publish --tolerate-republish --access public",
+		"version": "yarn workspaces foreach --exclude '@thematic/root' -iv version -d",
+		"lint": "essex lint --fix --strict",
 		"prettify:": "essex prettify",
-		"test:": "jest",
-		"test:ci": "jest --coverage",
+		"test": "jest",
+		"test_coverage": "jest --coverage",
 		"git-is-clean": "essex git-is-clean",
-		"ci": "run-s lint: build: bundle: test:ci git-is-clean",
-		"release": "run-s clean: build: publish:"
+		"ci": "run-s lint build bundle test_coverage git-is-clean",
+		"release": "run-s clean build publish"
 	},
 	"workspaces": {
 		"packages": [
