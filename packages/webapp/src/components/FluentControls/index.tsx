@@ -22,7 +22,10 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 }) => {
 	const theme = useThematic()
 	const [scale, setScale] = useState<string>('<none>')
-	const handleScaleChange = useCallback((e, option) => setScale(option.key), [])
+	const handleScaleChange = useCallback(
+		(_e, option) => setScale(option.key),
+		[],
+	)
 	const [scaleType, setScaleType] = useState<ScaleType>(ScaleType.Linear)
 	const handleScaleTypeChange = useCallback(type => setScaleType(type), [])
 	const handlePickerChange = useCallback(t => themeLoaded(t), [themeLoaded])

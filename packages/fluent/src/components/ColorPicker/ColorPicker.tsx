@@ -24,11 +24,11 @@ export interface ColorPickerStyles {
 }
 
 export interface ColorPickerProps {
-	onChange?: ((theme: Theme) => void) | undefined
+	onChange?: (theme: Theme) => void
 	/** Optional theme to use, otherwise it will be pulled from context */
-	theme?: Theme | undefined
-	layout?: ColorPickerLayout | undefined
-	styles?: ColorPickerStyles | undefined
+	theme?: Theme
+	layout?: ColorPickerLayout
+	styles?: ColorPickerStyles
 }
 
 export type PartialParams = Partial<Params>

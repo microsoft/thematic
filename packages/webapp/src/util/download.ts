@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-export const download = (value, filename) => {
+export function download(value: BlobPart, filename: string): void {
 	const blob = new Blob([value])
 	const url = URL.createObjectURL(blob)
 	const a = document.createElement('a')

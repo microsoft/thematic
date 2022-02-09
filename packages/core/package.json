@@ -31,7 +31,7 @@
 	},
 	"devDependencies": {
 		"@essex/scripts": "^20.0.1",
-		"@essex/tsconfig-base": "^1.0.0",
+		"@essex/tsconfig-base": "^1.0.1",
 		"@types/d3-scale": "^2.2.6",
 		"@types/jest": "^26.0.24",
 		"@types/lodash": "^4.14.178",

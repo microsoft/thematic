@@ -26,10 +26,9 @@ export interface EnumDropdownProps<E> {
  */
 export function EnumDropdown<E>({
 	enumeration,
-	label,
 	selected,
 	onChange = () => null,
-	styles,
+	...props
 }: EnumDropdownProps<E>): JSX.Element {
 	const options = useMemo(
 		() =>
@@ -39,7 +38,7 @@ export function EnumDropdown<E>({
 		[enumeration],
 	)
 	const handleChange = useCallback(
-		(e: React.FormEvent, v: IDropdownOption | undefined) => {
+		(_e: React.FormEvent, v: IDropdownOption | undefined) => {
 			if (v) {
 				setSelectedKey(v.key)
 				onChange(v.key)
@@ -51,11 +50,10 @@ export function EnumDropdown<E>({
 	const [selectedKey, setSelectedKey] = useState<string | number>(key)
 	return (
 		<Dropdown
-			label={label}
 			options={options}
 			selectedKey={selectedKey}
 			onChange={handleChange}
-			styles={styles}
+			{...props}
 		/>
 	)
 }

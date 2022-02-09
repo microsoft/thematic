@@ -10,7 +10,7 @@ import {
 	Position,
 } from '@fluentui/react'
 import { ColorBlindnessMode, colorBlindnessInfo } from '@thematic/color'
-import { ThemeListing, Theme } from '@thematic/core'
+import type { ThemeListing, Theme } from '@thematic/core'
 import { ColorPickerButton } from '@thematic/fluent'
 import { useCallback, FC, useMemo } from 'react'
 import { EnumDropdown } from '../EnumDropdown'
@@ -58,7 +58,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 	onDarkModeChange,
 }) => {
 	const handleThemeChange = useCallback(
-		(event: React.FormEvent<HTMLDivElement>, option?: IDropdownOption) => {
+		(_event: React.FormEvent<HTMLDivElement>, option?: IDropdownOption) => {
 			if (option) {
 				const found = themes.find(t => t.id === option.key)
 				if (found) {
@@ -91,12 +91,12 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 	}, [darkMode, onDarkModeChange])
 
 	const handleDrawNodesChange = useCallback(
-		(event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
+		(_event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
 			onDrawNodesChange(!!checked),
 		[onDrawNodesChange],
 	)
 	const handleDrawLinksChange = useCallback(
-		(event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
+		(_event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
 			onDrawLinksChange(!!checked),
 		[onDrawLinksChange],
 	)

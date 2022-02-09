@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { TextField } from '@fluentui/react'
-import { FC } from 'react'
+import type { FC } from 'react'
 
 export interface JSONEditorProps {
 	value: unknown

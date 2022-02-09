@@ -53,7 +53,7 @@ export class FluentTheme extends ThemeImpl implements IThematicFluentTheme {
 		return this._fTheme.semanticColors
 	}
 	get rtl() {
-		return this._fTheme.rtl ?? false
+		return this._fTheme.rtl
 	}
 	get spacing() {
 		return this._fTheme.spacing
