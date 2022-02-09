@@ -5,8 +5,8 @@
 	"main": "dist/cjs/index.js",
 	"types": "dist/types/index.d.ts",
 	"exports": {
-		"import": "./dist/cjs/index.js",
-		"require": "./dist/esm/index.js",
+		"import": "./dist/esm/index.mjs",
+		"require": "./dist/cjs/index.js",
 		"types": "./dist/types/index.d.ts"
 	},
 	"repository": {

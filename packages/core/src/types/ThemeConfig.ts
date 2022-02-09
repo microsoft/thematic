@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { ColorBlindnessMode } from '@thematic/color'
-import { ThemeDefinition } from './ThemeDefinition'
-import { ThemeVariant } from './enums'
+import type { ColorBlindnessMode } from '@thematic/color'
+import type { ThemeDefinition } from './ThemeDefinition'
+import type { ThemeVariant } from './enums.js'
 
 export interface ThemeConfig {
 	/**

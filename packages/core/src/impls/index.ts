@@ -3,11 +3,16 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Color } from '@thematic/color'
-import { Application, Chart, ApplicationSpec, ChartSpec } from '../types'
+import type {
+	Application,
+	Chart,
+	ApplicationSpec,
+	ChartSpec,
+} from '../types/index.js'
 
-export * from './colorScales'
-export * from './svg-marks'
-export * from './svg-chrome'
+export * from './colorScales.js'
+export * from './svg-marks.js'
+export * from './svg-chrome.js'
 
 export function ApplicationImpl(application: ApplicationSpec): Application {
 	return {

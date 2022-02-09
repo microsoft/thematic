@@ -4,12 +4,12 @@
  */
 import { Color } from '@thematic/color'
 import murmur from 'murmurhash-js'
-import { linear, log, quantile } from '../scales'
+import { linear, log, quantile } from '../scales.js'
 import {
 	ScaleType,
 	NominalColorScaleFunction,
 	ContinuousColorScaleFunction,
-} from '../types'
+} from '../types/index.js'
 
 /**
  * Nominal (categorical) scale generator.
@@ -51,7 +51,7 @@ export function nominal(
 
 	fn.toArray = function (length?: number) {
 		const l = length ? length : domain ? domain.length : colors.length
-		return new Array(l).fill(1).map((a, i) => {
+		return new Array(l).fill(1).map((_a, i) => {
 			return fn(i).hex()
 		})
 	}
@@ -87,14 +87,15 @@ export function continuous(
 		const index = Math.floor(scale(value) * max)
 		// make sure the index is in bounds for safe clamping
 		const i = index < 0 ? 0 : index > max ? max : index
-		const color = colorStops[i]
+		const color = colorStops[i] as string
 		return new Color(color)
 	}
 
 	fn.toArray = function (length?: number) {
 		const l = length || colorStops.length
-		const step = (domain[domain.length - 1] - domain[0]) / l
-		return new Array(l).fill(1).map((a, i) => {
+		const step =
+			((domain[domain.length - 1] as number) - (domain[0] as number)) / l
+		return new Array(l).fill(1).map((_a, i) => {
 			return fn(step * i).hex()
 		})
 	}

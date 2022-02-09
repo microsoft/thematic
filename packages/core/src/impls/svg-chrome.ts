@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Color } from '@thematic/color'
-import {
+import type {
 	SVGChrome,
 	ChromeText,
 	PlotArea,
@@ -22,7 +22,7 @@ import {
 	AxisTitleSpec,
 	AxisTickLabelsSpec,
 	TooltipSpec,
-} from '../types'
+} from '../types/index.js'
 
 function SVGChromeImpl(spec: SVGSpec): SVGChrome {
 	return {

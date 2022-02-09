@@ -4,11 +4,16 @@
  */
 import { hsluv2hex } from '@thematic/color'
 import { Theme as ThemeImpl } from './Theme'
-import autumn from './themes/autumn.json'
-import defaultTheme from './themes/default.json'
-import metal from './themes/metal.json'
-import ocean from './themes/ocean.json'
-import { Theme, ThemeListing, ThemeConfig, ThemeSpec } from './types'
+import autumn from './themes/autumn.js'
+import defaultTheme from './themes/default.js'
+import metal from './themes/metal.js'
+import ocean from './themes/ocean.js'
+import type {
+	Theme,
+	ThemeListing,
+	ThemeConfig,
+	ThemeSpec,
+} from './types/index.js'
 
 const themes = {
 	default: defaultTheme,

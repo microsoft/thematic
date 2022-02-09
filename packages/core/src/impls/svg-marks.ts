@@ -30,7 +30,7 @@ import {
 	SelectionState,
 	Rule,
 	RuleSpec,
-} from '../types'
+} from '../types/index.js'
 
 const identity = (datum: any) => datum
 
@@ -78,7 +78,7 @@ function getMarkValue(
 	}
 	if (scaleBindings && scaleBindings[property]) {
 		const { scale, accessor = generalAccessor || identity } =
-			scaleBindings[property]
+			scaleBindings[property]!
 		const value = accessor(datum)
 		return scale(value)
 	}
