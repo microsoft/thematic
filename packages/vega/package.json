@@ -24,7 +24,7 @@
 	"devDependencies": {
 		"@essex/scripts": "^19.0.5",
 		"@types/node": "^14.18.5",
-		"vega": "5.15.0"
+		"vega": "5.17.3"
 	},
 	"peerDependencies": {
 		"vega": "5"
