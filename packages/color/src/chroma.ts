@@ -76,7 +76,7 @@ export function contrast(foreground: string, background: string): number {
  * @param css
  * @param alpha Included for compatibility with all of the other transformers, but it will be omitted from the returned value.
  */
-export function css2rgb(css: string, alpha?: number): Rgb {
+export function css2rgb(css: string, _alpha?: number): Rgb {
 	if (css === 'none') {
 		return {
 			r: 0,
@@ -121,7 +121,7 @@ export function css2rgba(css: string, alpha?: number): Rgba {
  * @param css
  * @param alpha
  */
-export function css2hsv(css: string, alpha?: number): Hsv {
+export function css2hsv(css: string, _alpha?: number): Hsv {
 	if (css === 'none') {
 		return {
 			h: 0,
@@ -142,7 +142,7 @@ export function css2hsv(css: string, alpha?: number): Hsv {
  * @param css
  * @param alpha
  */
-export function css2hsl(css: string, alpha?: number): Hsl {
+export function css2hsl(css: string, _alpha?: number): Hsl {
 	if (css === 'none') {
 		return {
 			h: 0,

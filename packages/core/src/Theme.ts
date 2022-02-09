@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Params, Scheme, ColorBlindnessMode } from '@thematic/color'
+import type { Params, Scheme, ColorBlindnessMode } from '@thematic/color'
 import { merge } from 'lodash'
 import {
 	nominal,
