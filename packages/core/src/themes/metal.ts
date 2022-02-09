@@ -1,4 +1,8 @@
-export default {
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+const metalTheme = {
 	name: 'Metal',
 	params: {
 		accentHue: 242,
@@ -9,3 +13,4 @@ export default {
 		nominalHueStep: 21,
 	},
 }
+export default metalTheme

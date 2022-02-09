@@ -1,4 +1,8 @@
-export default {
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+const autumnTheme = {
 	name: 'Autumn',
 	params: {
 		accentHue: 50,
@@ -9,3 +13,4 @@ export default {
 		nominalHueStep: 10,
 	},
 }
+export default autumnTheme

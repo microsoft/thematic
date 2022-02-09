@@ -13,10 +13,9 @@
 		"version": "yarn workspaces foreach --exclude '@thematic/root' -iv version -d",
 		"lint": "essex lint --fix --strict",
 		"prettify:": "essex prettify",
-		"test": "jest",
-		"test_coverage": "jest --coverage",
+		"jest_coverage": "jest --coverage",
 		"git-is-clean": "essex git-is-clean",
-		"ci": "run-s lint build bundle test_coverage git-is-clean",
+		"ci": "run-s lint build bundle jest_coverage git-is-clean",
 		"release": "run-s clean build publish"
 	},
 	"workspaces": {

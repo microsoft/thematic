@@ -1,4 +1,8 @@
-export default {
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+const themeDefaults = {
 	chart: {
 		backgroundColor: 'none',
 		padding: 4,
@@ -125,3 +129,4 @@ export default {
 		strokeOpacity: 1,
 	},
 }
+export default themeDefaults
