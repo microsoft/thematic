@@ -4,7 +4,7 @@
  */
 import { useThematic } from '@thematic/react'
 import { FC, useMemo } from 'react'
-import { connect } from 'react-redux'
+import { useScaleItemCount } from '../../state'
 import { DownloadLink } from '../DownloadLink'
 import { JSONEditor } from '../JSONEditor'
 
@@ -31,6 +31,7 @@ const JSONPaneComponent: FC<JSONPaneProps> = ({ scaleItemCount }) => {
 	)
 }
 
-export const JSONPane = connect((state: any) => ({
-	scaleItemCount: state.ui.scaleItemCount,
-}))(JSONPaneComponent)
+export const JSONPane = () => {
+	const [scaleItemCount] = useScaleItemCount()
+	return <JSONPaneComponent scaleItemCount={scaleItemCount} />
+}
