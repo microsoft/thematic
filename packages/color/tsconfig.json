@@ -1,9 +1,7 @@
 {
 	"extends": "@essex/tsconfig-base",
 	"compilerOptions": {
-		"outDir": "lib",
-		"allowSyntheticDefaultImports": true,
-		"skipLibCheck": true
+		"outDir": "lib"
 	},
 	"include": ["src/**/*"]
 }

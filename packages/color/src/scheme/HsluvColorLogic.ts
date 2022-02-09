@@ -2,9 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { hex as chromaHex } from 'chroma-js'
-import { hsluvToHex } from 'hsluv'
+import chroma from 'chroma-js'
+import hsluv from 'hsluv'
 import type { Params, Scheme } from '../interfaces'
+
+const { hex: chromaHex } = chroma
+const { hsluvToHex } = hsluv
 
 const lightTextLuminance = 95
 const darkTextLuminance = 20

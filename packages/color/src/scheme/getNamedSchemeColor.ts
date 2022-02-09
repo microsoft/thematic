@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { Color } from '../Color'
-import type { Scheme } from '../interfaces'
+import { Color } from '../Color.js'
+import type { Scheme } from '../interfaces.js'
 
 /**
  * Extracts a thematic Color using its scheme "path".
