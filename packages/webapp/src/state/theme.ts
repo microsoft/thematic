@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { defaultParams, Params } from '@thematic/color'
+import { defaultParams, Params, ColorBlindnessMode } from '@thematic/color'
 import {
 	Theme,
 	ThemeListing,
@@ -59,6 +59,15 @@ export function useDarkMode() {
 	return useRecoilState(darkModeState)
 }
 
+const colorBlindnessModeState = atom<ColorBlindnessMode>({
+	key: 'color-blindness-mode',
+	default: ColorBlindnessMode.None,
+})
+
+export function useColorBlindnessMode() {
+	return useRecoilState(colorBlindnessModeState)
+}
+
 const paramsState = atom<Params>({
 	key: 'theme-params',
 	default: defaultParams,
@@ -75,12 +84,14 @@ const themeState = selector<Theme>({
 	get: ({ get }) => {
 		const darkMode = get(darkModeState)
 		const params = get(paramsState)
+		const colorBlindnessMode = get(colorBlindnessModeState)
 		return loadFromSpec(
 			{
 				params,
 			},
 			{
 				variant: darkMode ? ThemeVariant.Dark : ThemeVariant.Light,
+				colorBlindnessMode,
 			},
 		)
 	},
