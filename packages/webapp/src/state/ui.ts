@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { ColorBlindnessMode } from '@thematic/color'
 import { atom, useRecoilState } from 'recoil'
 
 const drawNodes = atom<boolean>({
@@ -39,13 +38,4 @@ const scaleItemCount = atom<number>({
 
 export function useScaleItemCount() {
 	return useRecoilState(scaleItemCount)
-}
-
-const colorBlindnessMode = atom<ColorBlindnessMode>({
-	key: 'color-blindness-mode',
-	default: ColorBlindnessMode.None,
-})
-
-export function useColorBlindnessMode() {
-	return useRecoilState(colorBlindnessMode)
 }
