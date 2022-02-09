@@ -4,7 +4,7 @@
  */
 import type { Theme, Transformer } from '../types/index.js'
 
-export type PowerBITheme = {
+export interface PowerBITheme {
 	name: string
 	dataColors: string[]
 	background: string

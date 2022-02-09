@@ -4,7 +4,7 @@
  */
 import { Theme, ThemeVariant, Transformer } from '../types/index.js'
 
-export type OfficeTheme = {
+export interface OfficeTheme {
 	dark1: string
 	light1: string
 	dark2: string
