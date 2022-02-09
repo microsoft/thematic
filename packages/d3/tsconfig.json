@@ -2,8 +2,7 @@
 	"extends": "@essex/tsconfig-base",
 	"compilerOptions": {
 		"outDir": "lib",
-		"lib": ["ESNext", "DOM"],
-		"allowSyntheticDefaultImports": true
+		"lib": ["ESNext", "DOM"]
 	},
 	"include": ["src/**/*"]
 }
