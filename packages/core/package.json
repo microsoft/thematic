@@ -2,13 +2,9 @@
 	"name": "@thematic/core",
 	"version": "1.3.3",
 	"license": "MIT",
-	"main": "dist/cjs/index.js",
-	"types": "dist/types/index.d.ts",
-	"exports": {
-		"import": "./dist/esm/index.mjs",
-		"require": "./dist/cjs/index.js",
-		"types": "./dist/types/index.d.ts"
-	},
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/microsoft/thematic.git",
@@ -16,11 +12,7 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "run-s build_lib assets",
-		"build_lib": "essex build",
-		"copy_json_esm": "ncp src/themes dist/esm/themes",
-		"copy_json_cjs": "ncp src/themes dist/cjs/themes",
-		"assets": "run-p copy_json_esm copy_json_cjs"
+		"build": "essex build"
 	},
 	"dependencies": {
 		"@thematic/color": "workspace:packages/color",
@@ -30,14 +22,13 @@
 		"murmurhash-js": "^1.0.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^20.0.1",
+		"@essex/scripts": "^20.1.2",
 		"@essex/tsconfig-base": "^1.0.1",
 		"@types/d3-scale": "^2.2.6",
 		"@types/jest": "^26.0.24",
 		"@types/lodash": "^4.14.178",
 		"@types/murmurhash-js": "^1.0.3",
 		"@types/node": "^14.18.5",
-		"ncp": "^2.0.0",
 		"npm-run-all": "^4.1.5"
 	},
 	"peerDependencies": {
@@ -57,6 +48,26 @@
 		},
 		"@types/node": {
 			"optional": true
+		}
+	},
+	"essex": {
+		"exports": {
+			"ScaleType": "object",
+			"SelectionState": "object",
+			"ThemeImpl": "function",
+			"ThemeVariant": "object",
+			"clone": "function",
+			"defaultThemes": "object",
+			"gimp": "function",
+			"linear": "function",
+			"load": "function",
+			"loadById": "function",
+			"loadFromSpec": "function",
+			"log": "function",
+			"office": "function",
+			"powerbi": "function",
+			"quantile": "function",
+			"recall": "function"
 		}
 	}
 }
