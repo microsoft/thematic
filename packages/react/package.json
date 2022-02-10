@@ -2,13 +2,9 @@
 	"name": "@thematic/react",
 	"version": "1.3.3",
 	"license": "MIT",
-	"main": "dist/cjs/index.js",
-	"types": "dist/types/index.d.ts",
-	"exports": {
-		"import": "./dist/esm/index.mjs",
-		"require": "./dist/cjs/index.js",
-		"types": "./dist/types/index.d.ts"
-	},
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/microsoft/thematic.git",
@@ -24,7 +20,7 @@
 		"core-js": "^3.20.2"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^20.0.1",
+		"@essex/scripts": "^20.1.2",
 		"@essex/tsconfig-base": "^1.0.1",
 		"@types/node": "^14.18.5",
 		"@types/react": "^17.0.38",
@@ -44,6 +40,17 @@
 		},
 		"react": {
 			"optional": false
+		}
+	},
+	"essex": {
+		"exports": {
+			"ApplicationStyles": "function",
+			"ThematicContext": "object",
+			"ThematicProvider": "function",
+			"application2style": "function",
+			"defaultTheme": "object",
+			"mark2style": "function",
+			"useThematic": "function"
 		}
 	}
 }

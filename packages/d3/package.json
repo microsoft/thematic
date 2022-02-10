@@ -2,13 +2,9 @@
 	"name": "@thematic/d3",
 	"version": "1.3.3",
 	"license": "MIT",
-	"main": "dist/cjs/index.js",
-	"types": "dist/types/index.d.ts",
-	"exports": {
-		"import": "./dist/esm/index.mjs",
-		"require": "./dist/cjs/index.js",
-		"types": "./dist/types/index.d.ts"
-	},
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/microsoft/thematic.git",
@@ -25,7 +21,7 @@
 		"d3-selection": "^1.4.2"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^20.0.1",
+		"@essex/scripts": "^20.1.2",
 		"@essex/tsconfig-base": "^1.0.1",
 		"@types/d3-axis": "^1.0.16",
 		"@types/d3-selection": "^1.4.3",
@@ -45,6 +41,32 @@
 		},
 		"@types/node": {
 			"optional": true
+		}
+	},
+	"essex": {
+		"exports": {
+			"applyNominalAttrWithSignalState": "function",
+			"attr": "function",
+			"axis": "function",
+			"chart": "function",
+			"circle": "function",
+			"classed": "function",
+			"diverging": "function",
+			"diverging2": "function",
+			"greys": "function",
+			"line": "function",
+			"nominal": "function",
+			"nominalBold": "function",
+			"nominalMuted": "function",
+			"on": "function",
+			"path": "function",
+			"plotArea": "function",
+			"rect": "function",
+			"sequential": "function",
+			"sequential2": "function",
+			"style": "function",
+			"svg": "function",
+			"text": "function"
 		}
 	}
 }
