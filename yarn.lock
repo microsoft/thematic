@@ -1064,16 +1064,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/vite-config@npm:^19.0.0":
-  version: 19.0.0
-  resolution: "@essex/vite-config@npm:19.0.0"
+"@essex/vite-config@npm:^19.0.1":
+  version: 19.0.1
+  resolution: "@essex/vite-config@npm:19.0.1"
   dependencies:
     "@vitejs/plugin-react-refresh": ^1.3.6
     vite-react-jsx: ^1.1.2
     vite-tsconfig-paths: ^3.4.0
   peerDependencies:
     vite: "*"
-  checksum: 9a2c4b55b103da65fcbe8531be6d3714d55ac358c1156006f17eca25cdd2eb499bd1633126c14558738377827178e7b15fdebf7a50786c7716e2b81514d09c78
+  checksum: c45fb2864ffe3ab6dc8f53a781889ee20936b94e772d2872849922d48f1d8894e33e42295f0b1140097f6b0a27cae09261981a4b4022717f4cd35b88f32cb24b
   languageName: node
   linkType: hard
 
@@ -1971,7 +1971,7 @@ __metadata:
   dependencies:
     "@essex/scripts": ^20.1.3
     "@essex/tsconfig-base": ^1.0.1
-    "@essex/vite-config": ^19.0.0
+    "@essex/vite-config": ^19.0.1
     "@fluentui/font-icons-mdl2": ^8.1.22
     "@fluentui/react": ^8.55.0
     "@thematic/color": "workspace:packages/color"
