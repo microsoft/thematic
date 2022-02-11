@@ -12,7 +12,8 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build"
+		"build": "essex build",
+		"start": "essex watch"
 	},
 	"dependencies": {
 		"@essex-js-toolkit/hooks": "^1.1.5",
@@ -23,8 +24,8 @@
 		"d3-scale": "^3.3.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^20.1.2",
-		"@essex/tsconfig-base": "^1.0.1",
+		"@essex/scripts": "^20.2.0",
+		"@essex/tsconfig-base": "^1.0.2",
 		"@fluentui/font-icons-mdl2": "^8.1.22",
 		"@fluentui/react": "^8.55.0",
 		"@types/chroma-js": "^2.1.3",
