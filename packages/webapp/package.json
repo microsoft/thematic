@@ -35,7 +35,8 @@
 		"vega": "5.15.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^20.1.2",
+		"@essex/scripts": "^20.1.3",
+		"@essex/tsconfig-base": "^1.0.1",
 		"@essex/vite-config": "^19.0.0",
 		"@types/d3-axis": "^1.0.16",
 		"@types/d3-scale": "^2.2.6",

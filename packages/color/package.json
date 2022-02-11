@@ -3,8 +3,11 @@
 	"version": "2.0.0",
 	"license": "MIT",
 	"type": "module",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "src/index.ts",
+	"publishConfig": {
+		"main": "dist/index.js",
+		"types": "dist/index.d.ts"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/microsoft/thematic.git",
@@ -21,7 +24,7 @@
 		"hsluv": "^0.1.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^20.1.2",
+		"@essex/scripts": "^20.1.3",
 		"@essex/tsconfig-base": "^1.0.1",
 		"@types/chroma-js": "^2.1.3",
 		"@types/node": "^14.18.5"
