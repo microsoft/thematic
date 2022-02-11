@@ -12,7 +12,8 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build"
+		"build": "essex build",
+		"start": "essex watch"
 	},
 	"dependencies": {
 		"@thematic/color": "workspace:packages/color",
@@ -22,8 +23,8 @@
 		"murmurhash-js": "^1.0.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^20.1.2",
-		"@essex/tsconfig-base": "^1.0.1",
+		"@essex/scripts": "^20.2.0",
+		"@essex/tsconfig-base": "^1.0.2",
 		"@types/d3-scale": "^2.2.6",
 		"@types/jest": "^26.0.24",
 		"@types/lodash": "^4.14.178",
