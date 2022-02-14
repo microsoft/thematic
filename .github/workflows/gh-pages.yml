@@ -21,7 +21,7 @@ jobs:
       - run: yarn install
         name: Install dependencies
 
-      - run: 'yarn build:'
+      - run: yarn build
         name: Build libs
 
       - name: Deploy to GitHub Pages
