@@ -22,7 +22,7 @@
 		"d3-selection": "^1.4.2"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^20.2.0",
+		"@essex/scripts": "^20.2.1",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/d3-axis": "^1.0.16",
 		"@types/d3-selection": "^1.4.3",

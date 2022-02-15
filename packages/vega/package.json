@@ -20,7 +20,7 @@
 		"core-js": "^3.20.2"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^20.2.0",
+		"@essex/scripts": "^20.2.1",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/node": "^14.18.5",
 		"vega": "5.15.0"
