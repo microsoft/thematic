@@ -26,7 +26,9 @@ export function getNamedSchemeColor(scheme: Scheme, path?: string): Color {
 	return new Color(scheme[path as keyof Scheme] as string)
 }
 
-function indexedTest(path: string) {
+function indexedTest(
+	path: string,
+): { name: string | undefined; index: number } | undefined {
 	const indexedName = path.match(/(\w+)\[/)
 	const indexedIndex = path.match(/\[(\d{1,2})\]/)
 	if (indexedName && indexedIndex) {
@@ -35,4 +37,5 @@ function indexedTest(path: string) {
 			index: +indexedIndex![1]!,
 		}
 	}
+	return undefined
 }

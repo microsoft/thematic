@@ -29,5 +29,5 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: packages/webapp/dist
+          FOLDER: packages/webapp/build
           CLEAN: true
