@@ -813,28 +813,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex-js-toolkit/hooks@npm:^1.1.5":
-  version: 1.1.5
-  resolution: "@essex-js-toolkit/hooks@npm:1.1.5"
+"@essex-js-toolkit/hooks@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@essex-js-toolkit/hooks@npm:4.0.0"
   dependencies:
-    "@essex-js-toolkit/toolbox": ^1.1.4
-    resize-observer-polyfill: ^1.5.1
+    "@essex-js-toolkit/toolbox": 3.0.0
+    lodash-es: ^4.17.21
   peerDependencies:
     "@types/node": "*"
     "@types/react": "*"
     "@types/react-dom": "*"
-    core-js: "*"
     react: ">=16.8.0"
-  checksum: 5f0c9b93862b2857b4263a9b42443b8b15e3749839b817edef9f3ce1832e2029ed4658f1c8b8ecd27e9e946b126f29b32d05ffa66933dd26e80f8307dbdaf049
+  checksum: 908aa780ff76b6509d96b5365b78ebe3f61d3805b6008674b622e72eb4cf9947f7892bf47e936b33c61e5da72201ee404f30d962026ca5a794ac8df8fb32354c
   languageName: node
   linkType: hard
 
-"@essex-js-toolkit/toolbox@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@essex-js-toolkit/toolbox@npm:1.1.4"
-  peerDependencies:
-    core-js: "*"
-  checksum: 367588636068c925ed8b75878cb545b8d4a12bf7f16176b567b6e8fb858e6f937e715ed461baea4ed81466fa09ed57e468d350d3451bbde076fe1b56e9416761
+"@essex-js-toolkit/toolbox@npm:3.0.0":
+  version: 3.0.0
+  resolution: "@essex-js-toolkit/toolbox@npm:3.0.0"
+  dependencies:
+    core-js: ^3.21.1
+  checksum: cc3fa1b4337ada23aeb56b36de852852af19189e83d733681d69f0935329597b0c534ae3f6579befa1713097477fcae94be36f5c9763a037f1f1a9d0f41cdd94
   languageName: node
   linkType: hard
 
@@ -1923,7 +1922,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/fluent@workspace:packages/fluent"
   dependencies:
-    "@essex-js-toolkit/hooks": ^1.1.5
+    "@essex-js-toolkit/hooks": ^4.0.0
     "@essex/scripts": ^20.3.0
     "@essex/tsconfig-base": ^1.0.2
     "@fluentui/font-icons-mdl2": ^8.1.24
@@ -9760,13 +9759,6 @@ __metadata:
   version: 1.0.0
   resolution: "requires-port@npm:1.0.0"
   checksum: eee0e303adffb69be55d1a214e415cf42b7441ae858c76dfc5353148644f6fd6e698926fc4643f510d5c126d12a705e7c8ed7e38061113bdf37547ab356797ff
-  languageName: node
-  linkType: hard
-
-"resize-observer-polyfill@npm:^1.5.1":
-  version: 1.5.1
-  resolution: "resize-observer-polyfill@npm:1.5.1"
-  checksum: 57e7f79489867b00ba43c9c051524a5c8f162a61d5547e99333549afc23e15c44fd43f2f318ea0261ea98c0eb3158cca261e6f48d66e1ed1cd1f340a43977094
   languageName: node
   linkType: hard
 

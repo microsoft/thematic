@@ -8,6 +8,7 @@
 	"scripts": {
 		"clean": "essex clean",
 		"build": "tsc -b . && webpack --mode production",
+		"build_stats": "webpack --mode production --json > stats.json",
 		"start": "webpack-dev-server",
 		"start:webapp": "yarn start"
 	},
