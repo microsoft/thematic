@@ -899,20 +899,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/jest-config@npm:^20.1.2":
-  version: 20.1.2
-  resolution: "@essex/jest-config@npm:20.1.2"
+"@essex/jest-config@npm:^21.0.0":
+  version: 21.0.0
+  resolution: "@essex/jest-config@npm:21.0.0"
   dependencies:
+    "@essex/swc-opts": 20.0.2
     "@swc/core": ^1.2.142
     "@swc/jest": ^0.2.17
     "@types/jest": ^27.4.0
     identity-obj-proxy: ^3.0.0
+    lodash: ^4.17.21
   peerDependencies:
     jest: ">= 26.4"
   peerDependenciesMeta:
     jest:
       optional: true
-  checksum: 38157ffe0ddf2e25421daa59ada03a74a5063747b412cd318514032732fd82320fe44479a66cf7fe28f9147149feffa3792329f0eb365fc701a295902b2e7ad3
+  checksum: 3cb0569551eafdad53c282f1c08b76c31f6e813172b50440fca4d9b6a8f45b1ad3dba51e68ace15c96ec53731cbceacdcc592178634f2eb039fdf5a95703b198
   languageName: node
   linkType: hard
 
@@ -923,14 +925,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/scripts@npm:^20.3.1":
-  version: 20.3.1
-  resolution: "@essex/scripts@npm:20.3.1"
+"@essex/scripts@npm:^20.3.2":
+  version: 20.3.2
+  resolution: "@essex/scripts@npm:20.3.2"
   dependencies:
     "@azure/storage-blob": ^12.8.0
     "@essex/eslint-config": 20.0.0
     "@essex/eslint-plugin": 20.0.1
-    "@essex/shellrunner": 20.0.1
+    "@essex/shellrunner": 20.0.2
+    "@essex/swc-opts": 20.0.2
     "@swc/core": ^1.2.142
     "@typescript-eslint/eslint-plugin": ^5.12.0
     "@typescript-eslint/parser": ^5.12.0
@@ -954,7 +957,7 @@ __metadata:
     typescript: ^4.5.5
   peerDependencies:
     "@essex/eslint-config": ">=20.0.0"
-    "@essex/jest-config": ">=20.1.2"
+    "@essex/jest-config": ">=21.0.0"
     "@essex/prettier-config": ">=18.0.2"
     "@typescript-eslint/eslint-plugin": ">= 4.4.1"
     "@typescript-eslint/parser": ">= 4.4.1"
@@ -987,17 +990,28 @@ __metadata:
   bin:
     essex: ./lib/index.mjs
     essex-scripts: ./lib/index.mjs
-  checksum: 4a21e61f49d91e54bd9a4b20166ccf3012209570aacd9f3b337041ad4b7d9a00eaa2e747b92e797cf6b1c7c167e60d709cc6e593ec45a4ab10ff8d682444277a
+  checksum: 8b104f70a55f6b0ec458a7d580d830dde2a151ececcfa5c522cf486268bc7397c133a56062016bd9ebfaf8452f6ec2907e7f2f39548c2ea6c1b91ac02bc8326c
   languageName: node
   linkType: hard
 
-"@essex/shellrunner@npm:20.0.1":
-  version: 20.0.1
-  resolution: "@essex/shellrunner@npm:20.0.1"
+"@essex/shellrunner@npm:20.0.2":
+  version: 20.0.2
+  resolution: "@essex/shellrunner@npm:20.0.2"
   dependencies:
     cross-spawn: ^7.0.3
     debug: ^4.3.3
-  checksum: 8da89d8141057eb91111f76220cedc2957ce86201ddb1248c15b6b0185cbd0551880da2091af3b7413460e06e0c82fc27de2214ee1a80f2bb0d119c6c07452d3
+  checksum: 38b50302c83f95fad6b0f4d599a49a257d53e40cdcd481c409613faf2ab56004026e50e068d8876c8fd96716e5ab276bc8fe8dc6a2eec2e1756890f849d49e44
+  languageName: node
+  linkType: hard
+
+"@essex/swc-opts@npm:20.0.2":
+  version: 20.0.2
+  resolution: "@essex/swc-opts@npm:20.0.2"
+  dependencies:
+    "@swc/core": ^1.2.142
+    lodash: ^4.17.21
+    tslib: ^2.3.1
+  checksum: 47cd0e41b845c10f742ed2d43aa60dff13e4368f71a96d20d30432f0d26c6c2b5cff51bdb2fd974c4aa191b8632cddb1fa2e390adae66f50a87304ae36d127bd
   languageName: node
   linkType: hard
 
@@ -1008,10 +1022,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/webpack-config@npm:^20.1.0":
-  version: 20.1.0
-  resolution: "@essex/webpack-config@npm:20.1.0"
+"@essex/webpack-config@npm:^20.1.1":
+  version: 20.1.1
+  resolution: "@essex/webpack-config@npm:20.1.1"
   dependencies:
+    "@essex/swc-opts": 20.0.2
     "@swc/cli": ^0.1.55
     "@swc/core": ^1.2.142
     "@types/webpack": ^5.28.0
@@ -1033,7 +1048,7 @@ __metadata:
   peerDependencies:
     typescript: ">= 4 <5"
     webpack: ">= 4"
-  checksum: 71369ca53e2330e09e3ae3eaf3567276a95dbfc780750df35cc3318ab5248eb27b530b054e66299e2e4573f2d61e94b5222e0eba30be1e7cdd9a9a843abadeeb
+  checksum: a45cff1b22cd05c0d001160fbe6ca66f73a5a0874e6e806c90f3729ca49f15761868a10429f66d970c81ffe2d13517848e649dda3efb6885ba6eec45df48fb11
   languageName: node
   linkType: hard
 
@@ -1733,7 +1748,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/color@workspace:packages/color"
   dependencies:
-    "@essex/scripts": ^20.3.1
+    "@essex/scripts": ^20.3.2
     "@essex/tsconfig-base": ^1.0.2
     "@types/chroma-js": ^2.1.3
     "@types/node": ^17.0.18
@@ -1755,7 +1770,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/core@workspace:packages/core"
   dependencies:
-    "@essex/scripts": ^20.3.1
+    "@essex/scripts": ^20.3.2
     "@essex/tsconfig-base": ^1.0.2
     "@thematic/color": "workspace:packages/color"
     "@types/d3-scale": ^2.2.6
@@ -1764,7 +1779,6 @@ __metadata:
     "@types/murmurhash-js": ^1.0.3
     "@types/node": ^17.0.18
     d3-scale: ^3.3.0
-    lodash: ^4.17.21
     lodash-es: ^4.17.21
     murmurhash-js: ^1.0.0
     npm-run-all: ^4.1.5
@@ -1783,7 +1797,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/d3@workspace:packages/d3"
   dependencies:
-    "@essex/scripts": ^20.3.1
+    "@essex/scripts": ^20.3.2
     "@essex/tsconfig-base": ^1.0.2
     "@thematic/core": "workspace:packages/core"
     "@types/d3-axis": ^1.0.16
@@ -1810,7 +1824,7 @@ __metadata:
   resolution: "@thematic/fluent@workspace:packages/fluent"
   dependencies:
     "@essex-js-toolkit/hooks": ^4.0.0
-    "@essex/scripts": ^20.3.1
+    "@essex/scripts": ^20.3.2
     "@essex/tsconfig-base": ^1.0.2
     "@fluentui/font-icons-mdl2": ^8.1.24
     "@fluentui/react": ^8.55.3
@@ -1848,7 +1862,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/react@workspace:packages/react"
   dependencies:
-    "@essex/scripts": ^20.3.1
+    "@essex/scripts": ^20.3.2
     "@essex/tsconfig-base": ^1.0.2
     "@thematic/color": "workspace:packages/color"
     "@thematic/core": "workspace:packages/core"
@@ -1875,9 +1889,9 @@ __metadata:
   dependencies:
     "@essex/eslint-config": ^20.0.0
     "@essex/eslint-plugin": ^20.0.1
-    "@essex/jest-config": ^20.1.2
+    "@essex/jest-config": ^21.0.0
     "@essex/prettier-config": ^18.0.2
-    "@essex/scripts": ^20.3.1
+    "@essex/scripts": ^20.3.2
     "@types/jest": ^27.4.0
     "@types/node": ^17.0.18
     "@typescript-eslint/eslint-plugin": ^5.12.0
@@ -1899,7 +1913,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/vega@workspace:packages/vega"
   dependencies:
-    "@essex/scripts": ^20.3.1
+    "@essex/scripts": ^20.3.2
     "@essex/tsconfig-base": ^1.0.2
     "@thematic/core": "workspace:packages/core"
     "@types/node": ^17.0.18
@@ -1916,9 +1930,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/webapp@workspace:packages/webapp"
   dependencies:
-    "@essex/scripts": ^20.3.1
+    "@essex/scripts": ^20.3.2
     "@essex/tsconfig-base": ^1.0.2
-    "@essex/webpack-config": ^20.1.0
+    "@essex/webpack-config": ^20.1.1
     "@fluentui/font-icons-mdl2": ^8.1.24
     "@fluentui/react": ^8.55.3
     "@thematic/color": "workspace:packages/color"
