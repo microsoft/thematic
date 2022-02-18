@@ -3,8 +3,11 @@
 	"version": "2.0.0",
 	"license": "MIT",
 	"type": "module",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "src/index.ts",
+	"publishConfig": {
+		"main": "dist/index.js",
+		"types": "dist/index.d.ts"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/microsoft/thematic.git",
@@ -12,17 +15,17 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build",
+		"build": "essex build --skipExportCheck",
 		"start": "essex watch"
 	},
 	"dependencies": {
-		"@thematic/core": "workspace:packages/core",
-		"core-js": "^3.20.2"
+		"@thematic/core": "workspace:packages/core"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^20.2.1",
+		"@essex/scripts": "^20.3.0",
 		"@essex/tsconfig-base": "^1.0.2",
-		"@types/node": "^14.18.5",
+		"@types/node": "^17.0.18",
+		"core-js": "^3.21.1",
 		"vega": "5.15.0"
 	},
 	"peerDependencies": {
@@ -36,6 +39,11 @@
 	"essex": {
 		"exports": {
 			"vega": "function"
+		}
+	},
+	"swc": {
+		"jsc": {
+			"target": "es2019"
 		}
 	}
 }

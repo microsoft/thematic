@@ -3,4 +3,5 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 const { configure } = require('@essex/jest-config')
-module.exports = configure()
+const configuration = configure()
+module.exports = configuration
