@@ -3,6 +3,7 @@ lib/
 dist/
 out/
 build/
-babel.config.js
+.pnp.*
+
 jest.config.js
 *.js
