@@ -1008,30 +1008,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/webpack-config@npm:^20.0.1":
-  version: 20.0.1
-  resolution: "@essex/webpack-config@npm:20.0.1"
+"@essex/webpack-config@npm:^20.1.0":
+  version: 20.1.0
+  resolution: "@essex/webpack-config@npm:20.1.0"
   dependencies:
     "@swc/cli": ^0.1.55
-    "@swc/core": ^1.2.141
+    "@swc/core": ^1.2.142
     "@types/webpack": ^5.28.0
     "@types/webpack-dev-server": ^4.7.2
     css-loader: ^6.6.0
     debug: ^4.3.3
     fork-ts-checker-webpack-plugin: ^7.2.1
     html-webpack-plugin: ^5.5.0
+    lodash: ^4.17.21
     mini-css-extract-plugin: ^2.5.3
     resolve-typescript-plugin: ^1.1.5
     sass-loader: ^12.6.0
     style-loader: ^3.3.1
     swc-loader: ^0.1.15
     tsconfig-paths-webpack-plugin: ^3.5.2
-    webpack: ^5.69.0
+    tslib: ^2.3.1
+    webpack: ^5.69.1
     webpack-dev-server: ^4.7.4
   peerDependencies:
     typescript: ">= 4 <5"
     webpack: ">= 4"
-  checksum: 2071912fead4c1868ea1ae68a80b857c80dc2bb18fd81758dec00a621a045c5feff0c9cc860f6a61b8be05088040d26fa821952f6b08363383cd66c3e153e28c
+  checksum: 71369ca53e2330e09e3ae3eaf3567276a95dbfc780750df35cc3318ab5248eb27b530b054e66299e2e4573f2d61e94b5222e0eba30be1e7cdd9a9a843abadeeb
   languageName: node
   linkType: hard
 
@@ -1577,24 +1579,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-android-arm-eabi@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-android-arm-eabi@npm:1.2.141"
-  conditions: os=android & cpu=arm
-  languageName: node
-  linkType: hard
-
 "@swc/core-android-arm-eabi@npm:1.2.142":
   version: 1.2.142
   resolution: "@swc/core-android-arm-eabi@npm:1.2.142"
   conditions: os=android & cpu=arm
-  languageName: node
-  linkType: hard
-
-"@swc/core-android-arm64@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-android-arm64@npm:1.2.141"
-  conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
@@ -1605,24 +1593,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-arm64@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-darwin-arm64@npm:1.2.141"
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
 "@swc/core-darwin-arm64@npm:1.2.142":
   version: 1.2.142
   resolution: "@swc/core-darwin-arm64@npm:1.2.142"
   conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@swc/core-darwin-x64@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-darwin-x64@npm:1.2.141"
-  conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
@@ -1633,24 +1607,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-freebsd-x64@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-freebsd-x64@npm:1.2.141"
-  conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
 "@swc/core-freebsd-x64@npm:1.2.142":
   version: 1.2.142
   resolution: "@swc/core-freebsd-x64@npm:1.2.142"
   conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-arm-gnueabihf@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.2.141"
-  conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
@@ -1661,23 +1621,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-gnu@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-linux-arm64-gnu@npm:1.2.141"
-  conditions: os=linux & cpu=arm64
-  languageName: node
-  linkType: hard
-
 "@swc/core-linux-arm64-gnu@npm:1.2.142":
   version: 1.2.142
   resolution: "@swc/core-linux-arm64-gnu@npm:1.2.142"
-  conditions: os=linux & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-arm64-musl@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-linux-arm64-musl@npm:1.2.141"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
@@ -1689,23 +1635,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-gnu@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-linux-x64-gnu@npm:1.2.141"
-  conditions: os=linux & cpu=x64
-  languageName: node
-  linkType: hard
-
 "@swc/core-linux-x64-gnu@npm:1.2.142":
   version: 1.2.142
   resolution: "@swc/core-linux-x64-gnu@npm:1.2.142"
-  conditions: os=linux & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@swc/core-linux-x64-musl@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-linux-x64-musl@npm:1.2.141"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
@@ -1717,24 +1649,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-win32-arm64-msvc@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-win32-arm64-msvc@npm:1.2.141"
-  conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
 "@swc/core-win32-arm64-msvc@npm:1.2.142":
   version: 1.2.142
   resolution: "@swc/core-win32-arm64-msvc@npm:1.2.142"
   conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@swc/core-win32-ia32-msvc@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-win32-ia32-msvc@npm:1.2.141"
-  conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
@@ -1745,65 +1663,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-win32-x64-msvc@npm:1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core-win32-x64-msvc@npm:1.2.141"
-  conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
 "@swc/core-win32-x64-msvc@npm:1.2.142":
   version: 1.2.142
   resolution: "@swc/core-win32-x64-msvc@npm:1.2.142"
   conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@swc/core@npm:^1.2.141":
-  version: 1.2.141
-  resolution: "@swc/core@npm:1.2.141"
-  dependencies:
-    "@swc/core-android-arm-eabi": 1.2.141
-    "@swc/core-android-arm64": 1.2.141
-    "@swc/core-darwin-arm64": 1.2.141
-    "@swc/core-darwin-x64": 1.2.141
-    "@swc/core-freebsd-x64": 1.2.141
-    "@swc/core-linux-arm-gnueabihf": 1.2.141
-    "@swc/core-linux-arm64-gnu": 1.2.141
-    "@swc/core-linux-arm64-musl": 1.2.141
-    "@swc/core-linux-x64-gnu": 1.2.141
-    "@swc/core-linux-x64-musl": 1.2.141
-    "@swc/core-win32-arm64-msvc": 1.2.141
-    "@swc/core-win32-ia32-msvc": 1.2.141
-    "@swc/core-win32-x64-msvc": 1.2.141
-  dependenciesMeta:
-    "@swc/core-android-arm-eabi":
-      optional: true
-    "@swc/core-android-arm64":
-      optional: true
-    "@swc/core-darwin-arm64":
-      optional: true
-    "@swc/core-darwin-x64":
-      optional: true
-    "@swc/core-freebsd-x64":
-      optional: true
-    "@swc/core-linux-arm-gnueabihf":
-      optional: true
-    "@swc/core-linux-arm64-gnu":
-      optional: true
-    "@swc/core-linux-arm64-musl":
-      optional: true
-    "@swc/core-linux-x64-gnu":
-      optional: true
-    "@swc/core-linux-x64-musl":
-      optional: true
-    "@swc/core-win32-arm64-msvc":
-      optional: true
-    "@swc/core-win32-ia32-msvc":
-      optional: true
-    "@swc/core-win32-x64-msvc":
-      optional: true
-  checksum: b4795e397bca0d896b8a6b7341ee425b84518c53d9ef560eba33fdea564c1144bb356421d2e5505fa4f27e99139e205c3e0038c62fa0a6879ce0f51d2162c36d
   languageName: node
   linkType: hard
 
@@ -1876,7 +1739,6 @@ __metadata:
     "@types/node": ^17.0.18
     chroma-js: ^2.4.2
     color-blind: ^0.1.1
-    core-js: ^3.21.1
     hsluv: ^0.1.0
   peerDependencies:
     "@types/chroma-js": "*"
@@ -1901,7 +1763,6 @@ __metadata:
     "@types/lodash-es": ^4.17.6
     "@types/murmurhash-js": ^1.0.3
     "@types/node": ^17.0.18
-    core-js: ^3.21.1
     d3-scale: ^3.3.0
     lodash: ^4.17.21
     lodash-es: ^4.17.21
@@ -1928,7 +1789,6 @@ __metadata:
     "@types/d3-axis": ^1.0.16
     "@types/d3-selection": ^1.4.3
     "@types/node": ^17.0.18
-    core-js: ^3.21.1
     d3-axis: ^1.0.12
     d3-selection: ^1.4.2
   peerDependencies:
@@ -1962,7 +1822,6 @@ __metadata:
     "@types/node": ^17.0.18
     "@types/react": ^17.0.39
     chroma-js: ^2.4.2
-    core-js: ^3.21.1
     d3-scale: ^3.3.0
     react: ^17.0.2
   peerDependencies:
@@ -1995,7 +1854,6 @@ __metadata:
     "@thematic/core": "workspace:packages/core"
     "@types/node": ^17.0.18
     "@types/react": ^17.0.39
-    core-js: ^3.21.1
     react: ^17.0.2
   peerDependencies:
     "@types/node": "*"
@@ -2045,7 +1903,6 @@ __metadata:
     "@essex/tsconfig-base": ^1.0.2
     "@thematic/core": "workspace:packages/core"
     "@types/node": ^17.0.18
-    core-js: ^3.21.1
     vega: 5.15.0
   peerDependencies:
     vega: 5
@@ -2061,7 +1918,7 @@ __metadata:
   dependencies:
     "@essex/scripts": ^20.3.1
     "@essex/tsconfig-base": ^1.0.2
-    "@essex/webpack-config": ^20.0.1
+    "@essex/webpack-config": ^20.1.0
     "@fluentui/font-icons-mdl2": ^8.1.24
     "@fluentui/react": ^8.55.3
     "@thematic/color": "workspace:packages/color"
@@ -2076,7 +1933,6 @@ __metadata:
     "@types/node": ^17.0.18
     "@types/react": ^17.0.39
     "@types/react-dom": ^17.0.11
-    core-js: ^3.21.1
     d3-axis: ^1.0.12
     d3-scale: ^3.3.0
     d3-selection: ^1.4.2
@@ -10906,7 +10762,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.3.1, tslib@npm:^2.0.3, tslib@npm:^2.2.0":
+"tslib@npm:2.3.1, tslib@npm:^2.0.3, tslib@npm:^2.2.0, tslib@npm:^2.3.1":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
@@ -11837,7 +11693,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5, webpack@npm:^5.69.0, webpack@npm:^5.69.1":
+"webpack@npm:^5, webpack@npm:^5.69.1":
   version: 5.69.1
   resolution: "webpack@npm:5.69.1"
   dependencies:
