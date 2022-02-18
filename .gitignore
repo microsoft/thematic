@@ -9,6 +9,7 @@ packages/*/build/
 # testing
 /coverage
 test-report.xml
+stats.json
 
 # production
 
