@@ -13,7 +13,8 @@
 		"version": "yarn workspaces foreach --exclude '@thematic/root' -iv version -d",
 		"lint": "essex lint --fix --strict",
 		"prettify:": "essex prettify",
-		"jest_coverage": "jest --coverage",
+		"jest": "NODE_OPTIONS=--experimental-vm-modules yarn node $(yarn bin jest) --runInBand",
+		"jest_coverage": "yarn jest --coverage",
 		"git-is-clean": "essex git-is-clean",
 		"ci": "run-s lint build bundle jest_coverage git-is-clean",
 		"release": "run-s clean build publish"
