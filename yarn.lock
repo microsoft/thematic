@@ -830,23 +830,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@eslint/eslintrc@npm:1.1.0"
-  dependencies:
-    ajv: ^6.12.4
-    debug: ^4.3.2
-    espree: ^9.3.1
-    globals: ^13.9.0
-    ignore: ^4.0.6
-    import-fresh: ^3.2.1
-    js-yaml: ^4.1.0
-    minimatch: ^3.0.4
-    strip-json-comments: ^3.1.1
-  checksum: 784aa2157e2808b52bbbaf1d1cfca9a6ba0b2faaa3696eb7a1229d4b357400fbd8a6aa09a16e7ae0868ea075d3a8f365cf5928b6d05a1df47f40a1167423a4fa
-  languageName: node
-  linkType: hard
-
 "@eslint/eslintrc@npm:^1.2.0":
   version: 1.2.0
   resolution: "@eslint/eslintrc@npm:1.2.0"
@@ -1047,9 +1030,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/webpack-config@npm:^20.1.3":
-  version: 20.1.3
-  resolution: "@essex/webpack-config@npm:20.1.3"
+"@essex/webpack-config@npm:^20.1.4":
+  version: 20.1.4
+  resolution: "@essex/webpack-config@npm:20.1.4"
   dependencies:
     "@essex/swc-opts": ^20.0.4
     "@swc/cli": ^0.1.55
@@ -1073,7 +1056,7 @@ __metadata:
   peerDependencies:
     typescript: ">= 4 <5"
     webpack: ">= 4"
-  checksum: 02114a0d1a65aec9aac0669f876912a73d3c24751d5d57cc43b0ed37ee8283ca01bfb3fd0a1b887410a23bfb9db15d3214451a91357ad25ab708d5a845266b10
+  checksum: c7dcd39a44e8184cbfd29a47033b06869b8458e55b2202091775ec11e5009f0e9c340fb3255cf4f8ed9c7e51bfb734917217a33ce91bee8bc592ae2550c9a36a
   languageName: node
   linkType: hard
 
@@ -1921,7 +1904,7 @@ __metadata:
     "@essex/scripts": ^20.4.4
     "@types/jest": ^27.4.1
     "@types/node": ^17.0.21
-    eslint: ^8.9.0
+    eslint: ^8.10.0
     husky: ^7.0.4
     jest: ^27.5.1
     lint-staged: ^12.3.4
@@ -1956,7 +1939,7 @@ __metadata:
   dependencies:
     "@essex/scripts": ^20.4.4
     "@essex/tsconfig-base": ^1.0.2
-    "@essex/webpack-config": ^20.1.3
+    "@essex/webpack-config": ^20.1.4
     "@fluentui/font-icons-mdl2": ^8.2.0
     "@fluentui/react": ^8.57.0
     "@thematic/color": "workspace:^"
@@ -5385,51 +5368,6 @@ __metadata:
   bin:
     eslint: bin/eslint.js
   checksum: 8b31ab3de5b48b6828bf13c09c9e62ee0045fa0afa017efaa73eedcf4dc33bc204ee4c467d4677e37967d1645f73816ddef4271422e691fded352040f8f83093
-  languageName: node
-  linkType: hard
-
-"eslint@npm:^8.9.0":
-  version: 8.9.0
-  resolution: "eslint@npm:8.9.0"
-  dependencies:
-    "@eslint/eslintrc": ^1.1.0
-    "@humanwhocodes/config-array": ^0.9.2
-    ajv: ^6.10.0
-    chalk: ^4.0.0
-    cross-spawn: ^7.0.2
-    debug: ^4.3.2
-    doctrine: ^3.0.0
-    escape-string-regexp: ^4.0.0
-    eslint-scope: ^7.1.1
-    eslint-utils: ^3.0.0
-    eslint-visitor-keys: ^3.3.0
-    espree: ^9.3.1
-    esquery: ^1.4.0
-    esutils: ^2.0.2
-    fast-deep-equal: ^3.1.3
-    file-entry-cache: ^6.0.1
-    functional-red-black-tree: ^1.0.1
-    glob-parent: ^6.0.1
-    globals: ^13.6.0
-    ignore: ^5.2.0
-    import-fresh: ^3.0.0
-    imurmurhash: ^0.1.4
-    is-glob: ^4.0.0
-    js-yaml: ^4.1.0
-    json-stable-stringify-without-jsonify: ^1.0.1
-    levn: ^0.4.1
-    lodash.merge: ^4.6.2
-    minimatch: ^3.0.4
-    natural-compare: ^1.4.0
-    optionator: ^0.9.1
-    regexpp: ^3.2.0
-    strip-ansi: ^6.0.1
-    strip-json-comments: ^3.1.0
-    text-table: ^0.2.0
-    v8-compile-cache: ^2.0.3
-  bin:
-    eslint: bin/eslint.js
-  checksum: 8efecdb9752ee6cb4d2787a14e00cbeab29562ed95dd71c6f3f8ac410426a067d5aa659416d2290e46ca44bc5607e6a6e6c62f814694d8639f80666f522022a7
   languageName: node
   linkType: hard
 
