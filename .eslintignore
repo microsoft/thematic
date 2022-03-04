@@ -3,7 +3,11 @@ lib/
 dist/
 out/
 build/
+.yarn/
+yarn.lock
+.eslintignore
+.gitignore
+.prettierignore
 .pnp.*
-
 jest.config.js
 *.js

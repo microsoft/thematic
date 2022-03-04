@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Dimensions, useDimensions } from '@essex-js-toolkit/hooks'
+import { Dimensions, useDimensions } from '@essex/hooks'
 
 const DEFAULT_WIDTH = 200
 const DEFAULT_HEIGHT = 32

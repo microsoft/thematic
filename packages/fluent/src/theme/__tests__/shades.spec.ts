@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { distance } from 'chroma-js'
+import chroma from 'chroma-js'
 import { correctShades } from '../shades'
 
 describe('theme shading correction functions', () => {
@@ -35,7 +35,7 @@ describe('theme shading correction functions', () => {
 		const fixed = correctShades(palette, false)
 
 		Object.keys(palette).forEach(key => {
-			const dist = distance(palette[key], fixed[key], 'rgb')
+			const dist = chroma.distance(palette[key], fixed[key], 'rgb')
 			expect(dist).toBeLessThan(colorDistance)
 		})
 	})
@@ -65,7 +65,7 @@ describe('theme shading correction functions', () => {
 		const fixed = correctShades(palette, true)
 
 		Object.keys(palette).forEach(key => {
-			const dist = distance(palette[key], fixed[key], 'rgb')
+			const dist = chroma.distance(palette[key], fixed[key], 'rgb')
 			expect(dist).toBeLessThan(colorDistance)
 		})
 	})

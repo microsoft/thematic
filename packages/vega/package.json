@@ -20,12 +20,12 @@
 		"start": "essex watch"
 	},
 	"dependencies": {
-		"@thematic/core": "workspace:packages/core"
+		"@thematic/core": "workspace:^"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^20.3.2",
+		"@essex/scripts": "^20.4.4",
 		"@essex/tsconfig-base": "^1.0.2",
-		"@types/node": "^17.0.18",
+		"@types/node": "^17.0.21",
 		"vega": "5.15.0"
 	},
 	"peerDependencies": {
