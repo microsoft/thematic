@@ -4,7 +4,8 @@
  */
 import { useThematic } from '@thematic/react'
 import { vega as decorator } from '@thematic/vega'
-import { memo, useLayoutEffect, useRef, useMemo, FC } from 'react'
+import type { FC } from 'react'
+import { memo, useLayoutEffect, useRef, useMemo } from 'react'
 
 import { parse, View } from 'vega'
 

@@ -14,13 +14,13 @@ import {
 import { useThematic } from '@thematic/react'
 import { scaleLinear } from 'd3-scale'
 import { select } from 'd3-selection'
+import type { FC } from 'react'
 import {
 	useLayoutEffect,
 	useState,
 	useRef,
 	useEffect,
 	useCallback,
-	FC,
 } from 'react'
 import type { Graph, Node, Edge } from '../../../interfaces'
 import { bounds } from '../../../util/graph'

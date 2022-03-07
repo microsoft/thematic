@@ -2,7 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Theme, ThemeVariant, Transformer } from '../types/index.js'
+import type { Theme, Transformer } from '../types/index.js'
+import { ThemeVariant } from '../types/index.js'
 
 export type OfficeTheme = {
 	dark1: string

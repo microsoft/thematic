@@ -6,7 +6,8 @@
 import './index.css'
 import type { Theme, Application } from '@thematic/core'
 import { useThematic } from '@thematic/react'
-import { FC, useMemo } from 'react'
+import type { FC } from 'react'
+import { useMemo } from 'react'
 import { ColorStrip } from '../ColorStrip'
 
 const applicationPrimaryKeys = ['accent', 'foreground', 'background', 'border']

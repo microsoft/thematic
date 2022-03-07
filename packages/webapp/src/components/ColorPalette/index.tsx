@@ -3,7 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { mark2style, useThematic } from '@thematic/react'
-import { FC, Fragment, useMemo } from 'react'
+import type { FC } from 'react'
+import { Fragment, useMemo } from 'react'
 import { ApplicationPalette } from './ApplicationPalette'
 import { ColorBand } from './ColorBand'
 import { ColorStrip } from './ColorStrip'

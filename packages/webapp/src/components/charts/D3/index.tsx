@@ -7,8 +7,10 @@ import { chart, plotArea, axis, circle } from '@thematic/d3'
 import { useThematic } from '@thematic/react'
 import { axisLeft, axisBottom } from 'd3-axis'
 import { scaleLinear } from 'd3-scale'
-import { select, Selection } from 'd3-selection'
-import { useLayoutEffect, useRef, useState, useMemo, FC } from 'react'
+import type { Selection } from 'd3-selection'
+import { select } from 'd3-selection'
+import type { FC } from 'react'
+import { useLayoutEffect, useRef, useState, useMemo } from 'react'
 
 export interface ChartProps {
 	width?: number

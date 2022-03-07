@@ -2,13 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import {
-	Dropdown,
+import type {
 	IDropdownOption,
 	IDropdownStyles,
 	IDropdownStyleProps,
 	IStyleFunctionOrObject,
 } from '@fluentui/react'
+import { Dropdown } from '@fluentui/react'
 import { useCallback, useMemo, useState } from 'react'
 
 export interface EnumDropdownProps<E> {

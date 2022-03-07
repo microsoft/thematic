@@ -3,7 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type { Theme } from '@thematic/core'
-import { FC, useMemo } from 'react'
+import type { FC } from 'react'
+import { useMemo } from 'react'
 import { ThematicContext, defaultTheme } from './ThematicContext.js'
 
 export interface ThematicProviderProps {

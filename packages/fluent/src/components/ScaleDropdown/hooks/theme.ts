@@ -7,7 +7,8 @@ import type {
 	NominalColorScaleFunction,
 	ContinuousColorScaleFunction,
 } from '@thematic/core'
-import React, { useMemo } from 'react'
+import type React from 'react'
+import { useMemo } from 'react'
 import { useThematicFluent } from '../../../provider/index.js'
 import type { ChipsProps } from '../types.js'
 import { chooseScale, selectColorPalette } from '../util.js'

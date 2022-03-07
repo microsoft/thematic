@@ -2,13 +2,14 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import {
-	Link,
+import type {
 	IStyleFunctionOrObject,
 	ILinkStyleProps,
 	ILinkStyles,
 } from '@fluentui/react'
-import { FC, useMemo } from 'react'
+import { Link } from '@fluentui/react'
+import type { FC } from 'react'
+import { useMemo } from 'react'
 
 export interface DownloadLinkProps {
 	/**

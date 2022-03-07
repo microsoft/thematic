@@ -2,9 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { SelectionState, MarkType, ChromeType } from '@thematic/core'
+import type { MarkType, ChromeType } from '@thematic/core'
+import { SelectionState } from '@thematic/core'
 import { useThematic } from '@thematic/react'
-import { useState, useCallback, useMemo, FC } from 'react'
+import type { FC } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 import { EnumButtonBar } from '../EnumButtonBar'
 import { GridCell } from './GridCell'
 import './index.css'

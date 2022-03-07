@@ -5,11 +5,11 @@
 import { Color } from '@thematic/color'
 import murmur from 'murmurhash-js'
 import { linear, log, quantile } from '../scales.js'
-import {
-	ScaleType,
+import type {
 	NominalColorScaleFunction,
 	ContinuousColorScaleFunction,
 } from '../types/index.js'
+import { ScaleType } from '../types/index.js'
 
 /**
  * Nominal (categorical) scale generator.

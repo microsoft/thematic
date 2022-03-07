@@ -4,7 +4,8 @@
  */
 import { IconButton } from '@fluentui/react'
 import { contrast } from '@thematic/color'
-import { CSSProperties, FC, useMemo } from 'react'
+import type { CSSProperties, FC } from 'react'
+import { useMemo } from 'react'
 
 export interface ContrastProps {
 	foreground: string

@@ -2,23 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import {
-	Params,
-	Scheme,
-	getScheme,
-	defaultParams,
-	ColorBlindnessMode,
-	colorBlindness,
-} from '@thematic/color'
+import type { Params, Scheme, ColorBlindnessMode } from '@thematic/color'
+import { getScheme, defaultParams, colorBlindness } from '@thematic/color'
 import merge from 'lodash-es/merge.js'
 import set from 'lodash-es/set.js'
 import defaults from './themes/defaults.js'
-import {
-	ThemeDefinition,
-	ThemeSpec,
-	ThemeVariant,
-	SVGSpec,
-} from './types/index.js'
+import type { ThemeDefinition, ThemeSpec, SVGSpec } from './types/index.js'
+import { ThemeVariant } from './types/index.js'
 
 // these are static default settings for the marks that are not derived from the computed scheme
 const DEFAULT_NOMINAL_ITEMS = 10
