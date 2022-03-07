@@ -2,7 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Theme, ScaleType, SelectionState } from '@thematic/core'
+import type { Theme, ScaleType } from '@thematic/core'
+import { SelectionState } from '@thematic/core'
 import type { Selection } from 'd3-selection'
 
 /**

@@ -7,7 +7,8 @@ import {
 	ThemeGenerator,
 	themeRulesStandardCreator,
 } from '@fluentui/react'
-import { Theme, ThemeVariant } from '@thematic/core'
+import type { Theme } from '@thematic/core'
+import { ThemeVariant } from '@thematic/core'
 import { correctShades } from './shades.js'
 
 type ThemeInputColors = {

@@ -4,7 +4,8 @@
  */
 import type { SelectionState, ThemeElementType } from '@thematic/core'
 import { useThematic, mark2style } from '@thematic/react'
-import { CSSProperties, FC, useMemo } from 'react'
+import type { CSSProperties, FC } from 'react'
+import { useMemo } from 'react'
 import { Rect, Circle, Line, Arc, Text } from '../svg'
 
 export interface GridCellProps {

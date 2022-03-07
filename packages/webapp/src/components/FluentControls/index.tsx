@@ -2,7 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { ScaleType, Theme } from '@thematic/core'
+import type { Theme } from '@thematic/core'
+import { ScaleType } from '@thematic/core'
 import {
 	ScaleDropdown,
 	ScaleTypeChoiceGroup,
@@ -10,7 +11,8 @@ import {
 	ColorPickerButton,
 } from '@thematic/fluent'
 import { useThematic } from '@thematic/react'
-import { useState, useCallback, useMemo, FC } from 'react'
+import type { FC } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 import { useSetTheme } from '../../state'
 
 export interface FluentControlsComponentProps {

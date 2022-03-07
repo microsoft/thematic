@@ -2,14 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import {
-	CommandBar,
+import type {
 	ICommandBarStyleProps,
 	ICommandBarStyles,
 	IStyleFunctionOrObject,
-	Label,
 	ICommandBarItemProps,
 } from '@fluentui/react'
+import { CommandBar, Label } from '@fluentui/react'
 import { useThematic } from '@thematic/react'
 import { useCallback, useMemo } from 'react'
 

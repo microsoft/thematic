@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Color } from '@thematic/color'
-import {
+import type {
 	Text,
 	Circle,
 	Rect,
@@ -27,10 +27,10 @@ import {
 	ProcessSpec,
 	TextSpec,
 	MarkConfig,
-	SelectionState,
 	Rule,
 	RuleSpec,
 } from '../types/index.js'
+import { SelectionState } from '../types/index.js'
 
 const identity = (datum: any) => datum
 

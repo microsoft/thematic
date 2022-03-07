@@ -4,7 +4,8 @@
  */
 import { loadFluentTheme } from '@thematic/fluent'
 import { useThematic } from '@thematic/react'
-import { FC, useMemo } from 'react'
+import type { FC } from 'react'
+import { useMemo } from 'react'
 import { DownloadLink } from '../DownloadLink'
 import { FluentPalette } from './FluentPalette'
 

@@ -2,17 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import {
-	Dropdown,
-	IDropdownOption,
-	Toggle,
-	SpinButton,
-	Position,
-} from '@fluentui/react'
+import type { IDropdownOption } from '@fluentui/react'
+import { Dropdown, Toggle, SpinButton, Position } from '@fluentui/react'
 import { ColorBlindnessMode, colorBlindnessInfo } from '@thematic/color'
 import type { ThemeListing, Theme } from '@thematic/core'
 import { ColorPickerButton } from '@thematic/fluent'
-import { useCallback, FC, useMemo } from 'react'
+import type { FC } from 'react'
+import { useCallback, useMemo } from 'react'
 import { EnumDropdown } from '../EnumDropdown'
 
 import './index.css'

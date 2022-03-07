@@ -2,15 +2,14 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import {
-	ColorPicker as FluentColorPicker,
-	Slider,
-	IColor,
-} from '@fluentui/react'
+import type { IColor } from '@fluentui/react'
+import { ColorPicker as FluentColorPicker, Slider } from '@fluentui/react'
 
-import { css2hsluv, Params } from '@thematic/color'
+import type { Params } from '@thematic/color'
+import { css2hsluv } from '@thematic/color'
 import type { Theme } from '@thematic/core'
-import { CSSProperties, FC, useCallback, useMemo } from 'react'
+import type { CSSProperties, FC } from 'react'
+import { useCallback, useMemo } from 'react'
 import { useThematicFluent } from '../../provider/index.js'
 
 export enum ColorPickerLayout {

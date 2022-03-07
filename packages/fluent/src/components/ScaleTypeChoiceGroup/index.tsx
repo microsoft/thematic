@@ -2,13 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import {
-	ChoiceGroup,
-	IChoiceGroupOption,
-	IChoiceGroupStyles,
-} from '@fluentui/react'
+import type { IChoiceGroupOption, IChoiceGroupStyles } from '@fluentui/react'
+import { ChoiceGroup } from '@fluentui/react'
 import type { ScaleType } from '@thematic/core'
-import { FC, useCallback, useMemo } from 'react'
+import type { FC } from 'react'
+import { useCallback, useMemo } from 'react'
 
 export interface ScaleTypeChoiceGroupProps {
 	selectedType: ScaleType

@@ -2,10 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { defaultParams, Params, ColorBlindnessMode } from '@thematic/color'
+import type { Params } from '@thematic/color'
+import { defaultParams, ColorBlindnessMode } from '@thematic/color'
+import type { Theme, ThemeListing } from '@thematic/core'
 import {
-	Theme,
-	ThemeListing,
 	ThemeVariant,
 	defaultThemes,
 	loadById,

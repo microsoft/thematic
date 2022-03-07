@@ -4,8 +4,10 @@
  */
 import type { PowerBITheme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
-import { FC, useMemo } from 'react'
-import { ColorDefinition, ColorStrip } from '../ColorStrip'
+import type { FC } from 'react'
+import { useMemo } from 'react'
+import type { ColorDefinition } from '../ColorStrip'
+import { ColorStrip } from '../ColorStrip'
 
 export interface PowerBIPaletteProps {
 	colors: PowerBITheme

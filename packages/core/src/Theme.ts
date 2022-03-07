@@ -2,7 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Params, Scheme, ColorBlindnessMode } from '@thematic/color'
+import type { Params, Scheme } from '@thematic/color'
+import { ColorBlindnessMode } from '@thematic/color'
 import merge from 'lodash-es/merge.js'
 import {
 	nominal,
@@ -34,7 +35,7 @@ import {
 	computeDefinition,
 	createScheme,
 } from './scheme.js'
-import {
+import type {
 	Theme as ITheme,
 	ThemeSpec,
 	ThemeDefinition,
@@ -61,11 +62,11 @@ import {
 	Process,
 	Flow,
 	MarkConfig,
-	ThemeVariant,
 	Rule,
 	Transformer,
 	ExportConfig,
 } from './types/index.js'
+import { ThemeVariant } from './types/index.js'
 
 const defaultConfig = {
 	variant: ThemeVariant.Light,

@@ -3,7 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Pivot, PivotItem } from '@fluentui/react'
-import { FC, useMemo } from 'react'
+import type { FC } from 'react'
+import { useMemo } from 'react'
 import type { Graph } from '../../interfaces'
 import { FluentControls } from '../FluentControls'
 import { D3Chart } from '../charts/D3'

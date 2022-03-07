@@ -3,7 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Dropdown } from '@fluentui/react'
-import { FC, useCallback, useRef } from 'react'
+import type { FC } from 'react'
+import { useCallback, useRef } from 'react'
 import { ScaleDropdownItem } from './ScaleDropdownItem.js'
 import {
 	usePaletteWidth,
