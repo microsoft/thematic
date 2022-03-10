@@ -1,4 +1,12 @@
+node_modules/
+lib/
+dist/
+out/
+build/
+docs/
 .yarn/
-yarnrc.yml
 yarn.lock
+.eslintignore
+.gitignore
+.prettierignore
 .pnp.*

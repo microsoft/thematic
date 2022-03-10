@@ -3,11 +3,10 @@ lib/
 dist/
 out/
 build/
+docs/
 .yarn/
 yarn.lock
 .eslintignore
 .gitignore
 .prettierignore
 .pnp.*
-jest.config.js
-*.js

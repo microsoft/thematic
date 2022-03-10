@@ -16,7 +16,7 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build",
+		"build": "essex build --docs",
 		"start": "essex watch"
 	},
 	"dependencies": {
