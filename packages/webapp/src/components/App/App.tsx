@@ -2,15 +2,16 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import './App.css'
+
 import { ThematicFluentProvider } from '@thematic/fluent'
 import { ApplicationStyles } from '@thematic/react'
 import type { FC } from 'react'
+
 import { useTheme } from '../../state'
 import { ControlPanel } from '../ControlPanel'
 import { ThemeEditor } from '../ThemeEditor'
 import { ThemeViewer } from '../ThemeViewer'
-
-import './App.css'
 import { DataContext } from './DataContext'
 
 const AppComponent = () => {

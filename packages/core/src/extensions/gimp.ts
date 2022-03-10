@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { css2rgba } from '@thematic/color'
+
 import type { Theme, Transformer } from '../types/index.js'
 
 /**
@@ -20,11 +21,11 @@ export const gimp: Transformer<string> = (theme: Theme) => {
 		if (Array.isArray(value)) {
 			value.forEach((val, idx) => {
 				const { r, g, b } = css2rgba(val)
-				acc.push(`${r} ${g} ${b}\t${val} ${key}[${idx}]`)
+				acc.push(`${r} ${g} ${b}\t${val as string} ${key}[${idx}]`)
 			})
 		} else {
 			const { r, g, b } = css2rgba(value)
-			acc.push(`${r} ${g} ${b}\t${value} ${key}`)
+			acc.push(`${r} ${g} ${b}\t${value as string} ${key}`)
 		}
 		return acc
 	}, [])

@@ -5,10 +5,11 @@
 import type { Theme } from '@thematic/core'
 import type { Axis } from 'd3-axis'
 import type { Selection } from 'd3-selection'
+
 import {
-	svg as svgCall,
-	rect as rectCall,
 	line as lineCall,
+	rect as rectCall,
+	svg as svgCall,
 	text as textCall,
 } from './svg.js'
 
@@ -130,7 +131,7 @@ export function attr(
 	let ret = selection
 	Object.entries(attrs || {}).forEach(entry => {
 		const [key, value] = entry
-		ret = selection.attr(key, value as any)
+		ret = selection.attr(key, value)
 	})
 	return ret
 }
@@ -149,7 +150,7 @@ export function on(
 	let ret = selection
 	Object.entries(ons || {}).forEach(entry => {
 		const [key, value] = entry
-		ret = selection.on(key, value as any)
+		ret = selection.on(key, value)
 	})
 	return ret
 }
@@ -169,7 +170,7 @@ export function classed(
 	let ret = selection
 	Object.entries(classes || {}).forEach(entry => {
 		const [key, value] = entry
-		ret = selection.classed(key, value as any)
+		ret = selection.classed(key, value)
 	})
 	return ret
 }
@@ -189,7 +190,7 @@ export function style(
 	let ret = selection
 	Object.entries(styles || {}).forEach(entry => {
 		const [key, value] = entry
-		ret = selection.style(key, value as any)
+		ret = selection.style(key, value)
 	})
 	return ret
 }
@@ -244,7 +245,7 @@ export function plotArea(
 	const { marginTop, marginLeft } = opts
 	group
 		.classed('thematic-plot-area', true)
-		.attr('transform', `translate(${marginLeft},${marginTop})`)
+		.attr('transform', `translate(${marginLeft ?? 0},${marginTop ?? 0})`)
 	group
 		.append('rect')
 		.classed('thematic-plot-area-background', true)

@@ -6,6 +6,7 @@ import type { IPalette, Theme } from '@fluentui/react'
 import type { FluentTheme } from '@thematic/fluent'
 import type { FC } from 'react'
 import { useMemo } from 'react'
+
 import { ColorStrip } from '../ColorStrip'
 
 export interface FluentPaletteProps {

@@ -3,7 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { load } from '@thematic/core'
-import { vega } from '../index'
+
+import { vega } from '../index.js'
 
 const theme = load()
 

@@ -3,15 +3,15 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import {
-	useDarkMode,
-	useThemeInfo,
-	useThemes,
-	useSetTheme,
 	useChartSize,
 	useColorBlindnessMode,
+	useDarkMode,
 	useDrawLinks,
 	useDrawNodes,
 	useScaleItemCount,
+	useSetTheme,
+	useThemeInfo,
+	useThemes,
 } from '../../state'
 import { ControlPanel as ControlPanelComponent } from './ControlPanel'
 

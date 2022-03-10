@@ -2,8 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import './index.css'
+
 import { Pivot, PivotItem } from '@fluentui/react'
 import type { FC } from 'react'
+
 import { ColorPalette } from '../ColorPalette'
 import { CoolerPicker } from '../CoolerPicker'
 import { FluentViewer } from '../FluentViewer'
@@ -12,7 +15,6 @@ import { JSONPane } from '../JSON'
 import { MarkGrid } from '../MarkGrid'
 import { Office } from '../Office'
 import { PowerBiEditor } from '../PowerBI'
-import './index.css'
 
 export interface ThemeEditorProps {
 	scaleItemCount: number

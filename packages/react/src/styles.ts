@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { css2css } from '@thematic/color'
-import type { SVGMark, Application } from '@thematic/core'
+import type { Application, SVGMark } from '@thematic/core'
 import type { CSSProperties } from 'react'
 
 /**

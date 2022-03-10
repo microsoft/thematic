@@ -6,6 +6,7 @@ import type { PowerBITheme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
+
 import type { ColorDefinition } from '../ColorStrip'
 import { ColorStrip } from '../ColorStrip'
 

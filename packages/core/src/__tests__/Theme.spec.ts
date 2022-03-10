@@ -3,8 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { defaultParams } from '@thematic/color'
-import { Theme } from '../Theme'
-import { ScaleType } from '../types'
+
+import { Theme } from '../Theme.js'
+import { ScaleType } from '../types/index.js'
 
 const lightSpec = {
 	name: 'light',

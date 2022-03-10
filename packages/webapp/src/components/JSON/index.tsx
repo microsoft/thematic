@@ -5,6 +5,7 @@
 import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
+
 import { useScaleItemCount } from '../../state'
 import { DownloadLink } from '../DownloadLink'
 import { JSONEditor } from '../JSONEditor'

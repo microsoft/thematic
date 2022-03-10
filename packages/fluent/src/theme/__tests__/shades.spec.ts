@@ -3,7 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import chroma from 'chroma-js'
-import { correctShades } from '../shades'
+
+import { correctShades } from '../shades.js'
 
 describe('theme shading correction functions', () => {
 	// many of the shades for these sets will be a perfect match, but there are a few with slight

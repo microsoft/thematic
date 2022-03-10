@@ -4,11 +4,12 @@
  */
 import type { IDropdownOption } from '@fluentui/react'
 import type {
-	NominalColorScaleFunction,
 	ContinuousColorScaleFunction,
+	NominalColorScaleFunction,
 } from '@thematic/core'
 import type React from 'react'
 import { useMemo } from 'react'
+
 import { useThematicFluent } from '../../../provider/index.js'
 import type { ChipsProps } from '../types.js'
 import { chooseScale, selectColorPalette } from '../util.js'

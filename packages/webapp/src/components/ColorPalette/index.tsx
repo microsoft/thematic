@@ -5,6 +5,7 @@
 import { mark2style, useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { Fragment, useMemo } from 'react'
+
 import { ApplicationPalette } from './ApplicationPalette'
 import { ColorBand } from './ColorBand'
 import { ColorStrip } from './ColorStrip'
@@ -59,7 +60,7 @@ export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
 	return (
 		<div
 			style={{
-				border: `1px solid ${foregroundColor}`,
+				border: `1px solid ${foregroundColor!}`,
 				background: backgroundColor!,
 				padding: '10px 30px 30px 30px',
 				color: foregroundColor!,
@@ -118,14 +119,14 @@ export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
 					foreground={foregroundColor!}
 					background={backgroundColor!}
 					colors={nominalBold!}
-					labelColors={nominalMuted!}
+					labelColors={nominalMuted}
 				/>
 				<ColorStrip
 					label="Nominal-"
 					foreground={foregroundColor!}
 					background={backgroundColor!}
 					colors={nominalMuted!}
-					labelColors={nominalBold!}
+					labelColors={nominalBold}
 				/>
 				<ColorBand
 					label="Sequential"

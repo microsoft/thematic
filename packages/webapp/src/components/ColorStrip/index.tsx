@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { CSSProperties, FC } from 'react'
-
 import './index.css'
+
+import type { CSSProperties, FC } from 'react'
 
 export interface ColorDefinition {
 	color: string
@@ -68,7 +68,7 @@ export const ColorStrip: FC<ColorStripProps> = ({
 		<div className={`color-strip-${direction}`}>
 			{colorDefinitions.map(def => (
 				<ColorBlock
-					key={`${def.color}-${def.label}`}
+					key={`${def.color}-${def.label ?? 'unknown'}`}
 					{...def}
 					vertical={vertical}
 					swatchStyle={swatchStyle}

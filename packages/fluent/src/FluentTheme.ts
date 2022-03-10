@@ -6,6 +6,7 @@ import type { Theme as IFluentTheme } from '@fluentui/react'
 import { createTheme } from '@fluentui/react'
 import type { Theme as IThematicTheme } from '@thematic/core'
 import { ThemeImpl, ThemeVariant } from '@thematic/core'
+
 import { themeJson } from './theme/index.js'
 import type { FluentTheme as IThematicFluentTheme } from './types.js'
 

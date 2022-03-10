@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { atom, useRecoilState } from 'recoil'
+
 import { graph } from '../data'
 import type { Graph } from '../interfaces'
 

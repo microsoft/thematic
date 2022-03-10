@@ -7,6 +7,7 @@ import { gimp } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
+
 import { DownloadLink } from '../DownloadLink'
 // the deep nesting of the component requires several layers of size adjustment
 const styles = {

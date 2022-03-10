@@ -4,12 +4,12 @@
  */
 import type { IColor } from '@fluentui/react'
 import { ColorPicker as FluentColorPicker, Slider } from '@fluentui/react'
-
 import type { Params } from '@thematic/color'
 import { css2hsluv } from '@thematic/color'
 import type { Theme } from '@thematic/core'
 import type { CSSProperties, FC } from 'react'
 import { useCallback, useMemo } from 'react'
+
 import { useThematicFluent } from '../../provider/index.js'
 
 export enum ColorPickerLayout {

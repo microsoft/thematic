@@ -5,15 +5,16 @@
 import { Dropdown } from '@fluentui/react'
 import type { FC } from 'react'
 import { useCallback, useRef } from 'react'
-import { ScaleDropdownItem } from './ScaleDropdownItem.js'
+
 import {
-	usePaletteWidth,
-	usePaletteHeight,
 	useContainerStyle,
 	useItemStyle,
+	usePaletteHeight,
+	usePaletteWidth,
 	useThematicScaleOptions,
 } from './hooks/theme.js'
 import { useSafeDimensions } from './hooks/useSafeDimensions.js'
+import { ScaleDropdownItem } from './ScaleDropdownItem.js'
 import type { ScaleDropdownProps } from './types.js'
 
 /**
@@ -46,7 +47,7 @@ export const ScaleDropdown: FC<ScaleDropdownProps> = props => {
 		option => {
 			return (
 				<ScaleDropdownItem
-					key={`scale-dropdown-item-${option.key}`}
+					key={`scale-dropdown-item-${option.key as string}`}
 					paletteWidth={paletteWidth}
 					paletteHeight={paletteHeight}
 					option={option}

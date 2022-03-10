@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { css2rgbaVector, css2rgbaNumber, css2css } from '../chroma'
+import { css2css, css2rgbaNumber, css2rgbaVector } from '../chroma.js'
 
 describe('color conversion functions', () => {
 	describe('css2css', () => {
@@ -16,20 +16,14 @@ describe('color conversion functions', () => {
 		test('default opacity in hex string', () => {
 			const value = css2rgbaVector('#1f77b4')
 			expect(value).toEqual([
-				0.12156862745098039,
-				0.4666666666666667,
-				0.7058823529411765,
-				1,
+				0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 1,
 			])
 		})
 
 		test('override opacity with alpha param', () => {
 			const value = css2rgbaVector('#1f77b4', 0.5)
 			expect(value).toEqual([
-				0.12156862745098039,
-				0.4666666666666667,
-				0.7058823529411765,
-				0.5,
+				0.12156862745098039, 0.4666666666666667, 0.7058823529411765, 0.5,
 			])
 		})
 

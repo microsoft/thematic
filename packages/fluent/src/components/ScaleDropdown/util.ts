@@ -3,11 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type {
-	Theme,
-	NominalColorScaleFunction,
 	ContinuousColorScaleFunction,
+	NominalColorScaleFunction,
+	Theme,
 } from '@thematic/core'
 import type { FC } from 'react'
+
 import { ColorChips } from './ColorChips.js'
 import { ContinuousBand } from './ContinuousBand.js'
 import type { ChipsProps } from './types.js'

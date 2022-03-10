@@ -4,10 +4,11 @@
  */
 import { Color } from '@thematic/color'
 import murmur from 'murmurhash-js'
+
 import { linear, log, quantile } from '../scales.js'
 import type {
-	NominalColorScaleFunction,
 	ContinuousColorScaleFunction,
+	NominalColorScaleFunction,
 } from '../types/index.js'
 import { ScaleType } from '../types/index.js'
 

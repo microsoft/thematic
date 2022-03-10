@@ -5,6 +5,7 @@
 import { scaleLinear } from 'd3-scale'
 import type { FC } from 'react'
 import { useMemo } from 'react'
+
 import type { ChipsProps } from './types.js'
 
 export const ColorChips: FC<ChipsProps> = ({
