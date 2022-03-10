@@ -4,6 +4,7 @@
  */
 import { loadById } from '@thematic/core'
 import { createContext } from 'react'
+
 import { loadFluentTheme } from '../loader.js'
 import type { FluentTheme } from '../types.js'
 

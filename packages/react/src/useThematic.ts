@@ -4,6 +4,7 @@
  */
 import type { Theme } from '@thematic/core'
 import { useContext } from 'react'
+
 import { ThematicContext } from './ThematicContext.js'
 
 /**

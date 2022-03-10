@@ -2,8 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { FC, CSSProperties } from 'react'
+import type { CSSProperties, FC } from 'react'
 import { useMemo } from 'react'
+
 import type { ChipsProps } from './types.js'
 
 export const ContinuousBand: FC<ChipsProps> = ({ scale, width, height }) => {

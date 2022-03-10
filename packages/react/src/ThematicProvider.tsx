@@ -5,7 +5,8 @@
 import type { Theme } from '@thematic/core'
 import type { FC } from 'react'
 import { useMemo } from 'react'
-import { ThematicContext, defaultTheme } from './ThematicContext.js'
+
+import { defaultTheme, ThematicContext } from './ThematicContext.js'
 
 export interface ThematicProviderProps {
 	theme?: Theme

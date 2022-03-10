@@ -5,7 +5,7 @@
 import type { Theme } from '@thematic/core'
 import { loadById } from '@thematic/core'
 import { createContext } from 'react'
-export const defaultTheme = loadById('default') as Theme
+export const defaultTheme = loadById('default')
 
 /**
  * Thematic context object for use in React apps

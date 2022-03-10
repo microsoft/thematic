@@ -2,15 +2,17 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import './index.css'
+
 import { Pivot, PivotItem } from '@fluentui/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
+
 import type { Graph } from '../../interfaces'
-import { FluentControls } from '../FluentControls'
 import { D3Chart } from '../charts/D3'
-import { VegaChart, charts } from '../charts/Vega'
+import { charts, VegaChart } from '../charts/Vega'
+import { FluentControls } from '../FluentControls'
 import { D3Graph } from '../graphs/D3'
-import './index.css'
 
 export interface ThemeViewerProps {
 	graph: Graph

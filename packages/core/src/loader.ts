@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { hsluv2hex } from '@thematic/color'
+
 import { Theme as ThemeImpl } from './Theme.js'
 import autumn from './themes/autumn.js'
 import defaultTheme from './themes/default.js'
@@ -10,8 +11,8 @@ import metal from './themes/metal.js'
 import ocean from './themes/ocean.js'
 import type {
 	Theme,
-	ThemeListing,
 	ThemeConfig,
+	ThemeListing,
 	ThemeSpec,
 } from './types/index.js'
 

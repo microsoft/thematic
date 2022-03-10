@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { ScaleType } from '../../types'
-import { nominal, continuous } from '../colorScales'
+import { ScaleType } from '../../types/index.js'
+import { continuous, nominal } from '../colorScales.js'
 
 describe('nominal scale generators', () => {
 	const colors = ['red', 'blue', 'green', 'yellow', 'orange', 'pink', 'violet']

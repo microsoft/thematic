@@ -4,8 +4,8 @@
  */
 import type {
 	IDropdownOption,
-	IDropdownStyles,
 	IDropdownStyleProps,
+	IDropdownStyles,
 	IStyleFunctionOrObject,
 } from '@fluentui/react'
 import { Dropdown } from '@fluentui/react'

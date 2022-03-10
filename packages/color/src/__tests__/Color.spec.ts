@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Color } from '../Color'
+import { Color } from '../Color.js'
 
 describe('Color class', () => {
 	test('red', () => {

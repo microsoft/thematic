@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { ColorMaker, polynomial_scale } from '../scheme/HsluvColorLogic'
+import { ColorMaker, polynomial_scale } from '../scheme/HsluvColorLogic.js'
 
 const GREYS = [
 	[50, 0, 92],

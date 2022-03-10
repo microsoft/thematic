@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 export * from './enums.js'
-export * from './ThemeDefinition.js'
 export * from './Theme.js'
 export * from './ThemeConfig.js'
+export * from './ThemeDefinition.js'
 export * from './ThemeListing.js'

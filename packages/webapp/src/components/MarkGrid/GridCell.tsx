@@ -3,10 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type { SelectionState, ThemeElementType } from '@thematic/core'
-import { useThematic, mark2style } from '@thematic/react'
+import { mark2style, useThematic } from '@thematic/react'
 import type { CSSProperties, FC } from 'react'
 import { useMemo } from 'react'
-import { Rect, Circle, Line, Arc, Text } from '../svg'
+
+import { Arc, Circle, Line, Rect, Text } from '../svg'
 
 export interface GridCellProps {
 	name: ThemeElementType

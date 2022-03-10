@@ -5,9 +5,9 @@
 
 import chroma from 'chroma-js'
 import hsluv from 'hsluv'
-import type { Rgb, Rgba, Hsv, Hsl } from './interfaces.js'
 
-const { contrast: chromaContrast } = chroma
+import type { Hsl, Hsv, Rgb, Rgba } from './interfaces.js'
+
 const { hexToHsluv, hsluvToHex } = hsluv
 
 /**
@@ -71,7 +71,7 @@ export function lighten(css: string, value?: number): string {
  * @param background
  */
 export function contrast(foreground: string, background: string): number {
-	return chromaContrast(foreground, background)
+	return chroma.contrast(foreground, background)
 }
 
 /**

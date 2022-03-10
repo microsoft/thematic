@@ -2,16 +2,17 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import './index.css'
+
 import type { IDropdownOption } from '@fluentui/react'
-import { Dropdown, Toggle, SpinButton, Position } from '@fluentui/react'
-import { ColorBlindnessMode, colorBlindnessInfo } from '@thematic/color'
-import type { ThemeListing, Theme } from '@thematic/core'
+import { Dropdown, Position, SpinButton, Toggle } from '@fluentui/react'
+import { colorBlindnessInfo, ColorBlindnessMode } from '@thematic/color'
+import type { Theme, ThemeListing } from '@thematic/core'
 import { ColorPickerButton } from '@thematic/fluent'
 import type { FC } from 'react'
 import { useCallback, useMemo } from 'react'
-import { EnumDropdown } from '../EnumDropdown'
 
-import './index.css'
+import { EnumDropdown } from '../EnumDropdown'
 
 export interface ControlPanelProps {
 	themes: ThemeListing[]
@@ -100,7 +101,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 		(value: string, change = 0) => {
 			const num = parseInt(value, 10)
 			if (!isNaN(num)) {
-				const updated = num + change
+				const updated = num + (change as number)
 				if (updated >= SCALE_MIN && updated <= SCALE_MAX) {
 					onScaleItemCountChange(updated)
 				}
@@ -138,7 +139,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 		return (
 			<div
 				style={{
-					borderLeft: `8px solid ${option.data.accent}`,
+					borderLeft: `8px solid ${option.data.accent as string}`,
 					paddingLeft: 8,
 				}}
 			>

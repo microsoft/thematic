@@ -3,13 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type { Params } from '@thematic/color'
-import { defaultParams, ColorBlindnessMode } from '@thematic/color'
+import { ColorBlindnessMode, defaultParams } from '@thematic/color'
 import type { Theme, ThemeListing } from '@thematic/core'
 import {
-	ThemeVariant,
 	defaultThemes,
 	loadById,
 	loadFromSpec,
+	ThemeVariant,
 } from '@thematic/core'
 import { useCallback } from 'react'
 import {

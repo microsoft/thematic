@@ -5,7 +5,8 @@
 import { IconButton, Label } from '@fluentui/react'
 import type { Theme } from '@thematic/core'
 import type { CSSProperties, FC } from 'react'
-import { memo, useMemo, useCallback } from 'react'
+import { memo, useCallback, useMemo } from 'react'
+
 import { useThematicFluent } from '../../provider/index.js'
 import { ColorPicker } from '../ColorPicker/index.js'
 

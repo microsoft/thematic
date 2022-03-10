@@ -4,6 +4,7 @@
  */
 import type { FC } from 'react'
 import { useMemo } from 'react'
+
 import { useThematic } from './useThematic.js'
 
 /**

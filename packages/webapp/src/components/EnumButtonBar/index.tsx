@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type {
+	ICommandBarItemProps,
 	ICommandBarStyleProps,
 	ICommandBarStyles,
 	IStyleFunctionOrObject,
-	ICommandBarItemProps,
 } from '@fluentui/react'
 import { CommandBar, Label } from '@fluentui/react'
 import { useThematic } from '@thematic/react'
@@ -61,7 +61,7 @@ export function EnumButtonBar<E>({
 				.filter(m => isNaN(parseInt(m[0]))) // only keep the int copy from the enum obj
 				.map((m, i) => {
 					const key = m[1] as string
-					const text = splitCamel(m[0]) as string
+					const text = splitCamel(m[0])
 					return {
 						key,
 						text,

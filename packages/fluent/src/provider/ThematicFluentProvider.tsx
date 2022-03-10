@@ -7,7 +7,8 @@ import { ThemeProvider } from '@fluentui/react'
 import type { Theme } from '@thematic/core'
 import { ThematicProvider } from '@thematic/react'
 import type { FC } from 'react'
-import { useMemo, useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
+
 import { loadFluentTheme } from '../loader.js'
 import { ThematicFluentContext } from './ThematicFluentContext.js'
 

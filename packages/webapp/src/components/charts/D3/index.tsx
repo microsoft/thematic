@@ -3,14 +3,14 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { SelectionState } from '@thematic/core'
-import { chart, plotArea, axis, circle } from '@thematic/d3'
+import { axis, chart, circle, plotArea } from '@thematic/d3'
 import { useThematic } from '@thematic/react'
-import { axisLeft, axisBottom } from 'd3-axis'
+import { axisBottom, axisLeft } from 'd3-axis'
 import { scaleLinear } from 'd3-scale'
 import type { Selection } from 'd3-selection'
 import { select } from 'd3-selection'
 import type { FC } from 'react'
-import { useLayoutEffect, useRef, useState, useMemo } from 'react'
+import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 export interface ChartProps {
 	width?: number

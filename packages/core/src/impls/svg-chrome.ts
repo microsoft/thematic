@@ -3,24 +3,25 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Color } from '@thematic/color'
+
 import type {
-	SVGChrome,
-	ChromeText,
-	PlotArea,
 	AxisLine,
-	AxisTicks,
-	AxisTickLabels,
-	AxisTitle,
-	GridLines,
-	Tooltip,
-	SVGSpec,
-	AxisTicksSpec,
-	PlotAreaSpec,
-	GridLinesSpec,
 	AxisLineSpec,
-	TextSpec,
-	AxisTitleSpec,
+	AxisTickLabels,
 	AxisTickLabelsSpec,
+	AxisTicks,
+	AxisTicksSpec,
+	AxisTitle,
+	AxisTitleSpec,
+	ChromeText,
+	GridLines,
+	GridLinesSpec,
+	PlotArea,
+	PlotAreaSpec,
+	SVGChrome,
+	SVGSpec,
+	TextSpec,
+	Tooltip,
 	TooltipSpec,
 } from '../types/index.js'
 

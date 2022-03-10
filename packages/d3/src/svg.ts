@@ -3,16 +3,16 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type {
-	Chart,
-	SVGMark,
-	PlotArea,
-	Circle,
-	Rect,
-	Area,
-	Line,
 	Arc,
-	Node,
+	Area,
+	Chart,
+	Circle,
+	Line,
 	Link,
+	Node,
+	PlotArea,
+	Rect,
+	SVGMark,
 	Text,
 } from '@thematic/core'
 import type { Selection } from 'd3-selection'

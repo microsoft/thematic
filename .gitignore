@@ -5,6 +5,7 @@ node_modules/
 packages/*/lib/
 packages/*/dist/
 packages/*/build/
+packages/*/docsTemp/
 
 # testing
 /coverage

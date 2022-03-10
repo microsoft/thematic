@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type {
-	IStyleFunctionOrObject,
 	ILinkStyleProps,
 	ILinkStyles,
+	IStyleFunctionOrObject,
 } from '@fluentui/react'
 import { Link } from '@fluentui/react'
 import type { FC } from 'react'

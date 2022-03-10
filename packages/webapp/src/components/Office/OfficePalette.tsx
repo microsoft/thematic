@@ -6,6 +6,7 @@ import type { OfficeTheme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
+
 import { ColorStrip } from '../ColorStrip'
 
 export interface OfficePaletteProps {

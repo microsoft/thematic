@@ -5,6 +5,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import cb from 'color-blind'
+
 import type { ColorBlindnessMeta, Scheme } from './interfaces.js'
 import { ColorBlindnessMode } from './interfaces.js'
 
@@ -22,7 +23,9 @@ export function colorBlindness(
 	const m = mode || ColorBlindnessMode.None
 	const fnName = ColorBlindnessMode[m]?.toLowerCase()
 	if (!fnName) {
-		throw new Error(`could not find ColorBlindnessMode ${mode}`)
+		throw new Error(
+			`could not find ColorBlindnessMode "${JSON.stringify(mode)}"`,
+		)
 	}
 	const fn = cb[fnName] || noop
 	return Object.entries(scheme).reduce((acc, cur) => {

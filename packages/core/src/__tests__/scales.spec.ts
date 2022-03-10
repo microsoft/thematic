@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { linear } from '../scales'
+import { linear } from '../scales.js'
 
 test('linear scale', () => {
 	const scale = linear([0, 100])

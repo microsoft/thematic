@@ -2,11 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import './index.css'
+
 import type { Theme } from '@thematic/core'
 import type { FC } from 'react'
+
 import { useSetTheme } from '../../state'
 import { ColorSelection } from './ColorSelection'
-import './index.css'
 
 export interface CoolerPickerProps {
 	themeLoaded: (theme: Theme) => void

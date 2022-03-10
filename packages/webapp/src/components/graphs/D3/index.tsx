@@ -4,25 +4,26 @@
  */
 import { ScaleType, SelectionState } from '@thematic/core'
 import {
+	applyNominalAttrWithSignalState,
+	chart,
 	circle,
 	line,
-	applyNominalAttrWithSignalState,
-	sequential,
-	chart,
 	plotArea,
+	sequential,
 } from '@thematic/d3'
 import { useThematic } from '@thematic/react'
 import { scaleLinear } from 'd3-scale'
 import { select } from 'd3-selection'
 import type { FC } from 'react'
 import {
-	useLayoutEffect,
-	useState,
-	useRef,
-	useEffect,
 	useCallback,
+	useEffect,
+	useLayoutEffect,
+	useRef,
+	useState,
 } from 'react'
-import type { Graph, Node, Edge } from '../../../interfaces'
+
+import type { Edge, Graph, Node } from '../../../interfaces'
 import { bounds } from '../../../util/graph'
 
 export interface GraphProps {

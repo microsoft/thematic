@@ -5,14 +5,15 @@
 import type { Theme } from '@thematic/core'
 import { ScaleType } from '@thematic/core'
 import {
-	ScaleDropdown,
-	ScaleTypeChoiceGroup,
 	ColorPicker,
 	ColorPickerButton,
+	ScaleDropdown,
+	ScaleTypeChoiceGroup,
 } from '@thematic/fluent'
 import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
-import { useState, useCallback, useMemo } from 'react'
+import { useCallback, useMemo, useState } from 'react'
+
 import { useSetTheme } from '../../state'
 
 export interface FluentControlsComponentProps {
