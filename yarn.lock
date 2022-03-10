@@ -898,21 +898,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/hooks@npm:^4.0.5":
-  version: 4.0.5
-  resolution: "@essex/hooks@npm:4.0.5"
-  dependencies:
-    "@essex/toolbox": ^3.0.3
-    lodash-es: ^4.17.21
-  peerDependencies:
-    "@types/node": "*"
-    "@types/react": "*"
-    "@types/react-dom": "*"
-    react: ">=16.8.0"
-  checksum: d656c9a48aac86cfa4472b96192a8233a0ffdd6389826ace679a03c8e2801ba40e1756910e7400e3c262422f341447510af83a6fe544469034e42268554bd055
-  languageName: node
-  linkType: hard
-
 "@essex/jest-config@npm:^21.0.7":
   version: 21.0.7
   resolution: "@essex/jest-config@npm:21.0.7"
@@ -1025,13 +1010,6 @@ __metadata:
     lodash: ^4.17.21
     tslib: ^2.3.1
   checksum: a6db5c797fb84c33f0bdd7774202d4c97cddfe2d78d9066cdebd0c08b346f1892e5b8865a7a6888ccd534b78e1d8177f409dd694501568ce67914a96dffcc2b7
-  languageName: node
-  linkType: hard
-
-"@essex/toolbox@npm:^3.0.3":
-  version: 3.0.3
-  resolution: "@essex/toolbox@npm:3.0.3"
-  checksum: 9db0b2bddbf85757bb0b0227476151731eafac86a843fe65e0b9c872758d99d367e2c6ea848af7d2f5ccdf7f685f7c1da66ff560685b3730e96b278093ce5fed
   languageName: node
   linkType: hard
 
@@ -1936,7 +1914,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/fluent@workspace:packages/fluent"
   dependencies:
-    "@essex/hooks": ^4.0.5
     "@essex/scripts": ^20.5.1
     "@essex/tsconfig-base": ^1.0.2
     "@fluentui/font-icons-mdl2": ^8.2.3

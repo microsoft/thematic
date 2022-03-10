@@ -20,7 +20,6 @@
 		"start": "essex watch"
 	},
 	"dependencies": {
-		"@essex/hooks": "^4.0.5",
 		"@thematic/color": "workspace:^",
 		"@thematic/core": "workspace:^",
 		"@thematic/react": "workspace:^",
