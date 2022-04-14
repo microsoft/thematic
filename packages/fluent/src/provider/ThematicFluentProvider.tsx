@@ -14,7 +14,7 @@ import { ThematicFluentContext } from './ThematicFluentContext.js'
 
 export interface ThematicFluentProviderProps {
 	theme: Theme
-	children?: JSX.Element
+	children?: JSX.Element | JSX.Element[]
 }
 
 /**

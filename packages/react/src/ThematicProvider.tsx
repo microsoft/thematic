@@ -10,7 +10,7 @@ import { defaultTheme, ThematicContext } from './ThematicContext.js'
 
 export interface ThematicProviderProps {
 	theme?: Theme
-	children?: JSX.Element
+	children?: JSX.Element | JSX.Element[]
 }
 
 /**

@@ -43,8 +43,8 @@ export const MarkGrid: FC = () => {
 	const [selectionState, setSelectionState] = useState<SelectionState>(
 		SelectionState.Normal,
 	)
-	const handleSelectionStateChange = useCallback(s => {
-		setSelectionState(s)
+	const handleSelectionStateChange = useCallback((s: string | number) => {
+		setSelectionState(s as SelectionState)
 	}, [])
 
 	const labelStyle = useMemo(

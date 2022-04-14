@@ -47,7 +47,7 @@ export function EnumButtonBar<E>({
 	const selectedKey = enumeration[enumeration[selected]]
 
 	const handleChange = useCallback(
-		s => {
+		(s: string) => {
 			if (onChange) {
 				onChange(s)
 			}

@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import type { IDropdownOption } from '@fluentui/react'
 import type { Theme } from '@thematic/core'
 import { ScaleType } from '@thematic/core'
 import {
@@ -26,12 +27,19 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 	const theme = useThematic()
 	const [scale, setScale] = useState<string>('<none>')
 	const handleScaleChange = useCallback(
-		(_e, option) => setScale(option.key),
+		(_e: any, option: IDropdownOption<any> | undefined) =>
+			option && setScale(option.key as string),
 		[],
 	)
 	const [scaleType, setScaleType] = useState<ScaleType>(ScaleType.Linear)
-	const handleScaleTypeChange = useCallback(type => setScaleType(type), [])
-	const handlePickerChange = useCallback(t => themeLoaded(t), [themeLoaded])
+	const handleScaleTypeChange = useCallback(
+		(type: ScaleType) => setScaleType(type),
+		[],
+	)
+	const handlePickerChange = useCallback(
+		(t: Theme) => themeLoaded(t),
+		[themeLoaded],
+	)
 	const labelStyle = useMemo(
 		() => ({
 			fontWeight: 'bold' as const,

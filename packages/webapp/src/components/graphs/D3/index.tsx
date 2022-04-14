@@ -53,7 +53,7 @@ export const D3Graph: FC<GraphProps> = ({
 	const [nodeSelect, setNodeSelect] = useState(null)
 
 	const getNodeSelectionState = useCallback(
-		d => {
+		(d: any) => {
 			if (d.id === nodeHover) {
 				return SelectionState.Hovered
 			}

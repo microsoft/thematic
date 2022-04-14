@@ -4,7 +4,7 @@
  */
 import './index.css'
 
-import type { IDropdownOption } from '@fluentui/react'
+import type { IDropdownOption, ISelectableOption } from '@fluentui/react'
 import { Dropdown, Position, SpinButton, Toggle } from '@fluentui/react'
 import { colorBlindnessInfo, ColorBlindnessMode } from '@thematic/color'
 import type { Theme, ThemeListing } from '@thematic/core'
@@ -114,13 +114,13 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 		[changeValue],
 	)
 	const handleScaleIncrement = useCallback(
-		v => {
+		(v: string) => {
 			changeValue(v, 1)
 		},
 		[changeValue],
 	)
 	const handleScaleDecrement = useCallback(
-		v => changeValue(v, -1),
+		(v: string) => changeValue(v, -1),
 		[changeValue],
 	)
 
@@ -135,18 +135,21 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 		() => colorBlindnessInfo(colorBlindnessMode),
 		[colorBlindnessMode],
 	)
-	const renderDropdownOption = useCallback(option => {
-		return (
-			<div
-				style={{
-					borderLeft: `8px solid ${option.data.accent as string}`,
-					paddingLeft: 8,
-				}}
-			>
-				{option.text}
-			</div>
-		)
-	}, [])
+	const renderDropdownOption = useCallback(
+		(option: ISelectableOption | undefined) => {
+			return option ? (
+				<div
+					style={{
+						borderLeft: `8px solid ${option.data.accent as string}`,
+						paddingLeft: 8,
+					}}
+				>
+					{option.text}
+				</div>
+			) : null
+		},
+		[],
+	)
 	const options = useMemo(
 		() =>
 			themes.map(t => ({
