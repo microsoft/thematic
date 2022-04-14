@@ -5,8 +5,8 @@
 import { memo } from 'react'
 import { RecoilRoot } from 'recoil'
 
-export const DataContext: React.FC<{
-	children: JSX.Element | JSX.Element[]
-}> = memo(function DataContext({ children }) {
+export const DataContext: React.FC<
+	React.PropsWithChildren<Record<string, never>>
+> = memo(function DataContext({ children }) {
 	return <RecoilRoot>{children}</RecoilRoot>
 })

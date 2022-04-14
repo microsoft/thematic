@@ -3,10 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type { SVGMark, Text as TextMark } from '@thematic/core'
-import type { FC, ReactNode } from 'react'
+import type { FC } from 'react'
 
 export interface MarkProps {
-	children: ReactNode
 	size: number
 }
 
@@ -23,7 +22,7 @@ const svgAttrs = (config: SVGMark | TextMark) => ({
 	strokeWidth: config.strokeWidth(),
 })
 
-const Mark: FC<MarkProps> = props => {
+const Mark: FC<React.PropsWithChildren<MarkProps>> = props => {
 	const { children, size } = props
 	return (
 		<svg width={size} height={size} style={{ backgroundColor: 'none' }}>

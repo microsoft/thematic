@@ -14,7 +14,6 @@ import { ThematicFluentContext } from './ThematicFluentContext.js'
 
 export interface ThematicFluentProviderProps {
 	theme: Theme
-	children?: JSX.Element | JSX.Element[]
 }
 
 /**
@@ -26,10 +25,9 @@ export interface ThematicFluentProviderProps {
  * - useThematicFluent from this package returns the hybrid theme
  * - useTheme from \@fluentui/react returns the normal fluent theme
  */
-export const ThematicFluentProvider: FC<ThematicFluentProviderProps> = ({
-	theme,
-	children,
-}) => {
+export const ThematicFluentProvider: FC<
+	React.PropsWithChildren<ThematicFluentProviderProps>
+> = ({ theme, children }) => {
 	useEffect(() => initializeIcons(), [])
 	const combinedTheme = useMemo(() => loadFluentTheme(theme), [theme])
 	const fluentTheme = useMemo(() => combinedTheme.toFluent(), [combinedTheme])

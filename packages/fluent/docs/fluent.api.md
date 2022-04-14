@@ -129,14 +129,12 @@ export interface ScaleTypeChoiceGroupProps {
 // Warning: (ae-missing-release-tag) "ThematicFluentProvider" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export const ThematicFluentProvider: FC<ThematicFluentProviderProps>;
+export const ThematicFluentProvider: FC<React.PropsWithChildren<ThematicFluentProviderProps>>;
 
 // Warning: (ae-missing-release-tag) "ThematicFluentProviderProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ThematicFluentProviderProps {
-    // (undocumented)
-    children?: JSX.Element | JSX.Element[];
     // (undocumented)
     theme: Theme;
 }

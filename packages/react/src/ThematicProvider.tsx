@@ -10,16 +10,14 @@ import { defaultTheme, ThematicContext } from './ThematicContext.js'
 
 export interface ThematicProviderProps {
 	theme?: Theme
-	children?: JSX.Element | JSX.Element[]
 }
 
 /**
  * Provider component from the default context for Thematic
  */
-export const ThematicProvider: FC<ThematicProviderProps> = ({
-	theme,
-	children,
-}) => {
+export const ThematicProvider: FC<
+	React.PropsWithChildren<ThematicProviderProps>
+> = ({ theme, children }) => {
 	const t = useMemo(() => (theme ? theme : defaultTheme), [theme])
 	return (
 		<ThematicContext.Provider value={t}>{children}</ThematicContext.Provider>

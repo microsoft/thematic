@@ -40,14 +40,12 @@ export const ThematicContext: React.Context<Theme>;
 // Warning: (ae-missing-release-tag) "ThematicProvider" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export const ThematicProvider: FC<ThematicProviderProps>;
+export const ThematicProvider: FC<React.PropsWithChildren<ThematicProviderProps>>;
 
 // Warning: (ae-missing-release-tag) "ThematicProviderProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ThematicProviderProps {
-    // (undocumented)
-    children?: JSX.Element | JSX.Element[];
     // (undocumented)
     theme?: Theme;
 }
