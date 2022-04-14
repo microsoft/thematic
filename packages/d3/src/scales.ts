@@ -9,8 +9,8 @@ import type { Selection } from 'd3-selection'
 /**
  * Creates a d3-compatible nominal scale using the theme.
  * Returns a function that takes a key and returns an appropriate color.
- * @param theme
- * @param size
+ * @param theme - the theme
+ * @param size - the scale size
  */
 export function nominal(theme: Theme, size: number): (key: any) => string {
 	const scale = theme.scales().nominal(size)
@@ -20,8 +20,8 @@ export function nominal(theme: Theme, size: number): (key: any) => string {
 /**
  * Creates a d3-compatible nominal (bold) scale using the theme.
  * Returns a function that takes a key and returns an appropriate color.
- * @param theme
- * @param size
+ * @param theme - the theme
+ * @param size - the scale size
  */
 export function nominalBold(theme: Theme, size: number): (key: any) => string {
 	const scale = theme.scales().nominalBold(size)
@@ -31,8 +31,8 @@ export function nominalBold(theme: Theme, size: number): (key: any) => string {
 /**
  * Creates a d3-compatible nominal (muted) scale using the theme.
  * Returns a function that takes a key and returns an appropriate color.
- * @param theme
- * @param size
+ * @param theme - the theme
+ * @param size - the scale size
  */
 export function nominalMuted(theme: Theme, size: number): (key: any) => string {
 	const scale = theme.scales().nominalMuted(size)
@@ -42,10 +42,10 @@ export function nominalMuted(theme: Theme, size: number): (key: any) => string {
 /**
  * Creates a d3-compatible sequential scale using the theme.
  * Returns a function that takes a number and returns an appropriate color.
- * @param theme
- * @param domain
- * @param scaleType
- * @param quantiles
+ * @param theme - the theme
+ * @param domain - the data domain
+ * @param scaleType - the scale type
+ * @param quantiles - the number of quantiles
  */
 export function sequential(
 	theme: Theme,
@@ -60,10 +60,10 @@ export function sequential(
 /**
  * Creates a d3-compatible sequential (variant 2) scale using the theme.
  * Returns a function that takes a number and returns an appropriate color.
- * @param theme
- * @param domain
- * @param scaleType
- * @param quantiles
+ * @param theme - the theme
+ * @param domain - the data domain
+ * @param scaleType - the scale type
+ * @param quantiles - the number of quantiles
  */
 export function sequential2(
 	theme: Theme,
@@ -78,10 +78,10 @@ export function sequential2(
 /**
  * Creates a d3-compatible divering scale using the theme.
  * Returns a function that takes a number and returns an appropriate color.
- * @param theme
- * @param domain
- * @param scaleType
- * @param quantiles
+ * @param theme - the theme
+ * @param domain - the data domain
+ * @param scaleType - the scale type
+ * @param quantiles - the number of quantiles
  */
 export function diverging(
 	theme: Theme,
@@ -96,10 +96,10 @@ export function diverging(
 /**
  * Creates a d3-compatible divering (variant 2) scale using the theme.
  * Returns a function that takes a number and returns an appropriate color.
- * @param theme
- * @param domain
- * @param scaleType
- * @param quantiles
+ * @param theme - the theme
+ * @param domain - the data domain
+ * @param scaleType - the scale type
+ * @param quantiles - the number of quantiles
  */
 export function diverging2(
 	theme: Theme,
@@ -114,10 +114,10 @@ export function diverging2(
 /**
  * Creates a d3-compatible sequential (greys) scale using the theme.
  * Returns a function that takes a number and returns an appropriate color.
- * @param theme
- * @param domain
- * @param scaleType
- * @param quantiles
+ * @param theme - the theme
+ * @param domain - the data domain
+ * @param scaleType - the scale type
+ * @param quantiles - the number of quantiles
  */
 export function greys(
 	theme: Theme,

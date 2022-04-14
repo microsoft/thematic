@@ -121,8 +121,8 @@ function getPlotAreaOptions(
  * Applies a key/value map of attrs to a selection.
  * Can be used with d3 selection.call to chain.
  * https://github.com/d3/d3-selection#selection_attr
- * @param selection
- * @param attrs
+ * @param selection - the d3 selection
+ * @param attrs - the attributes
  */
 export function attr(
 	selection: Selection<Element, any, Element, any>,
@@ -140,8 +140,8 @@ export function attr(
  * Applies a key/value map of event handlers to a selection.
  * Can be used with d3 selection.call to chain.
  * https://github.com/d3/d3-selection#selection_on
- * @param selection
- * @param ons
+ * @param selection - the d3 selection
+ * @param ons - the event handlers
  */
 export function on(
 	selection: Selection<Element, any, Element, any>,
@@ -160,8 +160,8 @@ export function on(
  * Use truthy to apply or falsey to remove
  * Can be used with d3 selection.call to chain.
  * https://github.com/d3/d3-selection#selection_classed
- * @param selection
- * @param classes
+ * @param selection - the d3 selection
+ * @param classes - the classes
  */
 export function classed(
 	selection: Selection<Element, any, Element, any>,
@@ -180,8 +180,8 @@ export function classed(
  * Use truthy to apply or falsey to remove
  * Can be used with d3 selection.call to chain.
  * * https://github.com/d3/d3-selection#selection_style
- * @param selection
- * @param styles
+ * @param selection - the d3 selection
+ * @param styles - the styles
  */
 export function style(
 	selection: Selection<Element, any, Element, any>,
@@ -211,8 +211,8 @@ function applyBaseOptions(
  * Applies chart properties to a selection.
  * This is intended to use with the d3 selection.call mechanism.
  * Warning: this modifies the selection!
- * @param svg d3 Selection to configure chart area for. Usually a <svg>.
- * @param theme
+ * @param svg -  d3 Selection to configure chart area for. Usually a <svg>.
+ * @param theme - the theme
  */
 export function chart(
 	svg: Selection<Element, any, Element, any>,
@@ -232,8 +232,9 @@ export function chart(
  * This method also creates a background rectangle to fill the plot area, so we can apply styling.
  * See the options block for properties you can set on this rectangle.
  * @param group - d3 Selection to append plot area to. Usually a <g>.
- * @param theme
- * @param options
+ *
+ * @param theme - the theme
+ * @param options - the plot area options
  */
 export function plotArea(
 	group: Selection<Element, any, Element, any>,
@@ -262,9 +263,9 @@ export function plotArea(
  * Then applies formatting to the axis line, ticks, and labels
  * according to the theme configuration.
  * @param group - d3 Selection holding the axis. Usually a <g>
- * @param theme
+ * @param theme - the theme
  * @param axisGenerator - d3-axis generator including scale (this should be an invoked instance of axisBottom, axisTop, axisLeft, or axisRight)
- * @param options
+ * @param options - the selection options
  */
 export function axis(
 	group: Selection<Element, any, Element, any>,

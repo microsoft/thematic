@@ -26,8 +26,8 @@ export function svg(
 
 /**
  * Apply base mark props from theme child block.
- * @param selection
- * @param child
+ * @param selection - the d3 selection
+ * @param child - the child block
  */
 function mark(
 	selection: Selection<Element, any, Element, any>,
@@ -43,8 +43,8 @@ function mark(
 
 /**
  * Apply props for rect-based marks to a selection.
- * @param selection
- * @param child
+ * @param selection - the d3 selection
+ * @param child - the child block
  */
 export function rect(
 	selection: Selection<Element, any, Element, any>,
@@ -55,8 +55,8 @@ export function rect(
 
 /**
  * Apply props for circle-based marks to a selection.
- * @param selection
- * @param child
+ * @param selection - the d3 selection
+ * @param child - the child block
  */
 export function circle(
 	selection: Selection<Element, any, Element, any>,
@@ -67,8 +67,8 @@ export function circle(
 
 /**
  * Apply props for line-based marks to a selection.
- * @param selection
- * @param child
+ * @param selection - the d3 selection
+ * @param child - the child block
  */
 export function line(
 	selection: Selection<Element, any, Element, any>,
@@ -79,8 +79,8 @@ export function line(
 
 /**
  * Applt props for text-based marks to a selection.
- * @param selection
- * @param child
+ * @param selection - the d3 selection
+ * @param child - the child block
  */
 export function text(
 	selection: Selection<Element, any, Element, any>,
@@ -94,8 +94,8 @@ export function text(
 
 /**
  * Apply props for path-based marks to a selection.
- * @param selection
- * @param child
+ * @param selection - the d3 selection
+ * @param child - the child block
  */
 export function path(
 	selection: Selection<Element, any, Element, any>,
