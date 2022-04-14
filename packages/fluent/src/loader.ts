@@ -9,7 +9,7 @@ import type { FluentTheme as IFluentTheme } from './types.js'
 
 /**
  * Load a Fluent theme instance derived from a thematic theme
- * @param theme
+ * @param theme - the theme
  */
 export function loadFluentTheme(theme: Theme): IFluentTheme {
 	return new FluentTheme(theme)

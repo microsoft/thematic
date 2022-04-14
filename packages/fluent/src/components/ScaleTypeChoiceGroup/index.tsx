@@ -40,8 +40,8 @@ export const ScaleTypeChoiceGroup: FC<ScaleTypeChoiceGroupProps> = ({
 	const typeOptions = useTypeOptions(suppressQuantile)
 
 	const handleTypeChange = useCallback(
-		(_, option) => {
-			onChange && onChange(option.key)
+		(_: any, option: IChoiceGroupOption | undefined) => {
+			onChange && option && onChange(option.key as ScaleType)
 		},
 		[onChange],
 	)

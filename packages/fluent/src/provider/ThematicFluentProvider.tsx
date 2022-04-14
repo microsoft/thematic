@@ -14,6 +14,7 @@ import { ThematicFluentContext } from './ThematicFluentContext.js'
 
 export interface ThematicFluentProviderProps {
 	theme: Theme
+	children?: JSX.Element
 }
 
 /**
@@ -21,9 +22,9 @@ export interface ThematicFluentProviderProps {
  * Just treat it like a typical Context.Provider, wrapping it around your app.
  * Your Fluent controls should automatically inherit the Thematic colors as semantically applied by Fluent.
  * You can use the context hooks for any of the three variants as you please:
- * - useThematic from @thematic/react returns the normal thematic theme
+ * - useThematic from \@thematic/react returns the normal thematic theme
  * - useThematicFluent from this package returns the hybrid theme
- * - useTheme from @fluentui/react returns the normal fluent theme
+ * - useTheme from \@fluentui/react returns the normal fluent theme
  */
 export const ThematicFluentProvider: FC<ThematicFluentProviderProps> = ({
 	theme,

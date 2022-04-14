@@ -47,6 +47,8 @@ export const ThematicProvider: FC<ThematicProviderProps>;
 // @public (undocumented)
 export interface ThematicProviderProps {
     // (undocumented)
+    children?: JSX.Element;
+    // (undocumented)
     theme?: Theme;
 }
 

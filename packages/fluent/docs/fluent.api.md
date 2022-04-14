@@ -136,6 +136,8 @@ export const ThematicFluentProvider: FC<ThematicFluentProviderProps>;
 // @public (undocumented)
 export interface ThematicFluentProviderProps {
     // (undocumented)
+    children?: JSX.Element;
+    // (undocumented)
     theme: Theme;
 }
 

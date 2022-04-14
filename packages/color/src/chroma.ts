@@ -17,6 +17,8 @@ const { hexToHsluv, hsluvToHex } = hsluv
 
 /**
  * Convert a standard CSS-compatible string to [h, s, l] array
+ *
+ * @param css - the css color hex string
  */
 export function css2hsluv(css: string): [number, number, number] {
 	return hexToHsluv(chroma(css).hex()).map((v: number) => Math.round(v)) as [
@@ -32,7 +34,8 @@ export function hsluv2hex(h: number, s: number, l: number): string {
 
 /**
  * Convert a standard CSS-compatible string to [l, c, h] array
- * @param css
+ *
+ * @param css - the css color hex string
  */
 export function css2lch(css: string): [number, number, number] {
 	return chroma(css)
@@ -49,7 +52,8 @@ export function lch2hex(l: number, c: number, h: number): string {
 
 /**
  * Darken a standard CSS color
- * @param css
+ *
+ * @param css - the css color hex string
  * @param value
  */
 export function darken(css: string, value?: number): string {
@@ -58,7 +62,8 @@ export function darken(css: string, value?: number): string {
 
 /**
  * Lighten a standard CSS color
- * @param css
+ *
+ * @param css - the css color hex string
  * @param value
  */
 export function lighten(css: string, value?: number): string {
@@ -76,7 +81,8 @@ export function contrast(foreground: string, background: string): number {
 
 /**
  * Converts a standard CSS color to an {r, g, b} object
- * @param css
+ *
+ * @param css - the css color hex string
  * @param alpha Included for compatibility with all of the other transformers, but it will be omitted from the returned value.
  */
 export function css2rgb(css: string, _alpha?: number): Rgb {
@@ -97,7 +103,8 @@ export function css2rgb(css: string, _alpha?: number): Rgb {
 
 /**
  * Converts a standard CSS color to an { r, g, b, a } object.
- * @param css
+ *
+ * @param css - the css color hex string
  * @param alpha
  */
 export function css2rgba(css: string, alpha?: number): Rgba {
@@ -121,7 +128,8 @@ export function css2rgba(css: string, alpha?: number): Rgba {
 
 /**
  * Convert a standard CSS color to an { h, s, v } object.
- * @param css
+ *
+ * @param css - the css color hex string
  * @param alpha
  */
 export function css2hsv(css: string, _alpha?: number): Hsv {
@@ -142,7 +150,8 @@ export function css2hsv(css: string, _alpha?: number): Hsv {
 
 /**
  * Convert a standard CSS color to an { h, s, l } object.
- * @param css
+ *
+ * @param css - the css color hex string
  * @param alpha
  */
 export function css2hsl(css: string, _alpha?: number): Hsl {
@@ -164,7 +173,8 @@ export function css2hsl(css: string, _alpha?: number): Hsl {
 /**
  * Seems redundant...but we spec opacity separate, so this ensures SVG fill or stroke opacity
  * can be folded in as the alpha channel.
- * @param css
+ *
+ * @param css - the css color hex string
  * @param alpha
  */
 export function css2css(css: string, alpha?: number): string {
@@ -183,7 +193,8 @@ export function css2css(css: string, alpha?: number): string {
  * even though it is not a valid hex code.
  * Note: if you are using this for a css color, use css2css as it will return valid 'transparent' for our empty 'none'.
  * Also note that if alpha is passed, chroma-js will create an 8-letter hex string.
- * @param css
+ *
+ * @param css - the css color hex string
  * @param alpha
  */
 export function css2hex(css: string, alpha?: number): string {
@@ -198,7 +209,8 @@ export function css2hex(css: string, alpha?: number): string {
 /**
  * Convert a standard CSS string to vector of [r, g, b, a] values scaled from 0-1.
  * This is typically used in WebGl.
- * @param css
+ *
+ * @param css - the css color hex string
  * @param alpha optional alpha override from 0-1. Not all CSS strings include alpha, so you can provide it if needed.
  */
 export function css2rgbaVector(
@@ -216,7 +228,8 @@ export function css2rgbaVector(
 /**
  * Convert a standard CSS string to an integer number.
  * This is commonly used in GL code.
- * @param css
+ *
+ * @param css - the css color hex string
  * @param alpha
  */
 export function css2rgbaNumber(css: string, alpha?: number): number {
