@@ -102,7 +102,7 @@ export enum ColorSpace {
 	/**
 	 * This is raw JavaScript number representing the RGBA color.
 	 * It is calculated by bitshifting R, G, B, and A values into a 32-bit space.
-	 * (i.e., r, g << 8, b << 16, a << 24)
+	 * (i.e., r, g \<\< 8, b \<\< 16, a \<\< 24)
 	 */
 	RGBA_NUMBER = 'rgbaint',
 }

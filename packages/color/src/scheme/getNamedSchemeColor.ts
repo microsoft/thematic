@@ -8,8 +8,8 @@ import type { Scheme } from '../interfaces.js'
 
 /**
  * Extracts a thematic Color using its scheme "path".
- * @param scheme
- * @param path
+ * @param scheme - the color scheme
+ * @param path - the scheme path
  */
 export function getNamedSchemeColor(scheme: Scheme, path?: string): Color {
 	if (!path || path === 'none') {
@@ -24,6 +24,11 @@ export function getNamedSchemeColor(scheme: Scheme, path?: string): Color {
 	return new Color(scheme[path as keyof Scheme] as string)
 }
 
+/**
+ *
+ * @param path - the scheme path
+ * @returns
+ */
 function indexedTest(
 	path: string,
 ): { name: string | undefined; index: number } | undefined {

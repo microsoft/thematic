@@ -13,8 +13,9 @@ const noop = (color: string) => color
 
 /**
  * Returns a copy of a Thematic Scheme with color blindness simulation applied.
- * @param scheme
- * @param mode
+ *
+ * @param scheme - the color scheme
+ * @param mode - the colorblindness mode
  */
 export function colorBlindness(
 	scheme: Scheme,
@@ -79,7 +80,8 @@ const cbMeta: CBMetaMap = {
 
 /**
  * Returns the indicence rates and description of a given colorblindess mode.
- * @param mode
+ *
+ * @param mode - the colorblindness mode
  */
 export function colorBlindnessInfo(
 	mode: ColorBlindnessMode,

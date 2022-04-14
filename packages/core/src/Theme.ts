@@ -86,8 +86,8 @@ export class Theme implements ITheme {
 	/**
 	 * Creates a new Theme instance using the params defined in the spec.
 	 * Also allows for optional overrides and variants using a config object.
-	 * @param spec
-	 * @param config
+	 * @param spec - the theme specification
+	 * @param config - the theme configuration
 	 */
 	public constructor(spec: ThemeSpec, config?: ThemeConfig) {
 		const conf = merge({}, defaultConfig, config)
@@ -298,7 +298,7 @@ export class Theme implements ITheme {
 	}
 	/**
 	 * Gets the scheme with the appropriate size
-	 * @param size The number of elements in the scheme
+	 * @param size - The number of elements in the scheme
 	 */
 	// TODO: this cache overcomes slow scale computes, but they shouldn't be slow
 	private getScheme(size = 0) {

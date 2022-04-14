@@ -22,7 +22,7 @@ export type OfficeTheme = {
 
 /**
  * Creates an object with the properties of a standard Office color theme.
- * @param theme
+ * @param theme - the theme
  */
 export const office: Transformer<OfficeTheme> = (theme: Theme) => {
 	const nominal = theme.scales().nominal().toArray()

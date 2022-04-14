@@ -14,7 +14,7 @@ export interface PowerBITheme {
 /**
  * Creates a JSON format that is compatible with Power BI theming.
  * https://docs.microsoft.com/en-us/power-bi/desktop-report-themes
- * @param theme
+ * @param theme - the theme
  */
 export const powerbi: Transformer<PowerBITheme> = (theme: Theme) => {
 	// TODO: this is the very most basic theme properties available. we could do much more with semantic mappings, akin to the Fluent themes

@@ -12,7 +12,7 @@ import { scaleLinear, scaleLog } from 'd3-scale'
  * mapping to an output range of [0, 1].
  * Effectively behaves like d3-scale/scaleLinear
  * with less exposed functionality such as chaining
- * @param domain
+ * @param domain - the input domain
  */
 export function linear(
 	domain: number[],
@@ -27,7 +27,7 @@ export function linear(
  * mapping to an output range of [0, 1].
  * Effectively behaves like d3-scale/scaleLog
  * with less exposed functionality such as chaining
- * @param domain
+ * @param domain - the input domain
  */
 export function log(domain: number[], clamp = true): (value: number) => number {
 	const scale = scaleLog().domain(domain).clamp(clamp)
@@ -67,9 +67,9 @@ function findBackwardBreak(data: number[], start: number) {
  * so that values only have one correct bin to lie within.
  * Some distributions need this correction because they have such an extreme shape (e.g., zipf)
  * The smoothing is pretty basic, we could use legit variance minimization techniques
- * @param data
- * @param bins
- * @param smoothing look forward and backward to minimize variation in bin lengths
+ * @param data - the input data
+ * @param bins - the number of bins
+ * @param smoothing - look forward and backward to minimize variation in bin lengths
  */
 function quantizeHistogram(data: number[], bins: number, smoothing?: boolean) {
 	const values = data.sort((a, b) => a - b)
@@ -106,8 +106,8 @@ function quantizeHistogram(data: number[], bins: number, smoothing?: boolean) {
  * with a relatively low range of integer values.
  * The smoothing parameter can make this slightly better by looking backward as well as forward
  * when finding the next break, as a way of minimizing the variation.
- * @param domain Array of numeric data values to bin into quantiles
- * @param bins Number of quantile bins to use (default = 10)
+ * @param domain - array of numeric data values to bin into quantiles
+ * @param bins - number of quantile bins to use (default = 10)
  */
 export function quantile(
 	domain: number[],
@@ -156,8 +156,8 @@ export interface LearningState {
  * bit of tracked state, but subsequent calls should supply the output of the previous call.
  * For all intents and purposes you can ignore the strength param, just make sure it is included.
  *
- * @param elapsedTime time in milliseconds since the last learning exposure
- * @param state LearningState
+ * @param elapsedTime -  time in milliseconds since the last learning exposure
+ * @param state - LearningState
  * @returns LearningState
  *
  */
