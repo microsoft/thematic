@@ -2,6 +2,9 @@ name: thematic compliance CI
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  Codeql.Enabled: true
+
 stages:
   - stage: Compliance
     dependsOn: []
