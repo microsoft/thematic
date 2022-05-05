@@ -3,21 +3,16 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { initializeIcons } from '@fluentui/font-icons-mdl2'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 
 import { App } from './components/App'
 
-function createRoot(): HTMLElement {
-	const root = document.createElement('div')
-	root.id = 'root'
-	document.body.appendChild(root)
-	return root
-}
-
 function mount(): void {
 	try {
-		const root = createRoot()
-		render(<App />, root)
+		const rootElement = document.getElementById('root')
+		initializeIcons(undefined, { disableWarnings: true })
+		const root = createRoot(rootElement!)
+		root.render(<App />)
 	} catch (err) {
 		console.error('error rendering application', err)
 	}
