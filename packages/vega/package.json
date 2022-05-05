@@ -5,8 +5,8 @@
 	"type": "module",
 	"main": "src/index.ts",
 	"publishConfig": {
-		"main": "dist/lib/index.js",
-		"types": "dist/lib/index.d.ts"
+		"main": "dist/index.js",
+		"types": "dist/index.d.ts"
 	},
 	"sideEffects": false,
 	"repository": {
@@ -16,17 +16,16 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build --skipExportCheck --docs",
-		"start": "essex watch"
+		"build": "essex build --skipExportCheck --docs"
 	},
 	"dependencies": {
 		"@thematic/core": "workspace:^"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^21.0.2",
+		"@essex/scripts": "^22.0.1",
 		"@essex/tsconfig-base": "^1.0.2",
-		"@types/node": "^17.0.24",
-		"vega": "5.15.0"
+		"@types/node": "^17.0.31",
+		"vega": "4.4.0"
 	},
 	"peerDependencies": {
 		"vega": "5"

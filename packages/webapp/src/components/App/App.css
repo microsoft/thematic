@@ -3,6 +3,7 @@ body,
 #root,
 .App {
 	overflow-y: hidden;
+	margin: 0;
 }
 .App {
 	text-align: center;
