@@ -17,5 +17,4 @@ function mount(): void {
 		console.error('error rendering application', err)
 	}
 }
-initializeIcons()
 mount()

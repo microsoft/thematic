@@ -5,8 +5,8 @@
 	"type": "module",
 	"main": "src/index.ts",
 	"publishConfig": {
-		"main": "dist/lib/index.js",
-		"types": "dist/lib/index.d.ts"
+		"main": "dist/index.js",
+		"types": "dist/index.d.ts"
 	},
 	"sideEffects": false,
 	"repository": {
@@ -23,7 +23,7 @@
 		"@thematic/core": "workspace:^"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^21.0.2",
+		"@essex/scripts": "^22.0.1",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/node": "^17.0.31",
 		"@types/react": "^18.0.8",
