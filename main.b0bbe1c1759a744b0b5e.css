@@ -3,6 +3,7 @@ body,
 #root,
 .App {
 	overflow-y: hidden;
+	margin: 0;
 }
 .App {
 	text-align: center;
@@ -192,4 +193,4 @@ h2 {
 }
 
 
-/*# sourceMappingURL=main.14bcbefddd1f34ce22b3.css.map*/
+/*# sourceMappingURL=main.b0bbe1c1759a744b0b5e.css.map*/
