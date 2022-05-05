@@ -16,8 +16,7 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build --docs",
-		"start": "essex watch"
+		"build": "essex build --docs"
 	},
 	"dependencies": {
 		"chroma-js": "^2.4.2",

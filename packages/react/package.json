@@ -16,8 +16,7 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build --skipExportCheck --docs",
-		"start": "essex watch"
+		"build": "essex build --skipExportCheck --docs"
 	},
 	"dependencies": {
 		"@thematic/color": "workspace:^",

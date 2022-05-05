@@ -31,7 +31,7 @@
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
 		"recoil": "^0.7.1",
-		"vega": "5.15.0"
+		"vega": "4.4.0"
 	},
 	"devDependencies": {
 		"@essex/scripts": "^21.0.2",
