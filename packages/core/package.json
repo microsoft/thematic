@@ -20,14 +20,14 @@
 	},
 	"dependencies": {
 		"@thematic/color": "workspace:^",
-		"d3-scale": "^3.3.0",
+		"d3-scale": "^4.0.2",
 		"lodash-es": "^4.17.21",
 		"murmurhash-js": "^1.0.0"
 	},
 	"devDependencies": {
 		"@essex/scripts": "^22.0.1",
 		"@essex/tsconfig-base": "^1.0.2",
-		"@types/d3-scale": "^2.2.6",
+		"@types/d3-scale": "^4.0.2",
 		"@types/jest": "^27.5.0",
 		"@types/lodash-es": "^4.17.6",
 		"@types/murmurhash-js": "^1.0.3",
