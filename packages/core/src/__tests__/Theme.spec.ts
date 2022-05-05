@@ -41,7 +41,7 @@ const STROKE_VECTOR = [
 const STROKE_NUMBER = -65794
 
 describe('clone', () => {
-	// TODO: these props all deal with non-CoolerPicker-driven values, since they are computed and therefore updated dynamically
+	// TODO: these props all deal with non-ColorPicker-driven values, since they are computed and therefore updated dynamically
 	// TODO: all color values are now computed, so the mock values above are not accurate anyway
 	const theme = new Theme(lightSpec, lightConfig)
 

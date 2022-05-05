@@ -82,11 +82,13 @@ const themeState = selector<Theme>({
 	// theme instance uses an internal cache
 	dangerouslyAllowMutability: true,
 	get: ({ get }) => {
+		const info = get(themeInfoState)
 		const darkMode = get(darkModeState)
 		const params = get(paramsState)
 		const colorBlindnessMode = get(colorBlindnessModeState)
 		return loadFromSpec(
 			{
+				name: info.name,
 				params,
 			},
 			{

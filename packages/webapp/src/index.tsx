@@ -5,7 +5,7 @@
 import { initializeIcons } from '@fluentui/font-icons-mdl2'
 import { createRoot } from 'react-dom/client'
 
-import { App } from './components/App'
+import { App } from './App'
 
 function mount(): void {
 	try {

@@ -1,0 +1,24 @@
+.app {
+	overflow-y: hidden;
+	margin: 0;
+	text-align: center;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font-size: calc(10px + 2vmin);
+}
+
+.main {
+	height: 90%;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 40px;
+}
+
+.theme-editor {
+	flex: 1;
+}
+
+.theme-viewer {
+	flex: 1;
+}

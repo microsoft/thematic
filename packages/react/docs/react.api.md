@@ -9,6 +9,7 @@
 import type { Application } from '@thematic/core';
 import type { CSSProperties } from 'react';
 import type { FC } from 'react';
+import type { ReactNode } from 'react';
 import type { SVGMark } from '@thematic/core';
 import type { Theme } from '@thematic/core';
 
@@ -47,7 +48,7 @@ export const ThematicProvider: FC<ThematicProviderProps>;
 // @public (undocumented)
 export interface ThematicProviderProps {
     // (undocumented)
-    children?: JSX.Element | JSX.Element[];
+    children?: ReactNode;
     // (undocumented)
     theme?: Theme;
 }

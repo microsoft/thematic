@@ -6,7 +6,7 @@ import { initializeIcons } from '@fluentui/font-icons-mdl2'
 import { ThemeProvider } from '@fluentui/react'
 import type { Theme } from '@thematic/core'
 import { ThematicProvider } from '@thematic/react'
-import type { FC } from 'react'
+import type { FC, ReactNode } from 'react'
 import { useEffect, useMemo } from 'react'
 
 import { loadFluentTheme } from '../loader.js'
@@ -14,7 +14,7 @@ import { ThematicFluentContext } from './ThematicFluentContext.js'
 
 export interface ThematicFluentProviderProps {
 	theme: Theme
-	children?: JSX.Element | JSX.Element[]
+	children?: ReactNode
 }
 
 /**

@@ -4,7 +4,7 @@
  */
 
 /**
- * This is the core set of parameters for generating schemes using CoolerPicker
+ * This is the core set of parameters for generating schemes using the ColorPicker
  */
 export interface Params {
 	accentHue: number
