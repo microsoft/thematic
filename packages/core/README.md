@@ -48,3 +48,15 @@ For example:
 	const r0 = scaledCircle.radius(0) // 1
 	const r1 = scaledCircle.radius(1) // 10
 ```
+
+### Default themes
+
+This package includes a handful of default themes to make it easy to get started. You can use the `loadById` function to get one of these by name. Otherwise, additional loader methods are present to generate brand new themes from raw input parameters.
+
+## Extensions
+
+This package also includes a few extensions to create theme objects that are compatible with other systems. These extensions are essentially just transform functions that accept a Theme instance and return any other object. We've included a few that we use in our projects:
+
+- gimp: this generates a [GIMP-compatible](https://docs.gimp.org/en/gimp-concepts-palettes.html) palette text file. Usable in other apps that support this format such as Inkscape.
+- office: this generates a set of standard colors for Microsoft Office themes. It's paricularly useful for generating PowerPoints that share the same colors as data visualizations that you may include. Note that Office does not have an importable JSON feature; we have used custom scripts to merge Thematic Office colors into PowerPoint XML template files.
+- powerbi: this creates a [Power BI-compatible JSON file](https://docs.microsoft.com/en-us/power-bi/create-reports/desktop-report-themes#import-custom-report-theme-files) that can be uploaded into your Power BI reports to set the theme data colors.

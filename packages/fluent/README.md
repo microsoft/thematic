@@ -61,3 +61,9 @@ Also included in this package is a Provider component that wraps both ThematicPr
 		)
 	}
 ```
+
+The combined themes will be available throughout your app using the context hook of your choice. Specifically:
+
+- to access it as a Thematic Theme, use `useThematic` from the [react](../react/) package.
+- to access it as a Fluent ITheme, use the `useTheme` [hook](https://github.com/microsoft/fluentui/blob/0fac2d7a6f35c5fcebaf30da68b9604410fe0eb9/packages/react/src/utilities/ThemeProvider/useTheme.ts) provided by Fluent.
+- to access it as a combined theme with both of the above interfaces merged, use the `useThematicFluent` hook in this package (handy for passing to other context providers like styled-components where you may need content from both themes).
