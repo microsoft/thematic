@@ -4,11 +4,14 @@ This repository holds all of the packages for creating shareable, perceptually-b
 
 This repository is structured as a yarn monorepo. It contains separate packages for all of the theme generation, management, and applications. To use thematic in your app, you should only need to install the relevant packages for your use case(s).
 
-The webapp package is a guide for everything Thematic. In particular, it comprises:
+The [webapp](./packages/webapp/) package is a guide for everything Thematic. In particular, it comprises:
 
 - A running application for configuring theme parameters
 - An example app using thematic itself, so you can see what controls and charts look like
+- The ability to download theme JSON and text files that are compatible with a variety of platforms (Fluent, Office, Power BI, GIMP)
 - A variety of code examples to explore showing how to use thematic in practice
+
+This webapp is deployed as the [github.io site](https://microsoft.github.io/thematic/) for the repo, so you can use it directly without cloning anything yourself.
 
 ## Organization
 
@@ -19,18 +22,18 @@ These are the core Thematic libraries, see individual README.md files for greate
 - [@thematic/color](packages/color/README.md) - this contains color conversion and scale generation logic. If you need functions to convert between color spaces, this is the place. This also has the color scheme compute logic that dictates how all of the color scales are generated from a few selected input parameters.
 - [@thematic/core](packages/core/README.md) - this is the main package for working with Themes. You can load them from a Theme JSON specification, then use the attributes directly in your app to apply the generated colors in a consistent way. We've used SVG notation for all of our mark properties (e.g., 'fill').
 - [@thematic/d3](packages/d3/README.md) - this package has helpers to apply the themes to viz created with [d3](https://d3js.org/). We provide a variety of SVG mark primitives that operate on a d3 Selection, so you can apply the theme elements using `selection.call(fn, [params])` as needed.
-- [@thematic/fluent](packages/fluent/README.md) - helpers for applying Thematic to the [Fluent UI library](https://developer.microsoft.com/en-us/fluentui#/controls/web)
+- [@thematic/fluent](packages/fluent/README.md) - helpers for applying Thematic to the [Fluent UI library](https://developer.microsoft.com/en-us/fluentui#/controls/web), including a React context provider that injects a Fluent-compatible theme instance.
 - [@thematic/react](packages/react/README.md) - helpers to bootstrap theming into React-based apps, particularly a provider and context hook (useThematic) for grabbing the theme anywhere it is needed.
 - [@thematic/vega](packages/vega/README.md) - this has a helper that applies our theme spec as default configuration for Vega charts so they automatically adopt the theme.
 - [@thematic/webapp](packages/webapp/README.md) - this is the theme editor webapp that you can run or access at https://microsoft.github.io/thematic.
 
 ## Getting Started
 
-If you want to run locally and work on the app or any theme components, you can run the whole thing from the root folder. The web app will run using `yarn start:webapp` as with our typical development structure, and changes to any of the other packages will be reflected live. See the Available Scripts section below.
+If you want to run locally and work on the app or any theme components, you can run the whole thing from the root folder. The web app will run using `yarn start` as with our typical development structure, and changes to any of the other packages will be reflected live. See the Available Scripts section below.
 
 ## Publishing
 
-Commits to `main` will automatically deploy to the hosted website. Pull requests should use `yarn version check --interactive` to create semantic versioning documents describing the impact of the PR. When a release is ready, run`yarn release_all` to publish packages to npm.
+Commits to `main` will automatically deploy to the hosted website. Pull requests should use `yarn version check --interactive` to create semantic versioning documents describing the impact of a PR. When a release is ready, run `yarn release` to publish packages to npm.
 
 ## Available Scripts
 
@@ -48,13 +51,13 @@ You will also see any lint errors in the console.
 
 Launches the test runner using Jest.
 
-### `yarn build:`
+### `yarn build`
 
-Builds packages for production to their respective `dist` and `lib` folders. Note that the webapp uses a `bundle` command more appropriate to creating an optimized web bundle. CI systems will want to invoke both of these to produce complete
+Builds packages for production to their respective `dist` folders.
 
-### `yarn clean:`
+### `yarn clean`
 
-Cleans out the node_modules and built lib directories for every package.
+Cleans out the node_modules and built dist directories for every package.
 
 # Contributing
 
