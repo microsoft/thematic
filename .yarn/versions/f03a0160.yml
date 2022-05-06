@@ -1,7 +1,0 @@
-releases:
-  "@thematic/core": patch
-  "@thematic/d3": patch
-  "@thematic/fluent": patch
-  "@thematic/react": patch
-  "@thematic/vega": patch
-  "@thematic/webapp": patch
