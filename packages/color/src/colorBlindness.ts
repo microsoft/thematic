@@ -6,8 +6,8 @@
 // @ts-ignore
 import cb from 'color-blind'
 
-import type { ColorBlindnessMeta, Scheme } from './interfaces.js'
-import { ColorBlindnessMode } from './interfaces.js'
+import type { ColorBlindnessMeta, Scheme } from './types.js'
+import { ColorBlindnessMode } from './types.js'
 
 const noop = (color: string) => color
 

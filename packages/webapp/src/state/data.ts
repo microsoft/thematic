@@ -5,7 +5,7 @@
 import { atom, useRecoilState } from 'recoil'
 
 import { graph } from '../data'
-import type { Graph } from '../interfaces'
+import type { Graph } from '../types'
 
 const graphState = atom<Graph>({
 	key: 'graph',

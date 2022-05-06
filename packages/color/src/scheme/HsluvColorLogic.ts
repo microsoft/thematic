@@ -5,7 +5,7 @@
 import chroma from 'chroma-js'
 import hsluv from 'hsluv'
 
-import type { Params, Scheme } from '../interfaces'
+import type { Params, Scheme } from '../types'
 
 const lightTextLuminance = 95
 const darkTextLuminance = 20

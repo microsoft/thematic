@@ -15,8 +15,8 @@ import {
 	useThematicScaleOptions,
 } from './hooks/theme.js'
 import { useSafeDimensions } from './hooks/useSafeDimensions.js'
+import type { ScaleDropdownProps } from './ScaleDropdown.types.js'
 import { ScaleDropdownItem } from './ScaleDropdownItem.js'
-import type { ScaleDropdownProps } from './types.js'
 
 /**
  * Represents a Fluent dropdown of Thematic scale options.

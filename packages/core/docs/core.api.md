@@ -175,6 +175,11 @@ export interface ChartSpec {
     padding?: number;
 }
 
+// Warning: (ae-missing-release-tag) "chooseScale" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function chooseScale(theme: Theme, name: string, width: number): NominalColorScaleFunction | ContinuousColorScaleFunction;
+
 // Warning: (ae-missing-release-tag) "ChromeFunction" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public

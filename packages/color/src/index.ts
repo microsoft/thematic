@@ -5,8 +5,8 @@
 export * from './chroma.js'
 export * from './Color.js'
 export * from './colorBlindness.js'
-export * from './interfaces.js'
 export * from './scheme.js'
+export * from './types.js'
 
 // TODO: best would be to update the scheme compute to accept undefined or baseline params and handle an "empty" case, which is maybe grayscale
 export const defaultParams = {

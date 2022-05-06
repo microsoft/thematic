@@ -6,7 +6,7 @@
 import chroma from 'chroma-js'
 import hsluv from 'hsluv'
 
-import type { Hsl, Hsv, Rgb, Rgba } from './interfaces.js'
+import type { Hsl, Hsv, Rgb, Rgba } from './types.js'
 
 const { hexToHsluv, hsluvToHex } = hsluv
 

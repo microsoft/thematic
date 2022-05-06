@@ -2,7 +2,7 @@ Contains color transforms and helpers, as well as the core color compute logic t
 
 ## Schemes
 
-A Thematic [Scheme](src/interfaces.ts) is the core color definition derived from a set of input parameters.
+A Thematic [Scheme](src/types.ts) is the core color definition derived from a set of input parameters.
 
 The idea here is that users can submit basic color parameters such as an accent color and some preferences about contrast,
 and get back a core set of semantic colors for the theme, along with a basic set of scales.

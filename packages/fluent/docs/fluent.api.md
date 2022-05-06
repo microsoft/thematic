@@ -11,6 +11,7 @@ import type { FC } from 'react';
 import type { IChoiceGroupStyles } from '@fluentui/react';
 import type { IDropdownProps } from '@fluentui/react';
 import type { Params } from '@thematic/color';
+import type { ReactNode } from 'react';
 import type { ScaleType } from '@thematic/core';
 import type { Theme } from '@thematic/core';
 import type { Theme as Theme_2 } from '@fluentui/react';
@@ -136,7 +137,7 @@ export const ThematicFluentProvider: FC<ThematicFluentProviderProps>;
 // @public (undocumented)
 export interface ThematicFluentProviderProps {
     // (undocumented)
-    children?: JSX.Element | JSX.Element[];
+    children?: ReactNode;
     // (undocumented)
     theme: Theme;
 }
