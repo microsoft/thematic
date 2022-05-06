@@ -7,8 +7,8 @@ import type { Theme } from '@thematic/core'
 import type { CSSProperties, FC } from 'react'
 import { memo, useCallback, useMemo } from 'react'
 
-import { useThematicFluent } from '../../provider/index.js'
-import { ColorPicker } from '../ColorPicker/index.js'
+import { useThematicFluent } from '../provider/index.js'
+import { ColorPicker } from './ColorPicker.js'
 
 export interface ColorPickerButtonStyles {
 	label?: CSSProperties

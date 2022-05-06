@@ -5,7 +5,7 @@
 import type { CSSProperties, FC } from 'react'
 import { useMemo } from 'react'
 
-import type { ChipsProps } from './types.js'
+import type { ChipsProps } from './ScaleDropdown.types.js'
 
 export const ContinuousBand: FC<ChipsProps> = ({ scale, width, height }) => {
 	const style: CSSProperties = useMemo(

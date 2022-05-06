@@ -6,21 +6,22 @@ import type {
 	ContinuousColorScaleFunction,
 	NominalColorScaleFunction,
 	Theme,
-} from '@thematic/core'
-import type { FC } from 'react'
+} from './types/Theme.js'
 
-import { ColorChips } from './ColorChips.js'
-import { ContinuousBand } from './ContinuousBand.js'
-import type { ChipsProps } from './types.js'
-
+/**
+ * Returns a standard scale instance based on name and planned width.
+ * @param theme
+ * @param name
+ * @param width
+ */
 export function chooseScale(
 	theme: Theme,
-	key: string,
+	name: string,
 	width: number,
 ): NominalColorScaleFunction | ContinuousColorScaleFunction {
 	const scales = theme.scales()
 	const domain = [0, width]
-	switch (key) {
+	switch (name) {
 		case 'sequential':
 			return scales.sequential(domain)
 		case 'sequential2':
@@ -39,11 +40,4 @@ export function chooseScale(
 		default:
 			return scales.nominal()
 	}
-}
-
-export function selectColorPalette(key: string): FC<ChipsProps> {
-	if (key === 'nominal' || key === 'nominalMuted' || key === 'nominalBold') {
-		return ColorChips
-	}
-	return ContinuousBand
 }

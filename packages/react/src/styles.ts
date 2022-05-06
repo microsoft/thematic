@@ -14,7 +14,6 @@ import type { CSSProperties } from 'react'
  * @param config - the mark configuration
  * @param datum - optional data item if the theme has been configured with underlying scales.
  */
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function mark2style(config: SVGMark, datum?: any): CSSProperties {
 	return {
 		backgroundColor: css2css(

@@ -7,12 +7,13 @@ import type {
 	ContinuousColorScaleFunction,
 	NominalColorScaleFunction,
 } from '@thematic/core'
+import { chooseScale } from '@thematic/core'
 import type React from 'react'
 import { useMemo } from 'react'
 
 import { useThematicFluent } from '../../../provider/index.js'
-import type { ChipsProps } from '../types.js'
-import { chooseScale, selectColorPalette } from '../util.js'
+import type { ChipsProps } from '../ScaleDropdown.types.js'
+import { selectColorPalette } from '../ScaleDropdown.utils.js'
 
 const ITEM_LEFT_PADDING = 8 // default right padding in fluent item
 const ITEM_BORDER_MODIFIER = 1 // accounts for transparent border on outer container

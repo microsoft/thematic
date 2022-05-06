@@ -4,7 +4,7 @@
  */
 
 import { Color } from '../Color.js'
-import type { Scheme } from '../interfaces.js'
+import type { Scheme } from '../types.js'
 
 /**
  * Extracts a thematic Color using its scheme "path".

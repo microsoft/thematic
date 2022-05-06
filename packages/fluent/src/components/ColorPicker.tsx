@@ -10,7 +10,7 @@ import type { Theme } from '@thematic/core'
 import type { CSSProperties, FC } from 'react'
 import { useCallback, useMemo } from 'react'
 
-import { useThematicFluent } from '../../provider/index.js'
+import { useThematicFluent } from '../provider/index.js'
 
 export enum ColorPickerLayout {
 	PickerOnly,
