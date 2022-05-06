@@ -7,7 +7,7 @@ import { ThemeProvider } from '@fluentui/react'
 import type { Theme } from '@thematic/core'
 import { ThematicProvider } from '@thematic/react'
 import type { FC, ReactNode } from 'react'
-import { useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 
 import { loadFluentTheme } from '../loader.js'
 import { ThematicFluentContext } from './ThematicFluentContext.js'
@@ -16,6 +16,8 @@ export interface ThematicFluentProviderProps {
 	theme: Theme
 	children?: ReactNode
 }
+
+initializeIcons(undefined, { disableWarnings: true })
 
 /**
  * This component wraps the ThematicProvider and Fluent ThemeProvider to simplify instantiation.
@@ -30,7 +32,6 @@ export const ThematicFluentProvider: FC<ThematicFluentProviderProps> = ({
 	theme,
 	children,
 }) => {
-	useEffect(() => initializeIcons(), [])
 	const combinedTheme = useMemo(() => loadFluentTheme(theme), [theme])
 	const fluentTheme = useMemo(() => combinedTheme.toFluent(), [combinedTheme])
 	return (
