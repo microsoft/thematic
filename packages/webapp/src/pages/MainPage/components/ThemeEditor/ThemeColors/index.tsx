@@ -21,11 +21,11 @@ import { Contrast } from './Contrast'
 const BAND_SLICES = 100
 const BAND_WIDTH = 720
 
-export interface ColorPaletteProps {
+export interface ThemeColorsProps {
 	scaleItemCount: number
 }
 
-export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
+export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 	const theme = useThematic()
 	const [accentColor, foregroundColor, backgroundColor, errorColor] =
 		usePalette()
@@ -62,104 +62,111 @@ export const ColorPalette: FC<ColorPaletteProps> = ({ scaleItemCount }) => {
 	return (
 		<div
 			style={{
-				border: `1px solid ${foregroundColor!}`,
-				background: backgroundColor!,
-				padding: '0 20px 20px 20px',
-				color: foregroundColor!,
-				textAlign: 'left',
+				display: 'flex',
+				justifyContent: 'center',
 			}}
 		>
-			<h2 style={{ color: foregroundColor! }}>Application colors</h2>
-			<ApplicationPalette />
-			<ul
-				style={{
-					fontSize: 18,
-					listStyleType: 'none',
-					paddingLeft: 0,
-				}}
-			>
-				<li>
-					{foreground} on {background} (contrast ratio:{' '}
-					<Contrast
-						foreground={foregroundColor!}
-						background={backgroundColor!}
-						error={errorColor!}
-						showLink
-					/>
-					)
-				</li>
-				<li>
-					{accent} on {background} (contrast ratio:{' '}
-					<Contrast
-						foreground={accentColor!}
-						background={backgroundColor!}
-						error={errorColor!}
-						showLink
-					/>
-					)
-				</li>
-			</ul>
-			<h2 style={{ color: foregroundColor! }}>Scales</h2>
 			<div
 				style={{
-					display: 'flex',
-					flexDirection: 'column',
-					fontSize: 12,
-					width: BAND_WIDTH,
-					padding: 8,
-					...mark2style(theme.plotArea()),
+					border: `1px solid ${foregroundColor!}`,
+					padding: '0 20px 20px 20px',
+					background: backgroundColor!,
+					color: foregroundColor!,
+					textAlign: 'left',
 				}}
 			>
-				<ColorStrip
-					label="Nominal "
-					foreground={foregroundColor!}
-					background={backgroundColor!}
-					colors={nominal!}
-				/>
-				<ColorStrip
-					label="Nominal+"
-					foreground={foregroundColor!}
-					background={backgroundColor!}
-					colors={nominalBold!}
-					labelColors={nominalMuted}
-				/>
-				<ColorStrip
-					label="Nominal-"
-					foreground={foregroundColor!}
-					background={backgroundColor!}
-					colors={nominalMuted!}
-					labelColors={nominalBold}
-				/>
-				<ColorBand
-					label="Sequential"
-					foreground={foregroundColor!}
-					colors={sequential!}
-					width={BAND_WIDTH}
-				/>
-				<ColorBand
-					label="Sequential2"
-					foreground={foregroundColor!}
-					colors={sequential2!}
-					width={BAND_WIDTH}
-				/>
-				<ColorBand
-					label="Diverging"
-					foreground={foregroundColor!}
-					colors={diverging!}
-					width={BAND_WIDTH}
-				/>
-				<ColorBand
-					label="Diverging2"
-					foreground={foregroundColor!}
-					colors={diverging2!}
-					width={BAND_WIDTH}
-				/>
-				<ColorBand
-					label="Greys"
-					foreground={foregroundColor!}
-					colors={greys!}
-					width={BAND_WIDTH}
-				/>
+				<h2 style={{ color: foregroundColor! }}>Application colors</h2>
+				<ApplicationPalette />
+				<ul
+					style={{
+						fontSize: 18,
+						listStyleType: 'none',
+						paddingLeft: 0,
+					}}
+				>
+					<li>
+						{foreground} on {background} (contrast ratio:{' '}
+						<Contrast
+							foreground={foregroundColor!}
+							background={backgroundColor!}
+							error={errorColor!}
+							showLink
+						/>
+						)
+					</li>
+					<li>
+						{accent} on {background} (contrast ratio:{' '}
+						<Contrast
+							foreground={accentColor!}
+							background={backgroundColor!}
+							error={errorColor!}
+							showLink
+						/>
+						)
+					</li>
+				</ul>
+				<h2 style={{ color: foregroundColor! }}>Scales</h2>
+				<div
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						fontSize: 12,
+						width: BAND_WIDTH,
+						padding: 8,
+						...mark2style(theme.plotArea()),
+					}}
+				>
+					<ColorStrip
+						label="Nominal "
+						foreground={foregroundColor!}
+						background={backgroundColor!}
+						colors={nominal!}
+					/>
+					<ColorStrip
+						label="Nominal+"
+						foreground={foregroundColor!}
+						background={backgroundColor!}
+						colors={nominalBold!}
+						labelColors={nominalMuted}
+					/>
+					<ColorStrip
+						label="Nominal-"
+						foreground={foregroundColor!}
+						background={backgroundColor!}
+						colors={nominalMuted!}
+						labelColors={nominalBold}
+					/>
+					<ColorBand
+						label="Sequential"
+						foreground={foregroundColor!}
+						colors={sequential!}
+						width={BAND_WIDTH}
+					/>
+					<ColorBand
+						label="Sequential2"
+						foreground={foregroundColor!}
+						colors={sequential2!}
+						width={BAND_WIDTH}
+					/>
+					<ColorBand
+						label="Diverging"
+						foreground={foregroundColor!}
+						colors={diverging!}
+						width={BAND_WIDTH}
+					/>
+					<ColorBand
+						label="Diverging2"
+						foreground={foregroundColor!}
+						colors={diverging2!}
+						width={BAND_WIDTH}
+					/>
+					<ColorBand
+						label="Greys"
+						foreground={foregroundColor!}
+						colors={greys!}
+						width={BAND_WIDTH}
+					/>
+				</div>
 			</div>
 		</div>
 	)

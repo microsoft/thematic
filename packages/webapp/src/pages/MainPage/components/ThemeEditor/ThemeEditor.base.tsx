@@ -14,7 +14,7 @@ import { JSONPane } from './panes/JSONPane'
 import { MarkGrid } from './panes/MarksPane'
 import { OfficePane } from './panes/OfficePane'
 import { PowerBIPane } from './panes/PowerBIPane'
-import { ColorPalette } from './ThemeColors'
+import { ThemeColors } from './ThemeColors'
 
 export interface ThemeEditorProps {
 	scaleItemCount: number
@@ -46,7 +46,7 @@ export const ThemeEditor: FC<ThemeEditorProps> = ({ scaleItemCount }) => {
 					<JSONPane />
 				</PivotItem>
 			</Pivot>
-			<ColorPalette scaleItemCount={scaleItemCount} />
+			<ThemeColors scaleItemCount={scaleItemCount} />
 			<div className="footer">
 				<div className="privacy">
 					This site does not collect any personal information or use
