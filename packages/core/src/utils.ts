@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import type { ScaleType } from './types/enums.js'
 import type {
 	ContinuousColorScaleFunction,
 	NominalColorScaleFunction,
@@ -9,35 +10,38 @@ import type {
 } from './types/Theme.js'
 
 /**
- * Returns a standard scale instance based on name and planned width.
- * @param theme
- * @param name
- * @param width
+ * Flexible scale selector
+ * @param theme - theme instance
+ * @param name - name of the scale type
+ * @param nominalCount - if nominal, how many colors to include
+ * @param domain - if continuous, input domain (min/max)
+ * @param scaleType - if continuous, scale function (linear, log, quantile)
  */
 export function chooseScale(
 	theme: Theme,
 	name: string,
-	width: number,
+	nominalCount?: number,
+	domain?: [number, number],
+	scaleType?: ScaleType,
 ): NominalColorScaleFunction | ContinuousColorScaleFunction {
 	const scales = theme.scales()
-	const domain = [0, width]
 	switch (name) {
 		case 'sequential':
-			return scales.sequential(domain)
+			return scales.sequential(domain, scaleType)
 		case 'sequential2':
-			return scales.sequential2(domain)
+			return scales.sequential2(domain, scaleType)
 		case 'diverging':
-			return scales.diverging(domain)
+			return scales.diverging(domain, scaleType)
 		case 'diverging2':
-			return scales.diverging2(domain)
+			return scales.diverging2(domain, scaleType)
 		case 'greys':
-			return scales.greys(domain)
+			return scales.greys(domain, scaleType)
 		case 'nominalMuted':
-			return scales.nominalMuted()
+			return scales.nominalMuted(nominalCount)
 		case 'nominalBold':
-			return scales.nominalBold()
+			return scales.nominalBold(nominalCount)
 		case 'nominal':
 		default:
-			return scales.nominal()
+			return scales.nominal(nominalCount)
 	}
 }

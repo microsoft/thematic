@@ -178,7 +178,7 @@ export interface ChartSpec {
 // Warning: (ae-missing-release-tag) "chooseScale" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export function chooseScale(theme: Theme, name: string, width: number): NominalColorScaleFunction | ContinuousColorScaleFunction;
+export function chooseScale(theme: Theme, name: string, nominalCount?: number, domain?: [number, number], scaleType?: ScaleType): NominalColorScaleFunction | ContinuousColorScaleFunction;
 
 // Warning: (ae-missing-release-tag) "ChromeFunction" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
