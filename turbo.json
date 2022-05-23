@@ -24,6 +24,9 @@
 			"dependsOn": [],
 			"outputs": ["dist/**", "build/**"]
 		},
+		"ci": {
+			"dependsOn": ["build", "lint", "test", "bundle"]
+		},
 		"dev": {
 			"cache": false
 		}

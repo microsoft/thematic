@@ -13,7 +13,7 @@
 		"publish": "turbo run release",
 		"prettify": "essex prettify",
 		"git-is-clean": "essex git-is-clean",
-		"ci": "run-s lint build bundle test git-is-clean",
+		"ci": "yarn turbo run ci && essex git-is-clean",
 		"release": "run-s clean build publish"
 	},
 	"workspaces": {
