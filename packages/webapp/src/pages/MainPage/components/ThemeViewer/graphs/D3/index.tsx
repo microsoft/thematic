@@ -23,8 +23,8 @@ import {
 	useState,
 } from 'react'
 
-import type { Edge, Graph, Node } from '../../../../../../types'
-import { bounds } from '../../../../../../util/graph'
+import type { Edge, Graph, Node } from '../../../../../../types.js'
+import { bounds } from '../../../../../../util/graph.js'
 
 export interface GraphProps {
 	graph: Graph

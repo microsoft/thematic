@@ -8,8 +8,8 @@ import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
-import { DownloadLink } from '../../../../../components/DownloadLink'
-import { PowerBIPalette } from './PowerBIPalette'
+import { DownloadLink } from '../../../../../components/DownloadLink.js'
+import { PowerBIPalette } from './PowerBIPalette.js'
 
 export const PowerBIPane: FC = () => {
 	const theme = useThematic()

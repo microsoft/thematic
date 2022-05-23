@@ -10,8 +10,8 @@ import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useCallback, useMemo, useState } from 'react'
 
-import { EnumButtonBar } from '../../../../../../components/EnumButtonBar'
-import { GridCell } from './GridCell'
+import { EnumButtonBar } from '../../../../../../components/EnumButtonBar.js'
+import { GridCell } from './GridCell.js'
 
 const SIZE = 30
 

@@ -15,7 +15,7 @@ import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useCallback, useMemo, useState } from 'react'
 
-import { useSetTheme } from '../../../../../state'
+import { useSetTheme } from '../../../../../state/index.js'
 
 export interface FluentControlsComponentProps {
 	themeLoaded: (theme: Theme) => void

@@ -8,10 +8,10 @@ import { mark2style, useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { Fragment, useMemo } from 'react'
 
-import { ApplicationPalette } from './ApplicationPalette'
-import { ColorBand } from './ColorBand'
-import { ColorStrip } from './ColorStrip'
-import { Contrast } from './Contrast'
+import { ApplicationPalette } from './ApplicationPalette.js'
+import { ColorBand } from './ColorBand.js'
+import { ColorStrip } from './ColorStrip.js'
+import { Contrast } from './Contrast.js'
 
 // this is the same number we use under the hood when constructing the continuous scales,
 // so it makes sense to use here and potentially allow the gradation bands to be visible,

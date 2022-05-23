@@ -7,7 +7,13 @@ import { mark2style, useThematic } from '@thematic/react'
 import type { CSSProperties, FC } from 'react'
 import { useMemo } from 'react'
 
-import { Arc, Circle, Line, Rect, Text } from '../../../../../../components/svg'
+import {
+	Arc,
+	Circle,
+	Line,
+	Rect,
+	Text,
+} from '../../../../../../components/svg/index.js'
 
 export interface GridCellProps {
 	name: ThemeElementType

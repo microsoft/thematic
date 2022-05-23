@@ -12,7 +12,7 @@ import { ColorPickerButton } from '@thematic/fluent'
 import type { FC } from 'react'
 import { useCallback, useMemo } from 'react'
 
-import { EnumDropdown } from '../../../../components/EnumDropdown'
+import { EnumDropdown } from '../../../../components/EnumDropdown.js'
 
 export interface ControlPanelProps {
 	themes: ThemeListing[]

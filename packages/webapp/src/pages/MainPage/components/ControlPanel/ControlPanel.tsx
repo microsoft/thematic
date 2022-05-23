@@ -12,8 +12,8 @@ import {
 	useSetTheme,
 	useThemeInfo,
 	useThemes,
-} from '../../../../state'
-import { ControlPanel as ControlPanelBase } from './ControlPanel.base'
+} from '../../../../state/index.js'
+import { ControlPanel as ControlPanelBase } from './ControlPanel.base.js'
 
 export const ControlPanel = () => {
 	const [drawNodes, setDrawNodes] = useDrawNodes()

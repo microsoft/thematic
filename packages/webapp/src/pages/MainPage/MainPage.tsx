@@ -7,9 +7,10 @@ import './MainPage.css'
 import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 
-import { ControlPanel } from './components/ControlPanel/ControlPanel'
-import { ThemeEditor } from './components/ThemeEditor/ThemeEditor'
-import { ThemeViewer } from './components/ThemeViewer/ThemeViewer'
+import { ControlPanel } from './components/ControlPanel/ControlPanel.js'
+import { ThemeEditor } from './components/ThemeEditor/ThemeEditor.js'
+import { ThemeViewer } from './components/ThemeViewer/ThemeViewer.js'
+
 export const MainPage: FC = () => {
 	const theme = useThematic()
 	return (

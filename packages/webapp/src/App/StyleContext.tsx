@@ -7,7 +7,7 @@ import { ApplicationStyles } from '@thematic/react'
 import type { FC, ReactNode } from 'react'
 import { memo } from 'react'
 
-import { useTheme } from '../state'
+import { useTheme } from '../state/index.js'
 
 export const StyleContext: FC<{
 	children?: ReactNode
