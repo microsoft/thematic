@@ -9,7 +9,8 @@
 		"clean": "essex clean",
 		"build": "tsc -b . && essex bundle",
 		"start": "essex serve",
-		"start:webapp": "yarn start"
+		"start:webapp": "yarn start",
+		"lint": "essex lint --fix"
 	},
 	"repository": {
 		"type": "git",
@@ -34,6 +35,7 @@
 		"vega": "4.4.0"
 	},
 	"devDependencies": {
+		"@essex/eslint-config": "^20.3.5",
 		"@essex/scripts": "^22.0.1",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@essex/webpack-config": "^21.0.2",

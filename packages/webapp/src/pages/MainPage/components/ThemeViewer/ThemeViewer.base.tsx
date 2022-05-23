@@ -8,11 +8,11 @@ import { Pivot, PivotItem } from '@fluentui/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
-import type { Graph } from '../../../../types'
-import { D3Chart } from './charts/D3'
-import { charts, VegaChart } from './charts/Vega'
-import { FluentControls } from './FluentControls'
-import { D3Graph } from './graphs/D3'
+import type { Graph } from '../../../../types.js'
+import { D3Chart } from './charts/D3/index.js'
+import { charts, VegaChart } from './charts/Vega/index.js'
+import { FluentControls } from './FluentControls/index.js'
+import { D3Graph } from './graphs/D3/index.js'
 
 export interface ThemeViewerProps {
 	graph: Graph

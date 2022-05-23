@@ -16,15 +16,20 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build --skipExportCheck --docs"
+		"build": "essex build --skipExportCheck --docs",
+		"release": "yarn npm publish --tolerate-republish --access public",
+		"test": "NODE_OPTIONS=--experimental-vm-modules yarn node $(yarn bin jest) --runInBand",
+		"lint": "essex lint --fix"
 	},
 	"dependencies": {
 		"@thematic/core": "workspace:^"
 	},
 	"devDependencies": {
+		"@essex/eslint-config": "^20.3.5",
 		"@essex/scripts": "^22.0.1",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/node": "^17.0.31",
+		"jest": "^28.1.0",
 		"vega": "4.4.0"
 	},
 	"peerDependencies": {

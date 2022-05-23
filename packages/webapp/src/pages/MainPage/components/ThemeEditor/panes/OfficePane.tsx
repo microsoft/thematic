@@ -8,8 +8,8 @@ import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
-import { DownloadLink } from '../../../../../components/DownloadLink'
-import { OfficePalette } from './OfficePalette'
+import { DownloadLink } from '../../../../../components/DownloadLink.js'
+import { OfficePalette } from './OfficePalette.js'
 
 export const OfficePane: FC = () => {
 	const theme = useThematic()

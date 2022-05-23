@@ -5,7 +5,7 @@
 import type { FC } from 'react'
 
 import { MainPage } from '../pages/MainPage/index.js'
-import { DataContext } from './DataContext'
+import { DataContext } from './DataContext.js'
 import { StyleContext } from './StyleContext.js'
 
 export const App: FC = () => {

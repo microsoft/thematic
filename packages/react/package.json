@@ -16,13 +16,16 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build --skipExportCheck --docs"
+		"build": "essex build --skipExportCheck --docs",
+		"release": "yarn npm publish --tolerate-republish --access public",
+		"lint": "essex lint --fix"
 	},
 	"dependencies": {
 		"@thematic/color": "workspace:^",
 		"@thematic/core": "workspace:^"
 	},
 	"devDependencies": {
+		"@essex/eslint-config": "^20.3.5",
 		"@essex/scripts": "^22.0.1",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/node": "^17.0.31",

@@ -16,7 +16,9 @@
 	},
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build --docs"
+		"build": "essex build --docs",
+		"release": "yarn npm publish --tolerate-republish --access public",
+		"lint": "essex lint --fix"
 	},
 	"dependencies": {
 		"chroma-js": "^2.4.2",
@@ -24,6 +26,7 @@
 		"hsluv": "^0.1.0"
 	},
 	"devDependencies": {
+		"@essex/eslint-config": "^20.3.5",
 		"@essex/scripts": "^22.0.1",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/chroma-js": "^2.1.3",

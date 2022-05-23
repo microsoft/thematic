@@ -6,6 +6,7 @@ packages/*/lib/
 packages/*/dist/
 packages/*/build/
 packages/*/docsTemp/
+packages/*/.turbo/
 
 # testing
 /coverage

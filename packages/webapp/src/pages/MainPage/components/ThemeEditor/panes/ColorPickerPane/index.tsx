@@ -7,8 +7,8 @@ import './ColorPicker.css'
 import type { Theme } from '@thematic/core'
 import type { FC } from 'react'
 
-import { useSetTheme } from '../../../../../../state'
-import { ColorSelection } from './ColorSelection'
+import { useSetTheme } from '../../../../../../state/index.js'
+import { ColorSelection } from './ColorSelection.js'
 
 export interface ColorPickerProps {
 	themeLoaded: (theme: Theme) => void

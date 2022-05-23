@@ -6,9 +6,9 @@ import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
-import { DownloadLink } from '../../../../../components/DownloadLink'
-import { JSONEditor } from '../../../../../components/JSONEditor'
-import { useScaleItemCount } from '../../../../../state'
+import { DownloadLink } from '../../../../../components/DownloadLink.js'
+import { JSONEditor } from '../../../../../components/JSONEditor.js'
+import { useScaleItemCount } from '../../../../../state/index.js'
 
 export interface JSONPaneProps {
 	scaleItemCount?: number

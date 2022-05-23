@@ -7,8 +7,8 @@ import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
-import { DownloadLink } from '../../../../../components/DownloadLink'
-import { FluentPalette } from './FluentPalette'
+import { DownloadLink } from '../../../../../components/DownloadLink.js'
+import { FluentPalette } from './FluentPalette.js'
 
 /**
  * This component hosts the Fluent Theme slots in the style of Thematic.

@@ -7,8 +7,8 @@ import {
 	useDrawLinks,
 	useDrawNodes,
 	useGraph,
-} from '../../../../state'
-import { ThemeViewer as ThemeViewerBase } from './ThemeViewer.base'
+} from '../../../../state/index.js'
+import { ThemeViewer as ThemeViewerBase } from './ThemeViewer.base.js'
 
 export const ThemeViewer = () => {
 	const [drawNodes] = useDrawNodes()

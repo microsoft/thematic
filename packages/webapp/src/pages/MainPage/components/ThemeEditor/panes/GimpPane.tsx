@@ -8,7 +8,7 @@ import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
-import { DownloadLink } from '../../../../../components/DownloadLink'
+import { DownloadLink } from '../../../../../components/DownloadLink.js'
 // the deep nesting of the component requires several layers of size adjustment
 const styles = {
 	root: {
