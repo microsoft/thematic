@@ -26,7 +26,6 @@
 		"d3-selection": "^3.0.0"
 	},
 	"devDependencies": {
-		"@essex/eslint-config": "^20.3.5",
 		"@essex/scripts": "^22.0.3",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/d3-axis": "^3.0.1",

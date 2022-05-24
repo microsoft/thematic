@@ -26,7 +26,6 @@
 		"hsluv": "^0.1.0"
 	},
 	"devDependencies": {
-		"@essex/eslint-config": "^20.3.5",
 		"@essex/jest-config": "^21.0.11",
 		"@essex/scripts": "^22.0.3",
 		"@essex/tsconfig-base": "^1.0.2",
