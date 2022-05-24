@@ -3495,7 +3495,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/color@workspace:packages/color"
   dependencies:
-    "@essex/eslint-config": ^20.3.5
     "@essex/jest-config": ^21.0.11
     "@essex/scripts": ^22.0.3
     "@essex/tsconfig-base": ^1.0.2
@@ -3520,7 +3519,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/core@workspace:packages/core"
   dependencies:
-    "@essex/eslint-config": ^20.3.5
     "@essex/jest-config": ^21.0.11
     "@essex/scripts": ^22.0.3
     "@essex/tsconfig-base": ^1.0.2
@@ -3550,7 +3548,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/d3@workspace:packages/d3"
   dependencies:
-    "@essex/eslint-config": ^20.3.5
     "@essex/scripts": ^22.0.3
     "@essex/tsconfig-base": ^1.0.2
     "@thematic/core": "workspace:^"
@@ -3577,7 +3574,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/fluent@workspace:packages/fluent"
   dependencies:
-    "@essex/eslint-config": ^20.3.5
     "@essex/jest-config": ^21.0.11
     "@essex/scripts": ^22.0.3
     "@essex/tsconfig-base": ^1.0.2
@@ -3618,7 +3614,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/react@workspace:packages/react"
   dependencies:
-    "@essex/eslint-config": ^20.3.5
     "@essex/scripts": ^22.0.3
     "@essex/tsconfig-base": ^1.0.2
     "@thematic/color": "workspace:^"
@@ -3667,7 +3662,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/vega@workspace:packages/vega"
   dependencies:
-    "@essex/eslint-config": ^20.3.5
     "@essex/jest-config": ^21.0.11
     "@essex/scripts": ^22.0.3
     "@essex/tsconfig-base": ^1.0.2
@@ -3687,7 +3681,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/webapp@workspace:packages/webapp"
   dependencies:
-    "@essex/eslint-config": ^20.3.5
     "@essex/scripts": ^22.0.3
     "@essex/tsconfig-base": ^1.0.2
     "@essex/webpack-config": ^21.0.3
