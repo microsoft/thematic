@@ -12,7 +12,8 @@
 		"test": "turbo run test",
 		"publish": "turbo run release",
 		"prettify": "essex prettify",
-		"ci": "turbo run ci && essex git-is-clean",
+		"ci": "turbo run ci",
+		"is_clean": "essex git-is-clean",
 		"release": "run-s clean build publish"
 	},
 	"workspaces": {
