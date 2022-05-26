@@ -10,6 +10,7 @@
 		"bundle": "turbo run bundle",
 		"lint": "turbo run lint",
 		"test": "turbo run test",
+		"start": "turbo run start",
 		"publish": "turbo run release",
 		"prettify": "essex prettify",
 		"ci": "turbo run ci",
