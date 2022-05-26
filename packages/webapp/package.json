@@ -7,7 +7,7 @@
 	"license": "MIT",
 	"scripts": {
 		"clean": "essex clean",
-		"build": "tsc -b . && essex bundle",
+		"bundle": "essex bundle",
 		"start": "essex serve",
 		"start:webapp": "yarn start",
 		"lint": "essex lint --fix"
