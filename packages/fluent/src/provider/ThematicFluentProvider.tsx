@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { initializeIcons } from '@fluentui/font-icons-mdl2'
 import { ThemeProvider } from '@fluentui/react'
 import type { Theme } from '@thematic/core'
 import { ThematicProvider } from '@thematic/react'
@@ -15,9 +14,22 @@ import { ThematicFluentContext } from './ThematicFluentContext.js'
 export interface ThematicFluentProviderProps {
 	theme: Theme
 	children?: ReactNode
-}
 
-initializeIcons(undefined, { disableWarnings: true })
+	/**
+	 * Node id passed to the Fluent theme provider, which injects a DOM element.
+	 */
+	id?: string
+
+	/**
+	 * class name passed to the Fluent theme provider, which injects a DOM element.
+	 */
+	className?: string
+
+	/**
+	 * Style object passed to the Fluent theme provider, which inject;s a DOM element.
+	 */
+	style?: React.CSSProperties
+}
 
 /**
  * This component wraps the ThematicProvider and Fluent ThemeProvider to simplify instantiation.
@@ -31,13 +43,23 @@ initializeIcons(undefined, { disableWarnings: true })
 export const ThematicFluentProvider: FC<ThematicFluentProviderProps> = ({
 	theme,
 	children,
+	id,
+	className,
+	style,
 }) => {
 	const combinedTheme = useMemo(() => loadFluentTheme(theme), [theme])
 	const fluentTheme = useMemo(() => combinedTheme.toFluent(), [combinedTheme])
 	return (
 		<ThematicProvider theme={theme}>
 			<ThematicFluentContext.Provider value={combinedTheme}>
-				<ThemeProvider theme={fluentTheme}>{children}</ThemeProvider>
+				<ThemeProvider
+					id={id}
+					className={className}
+					style={style}
+					theme={fluentTheme}
+				>
+					{children}
+				</ThemeProvider>
 			</ThematicFluentContext.Provider>
 		</ThematicProvider>
 	)
