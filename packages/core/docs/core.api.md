@@ -753,9 +753,9 @@ export class ThemeImpl implements Theme {
     // (undocumented)
     application: () => Application;
     // (undocumented)
-    arc: (markConfig?: MarkConfig | undefined) => Arc;
+    arc: (markConfig?: MarkConfig) => Arc;
     // (undocumented)
-    area: (markConfig?: MarkConfig | undefined) => Area;
+    area: (markConfig?: MarkConfig) => Area;
     // (undocumented)
     axisLine: () => AxisLine;
     // (undocumented)
@@ -767,8 +767,8 @@ export class ThemeImpl implements Theme {
     // (undocumented)
     chart: () => Chart;
     // (undocumented)
-    circle: (markConfig?: MarkConfig | undefined) => Circle;
-    clone: (spec?: ThemeSpec | undefined, config?: ThemeConfig | undefined) => ThemeImpl;
+    circle: (markConfig?: MarkConfig) => Circle;
+    clone: (spec?: ThemeSpec, config?: ThemeConfig) => ThemeImpl;
     // (undocumented)
     colorBlindness: (mode: ColorBlindnessMode) => ThemeImpl;
     // (undocumented)
@@ -778,29 +778,29 @@ export class ThemeImpl implements Theme {
     // (undocumented)
     get definition(): ThemeDefinition;
     // (undocumented)
-    flow: (markConfig?: MarkConfig | undefined) => Flow;
+    flow: (markConfig?: MarkConfig) => Flow;
     // (undocumented)
     gridLines: () => GridLines;
     // (undocumented)
     light: () => ThemeImpl;
     // (undocumented)
-    line: (markConfig?: MarkConfig | undefined) => Line;
+    line: (markConfig?: MarkConfig) => Line;
     // (undocumented)
-    link: (markConfig?: MarkConfig | undefined) => Link;
+    link: (markConfig?: MarkConfig) => Link;
     // (undocumented)
     get name(): string;
     // (undocumented)
-    node: (markConfig?: MarkConfig | undefined) => Node;
+    node: (markConfig?: MarkConfig) => Node;
     // (undocumented)
     get params(): Params;
     // (undocumented)
     plotArea: () => PlotArea;
     // (undocumented)
-    process: (markConfig?: MarkConfig | undefined) => Process;
+    process: (markConfig?: MarkConfig) => Process;
     // (undocumented)
-    rect: (markConfig?: MarkConfig | undefined) => Rect;
+    rect: (markConfig?: MarkConfig) => Rect;
     // (undocumented)
-    rule: (markConfig?: MarkConfig | undefined) => Rule;
+    rule: (markConfig?: MarkConfig) => Rule;
     // (undocumented)
     scales: () => ColorScales;
     // (undocumented)
@@ -808,7 +808,7 @@ export class ThemeImpl implements Theme {
     // (undocumented)
     get spec(): ThemeSpec;
     // (undocumented)
-    text: (markConfig?: MarkConfig | undefined) => Text;
+    text: (markConfig?: MarkConfig) => Text;
     // (undocumented)
     toJSON: (config?: ExportConfig) => ThemeSpec;
     // (undocumented)
