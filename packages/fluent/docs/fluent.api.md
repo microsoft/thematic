@@ -138,6 +138,9 @@ export const ThematicFluentProvider: FC<ThematicFluentProviderProps>;
 export interface ThematicFluentProviderProps {
     // (undocumented)
     children?: ReactNode;
+    className?: string;
+    id?: string;
+    style?: React.CSSProperties;
     // (undocumented)
     theme: Theme;
 }

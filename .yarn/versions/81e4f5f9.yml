@@ -1,0 +1,10 @@
+releases:
+  "@thematic/color": patch
+  "@thematic/core": patch
+  "@thematic/d3": patch
+  "@thematic/fluent": minor
+  "@thematic/react": patch
+  "@thematic/vega": patch
+
+declined:
+  - "@thematic/webapp"
