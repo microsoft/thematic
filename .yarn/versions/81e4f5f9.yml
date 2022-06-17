@@ -1,0 +1,5 @@
+releases:
+  "@thematic/fluent": minor
+
+declined:
+  - "@thematic/webapp"
