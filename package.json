@@ -42,5 +42,5 @@
 		"typescript": "^4.7.3"
 	},
 	"prettier": "@essex/prettier-config",
-	"packageManager": "yarn@3.2.1"
+	"packageManager": "yarn@3.2.3"
 }
