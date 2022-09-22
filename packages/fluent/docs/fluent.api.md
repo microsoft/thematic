@@ -36,8 +36,6 @@ export interface ColorPickerButtonProps {
     onChange?: (theme: Theme) => void;
     // (undocumented)
     styles?: ColorPickerButtonStyles;
-    // (undocumented)
-    theme?: Theme;
 }
 
 // Warning: (ae-missing-release-tag) "ColorPickerButtonStyles" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
@@ -68,7 +66,6 @@ export interface ColorPickerProps {
     onChange?: (theme: Theme) => void;
     // (undocumented)
     styles?: ColorPickerStyles;
-    theme?: Theme;
 }
 
 // Warning: (ae-missing-release-tag) "ColorPickerStyles" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
