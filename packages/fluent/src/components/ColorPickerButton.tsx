@@ -2,12 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { IconButton, Label } from '@fluentui/react'
+import { IconButton, Label, useTheme } from '@fluentui/react'
 import type { Theme } from '@thematic/core'
 import type { CSSProperties, FC } from 'react'
 import { memo, useCallback, useMemo } from 'react'
 
-import { useThematicFluent } from '../provider/index.js'
 import { ColorPicker } from './ColorPicker.js'
 
 export interface ColorPickerButtonStyles {
@@ -16,7 +15,6 @@ export interface ColorPickerButtonStyles {
 
 export interface ColorPickerButtonProps {
 	onChange?: (theme: Theme) => void
-	theme?: Theme
 	label?: string
 	styles?: ColorPickerButtonStyles
 }
@@ -25,9 +23,8 @@ export interface ColorPickerButtonProps {
  * This is a dropdown button that displays a thematic ColorPicker.
  */
 export const ColorPickerButton: FC<ColorPickerButtonProps> = memo(
-	function ColorPickerButton({ onChange, theme, label, styles }) {
-		const contextTheme = useThematicFluent()
-		const activeTheme = theme || contextTheme
+	function ColorPickerButton({ onChange, label, styles }) {
+		const theme = useTheme()
 		const labelStyle = useMemo(
 			() => ({
 				paddingTop: 0,
@@ -38,7 +35,7 @@ export const ColorPickerButton: FC<ColorPickerButtonProps> = memo(
 			[styles],
 		)
 		const handleRender = useCallback(
-			() => <ColorPicker theme={theme} onChange={onChange} />,
+			() => <ColorPicker onChange={onChange} />,
 			[theme, onChange],
 		)
 		const menuProps = useMemo(
@@ -58,10 +55,10 @@ export const ColorPickerButton: FC<ColorPickerButtonProps> = memo(
 					width: 48,
 				},
 				icon: {
-					color: activeTheme.application().accent().hex(),
+					color: theme.palette.themePrimary,
 				},
 			}),
-			[activeTheme],
+			[theme],
 		)
 		return (
 			<div style={containerStyle}>

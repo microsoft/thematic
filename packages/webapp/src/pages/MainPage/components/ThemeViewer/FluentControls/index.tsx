@@ -95,7 +95,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 						<span style={labelStyle}>ColorPicker:</span> a ColorPicker that
 						emits Thematic parameters.
 					</p>
-					<ColorPicker theme={theme} onChange={handlePickerChange} />
+					<ColorPicker onChange={handlePickerChange} />
 					<p style={actionStyle}>
 						{' '}
 						onChange: {theme.application().accent().hex()}
@@ -106,7 +106,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 						<span style={labelStyle}>ColorPickerButton:</span> a DropdownButton
 						that hosts a Thematic ColorPicker.
 					</p>
-					<ColorPickerButton theme={theme} onChange={handlePickerChange} />
+					<ColorPickerButton onChange={handlePickerChange} />
 					<p style={actionStyle}>
 						{' '}
 						onChange: {theme.application().accent().hex()}

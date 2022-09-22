@@ -10,7 +10,7 @@ import type { Theme } from '@thematic/core'
 import type { CSSProperties, FC } from 'react'
 import { useCallback, useMemo } from 'react'
 
-import { useThematicFluent } from '../provider/index.js'
+import { useThematicFluent } from '../provider/useThematicFluent.js'
 
 export enum ColorPickerLayout {
 	PickerOnly,
@@ -24,8 +24,6 @@ export interface ColorPickerStyles {
 
 export interface ColorPickerProps {
 	onChange?: (theme: Theme) => void
-	/** Optional theme to use, otherwise it will be pulled from context */
-	theme?: Theme
 	layout?: ColorPickerLayout
 	styles?: ColorPickerStyles
 }
@@ -41,12 +39,10 @@ export type PartialParams = Partial<Params>
  */
 export const ColorPicker: FC<ColorPickerProps> = ({
 	onChange,
-	theme,
 	layout,
 	styles,
 }) => {
-	const contextTheme = useThematicFluent()
-	const activeTheme = theme || contextTheme
+	const theme = useThematicFluent()
 
 	const lyt = layout || ColorPickerLayout.PickerOnly
 
@@ -54,15 +50,15 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 		(params: PartialParams) => {
 			onChange &&
 				onChange(
-					activeTheme.clone({
+					theme.clone({
 						params: {
-							...activeTheme.params,
+							...theme.params,
 							...params,
 						},
 					}),
 				)
 		},
-		[activeTheme, onChange],
+		[theme, onChange],
 	)
 
 	const handlePickerChange = useCallback(
@@ -110,7 +106,7 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 		backgroundLevel,
 		backgroundHueShift,
 		nominalHueStep,
-	} = activeTheme.params
+	} = theme.params
 
 	// TODO: it would be really nice to make these IStyle objects and pass directly to
 	// child component instead of wrapping them in a div
@@ -129,10 +125,7 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 		}),
 		[styles],
 	)
-	const color = useMemo(
-		() => activeTheme.application().accent().hex(),
-		[activeTheme],
-	)
+	const color = useMemo(() => theme.palette.themePrimary, [theme])
 	return (
 		<div style={{ display: 'flex' }}>
 			<FluentColorPicker
