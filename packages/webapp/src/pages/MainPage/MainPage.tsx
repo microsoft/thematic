@@ -4,7 +4,7 @@
  */
 import './MainPage.css'
 
-import { useThematic } from '@thematic/react'
+import { useThematicFluent } from '@thematic/fluent'
 import type { FC } from 'react'
 
 import { ControlPanel } from './components/ControlPanel/ControlPanel.js'
@@ -12,13 +12,13 @@ import { ThemeEditor } from './components/ThemeEditor/ThemeEditor.js'
 import { ThemeViewer } from './components/ThemeViewer/ThemeViewer.js'
 
 export const MainPage: FC = () => {
-	const theme = useThematic()
+	const theme = useThematicFluent()
 	return (
 		<div className="app">
 			<div
 				style={{
-					backgroundColor: theme.application().faint().hex(),
-					borderBottom: `1px solid ${theme.application().border().hex()}`,
+					backgroundColor: theme.palette.neutralLighter,
+					borderBottom: `1px solid ${theme.palette.neutralTertiaryAlt}`,
 				}}
 			>
 				<ControlPanel />

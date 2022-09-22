@@ -8,27 +8,19 @@ import type {
 	ICommandBarStyles,
 	IStyleFunctionOrObject,
 } from '@fluentui/react'
-import { CommandBar, Label } from '@fluentui/react'
-import { useThematic } from '@thematic/react'
+import { CommandBar } from '@fluentui/react'
 import { useCallback, useMemo } from 'react'
-
-export interface WrapperStyles {
-	root: React.CSSProperties
-	label: React.CSSProperties
-}
 
 export interface EnumButtonBarProps<E> {
 	enumeration: any
 	selected?: E
 	onChange?: (selected: string | number) => void
-	wrapperStyles?: WrapperStyles
-	commandBarStyles?: IStyleFunctionOrObject<
-		ICommandBarStyleProps,
-		ICommandBarStyles
-	>
+	styles?: IStyleFunctionOrObject<ICommandBarStyleProps, ICommandBarStyles>
+	/**
+	 * List of icons for each enum option. Must match the indices of the enum entries.
+	 */
 	iconNames?: string[]
 	iconOnly?: boolean
-	label?: string
 }
 
 const splitCamel = (str: string) => str.replace(/([a-z\d])([A-Z])/g, '$1 $2')
@@ -37,21 +29,14 @@ export function EnumButtonBar<E>({
 	enumeration,
 	selected,
 	onChange,
-	wrapperStyles,
-	commandBarStyles,
+	styles,
 	iconNames,
 	iconOnly,
-	label,
 }: EnumButtonBarProps<E>): JSX.Element {
-	const theme = useThematic()
 	const selectedKey = enumeration[enumeration[selected]]
 
 	const handleChange = useCallback(
-		(s: string) => {
-			if (onChange) {
-				onChange(s)
-			}
-		},
+		(s: string | number) => onChange && onChange(s),
 		[onChange],
 	)
 
@@ -79,32 +64,12 @@ export function EnumButtonBar<E>({
 			// TODO: this width is used to prevent automatic collapsing with overflow items
 			// it may not be what we always want, however
 			width: options.length * 46.75,
-			...(wrapperStyles ? wrapperStyles.root : {}),
 		}),
-		[wrapperStyles, options],
-	)
-
-	const labelStyle = useMemo(
-		() => ({
-			...(wrapperStyles ? wrapperStyles.label : {}),
-		}),
-		[wrapperStyles],
-	)
-	const commandStyles = useMemo(
-		() => ({
-			primarySet: {
-				border: `1px solid ${theme.application().border().hex()}`,
-				paddingleft: 0,
-				paddingRight: 0,
-			},
-			...commandBarStyles,
-		}),
-		[theme, commandBarStyles],
+		[options],
 	)
 	return (
 		<div style={rootStyle}>
-			{label && <Label style={labelStyle}>{label}</Label>}
-			<CommandBar items={options} styles={commandStyles} />
+			<CommandBar items={options} styles={styles} />
 		</div>
 	)
 }

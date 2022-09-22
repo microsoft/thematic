@@ -3,12 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type { PowerBITheme } from '@thematic/core'
-import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
 import type { ColorDefinition } from '../../../../../components/ColorStrip.js'
 import { ColorStrip } from '../../../../../components/ColorStrip.js'
+import { useStyles } from './hooks.js'
 
 export interface PowerBIPaletteProps {
 	colors: PowerBITheme
@@ -24,7 +24,6 @@ const mapkeys = (theme: PowerBITheme, keys: string[]) =>
 	}))
 
 export const PowerBIPalette: FC<PowerBIPaletteProps> = ({ colors }) => {
-	const theme = useThematic()
 	const mains = useMemo(
 		() => mapkeys(colors, mainKeys) as ColorDefinition[],
 		[colors],
@@ -45,21 +44,7 @@ export const PowerBIPalette: FC<PowerBIPaletteProps> = ({ colors }) => {
 			})),
 		[colors],
 	)
-	const styles = useMemo(
-		() => ({
-			root: {
-				display: 'flex',
-			},
-			header: {
-				color: theme.application().foreground().hex(),
-				fontSize: 14,
-			},
-			swatch: {
-				border: `1px solid ${theme.application().border().hex()}`,
-			},
-		}),
-		[theme],
-	)
+	const styles = useStyles()
 	return (
 		<div style={styles.root}>
 			<div>

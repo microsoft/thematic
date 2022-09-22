@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { IconButton, Label, useTheme } from '@fluentui/react'
+import { IconButton, Label } from '@fluentui/react'
 import type { Theme } from '@thematic/core'
 import type { CSSProperties, FC } from 'react'
 import { memo, useCallback, useMemo } from 'react'
@@ -24,7 +24,6 @@ export interface ColorPickerButtonProps {
  */
 export const ColorPickerButton: FC<ColorPickerButtonProps> = memo(
 	function ColorPickerButton({ onChange, label, styles }) {
-		const theme = useTheme()
 		const labelStyle = useMemo(
 			() => ({
 				paddingTop: 0,
@@ -36,7 +35,7 @@ export const ColorPickerButton: FC<ColorPickerButtonProps> = memo(
 		)
 		const handleRender = useCallback(
 			() => <ColorPicker onChange={onChange} />,
-			[theme, onChange],
+			[onChange],
 		)
 		const menuProps = useMemo(
 			() => ({
@@ -49,17 +48,7 @@ export const ColorPickerButton: FC<ColorPickerButtonProps> = memo(
 			}),
 			[handleRender],
 		)
-		const iconStyles = useMemo(
-			() => ({
-				root: {
-					width: 48,
-				},
-				icon: {
-					color: theme.palette.themePrimary,
-				},
-			}),
-			[theme],
-		)
+
 		return (
 			<div style={containerStyle}>
 				{label && <Label style={labelStyle}>{label}</Label>}
@@ -80,4 +69,9 @@ const containerStyle: React.CSSProperties = {
 }
 const iconProps = {
 	iconName: 'CheckBoxFill',
+}
+const iconStyles = {
+	root: {
+		width: 48,
+	},
 }

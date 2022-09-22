@@ -4,9 +4,10 @@
  */
 import './index.css'
 
+import { Label } from '@fluentui/react'
 import type { ChromeType, MarkType } from '@thematic/core'
 import { SelectionState } from '@thematic/core'
-import { useThematic } from '@thematic/react'
+import { useThematicFluent } from '@thematic/fluent'
 import type { FC } from 'react'
 import { useCallback, useMemo, useState } from 'react'
 
@@ -39,7 +40,7 @@ const chromeKeys: ChromeType[] = [
 ]
 
 export const MarkGrid: FC = () => {
-	const theme = useThematic()
+	const theme = useThematicFluent()
 	const [selectionState, setSelectionState] = useState<SelectionState>(
 		SelectionState.Normal,
 	)
@@ -51,7 +52,7 @@ export const MarkGrid: FC = () => {
 		() => ({
 			fontSize: '0.5em',
 			fontWeight: 'bold' as const,
-			color: theme.application().lowContrast().hex(),
+			color: theme.palette.neutralTertiaryAlt,
 		}),
 		[theme],
 	)
@@ -67,14 +68,22 @@ export const MarkGrid: FC = () => {
 						selectionState={selectionState}
 					/>
 				))}
-				<EnumButtonBar<SelectionState>
-					enumeration={SelectionState}
-					selected={selectionState}
-					onChange={handleSelectionStateChange}
-					iconNames={iconNames}
-					iconOnly
-					label={'Selection state'}
-				/>
+				<div>
+					<Label>Selection state</Label>
+					<EnumButtonBar<SelectionState>
+						enumeration={SelectionState}
+						selected={selectionState}
+						onChange={handleSelectionStateChange}
+						iconNames={iconNames}
+						iconOnly
+						styles={{
+							primarySet: {
+								border: `1px solid ${theme.palette.neutralTertiaryAlt}`,
+								padding: 0,
+							},
+						}}
+					/>
+				</div>
 			</div>
 			<div style={labelStyle}>Chart chrome</div>
 			<div className="mark-grid">

@@ -8,10 +8,10 @@ import type {
 	NominalColorScaleFunction,
 } from '@thematic/core'
 import { chooseScale } from '@thematic/core'
+import { useThematic } from '@thematic/react'
 import type React from 'react'
 import { useMemo } from 'react'
 
-import { useThematicFluent } from '../../../provider/index.js'
 import type { ChipsProps } from '../ScaleDropdown.types.js'
 import { selectColorPalette } from '../ScaleDropdown.utils.js'
 
@@ -76,7 +76,7 @@ export function useItemStyle(width: number): React.CSSProperties {
 // TODO: it would be helpful to provide a filter function so scales can be
 // constrained to categorical or sequential when data is string versus numeric
 export function useThematicScaleOptions(): IDropdownOption[] {
-	const theme = useThematicFluent()
+	const theme = useThematic()
 	return useMemo(() => {
 		const keys = Object.keys(theme.scales())
 		return keys.map(key => {
@@ -99,7 +99,7 @@ export function useScale(
 	key: string,
 	width: number,
 ): NominalColorScaleFunction | ContinuousColorScaleFunction {
-	const theme = useThematicFluent()
+	const theme = useThematic()
 	const scale = useMemo(
 		() => chooseScale(theme, key, width),
 		[theme, key, width],

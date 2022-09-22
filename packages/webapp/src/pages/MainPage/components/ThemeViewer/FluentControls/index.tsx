@@ -10,8 +10,8 @@ import {
 	ColorPickerButton,
 	ScaleDropdown,
 	ScaleTypeChoiceGroup,
+	useThematicFluent,
 } from '@thematic/fluent'
-import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useCallback, useMemo, useState } from 'react'
 
@@ -24,7 +24,7 @@ export interface FluentControlsComponentProps {
 const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 	themeLoaded,
 }) => {
-	const theme = useThematic()
+	const theme = useThematicFluent()
 	const [scale, setScale] = useState<string>('<none>')
 	const handleScaleChange = useCallback(
 		(_e: any, option: IDropdownOption<any> | undefined) =>
@@ -43,7 +43,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 	const labelStyle = useMemo(
 		() => ({
 			fontWeight: 'bold' as const,
-			color: theme.application().accent().hex(),
+			color: theme.palette.themePrimary,
 		}),
 		[theme],
 	)
@@ -51,7 +51,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 		() => ({
 			fontSize: 12,
 			fontFamily: 'monospace',
-			color: theme.application().warning().hex(),
+			color: theme.palette.themeTertiary,
 		}),
 		[theme],
 	)
@@ -96,10 +96,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 						emits Thematic parameters.
 					</p>
 					<ColorPicker onChange={handlePickerChange} />
-					<p style={actionStyle}>
-						{' '}
-						onChange: {theme.application().accent().hex()}
-					</p>
+					<p style={actionStyle}> onChange: {theme.palette.themePrimary}</p>
 				</div>
 				<div style={controlStyle}>
 					<p>
@@ -107,10 +104,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 						that hosts a Thematic ColorPicker.
 					</p>
 					<ColorPickerButton onChange={handlePickerChange} />
-					<p style={actionStyle}>
-						{' '}
-						onChange: {theme.application().accent().hex()}
-					</p>
+					<p style={actionStyle}> onChange: {theme.palette.themePrimary}</p>
 				</div>
 			</div>
 		</div>

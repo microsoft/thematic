@@ -8,6 +8,7 @@ import type { FC } from 'react'
 import { useMemo } from 'react'
 
 import { ColorStrip } from '../../../../../components/ColorStrip.js'
+import { useStyles } from './hooks.js'
 
 export interface FluentPaletteProps {
 	theme: FluentTheme
@@ -49,21 +50,7 @@ export const FluentPalette: FC<FluentPaletteProps> = ({ theme }) => {
 	const primaries = useColors(fluent, primaryKeys)
 	const foregrounds = useColors(fluent, foregroundKeys)
 	const backgrounds = useColors(fluent, backgroundKeys)
-	const styles = useMemo(
-		() => ({
-			root: {
-				display: 'flex',
-			},
-			swatch: {
-				border: `1px solid ${theme.application().border().hex()}`,
-			},
-			header: {
-				color: theme.application().foreground().hex(),
-				fontSize: 14,
-			},
-		}),
-		[theme],
-	)
+	const styles = useStyles()
 	return (
 		<div style={styles.root}>
 			<div>

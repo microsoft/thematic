@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type { Application, Theme } from '@thematic/core'
-import { useThematic } from '@thematic/react'
+import { useThematicFluent } from '@thematic/fluent'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
@@ -15,7 +15,7 @@ const applicationLowKeys = ['faint', 'lowContrast', 'lowMidContrast']
 const applicationHighKeys = ['midContrast', 'midHighContrast', 'highContrast']
 
 export const ApplicationPalette: FC = () => {
-	const theme = useThematic()
+	const theme = useThematicFluent()
 	const primaries = useColors(applicationPrimaryKeys, theme)
 	const signals = useColors(applicationSignalKeys, theme)
 	const secondaries = useColors(applicationLowKeys, theme)
@@ -23,7 +23,7 @@ export const ApplicationPalette: FC = () => {
 	const styles = useMemo(
 		() => ({
 			swatch: {
-				border: `1px solid ${theme.application().border().hex()}`,
+				border: `1px solid ${theme.palette.neutralTertiaryAlt}`,
 			},
 			label: {
 				width: 80,

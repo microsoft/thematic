@@ -3,11 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type { OfficeTheme } from '@thematic/core'
-import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
 import { ColorStrip } from '../../../../../components/ColorStrip.js'
+import { useStyles } from './hooks.js'
 
 export interface OfficePaletteProps {
 	colors: OfficeTheme
@@ -31,24 +31,9 @@ const accentKeys = [
 ]
 
 export const OfficePalette: FC<OfficePaletteProps> = ({ colors }) => {
-	const theme = useThematic()
 	const mains = useColors(colors, mainKeys)
 	const accents = useColors(colors, accentKeys)
-	const styles = useMemo(
-		() => ({
-			root: {
-				display: 'flex',
-			},
-			swatch: {
-				border: `1px solid ${theme.application().border().hex()}`,
-			},
-			header: {
-				color: theme.application().foreground().hex(),
-				fontSize: 14,
-			},
-		}),
-		[theme],
-	)
+	const styles = useStyles()
 	return (
 		<div style={styles.root}>
 			<div>
