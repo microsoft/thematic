@@ -21,8 +21,7 @@ export function colorBlindness(
 	scheme: Scheme,
 	mode?: ColorBlindnessMode,
 ): Scheme {
-	const m = mode || ColorBlindnessMode.None
-	const fnName = ColorBlindnessMode[m]?.toLowerCase()
+	const fnName = mode || ColorBlindnessMode.None
 	if (!fnName) {
 		throw new Error(
 			`could not find ColorBlindnessMode "${JSON.stringify(mode)}"`,
@@ -40,38 +39,38 @@ export function colorBlindness(
 	}, {} as Record<string, any>) as Scheme
 }
 
-type CBMetaMap = Record<string, { incidence: number; description: string }>
+type CBMetaMap = Record<string, ColorBlindnessMeta>
 
 const cbMeta: CBMetaMap = {
-	None: {
+	none: {
 		incidence: 0.92,
 		description: 'Normal color vision',
 	},
-	Deuteranomaly: {
+	deuteranomaly: {
 		incidence: 0.06,
 		description: 'Red/green due to mutated green pigment',
 	},
-	Protanomaly: {
+	rotanomaly: {
 		incidence: 0.01,
 		description: 'Red/green due to mutated red pigment',
 	},
-	Protanopia: {
+	rotanopia: {
 		incidence: 0.01,
 		description: 'Red/green due to missing red cones',
 	},
-	Deuteranopia: {
+	deuteranopia: {
 		incidence: 0.01,
 		description: 'Red/green due to missing green cones',
 	},
-	Tritanopia: {
+	tritanopia: {
 		incidence: 0.01,
 		description: 'Blue/yellow due to missing blue cones',
 	},
-	Tritanomaly: {
+	tritanomaly: {
 		incidence: 0.001,
 		description: 'Blue/yellow due to mutated blue pigment',
 	},
-	Achromatopsia: {
+	achromatopsia: {
 		incidence: 0.003,
 		description:
 			'No color, often due to retinal transduction pathway, extremely rare',
@@ -86,9 +85,9 @@ const cbMeta: CBMetaMap = {
 export function colorBlindnessInfo(
 	mode: ColorBlindnessMode,
 ): ColorBlindnessMeta {
-	const key = ColorBlindnessMode[mode] as string
-	if (!key) {
-		throw new Error(`could not find ColorBlindnessMode ${mode}`)
+	const meta = cbMeta[mode]
+	if (!meta) {
+		throw new Error(`could not find info for ${mode}`)
 	}
-	return cbMeta[key] as ColorBlindnessMeta
+	return meta
 }

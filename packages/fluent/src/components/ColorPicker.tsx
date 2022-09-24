@@ -13,8 +13,8 @@ import { useCallback, useMemo } from 'react'
 import { useThematicFluent } from '../provider/useThematicFluent.js'
 
 export enum ColorPickerLayout {
-	PickerOnly,
-	SideBySide,
+	PickerOnly = 'pickeronly',
+	SideBySide = 'sidebyside',
 }
 
 export interface ColorPickerStyles {

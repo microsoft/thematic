@@ -516,12 +516,12 @@ export type SelectedSVGSpec = SVGSpec;
 //
 // @public
 export enum SelectionState {
-    Hidden = 4,
-    Hovered = 1,
-    NoData = 5,
-    Normal = 0,
-    Selected = 2,
-    Suppressed = 3
+    Hidden = "hidden",
+    Hovered = "hovered",
+    NoData = "nodata",
+    Normal = "normal",
+    Selected = "selected",
+    Suppressed = "suppressed"
 }
 
 // Warning: (ae-missing-release-tag) "SignaledSVGSpec" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)

@@ -51,9 +51,9 @@ export interface ColorPickerButtonStyles {
 // @public (undocumented)
 export enum ColorPickerLayout {
     // (undocumented)
-    PickerOnly = 0,
+    PickerOnly = "pickeronly",
     // (undocumented)
-    SideBySide = 1
+    SideBySide = "sidebyside"
 }
 
 // Warning: (ae-missing-release-tag) "ColorPickerProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
