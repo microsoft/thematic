@@ -48,11 +48,11 @@ const cbMeta: Record<string, ColorBlindnessMeta> = {
 		incidence: 0.06,
 		description: 'Red/green due to mutated green pigment',
 	},
-	rotanomaly: {
+	protanomaly: {
 		incidence: 0.01,
 		description: 'Red/green due to mutated red pigment',
 	},
-	rotanopia: {
+	protanopia: {
 		incidence: 0.01,
 		description: 'Red/green due to missing red cones',
 	},
