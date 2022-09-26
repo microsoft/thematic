@@ -46,22 +46,14 @@ export interface ColorBlindnessMeta {
 //
 // @public
 export enum ColorBlindnessMode {
-    // (undocumented)
-    Achromatopsia = 7,
-    // (undocumented)
-    Deuteranomaly = 1,
-    // (undocumented)
-    Deuteranopia = 4,
-    // (undocumented)
-    None = 0,
-    // (undocumented)
-    Protanomaly = 2,
-    // (undocumented)
-    Protanopia = 3,
-    // (undocumented)
-    Tritanomaly = 6,
-    // (undocumented)
-    Tritanopia = 5
+    Achromatopsia = "achromatopsia",
+    Deuteranomaly = "deuteranomaly",
+    Deuteranopia = "deuteranopia",
+    None = "none",
+    Protanomaly = "protanomaly",
+    Protanopia = "protanopia",
+    Tritanomaly = "tritanomaly",
+    Tritanopia = "tritanopia"
 }
 
 // Warning: (ae-missing-release-tag) "ColorSpace" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)

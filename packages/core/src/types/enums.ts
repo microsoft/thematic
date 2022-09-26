@@ -24,27 +24,27 @@ export enum SelectionState {
 	/**
 	 * Normal representation of a mark.
 	 */
-	Normal,
+	Normal = 'normal',
 	/**
 	 * The mark is hovered by the mouse.
 	 */
-	Hovered,
+	Hovered = 'hovered',
 	/**
 	 * The mark is in a selected state.
 	 */
-	Selected,
+	Selected = 'selected',
 	/**
 	 * The mark is suppressed, such as when another mark is being strongly emphasized.
 	 */
-	Suppressed,
+	Suppressed = 'suppressed',
 	/**
 	 * The mark is hidden entirely.
 	 */
-	Hidden,
+	Hidden = 'hidden',
 	/**
 	 * The mark represents a 'no data' value.
 	 */
-	NoData,
+	NoData = 'nodata',
 }
 
 export enum ThemeVariant {

@@ -48,14 +48,38 @@ export interface Scheme {
  * According to https://en.wikipedia.org/wiki/Color_blindness
  */
 export enum ColorBlindnessMode {
-	None, // ~92%
-	Deuteranomaly, // red/green, 6%, 0.4% females
-	Protanomaly, // red/green, 1% males, .01% females
-	Protanopia, // red/green, 1% females
-	Deuteranopia, // red/green, 1% males
-	Tritanopia, // blue/yellow, < 1% males and females
-	Tritanomaly, // blue/yellow, .01% males and females
-	Achromatopsia, // no color at all, very rare
+	/**
+	 * No colorblindness, ~92%
+	 */
+	None = 'none',
+	/**
+	 * Red/green, 6%, 0.4% females
+	 */
+	Deuteranomaly = 'deuteranomaly',
+	/**
+	 * Red/green, 1% males, .01% females
+	 */
+	Protanomaly = 'protanomaly',
+	/**
+	 * Red/green, 1% females
+	 */
+	Protanopia = 'protanopia',
+	/**
+	 * Red/green, 1% males
+	 */
+	Deuteranopia = 'deuteranopia',
+	/**
+	 * Blue/yellow, < 1% males and females
+	 */
+	Tritanopia = 'tritanopia',
+	/**
+	 * Blue/yellow, .01% males and females
+	 */
+	Tritanomaly = 'tritanomaly',
+	/**
+	 * No color vision at all, very rare
+	 */
+	Achromatopsia = 'achromatopsia',
 }
 
 /**

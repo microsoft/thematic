@@ -3,21 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { IconButton, Label } from '@fluentui/react'
-import type { Theme } from '@thematic/core'
-import type { CSSProperties, FC } from 'react'
+import type { FC } from 'react'
 import { memo, useCallback, useMemo } from 'react'
 
 import { ColorPicker } from './ColorPicker.js'
-
-export interface ColorPickerButtonStyles {
-	label?: CSSProperties
-}
-
-export interface ColorPickerButtonProps {
-	onChange?: (theme: Theme) => void
-	label?: string
-	styles?: ColorPickerButtonStyles
-}
+import type { ColorPickerButtonProps } from './ColorPickerButton.types.js'
 
 /**
  * This is a dropdown button that displays a thematic ColorPicker.
