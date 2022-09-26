@@ -4,6 +4,7 @@
  */
 import './index.css'
 
+import { EnumButtonBar } from '@essex/components'
 import { Label } from '@fluentui/react'
 import type { ChromeType, MarkType } from '@thematic/core'
 import { SelectionState } from '@thematic/core'
@@ -11,7 +12,6 @@ import { useThematicFluent } from '@thematic/fluent'
 import type { FC } from 'react'
 import { useCallback, useMemo, useState } from 'react'
 
-import { EnumButtonBar } from '../../../../../../components/EnumButtonBar.js'
 import { GridCell } from './GridCell.js'
 
 const SIZE = 30
@@ -70,19 +70,24 @@ export const MarkGrid: FC = () => {
 				))}
 				<div>
 					<Label>Selection state</Label>
-					<EnumButtonBar<SelectionState>
-						enumeration={SelectionState}
-						selected={selectionState}
-						onChange={handleSelectionStateChange}
-						iconNames={iconNames}
-						iconOnly
-						styles={{
-							primarySet: {
-								border: `1px solid ${theme.palette.neutralTertiaryAlt}`,
-								padding: 0,
-							},
-						}}
-					/>
+					<div style={{ width: 242 }}>
+						<EnumButtonBar<SelectionState>
+							enumeration={SelectionState}
+							selected={selectionState}
+							onChange={handleSelectionStateChange}
+							iconNames={iconNames}
+							iconOnly
+							styles={{
+								root: {
+									padding: 0,
+								},
+								primarySet: {
+									border: `1px solid ${theme.palette.neutralTertiaryAlt}`,
+									padding: 0,
+								},
+							}}
+						/>
+					</div>
 				</div>
 			</div>
 			<div style={labelStyle}>Chart chrome</div>

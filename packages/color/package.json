@@ -26,12 +26,12 @@
 		"hsluv": "^0.1.0"
 	},
 	"devDependencies": {
-		"@essex/jest-config": "^21.0.14",
-		"@essex/scripts": "^22.0.7",
+		"@essex/jest-config": "^21.0.15",
+		"@essex/scripts": "^22.0.8",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/chroma-js": "^2.1.4",
-		"@types/jest": "^29.0.2",
-		"@types/node": "^18.7.18"
+		"@types/jest": "^29.0.3",
+		"@types/node": "^18.7.23"
 	},
 	"peerDependencies": {
 		"@types/chroma-js": "*",
