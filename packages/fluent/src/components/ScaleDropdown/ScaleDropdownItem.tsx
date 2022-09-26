@@ -5,8 +5,8 @@
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
+import { useSafeCollapseDimensions } from './hooks/size.js'
 import { TEXT_WIDTH, usePaletteComponent, useScale } from './hooks/theme.js'
-import { useSafeCollapseDimensions } from './hooks/useSafeDimensions.js'
 import type { ScaleDropdownItemProps } from './ScaleDropdown.types.js'
 
 export const ScaleDropdownItem: FC<ScaleDropdownItemProps> = ({

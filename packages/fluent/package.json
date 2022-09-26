@@ -25,6 +25,7 @@
 		"@thematic/color": "workspace:^",
 		"@thematic/core": "workspace:^",
 		"@thematic/react": "workspace:^",
+		"ahooks": "^3.7.1",
 		"d3-scale": "^4.0.2"
 	},
 	"devDependencies": {

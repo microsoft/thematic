@@ -2,19 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { IChoiceGroupOption, IChoiceGroupStyles } from '@fluentui/react'
+import type { IChoiceGroupOption } from '@fluentui/react'
 import { ChoiceGroup } from '@fluentui/react'
 import type { ScaleType } from '@thematic/core'
 import type { FC } from 'react'
 import { useCallback, useMemo } from 'react'
 
-export interface ScaleTypeChoiceGroupProps {
-	selectedType: ScaleType
-	onChange?: (scaleType: ScaleType) => void
-	label: string
-	suppressQuantile?: boolean
-	styles?: IChoiceGroupStyles
-}
+import type { ScaleTypeChoiceGroupProps } from './ScaleTypeChoiceGroup.types.js'
 
 const CHOICE_STYLE = {
 	flexContainer: { display: 'flex', justifyContent: 'space-around' },

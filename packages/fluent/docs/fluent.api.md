@@ -6,15 +6,31 @@
 
 /// <reference types="react" />
 
+import type { ContinuousColorScaleFunction } from '@thematic/core';
 import type { CSSProperties } from 'react';
 import type { FC } from 'react';
 import type { IChoiceGroupStyles } from '@fluentui/react';
+import type { IDropdownOption } from '@fluentui/react';
 import type { IDropdownProps } from '@fluentui/react';
-import type { Params } from '@thematic/color';
+import type { NominalColorScaleFunction } from '@thematic/core';
 import type { ReactNode } from 'react';
 import type { ScaleType } from '@thematic/core';
 import type { Theme } from '@thematic/core';
 import type { Theme as Theme_2 } from '@fluentui/react';
+
+// Warning: (ae-missing-release-tag) "ChipsProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ChipsProps {
+    // (undocumented)
+    height?: number;
+    // (undocumented)
+    maxItems?: number;
+    // (undocumented)
+    scale: ContinuousColorScaleFunction | NominalColorScaleFunction;
+    // (undocumented)
+    width?: number;
+}
 
 // Warning: (ae-missing-release-tag) "ColorPicker" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -92,16 +108,29 @@ export interface FluentTheme extends Theme_2, Theme {
 // @public
 export function loadFluentTheme(theme: Theme): FluentTheme;
 
-// Warning: (ae-missing-release-tag) "PartialParams" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
-export type PartialParams = Partial<Params>;
-
-// Warning: (ae-forgotten-export) The symbol "ScaleDropdownProps" needs to be exported by the entry point index.d.ts
 // Warning: (ae-missing-release-tag) "ScaleDropdown" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const ScaleDropdown: FC<ScaleDropdownProps>;
+
+// Warning: (ae-missing-release-tag) "ScaleDropdownItemProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ScaleDropdownItemProps {
+    // (undocumented)
+    option: IDropdownOption;
+    // (undocumented)
+    paletteHeight: number;
+    // (undocumented)
+    paletteWidth: number;
+    // (undocumented)
+    style?: React.CSSProperties;
+}
+
+// Warning: (ae-missing-release-tag) "ScaleDropdownProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type ScaleDropdownProps = Omit<IDropdownProps, 'options'>;
 
 // Warning: (ae-missing-release-tag) "ScaleTypeChoiceGroup" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //

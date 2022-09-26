@@ -39,9 +39,7 @@ export function colorBlindness(
 	}, {} as Record<string, any>) as Scheme
 }
 
-type CBMetaMap = Record<string, ColorBlindnessMeta>
-
-const cbMeta: CBMetaMap = {
+const cbMeta: Record<string, ColorBlindnessMeta> = {
 	none: {
 		incidence: 0.92,
 		description: 'Normal color vision',

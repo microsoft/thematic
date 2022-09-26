@@ -6,29 +6,14 @@ import type { IColor } from '@fluentui/react'
 import { ColorPicker as FluentColorPicker, Slider } from '@fluentui/react'
 import type { Params } from '@thematic/color'
 import { css2hsluv } from '@thematic/color'
-import type { Theme } from '@thematic/core'
 import type { CSSProperties, FC } from 'react'
 import { useCallback, useMemo } from 'react'
 
 import { useThematicFluent } from '../provider/useThematicFluent.js'
+import type { ColorPickerProps } from './ColorPicker.types.js'
+import { ColorPickerLayout } from './ColorPicker.types.js'
 
-export enum ColorPickerLayout {
-	PickerOnly = 'pickeronly',
-	SideBySide = 'sidebyside',
-}
-
-export interface ColorPickerStyles {
-	sliders?: CSSProperties
-	slider?: CSSProperties
-}
-
-export interface ColorPickerProps {
-	onChange?: (theme: Theme) => void
-	layout?: ColorPickerLayout
-	styles?: ColorPickerStyles
-}
-
-export type PartialParams = Partial<Params>
+type PartialParams = Partial<Params>
 
 /**
  * This is a simple ColorPicker that you can show users, allowing them to choose a custom accent color.
