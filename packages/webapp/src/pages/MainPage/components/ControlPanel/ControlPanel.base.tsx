@@ -4,6 +4,7 @@
  */
 import './ControlPanel.css'
 
+import { EnumDropdown } from '@essex/components'
 import type { IDropdownOption, ISelectableOption } from '@fluentui/react'
 import { Dropdown, Position, SpinButton, Toggle } from '@fluentui/react'
 import { colorBlindnessInfo, ColorBlindnessMode } from '@thematic/color'
@@ -11,8 +12,6 @@ import type { Theme, ThemeListing } from '@thematic/core'
 import { ColorPickerButton } from '@thematic/fluent'
 import type { FC } from 'react'
 import { useCallback, useMemo } from 'react'
-
-import { EnumDropdown } from '../../../../components/EnumDropdown.js'
 
 export interface ControlPanelProps {
 	themes: ThemeListing[]
@@ -125,9 +124,8 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 	)
 
 	const handleColorBlindnessChange = useCallback(
-		(v: string | number) => {
-			onColorBlindnessModeChange(v as ColorBlindnessMode)
-		},
+		(_event: React.FormEvent<HTMLDivElement>, option?: IDropdownOption) =>
+			onColorBlindnessModeChange(option?.key as ColorBlindnessMode),
 		[onColorBlindnessModeChange],
 	)
 
@@ -233,10 +231,10 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 					/>
 				</div>
 				<div className="control">
-					<EnumDropdown<ColorBlindnessMode>
+					<EnumDropdown
 						enumeration={ColorBlindnessMode}
 						label="Color blindness"
-						selected={colorBlindnessMode}
+						selectedKey={colorBlindnessMode}
 						onChange={handleColorBlindnessChange}
 						styles={{
 							root: {
