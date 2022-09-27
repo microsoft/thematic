@@ -1,6 +1,6 @@
 {
 	"name": "@thematic/d3",
-	"version": "2.0.12",
+	"version": "2.0.13",
 	"license": "MIT",
 	"type": "module",
 	"main": "src/index.ts",
