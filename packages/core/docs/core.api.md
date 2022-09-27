@@ -642,14 +642,14 @@ export interface Theme {
     colorBlindness: (mode: ColorBlindnessMode) => Theme;
     // (undocumented)
     config: ThemeConfig;
-    dark: () => Theme;
+    // (undocumented)
+    dark: boolean;
     // (undocumented)
     definition: ThemeDefinition;
     // (undocumented)
     flow: MarkFunction<Flow>;
     // (undocumented)
     gridLines: ChromeFunction<GridLines>;
-    light: () => Theme;
     // (undocumented)
     line: MarkFunction<Line>;
     // (undocumented)
@@ -676,8 +676,10 @@ export interface Theme {
     spec: ThemeSpec;
     // (undocumented)
     text: MarkFunction<Text>;
+    toDark: () => Theme;
     // (undocumented)
     toJSON(config?: ExportConfig): ThemeSpec;
+    toLight: () => Theme;
     // (undocumented)
     tooltip: ChromeFunction<Tooltip>;
     transform: (transformer: Transformer) => unknown;
@@ -690,8 +692,8 @@ export interface Theme {
 // @public (undocumented)
 export interface ThemeConfig {
     colorBlindnessMode?: ColorBlindnessMode;
+    dark?: boolean;
     overrides?: ThemeDefinition;
-    variant?: ThemeVariant;
 }
 
 // Warning: (ae-missing-release-tag) "ThemeDefinition" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
@@ -774,15 +776,13 @@ export class ThemeImpl implements Theme {
     // (undocumented)
     get config(): ThemeConfig;
     // (undocumented)
-    dark: () => ThemeImpl;
+    get dark(): boolean;
     // (undocumented)
     get definition(): ThemeDefinition;
     // (undocumented)
     flow: (markConfig?: MarkConfig) => Flow;
     // (undocumented)
     gridLines: () => GridLines;
-    // (undocumented)
-    light: () => ThemeImpl;
     // (undocumented)
     line: (markConfig?: MarkConfig) => Line;
     // (undocumented)
@@ -810,7 +810,11 @@ export class ThemeImpl implements Theme {
     // (undocumented)
     text: (markConfig?: MarkConfig) => Text;
     // (undocumented)
+    toDark: () => ThemeImpl;
+    // (undocumented)
     toJSON: (config?: ExportConfig) => ThemeSpec;
+    // (undocumented)
+    toLight: () => ThemeImpl;
     // (undocumented)
     tooltip: () => Tooltip;
     // (undocumented)

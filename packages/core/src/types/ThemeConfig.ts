@@ -4,7 +4,6 @@
  */
 import type { ColorBlindnessMode } from '@thematic/color'
 
-import type { ThemeVariant } from './enums.js'
 import type { ThemeDefinition } from './ThemeDefinition.js'
 
 export interface ThemeConfig {
@@ -12,7 +11,7 @@ export interface ThemeConfig {
 	 * Set the color variant of the theme using one of the supported enum values.
 	 * If none supplied, loads the light version.
 	 */
-	variant?: ThemeVariant
+	dark?: boolean
 	/**
 	 * Set the simulated color blindness mode to use for this theme instance.
 	 */

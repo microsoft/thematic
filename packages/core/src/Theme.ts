@@ -70,7 +70,7 @@ import type {
 import { ThemeVariant } from './types/index.js'
 
 const defaultConfig = {
-	variant: ThemeVariant.Light,
+	dark: false,
 	colorBlindnessMode: ColorBlindnessMode.None,
 	overrides: {},
 }
@@ -92,7 +92,7 @@ export class Theme implements ITheme {
 	public constructor(spec: ThemeSpec, config?: ThemeConfig) {
 		const conf = merge({}, defaultConfig, config)
 		this._schemeCache = {}
-		const scheme = createScheme(spec, conf.variant, conf.colorBlindnessMode)
+		const scheme = createScheme(spec, conf.dark, conf.colorBlindnessMode)
 		this._scheme = scheme
 		this._spec = applyScheme(spec)
 		this._params = applyParams(this._spec)
@@ -109,16 +109,16 @@ export class Theme implements ITheme {
 		const overlayConfig = merge({}, this._config, config)
 		return new Theme(overlaySpec, overlayConfig)
 	}
-	public light = (): Theme => {
+	public toLight = (): Theme => {
 		return this.clone(this._spec, {
 			...this._config,
-			variant: ThemeVariant.Light,
+			dark: false,
 		})
 	}
-	public dark = (): Theme => {
+	public toDark = (): Theme => {
 		return this.clone(this._spec, {
 			...this._config,
-			variant: ThemeVariant.Dark,
+			dark: true,
 		})
 	}
 	public colorBlindness = (mode: ColorBlindnessMode): Theme => {
@@ -139,8 +139,11 @@ export class Theme implements ITheme {
 	public get name(): string {
 		return this._spec.name!
 	}
+	public get dark(): boolean {
+		return this._config.dark!
+	}
 	public get variant(): ThemeVariant {
-		return this._config.variant!
+		return this._config.dark ? ThemeVariant.Dark : ThemeVariant.Light
 	}
 	public get spec(): ThemeSpec {
 		return this._spec
@@ -305,7 +308,7 @@ export class Theme implements ITheme {
 		if (!this._schemeCache[size]) {
 			this._schemeCache[size] = createScheme(
 				this._spec,
-				this._config.variant,
+				this._config.dark,
 				this._config.colorBlindnessMode,
 				size,
 				size,

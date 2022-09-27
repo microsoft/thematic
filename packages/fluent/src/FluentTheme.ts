@@ -5,7 +5,7 @@
 import type { Theme as IFluentTheme } from '@fluentui/react'
 import { createTheme } from '@fluentui/react'
 import type { Theme as IThematicTheme } from '@thematic/core'
-import { ThemeImpl, ThemeVariant } from '@thematic/core'
+import { ThemeImpl } from '@thematic/core'
 
 import { themeJson } from './theme/index.js'
 import type { FluentTheme as IThematicFluentTheme } from './types.js'
@@ -23,7 +23,7 @@ export class FluentTheme extends ThemeImpl implements IThematicFluentTheme {
 		this._tTheme = theme
 		this._fTheme = createTheme({
 			palette: themeJson(theme),
-			isInverted: theme.variant === ThemeVariant.Dark,
+			isInverted: theme.dark,
 		})
 	}
 	toThematic(): IThematicTheme {

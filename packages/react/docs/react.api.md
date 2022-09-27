@@ -56,7 +56,7 @@ export interface ThematicProviderProps {
 // Warning: (ae-missing-release-tag) "useThematic" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export function useThematic(): Theme;
+export function useThematic(dark?: boolean): Theme;
 
 // (No @packageDocumentation comment for this package)
 

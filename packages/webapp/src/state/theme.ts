@@ -5,12 +5,7 @@
 import type { Params } from '@thematic/color'
 import { ColorBlindnessMode, defaultParams } from '@thematic/color'
 import type { Theme, ThemeListing } from '@thematic/core'
-import {
-	defaultThemes,
-	loadById,
-	loadFromSpec,
-	ThemeVariant,
-} from '@thematic/core'
+import { defaultThemes, loadById, loadFromSpec } from '@thematic/core'
 import { useCallback } from 'react'
 import {
 	atom,
@@ -83,7 +78,7 @@ const themeState = selector<Theme>({
 	dangerouslyAllowMutability: true,
 	get: ({ get }) => {
 		const info = get(themeInfoState)
-		const darkMode = get(darkModeState)
+		const dark = get(darkModeState)
 		const params = get(paramsState)
 		const colorBlindnessMode = get(colorBlindnessModeState)
 		return loadFromSpec(
@@ -92,7 +87,7 @@ const themeState = selector<Theme>({
 				params,
 			},
 			{
-				variant: darkMode ? ThemeVariant.Dark : ThemeVariant.Light,
+				dark,
 				colorBlindnessMode,
 			},
 		)

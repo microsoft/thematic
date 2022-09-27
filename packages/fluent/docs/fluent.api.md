@@ -174,7 +174,7 @@ export interface ThematicFluentProviderProps {
 // Warning: (ae-missing-release-tag) "useThematicFluent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export function useThematicFluent(): FluentTheme;
+export function useThematicFluent(dark?: boolean): FluentTheme;
 
 // (No @packageDocumentation comment for this package)
 

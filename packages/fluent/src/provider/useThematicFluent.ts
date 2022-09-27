@@ -4,12 +4,17 @@
  */
 import { useContext } from 'react'
 
-import type { FluentTheme } from '../types.js'
+import { FluentTheme } from '../FluentTheme.js'
+import type { FluentTheme as IFluentTheme } from '../types.js'
 import { ThematicFluentContext } from './ThematicFluentContext.js'
 
 /**
  * Hook to retrieve the thematic theme directly.
  */
-export function useThematicFluent(): FluentTheme {
-	return useContext(ThematicFluentContext)
+export function useThematicFluent(dark?: boolean): IFluentTheme {
+	const theme = useContext(ThematicFluentContext)
+	if (dark) {
+		return new FluentTheme(theme.toDark())
+	}
+	return theme
 }
