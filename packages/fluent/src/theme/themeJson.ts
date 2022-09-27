@@ -8,7 +8,6 @@ import {
 	themeRulesStandardCreator,
 } from '@fluentui/react'
 import type { Theme } from '@thematic/core'
-import { ThemeVariant } from '@thematic/core'
 
 import { correctShades } from './shades.js'
 
@@ -55,7 +54,7 @@ const fluentJson = (colors: ThemeInputColors, inverted = false): any => {
  * @returns
  */
 export const themeJson = (theme: Theme): Record<string, string> => {
-	const inverted = theme.variant === ThemeVariant.Dark
+	const inverted = theme.dark
 	const colors: ThemeInputColors = {
 		primaryColor: theme.application().accent().hex(),
 		foregroundColor: theme.application().foreground().hex(),

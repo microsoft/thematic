@@ -12,7 +12,8 @@ describe('load', () => {
 	test('zero-config load (light theme)', () => {
 		const theme = load()
 		expect(theme.name).toBe('Default')
-		expect(theme.variant).toBe('light')
+		expect(theme.variant).toBe(ThemeVariant.Light)
+		expect(theme.dark).toBe(false)
 		expect(theme.chart().backgroundColor().hex()).toBe('none')
 		expect(theme.arc().stroke().hex()).toBe(STROKE_CSS)
 		expect(theme.text().fill().hex()).toBe('#303030')
@@ -20,10 +21,11 @@ describe('load', () => {
 
 	test('load dark theme', () => {
 		const theme = load({
-			variant: ThemeVariant.Dark,
+			dark: true,
 		})
 		expect(theme.name).toBe('Default')
-		expect(theme.variant).toBe('dark')
+		expect(theme.variant).toBe(ThemeVariant.Dark)
+		expect(theme.dark).toBe(true)
 		expect(theme.chart().backgroundColor().hex()).toBe('none')
 		expect(theme.arc().stroke().hex()).toBe('#323232')
 		expect(theme.text().fill().hex()).toBe('#e2e2e2')

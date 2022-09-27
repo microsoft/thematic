@@ -9,7 +9,6 @@ import set from 'lodash-es/set.js'
 
 import defaults from './themes/defaults.js'
 import type { SVGSpec, ThemeDefinition, ThemeSpec } from './types/index.js'
-import { ThemeVariant } from './types/index.js'
 
 // these are static default settings for the marks that are not derived from the computed scheme
 const DEFAULT_NOMINAL_ITEMS = 10
@@ -46,18 +45,13 @@ export function applyParams(spec: ThemeSpec): Params {
  */
 export function createScheme(
 	spec: ThemeSpec,
-	variant?: ThemeVariant,
+	dark = false,
 	colorBlindnessMode?: ColorBlindnessMode,
 	nominalItemCount: number = DEFAULT_NOMINAL_ITEMS,
 	sequentialItemCount: number = DEFAULT_SEQUENTIAL_ITEMS,
 ): Scheme {
 	const params = applyParams(spec)
-	const scheme = getScheme(
-		params,
-		nominalItemCount,
-		sequentialItemCount,
-		variant === undefined ? true : variant === ThemeVariant.Light,
-	)
+	const scheme = getScheme(params, nominalItemCount, sequentialItemCount, !dark)
 	return colorBlindness(scheme, colorBlindnessMode)
 }
 

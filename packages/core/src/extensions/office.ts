@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type { Theme, Transformer } from '../types/index.js'
-import { ThemeVariant } from '../types/index.js'
 
 export type OfficeTheme = {
 	dark1: string
@@ -27,23 +26,19 @@ export type OfficeTheme = {
 export const office: Transformer<OfficeTheme> = (theme: Theme) => {
 	const nominal = theme.scales().nominal().toArray()
 	return {
-		dark1:
-			theme.variant === ThemeVariant.Dark
-				? theme.application().background().hex()
-				: theme.text().fill().hex(),
+		dark1: theme.dark
+			? theme.application().background().hex()
+			: theme.text().fill().hex(),
 
-		light1:
-			theme.variant === ThemeVariant.Dark
-				? theme.text().fill().hex()
-				: theme.application().background().hex(),
-		dark2:
-			theme.variant === ThemeVariant.Dark
-				? theme.plotArea().fill().hex()
-				: theme.application().accent().hex(),
-		light2:
-			theme.variant === ThemeVariant.Dark
-				? theme.application().accent().hex()
-				: theme.plotArea().fill().hex(),
+		light1: theme.dark
+			? theme.text().fill().hex()
+			: theme.application().background().hex(),
+		dark2: theme.dark
+			? theme.plotArea().fill().hex()
+			: theme.application().accent().hex(),
+		light2: theme.dark
+			? theme.application().accent().hex()
+			: theme.plotArea().fill().hex(),
 		accent1: nominal[0] as string,
 		accent2: nominal[1] as string,
 		accent3: nominal[2] as string,

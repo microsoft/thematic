@@ -260,6 +260,7 @@ export type ChromeFunction<T> = () => T
  */
 export interface Theme {
 	name: string
+	dark: boolean
 	variant: ThemeVariant
 	params: Params
 	scheme: Scheme
@@ -295,11 +296,11 @@ export interface Theme {
 	/**
 	 * Return the light version of this Theme
 	 */
-	light: () => Theme
+	toLight: () => Theme
 	/**
 	 * Return the dark version of this Theme
 	 */
-	dark: () => Theme
+	toDark: () => Theme
 	/**
 	 * Return a color blindness-simulating copy of the theme
 	 */
