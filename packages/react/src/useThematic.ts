@@ -10,6 +10,7 @@ import { ThematicContext } from './ThematicContext.js'
 /**
  * Hook to retrieve the thematic theme directly.
  */
-export function useThematic(): Theme {
-	return useContext(ThematicContext)
+export function useThematic(dark?: boolean): Theme {
+	const theme = useContext(ThematicContext)
+	return dark ? theme.toDark() : theme
 }
