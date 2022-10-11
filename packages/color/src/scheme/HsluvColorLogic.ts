@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import chroma from 'chroma-js'
-import hsluv from 'hsluv'
 
+import { hsluv2hex } from '../chroma.js'
 import type { Params, Scheme } from '../types'
 
 const lightTextLuminance = 95
@@ -102,10 +102,10 @@ function getBackgroundSaturationaAndLuminance(
 ): [number, number] {
 	function normalizeSaturation(_h: number, l: number) {
 		let satGivingMaxChroma = 100
-		let c = chroma.hex(hsluv.hsluvToHex([hue, 100, l])).hcl()[1]
+		let c = chroma.hex(hsluv2hex(hue, 100, l)).hcl()[1]
 		while (c > maxBackgroundChroma && satGivingMaxChroma >= 0) {
 			satGivingMaxChroma -= 1
-			c = chroma.hex(hsluv.hsluvToHex([hue, satGivingMaxChroma, l])).hcl()[1]
+			c = chroma.hex(hsluv2hex(hue, satGivingMaxChroma, l)).hcl()[1]
 		}
 		return satGivingMaxChroma
 	}
@@ -392,7 +392,7 @@ export class ColorMaker {
 }
 
 export function hsluv_to_hex(values: HSLVector[]): string[] {
-	return values.map(c => hsluv.hsluvToHex(c))
+	return values.map(([h, s, l]) => hsluv2hex(h, s, l))
 }
 
 // TODO: this should probably throw errors if out-of-bounds values are submitted OR, wrap around the geometry if that's always valid
@@ -422,26 +422,20 @@ export function getScheme(
 	const nominalSequences = colorMaker.nominal(nominalItemCount)
 
 	return {
-		background: hsluv.hsluvToHex(colorMaker.backgroundHsl),
-		offsetBackground: hsluv.hsluvToHex(colorMaker.offsetbackgroundHsl),
-		foreground: hsluv.hsluvToHex(colorMaker.foregroundHsl),
-		accent: hsluv.hsluvToHex(colorMaker.accentHsl),
-		lowContrastAnnotation: hsluv.hsluvToHex(
-			colorMaker.lowContrastAnnotationHsl,
+		background: hsluv2hex(...colorMaker.backgroundHsl),
+		offsetBackground: hsluv2hex(...colorMaker.offsetbackgroundHsl),
+		foreground: hsluv2hex(...colorMaker.foregroundHsl),
+		accent: hsluv2hex(...colorMaker.accentHsl),
+		lowContrastAnnotation: hsluv2hex(...colorMaker.lowContrastAnnotationHsl),
+		lowMidContrastAnnotation: hsluv2hex(
+			...colorMaker.lowMidContrastAnnotationHsl,
 		),
-		lowMidContrastAnnotation: hsluv.hsluvToHex(
-			colorMaker.lowMidContrastAnnotationHsl,
+		midContrastAnnotation: hsluv2hex(...colorMaker.midContrastAnnotationHsl),
+		midHighContrastAnnotation: hsluv2hex(
+			...colorMaker.midHighContrastAnnotationHsl,
 		),
-		midContrastAnnotation: hsluv.hsluvToHex(
-			colorMaker.midContrastAnnotationHsl,
-		),
-		midHighContrastAnnotation: hsluv.hsluvToHex(
-			colorMaker.midHighContrastAnnotationHsl,
-		),
-		highContrastAnnotation: hsluv.hsluvToHex(
-			colorMaker.highContrastAnnotationHsl,
-		),
-		faintAnnotation: hsluv.hsluvToHex(colorMaker.faintAnnotationHsl),
+		highContrastAnnotation: hsluv2hex(...colorMaker.highContrastAnnotationHsl),
+		faintAnnotation: hsluv2hex(...colorMaker.faintAnnotationHsl),
 		sequential: hsluv_to_hex(colorMaker.sequential(sequentialItemCount, 0)),
 		sequential2: hsluv_to_hex(colorMaker.sequential(sequentialItemCount, 1)),
 		diverging: hsluv_to_hex(colorMaker.diverging(sequentialItemCount, 0)),

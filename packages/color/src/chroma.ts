@@ -4,11 +4,9 @@
  */
 
 import chroma from 'chroma-js'
-import hsluv from 'hsluv'
+import { Hsluv } from 'hsluv'
 
 import type { Hsl, Hsv, Rgb, Rgba } from './types.js'
-
-const { hexToHsluv, hsluvToHex } = hsluv
 
 /**
  * This is a variety of color utilities to minimize additional direct dependencies
@@ -21,15 +19,22 @@ const { hexToHsluv, hsluvToHex } = hsluv
  * @param css - the css color hex string
  */
 export function css2hsluv(css: string): [number, number, number] {
-	return hexToHsluv(chroma(css).hex()).map((v: number) => Math.round(v)) as [
-		number,
-		number,
-		number,
-	]
+	const conv = new Hsluv()
+	conv.hex = chroma(css).hex()
+	conv.hexToHsluv()
+
+	return [conv.hsluv_h, conv.hsluv_s, conv.hsluv_l].map((v: number) =>
+		Math.round(v),
+	) as [number, number, number]
 }
 
 export function hsluv2hex(h: number, s: number, l: number): string {
-	return hsluvToHex([h, s, l])
+	const conv = new Hsluv()
+	conv.hsluv_h = h
+	conv.hsluv_s = s
+	conv.hsluv_l = l
+	conv.hsluvToHex()
+	return conv.hex
 }
 
 /**

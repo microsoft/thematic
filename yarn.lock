@@ -3710,7 +3710,7 @@ __metadata:
     "@types/node": ^18.8.4
     chroma-js: ^2.4.2
     color-blind: ^0.1.1
-    hsluv: ^0.1.0
+    hsluv: ^1.0.0
   peerDependencies:
     "@types/chroma-js": "*"
     "@types/node": "*"
@@ -8891,10 +8891,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hsluv@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "hsluv@npm:0.1.0"
-  checksum: e7ad3c16363a74949dbb6bd28c84752ae4bddf84a8ec9cb50236693c32f6724dd1b1d9ae506b77e7c176b5b22c486f82a91905b30da1e7ef4397a604580a5498
+"hsluv@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "hsluv@npm:1.0.0"
+  checksum: bb6f0a3d7b06cf0086e72044554f77517df2d4ca57d16fba36d30aa9e70c9c51ae6c7d0c09266c5eeba70821080e7b8483cd6fc156d7e34ec7da208688d55fc0
   languageName: node
   linkType: hard
 
