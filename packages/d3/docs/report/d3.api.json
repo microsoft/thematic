@@ -1,0 +1,2828 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.29.2",
+    "schemaVersion": 1009,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@thematic/d3!",
+  "docComment": "",
+  "name": "@thematic/d3",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@thematic/d3!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!applyNominalAttrWithSignalState:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function applyNominalAttrWithSignalState(selection: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", attr: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", getState: "
+            },
+            {
+              "kind": "Content",
+              "text": "(datum: any) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "SelectionState",
+              "canonicalReference": "@thematic/core!SelectionState:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ", accessor: "
+            },
+            {
+              "kind": "Content",
+              "text": "(datum: any) => any"
+            },
+            {
+              "kind": "Content",
+              "text": ", theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Theme",
+              "canonicalReference": "@thematic/core!Theme:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", size: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "void"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 19,
+            "endIndex": 20
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "selection",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "attr",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 9
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "getState",
+              "parameterTypeTokenRange": {
+                "startIndex": 10,
+                "endIndex": 12
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "accessor",
+              "parameterTypeTokenRange": {
+                "startIndex": 13,
+                "endIndex": 14
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "theme",
+              "parameterTypeTokenRange": {
+                "startIndex": 15,
+                "endIndex": 16
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "size",
+              "parameterTypeTokenRange": {
+                "startIndex": 17,
+                "endIndex": 18
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "applyNominalAttrWithSignalState"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!attr:function(1)",
+          "docComment": "/**\n * Applies a key/value map of attrs to a selection. Can be used with d3 selection.call to chain. https://github.com/d3/d3-selection#selection_attr\n *\n * @param selection - the d3 selection\n *\n * @param attrs - the attributes\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function attr(selection: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", attrs?: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    [key: string]: any;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 10,
+            "endIndex": 16
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "selection",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "attrs",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 9
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "attr"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!axis:function(1)",
+          "docComment": "/**\n * Applies axis properties to an axis group. Warning: this modifies the selection! This method updates the axis generator (see d3-axis) to ensure it has theme tick properties, Then applies formatting to the axis line, ticks, and labels according to the theme configuration.\n *\n * @param group - d3 Selection holding the axis. Usually a <g>\n *\n * @param theme - the theme\n *\n * @param axisGenerator - d3-axis generator including scale (this should be an invoked instance of axisBottom, axisTop, axisLeft, or axisRight)\n *\n * @param options - the selection options\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function axis(group: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Theme",
+              "canonicalReference": "@thematic/core!Theme:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", axisGenerator: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Axis",
+              "canonicalReference": "@types/d3-axis!Axis:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "SelectionOptions",
+              "canonicalReference": "@thematic/d3!SelectionOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 15,
+            "endIndex": 21
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "group",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "theme",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 9
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "axisGenerator",
+              "parameterTypeTokenRange": {
+                "startIndex": 10,
+                "endIndex": 12
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 13,
+                "endIndex": 14
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "axis"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!chart:function(1)",
+          "docComment": "/**\n * Applies chart properties to a selection. This is intended to use with the d3 selection.call mechanism. Warning: this modifies the selection!\n *\n * @param svg - d3 Selection to configure chart area for. Usually a <svg>.\n *\n * @param theme - the theme\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function chart(svg: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Theme",
+              "canonicalReference": "@thematic/core!Theme:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ChartOptions",
+              "canonicalReference": "@thematic/d3!ChartOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 12,
+            "endIndex": 18
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "svg",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "theme",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 9
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 10,
+                "endIndex": 11
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "chart"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@thematic/d3!ChartOptions:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface ChartOptions extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "SelectionOptions",
+              "canonicalReference": "@thematic/d3!SelectionOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "ChartOptions",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/d3!ChartOptions#height:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "height?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "height",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/d3!ChartOptions#width:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "width?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "width",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 2
+            }
+          ]
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!circle:function(1)",
+          "docComment": "/**\n * Apply props for circle-based marks to a selection.\n *\n * @param selection - the d3 selection\n *\n * @param child - the child block\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function circle(selection: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", child: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Circle",
+              "canonicalReference": "@thematic/core!Circle:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Node",
+              "canonicalReference": "@thematic/core!Node:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 12,
+            "endIndex": 18
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "selection",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "child",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 11
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "circle"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!classed:function(1)",
+          "docComment": "/**\n * Applies a key/value map of classes to a selection. Use truthy to apply or falsey to remove Can be used with d3 selection.call to chain. https://github.com/d3/d3-selection#selection_classed\n *\n * @param selection - the d3 selection\n *\n * @param classes - the classes\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function classed(selection: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", classes?: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    [key: string]: any;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 10,
+            "endIndex": 16
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "selection",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "classes",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 9
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "classed"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!diverging:function(1)",
+          "docComment": "/**\n * Creates a d3-compatible divering scale using the theme. Returns a function that takes a number and returns an appropriate color.\n *\n * @param theme - the theme\n *\n * @param domain - the data domain\n *\n * @param scaleType - the scale type\n *\n * @param quantiles - the number of quantiles\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function diverging(theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Theme",
+              "canonicalReference": "@thematic/core!Theme:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", domain: "
+            },
+            {
+              "kind": "Content",
+              "text": "number[]"
+            },
+            {
+              "kind": "Content",
+              "text": ", scaleType?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ScaleType",
+              "canonicalReference": "@thematic/core!ScaleType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ", quantiles?: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "(value: number) => string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "theme",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "domain",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "scaleType",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": true
+            },
+            {
+              "parameterName": "quantiles",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "diverging"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!diverging2:function(1)",
+          "docComment": "/**\n * Creates a d3-compatible divering (variant 2) scale using the theme. Returns a function that takes a number and returns an appropriate color.\n *\n * @param theme - the theme\n *\n * @param domain - the data domain\n *\n * @param scaleType - the scale type\n *\n * @param quantiles - the number of quantiles\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function diverging2(theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Theme",
+              "canonicalReference": "@thematic/core!Theme:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", domain: "
+            },
+            {
+              "kind": "Content",
+              "text": "number[]"
+            },
+            {
+              "kind": "Content",
+              "text": ", scaleType?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ScaleType",
+              "canonicalReference": "@thematic/core!ScaleType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ", quantiles?: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "(value: number) => string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "theme",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "domain",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "scaleType",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": true
+            },
+            {
+              "parameterName": "quantiles",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "diverging2"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!greys:function(1)",
+          "docComment": "/**\n * Creates a d3-compatible sequential (greys) scale using the theme. Returns a function that takes a number and returns an appropriate color.\n *\n * @param theme - the theme\n *\n * @param domain - the data domain\n *\n * @param scaleType - the scale type\n *\n * @param quantiles - the number of quantiles\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function greys(theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Theme",
+              "canonicalReference": "@thematic/core!Theme:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", domain: "
+            },
+            {
+              "kind": "Content",
+              "text": "number[]"
+            },
+            {
+              "kind": "Content",
+              "text": ", scaleType?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ScaleType",
+              "canonicalReference": "@thematic/core!ScaleType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ", quantiles?: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "(value: number) => string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "theme",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "domain",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "scaleType",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": true
+            },
+            {
+              "parameterName": "quantiles",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "greys"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!line:function(1)",
+          "docComment": "/**\n * Apply props for line-based marks to a selection.\n *\n * @param selection - the d3 selection\n *\n * @param child - the child block\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function line(selection: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", child: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Line",
+              "canonicalReference": "@thematic/core!Line:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Link",
+              "canonicalReference": "@thematic/core!Link:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 12,
+            "endIndex": 18
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "selection",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "child",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 11
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "line"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!nominal:function(1)",
+          "docComment": "/**\n * Creates a d3-compatible nominal scale using the theme. Returns a function that takes a key and returns an appropriate color.\n *\n * @param theme - the theme\n *\n * @param size - the scale size\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function nominal(theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Theme",
+              "canonicalReference": "@thematic/core!Theme:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", size: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "(key: any) => string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "theme",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "size",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "nominal"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!nominalBold:function(1)",
+          "docComment": "/**\n * Creates a d3-compatible nominal (bold) scale using the theme. Returns a function that takes a key and returns an appropriate color.\n *\n * @param theme - the theme\n *\n * @param size - the scale size\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function nominalBold(theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Theme",
+              "canonicalReference": "@thematic/core!Theme:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", size: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "(key: any) => string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "theme",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "size",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "nominalBold"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!nominalMuted:function(1)",
+          "docComment": "/**\n * Creates a d3-compatible nominal (muted) scale using the theme. Returns a function that takes a key and returns an appropriate color.\n *\n * @param theme - the theme\n *\n * @param size - the scale size\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function nominalMuted(theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Theme",
+              "canonicalReference": "@thematic/core!Theme:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", size: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "(key: any) => string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "theme",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "size",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "nominalMuted"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!on:function(1)",
+          "docComment": "/**\n * Applies a key/value map of event handlers to a selection. Can be used with d3 selection.call to chain. https://github.com/d3/d3-selection#selection_on\n *\n * @param selection - the d3 selection\n *\n * @param ons - the event handlers\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function on(selection: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", ons?: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    [key: string]: any;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 10,
+            "endIndex": 16
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "selection",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "ons",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 9
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "on"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!path:function(1)",
+          "docComment": "/**\n * Apply props for path-based marks to a selection.\n *\n * @param selection - the d3 selection\n *\n * @param child - the child block\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function path(selection: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", child: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Area",
+              "canonicalReference": "@thematic/core!Area:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Arc",
+              "canonicalReference": "@thematic/core!Arc:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 12,
+            "endIndex": 18
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "selection",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "child",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 11
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "path"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!plotArea:function(1)",
+          "docComment": "/**\n * Applies plot area group properties to the chart. Warning: this modifies the selection! This method also creates a background rectangle to fill the plot area, so we can apply styling. See the options block for properties you can set on this rectangle.\n *\n * @param group - d3 Selection to append plot area to. Usually a <g>.\n *\n * @param theme - the theme\n *\n * @param options - the plot area options\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function plotArea(group: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Theme",
+              "canonicalReference": "@thematic/core!Theme:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PlotAreaOptions",
+              "canonicalReference": "@thematic/d3!PlotAreaOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 12,
+            "endIndex": 18
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "group",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "theme",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 9
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 10,
+                "endIndex": 11
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "plotArea"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@thematic/d3!PlotAreaOptions:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface PlotAreaOptions extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "ChartOptions",
+              "canonicalReference": "@thematic/d3!ChartOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "PlotAreaOptions",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/d3!PlotAreaOptions#marginBottom:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "marginBottom?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "marginBottom",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/d3!PlotAreaOptions#marginLeft:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "marginLeft?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "marginLeft",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/d3!PlotAreaOptions#marginRight:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "marginRight?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "marginRight",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/d3!PlotAreaOptions#marginTop:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "marginTop?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "marginTop",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 2
+            }
+          ]
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!rect:function(1)",
+          "docComment": "/**\n * Apply props for rect-based marks to a selection.\n *\n * @param selection - the d3 selection\n *\n * @param child - the child block\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function rect(selection: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", child: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Rect",
+              "canonicalReference": "@thematic/core!Rect:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "PlotArea",
+              "canonicalReference": "@thematic/core!PlotArea:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 12,
+            "endIndex": 18
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "selection",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "child",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 11
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "rect"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@thematic/d3!SelectionOptions:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface SelectionOptions "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "SelectionOptions",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/d3!SelectionOptions#attr:member",
+              "docComment": "/**\n * This is a map of ad-hoc attrs to apply to the selection.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "attr: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        [key: string]: any;\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "attr",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/d3!SelectionOptions#classed:member",
+              "docComment": "/**\n * Map of ad-hoc classes to add or remove from the selection.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "classed: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        [key: string]: any;\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "classed",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/d3!SelectionOptions#on:member",
+              "docComment": "/**\n * This is a map of event handlers to apply to the selection.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "on: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        [key: string]: any;\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "on",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/d3!SelectionOptions#style:member",
+              "docComment": "/**\n * Map of ad-hoc styles to add or remove from the selection.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "style: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        [key: string]: any;\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "style",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!sequential:function(1)",
+          "docComment": "/**\n * Creates a d3-compatible sequential scale using the theme. Returns a function that takes a number and returns an appropriate color.\n *\n * @param theme - the theme\n *\n * @param domain - the data domain\n *\n * @param scaleType - the scale type\n *\n * @param quantiles - the number of quantiles\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function sequential(theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Theme",
+              "canonicalReference": "@thematic/core!Theme:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", domain: "
+            },
+            {
+              "kind": "Content",
+              "text": "number[]"
+            },
+            {
+              "kind": "Content",
+              "text": ", scaleType?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ScaleType",
+              "canonicalReference": "@thematic/core!ScaleType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ", quantiles?: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "(value: number) => string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "theme",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "domain",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "scaleType",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": true
+            },
+            {
+              "parameterName": "quantiles",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "sequential"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!sequential2:function(1)",
+          "docComment": "/**\n * Creates a d3-compatible sequential (variant 2) scale using the theme. Returns a function that takes a number and returns an appropriate color.\n *\n * @param theme - the theme\n *\n * @param domain - the data domain\n *\n * @param scaleType - the scale type\n *\n * @param quantiles - the number of quantiles\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function sequential2(theme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Theme",
+              "canonicalReference": "@thematic/core!Theme:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", domain: "
+            },
+            {
+              "kind": "Content",
+              "text": "number[]"
+            },
+            {
+              "kind": "Content",
+              "text": ", scaleType?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ScaleType",
+              "canonicalReference": "@thematic/core!ScaleType:enum"
+            },
+            {
+              "kind": "Content",
+              "text": ", quantiles?: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "(value: number) => string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "theme",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "domain",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "scaleType",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": true
+            },
+            {
+              "parameterName": "quantiles",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "sequential2"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!style:function(1)",
+          "docComment": "/**\n * Applies a key/value map of styles to a selection. Use truthy to apply or falsey to remove Can be used with d3 selection.call to chain. * https://github.com/d3/d3-selection#selection_style\n *\n * @param selection - the d3 selection\n *\n * @param styles - the styles\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function style(selection: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", styles?: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n    [key: string]: any;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 10,
+            "endIndex": 16
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "selection",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "styles",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 9
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "style"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!svg:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function svg(selection: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", child: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Chart",
+              "canonicalReference": "@thematic/core!Chart:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 10,
+            "endIndex": 16
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "selection",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "child",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 9
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "svg"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/d3!text:function(1)",
+          "docComment": "/**\n * Applt props for text-based marks to a selection.\n *\n * @param selection - the d3 selection\n *\n * @param child - the child block\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function text(selection: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", child: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Text",
+              "canonicalReference": "@thematic/core!Text:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Selection",
+              "canonicalReference": "@types/d3-selection!Selection:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Element",
+              "canonicalReference": "!Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", any>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 10,
+            "endIndex": 16
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "selection",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "child",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 9
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "text"
+        }
+      ]
+    }
+  ]
+}
