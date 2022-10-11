@@ -26,11 +26,11 @@
 		"d3-selection": "^3.0.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^22.0.8",
+		"@essex/scripts": "^22.1.0",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/d3-axis": "^3.0.1",
 		"@types/d3-selection": "^3.0.3",
-		"@types/node": "^18.7.23"
+		"@types/node": "^18.8.4"
 	},
 	"peerDependencies": {
 		"@types/d3-axis": ">= 1",
