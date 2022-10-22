@@ -1,6 +1,6 @@
 {
 	"name": "@thematic/vega",
-	"version": "2.0.13",
+	"version": "2.0.14",
 	"license": "MIT",
 	"type": "module",
 	"main": "src/index.ts",
