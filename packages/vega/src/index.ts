@@ -111,7 +111,7 @@ function legend(theme: Theme) {
 function chart(theme: Theme) {
 	return {
 		padding: theme.chart().padding(),
-		background: theme.chart().backgroundColor(),
+		background: theme.chart().backgroundColor().hex(),
 	}
 }
 
