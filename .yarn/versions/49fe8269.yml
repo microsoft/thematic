@@ -1,0 +1,5 @@
+releases:
+  "@thematic/vega": patch
+
+declined:
+  - "@thematic/webapp"
