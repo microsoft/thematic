@@ -197,7 +197,7 @@
             },
             {
               "kind": "Content",
-              "text": ", width: "
+              "text": ", width?: "
             },
             {
               "kind": "Content",
@@ -205,7 +205,7 @@
             },
             {
               "kind": "Content",
-              "text": ", height: "
+              "text": ", height?: "
             },
             {
               "kind": "Content",
@@ -254,7 +254,7 @@
                 "startIndex": 5,
                 "endIndex": 6
               },
-              "isOptional": false
+              "isOptional": true
             },
             {
               "parameterName": "height",
@@ -262,7 +262,7 @@
                 "startIndex": 7,
                 "endIndex": 8
               },
-              "isOptional": false
+              "isOptional": true
             }
           ],
           "name": "vega"

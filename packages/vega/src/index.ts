@@ -178,8 +178,8 @@ function __hack_fix__(theme: Theme, spec: Spec) {
 export function vega(
 	theme: Theme,
 	spec: Spec,
-	width: number,
-	height: number,
+	width?: number,
+	height?: number,
 ): Spec {
 	const fields = [
 		'group',

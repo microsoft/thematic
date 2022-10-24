@@ -9,7 +9,7 @@ Themes a vega spec using its top-level config block This is pretty easy for most
 <b>Signature:</b>
 
 ```typescript
-export declare function vega(theme: Theme, spec: Spec, width: number, height: number): Spec;
+export declare function vega(theme: Theme, spec: Spec, width?: number, height?: number): Spec;
 ```
 
 ## Parameters
@@ -18,8 +18,8 @@ export declare function vega(theme: Theme, spec: Spec, width: number, height: nu
 |  --- | --- | --- |
 |  theme | Theme |  |
 |  spec | Spec |  |
-|  width | number |  |
-|  height | number |  |
+|  width | number | <i>(Optional)</i> |
+|  height | number | <i>(Optional)</i> |
 
 <b>Returns:</b>
 
