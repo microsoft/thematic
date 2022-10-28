@@ -2,7 +2,15 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { css2css, css2hex, css2rgbaNumber, css2rgbaVector } from './chroma.js'
+import {
+	css2css,
+	css2hex,
+	css2hsluv,
+	css2rgba,
+	css2rgbaNumber,
+	css2rgbaVector,
+} from './chroma.js'
+import type { Rgba } from './types.js'
 
 /**
  * This class represents an instance of a color.
@@ -37,6 +45,12 @@ export class Color {
 	}
 	rgbaint(alpha?: number): number {
 		return css2rgbaNumber(this._raw, alpha || this._alpha)
+	}
+	rgba(alpha?: number): Rgba {
+		return css2rgba(this._raw, alpha)
+	}
+	hsluv(): [number, number, number] {
+		return css2hsluv(this._raw)
 	}
 	toString(): string {
 		return this.hex()

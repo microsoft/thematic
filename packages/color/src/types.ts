@@ -138,7 +138,7 @@ export interface Rgb {
 }
 
 export interface Rgba extends Rgb {
-	a: number
+	a?: number
 }
 
 export interface Hsv {

@@ -136,6 +136,10 @@ export function css2rgba(css: string, alpha?: number): Rgba {
 	}
 }
 
+export function rgba2hex(rgba: Rgba): string {
+	return chroma([rgba.r, rgba.g, rgba.b, rgba.a || 1]).hex()
+}
+
 /**
  * Convert a standard CSS color to an \{ h, s, v \} object.
  *
@@ -254,4 +258,8 @@ export function css2rgbaNumber(css: string, alpha?: number): number {
 	color |= b << 16
 	color |= (a * 255) << 24
 	return color
+}
+
+export function rgbav2hex(rgbav: [number, number, number, number]): string {
+	return chroma(rgbav).hex()
 }
