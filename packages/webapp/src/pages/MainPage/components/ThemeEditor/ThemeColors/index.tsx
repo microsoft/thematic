@@ -27,8 +27,13 @@ export interface ThemeColorsProps {
 
 export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 	const theme = useThematic()
-	const [accentColor, foregroundColor, backgroundColor, errorColor] =
-		usePalette()
+	const [
+		accentColor,
+		foregroundColor,
+		backgroundColor,
+		errorColor,
+		headerColor,
+	] = usePalette()
 	const accent = (
 		<Fragment>
 			<span style={{ color: accentColor! }}>Accent {accentColor}</span>
@@ -75,7 +80,7 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 					textAlign: 'left',
 				}}
 			>
-				<h2 style={{ color: foregroundColor! }}>Application colors</h2>
+				<h2 style={{ color: headerColor! }}>Application colors</h2>
 				<ApplicationPalette />
 				<ul
 					style={{
@@ -105,7 +110,7 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 						)
 					</li>
 				</ul>
-				<h2 style={{ color: foregroundColor! }}>Scales</h2>
+				<h2 style={{ color: headerColor! }}>Scales</h2>
 				<div
 					style={{
 						display: 'flex',
@@ -180,6 +185,7 @@ function usePalette() {
 			theme.application().foreground().hex(),
 			theme.application().background().hex(),
 			theme.application().error().hex(),
+			theme.application().midHighContrast().hex(),
 		]
 	}, [theme])
 }

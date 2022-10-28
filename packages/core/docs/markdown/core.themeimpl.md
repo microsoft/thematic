@@ -57,3 +57,9 @@ export declare class Theme implements ITheme
 |  [transform](./core.themeimpl.transform.md) |  | (transformer: [Transformer](./core.transformer.md)<!-- -->) =&gt; unknown |  |
 |  [variant](./core.themeimpl.variant.md) | <code>readonly</code> | [ThemeVariant](./core.themevariant.md) |  |
 
+## Methods
+
+|  Method | Modifiers | Description |
+|  --- | --- | --- |
+|  [nearest(color, scale)](./core.themeimpl.nearest.md) |  |  |
+

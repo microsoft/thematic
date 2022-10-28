@@ -71,9 +71,11 @@
 			"css2rgba": "function",
 			"css2rgbaNumber": "function",
 			"css2rgbaVector": "function",
+			"rgba2hex": "function",
+			"rgbav2hex": "function",
 			"hsluv2hex": "function",
 			"lch2hex": "function",
-			"match": "function"
+			"nearest": "function"
 		},
 		"swc": {
 			"jsc": {

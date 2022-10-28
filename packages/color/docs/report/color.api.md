@@ -13,7 +13,11 @@ export class Color {
     css(alpha?: number): string;
     // (undocumented)
     hex(alpha?: number): string;
+    // (undocumented)
+    hsluv(): [number, number, number];
     get raw(): string;
+    // (undocumented)
+    rgba(alpha?: number): Rgba;
     // (undocumented)
     rgbaint(alpha?: number): number;
     // (undocumented)
@@ -194,6 +198,11 @@ export function lch2hex(l: number, c: number, h: number): string;
 // @public
 export function lighten(css: string, value?: number): string;
 
+// Warning: (ae-missing-release-tag) "nearest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export function nearest(color: Color, list: Color[]): Color;
+
 // Warning: (ae-missing-release-tag) "Params" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
@@ -229,8 +238,18 @@ export interface Rgb {
 // @public (undocumented)
 export interface Rgba extends Rgb {
     // (undocumented)
-    a: number;
+    a?: number;
 }
+
+// Warning: (ae-missing-release-tag) "rgba2hex" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export function rgba2hex(rgba: Rgba): string;
+
+// Warning: (ae-missing-release-tag) "rgbav2hex" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export function rgbav2hex(rgbav: [number, number, number, number]): string;
 
 // Warning: (ae-missing-release-tag) "Scheme" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //

@@ -34,6 +34,7 @@ export interface Theme
 |  [line](./core.theme.line.md) |  | [MarkFunction](./core.markfunction.md)<!-- -->&lt;[Line](./core.line.md)<!-- -->&gt; |  |
 |  [link](./core.theme.link.md) |  | [MarkFunction](./core.markfunction.md)<!-- -->&lt;[Link](./core.link.md)<!-- -->&gt; |  |
 |  [name](./core.theme.name.md) |  | string |  |
+|  [nearest](./core.theme.nearest.md) |  | (color: string, scale?: [NominalColorScaleFunction](./core.nominalcolorscalefunction.md)<!-- -->) =&gt; Color | Returns a theme color that's the closest to a CSS color string we can find. Note that by default this uses the standard nominal scale with 20 entries so there is plenty of variety to choose from. Pass in a different scale instance if you want something else to choose from. |
 |  [node](./core.theme.node.md) |  | [MarkFunction](./core.markfunction.md)<!-- -->&lt;[Node](./core.node.md)<!-- -->&gt; |  |
 |  [params](./core.theme.params.md) |  | Params |  |
 |  [plotArea](./core.theme.plotarea.md) |  | [ChromeFunction](./core.chromefunction.md)<!-- -->&lt;[PlotArea](./core.plotarea.md)<!-- -->&gt; |  |

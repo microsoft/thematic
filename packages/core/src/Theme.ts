@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type { Params, Scheme } from '@thematic/color'
-import { ColorBlindnessMode } from '@thematic/color'
+import { Color, ColorBlindnessMode, nearest } from '@thematic/color'
 import merge from 'lodash-es/merge.js'
 
 import {
@@ -54,6 +54,7 @@ import type {
 	Link,
 	MarkConfig,
 	Node,
+	NominalColorScaleFunction,
 	PlotArea,
 	Process,
 	Rect,
@@ -298,6 +299,13 @@ export class Theme implements ITheme {
 	}
 	public flow = (markConfig?: MarkConfig): Flow => {
 		return FlowImpl(this._themeDefinition.flow!, markConfig)
+	}
+	public nearest(color: string, scale?: NominalColorScaleFunction) {
+		const c = new Color(color)
+		const colors = scale
+			? scale.toColors()
+			: this.scales().nominal().toColors(20)
+		return nearest(c, colors)
 	}
 	/**
 	 * Gets the scheme with the appropriate size
