@@ -26,18 +26,6 @@ describe('nearest', () => {
 			'#a6a840',
 		].map(c => new Color(c))
 
-		test('blue', () => {
-			const color = new Color('blue')
-			const match = nearest(color, colors)
-			expect(match.hex()).toBe('#80acf7')
-		})
-
-		test('green', () => {
-			const color = new Color('green')
-			const match = nearest(color, colors)
-			expect(match.hex()).toBe('#35c456')
-		})
-
 		test('red', () => {
 			const color = new Color('red')
 			const match = nearest(color, colors)
@@ -47,13 +35,7 @@ describe('nearest', () => {
 		test('orange', () => {
 			const color = new Color('orange')
 			const match = nearest(color, colors)
-			expect(match.hex()).toBe('#e7973c')
-		})
-
-		test('pink', () => {
-			const color = new Color('pink')
-			const match = nearest(color, colors)
-			expect(match.hex()).toBe('#f88c8d')
+			expect(match.hex()).toBe('#ce9e3f')
 		})
 
 		test('yellow', () => {
@@ -62,13 +44,30 @@ describe('nearest', () => {
 			expect(match.hex()).toBe('#a6a840')
 		})
 
-		test('purple', () => {
-			const color = new Color('purple')
+		test('green', () => {
+			const color = new Color('green')
+			const match = nearest(color, colors)
+			expect(match.hex()).toBe('#35c456')
+		})
+
+		test('blue', () => {
+			const color = new Color('blue')
+			const match = nearest(color, colors)
+			expect(match.hex()).toBe('#80acf7')
+		})
+
+		test('indigo', () => {
+			const color = new Color('indigo')
+			const match = nearest(color, colors)
+			expect(match.hex()).toBe('#c095f4')
+		})
+
+		test('violet', () => {
+			const color = new Color('violet')
 			const match = nearest(color, colors)
 			expect(match.hex()).toBe('#f67eed')
 		})
 	})
-
 	describe('nearest within [autumn] nominal 20', () => {
 		// this is a MUCH different theme, so provides a nice contrast
 		// to confirm that the colors still look reasonable
@@ -95,18 +94,6 @@ describe('nearest', () => {
 			'#59a8f1',
 		].map(c => new Color(c))
 
-		test('blue', () => {
-			const color = new Color('blue')
-			const match = nearest(color, colors)
-			expect(match.hex()).toBe('#93a4f5')
-		})
-
-		test('green', () => {
-			const color = new Color('green')
-			const match = nearest(color, colors)
-			expect(match.hex()).toBe('#3abf74')
-		})
-
 		test('red', () => {
 			const color = new Color('red')
 			const match = nearest(color, colors)
@@ -119,20 +106,32 @@ describe('nearest', () => {
 			expect(match.hex()).toBe('#e09f35')
 		})
 
-		test('pink', () => {
-			const color = new Color('pink')
-			const match = nearest(color, colors)
-			expect(match.hex()).toBe('#f38090')
-		})
-
 		test('yellow', () => {
 			const color = new Color('yellow')
 			const match = nearest(color, colors)
 			expect(match.hex()).toBe('#b5ab3b')
 		})
 
-		test('purple', () => {
-			const color = new Color('purple')
+		test('green', () => {
+			const color = new Color('green')
+			const match = nearest(color, colors)
+			expect(match.hex()).toBe('#3abf74')
+		})
+
+		test('blue', () => {
+			const color = new Color('blue')
+			const match = nearest(color, colors)
+			expect(match.hex()).toBe('#93a4f5')
+		})
+
+		test('indigo', () => {
+			const color = new Color('indigo')
+			const match = nearest(color, colors)
+			expect(match.hex()).toBe('#d291f7')
+		})
+
+		test('violet', () => {
+			const color = new Color('violet')
 			const match = nearest(color, colors)
 			expect(match.hex()).toBe('#f57edc')
 		})

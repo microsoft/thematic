@@ -14,6 +14,12 @@ export class Color {
     // (undocumented)
     hex(alpha?: number): string;
     // (undocumented)
+    hsl(): {
+        h: number;
+        s: number;
+        l: number;
+    };
+    // (undocumented)
     hsluv(): [number, number, number];
     get raw(): string;
     // (undocumented)
@@ -201,7 +207,7 @@ export function lighten(css: string, value?: number): string;
 // Warning: (ae-missing-release-tag) "nearest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export function nearest(color: Color, list: Color[]): Color;
+export function nearest(input: Color, list: Color[]): Color;
 
 // Warning: (ae-missing-release-tag) "Params" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //

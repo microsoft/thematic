@@ -330,6 +330,36 @@
             },
             {
               "kind": "Method",
+              "canonicalReference": "@thematic/color!Color#hsl:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "hsl(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        h: number;\n        s: number;\n        l: number;\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "name": "hsl"
+            },
+            {
+              "kind": "Method",
               "canonicalReference": "@thematic/color!Color#hsluv:member(1)",
               "docComment": "",
               "excerptTokens": [
@@ -2397,7 +2427,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare function nearest(color: "
+              "text": "export declare function nearest(input: "
             },
             {
               "kind": "Reference",
@@ -2439,7 +2469,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "color",
+              "parameterName": "input",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2

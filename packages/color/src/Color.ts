@@ -5,6 +5,7 @@
 import {
 	css2css,
 	css2hex,
+	css2hsl,
 	css2hsluv,
 	css2rgba,
 	css2rgbaNumber,
@@ -51,6 +52,9 @@ export class Color {
 	}
 	hsluv(): [number, number, number] {
 		return css2hsluv(this._raw)
+	}
+	hsl(): { h: number; s: number; l: number } {
+		return css2hsl(this._raw)
 	}
 	toString(): string {
 		return this.hex()

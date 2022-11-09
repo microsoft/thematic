@@ -14,17 +14,20 @@ import type { Color } from './Color.js'
  * @param color
  * @param list
  */
-export function nearest(color: Color, list: Color[]): Color {
-	const hue = color.hsluv()[0]
-	const distances = list
-		.map(c => {
-			const chue = c.hsluv()[0]
-			return {
-				distance: Math.abs(hue - chue),
-				color: c,
-			}
-		})
-		.sort((a, b) => a.distance - b.distance)
-
-	return distances[0]!.color
+export function nearest(input: Color, list: Color[]): Color {
+	const hsl = input.hsl()
+	const distances = list.map(color => {
+		const hsl2 = color.hsl()
+		const left = hsl.h
+		const right = hsl2.h
+		let delta1 = Math.abs(left - right)
+		if (delta1 > 180) {
+			delta1 = 360 - delta1
+		}
+		return {
+			distance: delta1,
+			color,
+		}
+	})
+	return distances.sort((a, b) => a.distance - b.distance)[0]!.color
 }

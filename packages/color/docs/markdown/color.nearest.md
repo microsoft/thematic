@@ -13,14 +13,14 @@ If you need something like Euclidean distance use chrome-js.distance directly.
 <b>Signature:</b>
 
 ```typescript
-export declare function nearest(color: Color, list: Color[]): Color;
+export declare function nearest(input: Color, list: Color[]): Color;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  color | [Color](./color.color.md) |  |
+|  input | [Color](./color.color.md) |  |
 |  list | [Color](./color.color.md)<!-- -->\[\] |  |
 
 <b>Returns:</b>
