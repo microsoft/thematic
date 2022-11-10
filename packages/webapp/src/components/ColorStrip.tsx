@@ -66,9 +66,9 @@ export const ColorStrip: FC<ColorStripProps> = ({
 	const direction = vertical ? 'vertical' : 'horizontal'
 	return (
 		<div className={`color-strip-${direction}`}>
-			{colorDefinitions.map(def => (
+			{colorDefinitions.map((def, idx) => (
 				<ColorBlock
-					key={`${def.color}-${def.label ?? 'unknown'}`}
+					key={`${def.color}-${idx}`}
 					{...def}
 					vertical={vertical}
 					swatchStyle={swatchStyle}

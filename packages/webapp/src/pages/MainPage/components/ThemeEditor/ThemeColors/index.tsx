@@ -12,6 +12,7 @@ import { ApplicationPalette } from './ApplicationPalette.js'
 import { ColorBand } from './ColorBand.js'
 import { ColorStrip } from './ColorStrip.js'
 import { Contrast } from './Contrast.js'
+import { NamedPalette } from './NamedPalette.js'
 
 // this is the same number we use under the hood when constructing the continuous scales,
 // so it makes sense to use here and potentially allow the gradation bands to be visible,
@@ -74,17 +75,17 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 			<div
 				style={{
 					border: `1px solid ${foregroundColor!}`,
-					padding: '0 20px 20px 20px',
+					padding: '0 20px 10px 20px',
 					background: backgroundColor!,
 					color: foregroundColor!,
 					textAlign: 'left',
 				}}
 			>
-				<h2 style={{ color: headerColor! }}>Application colors</h2>
+				<h3 style={{ color: headerColor! }}>Application colors</h3>
 				<ApplicationPalette />
 				<ul
 					style={{
-						fontSize: 18,
+						fontSize: 14,
 						listStyleType: 'none',
 						paddingLeft: 0,
 					}}
@@ -110,7 +111,7 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 						)
 					</li>
 				</ul>
-				<h2 style={{ color: headerColor! }}>Scales</h2>
+				<h3 style={{ color: headerColor! }}>Scales</h3>
 				<div
 					style={{
 						display: 'flex',
@@ -171,6 +172,27 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 						colors={greys!}
 						width={BAND_WIDTH}
 					/>
+				</div>
+				<h3 style={{ color: headerColor! }}>Color matching</h3>
+				<div
+					style={{
+						display: 'flex',
+					}}
+				>
+					<div
+						style={{
+							width: 200,
+							fontSize: 14,
+						}}
+					>
+						Thematic&apos;s <i>nearest</i> method will attempt to match any
+						valid CSS color with the closest theme-compatible scale color using
+						the hue component.
+						<br />
+						<br />
+						ROYGBIV examples here.
+					</div>
+					<NamedPalette />
 				</div>
 			</div>
 		</div>
