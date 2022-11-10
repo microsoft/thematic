@@ -4,7 +4,7 @@
 
 ```ts
 
-import type { Color } from '@thematic/color';
+import { Color } from '@thematic/color';
 import { ColorBlindnessMode } from '@thematic/color';
 import type { Params } from '@thematic/color';
 import type { Scheme } from '@thematic/color';
@@ -228,6 +228,8 @@ export function clone(theme: Theme, updatedSpec?: ThemeSpec, updatedConfig?: The
 // @public (undocumented)
 export interface ColorScaleFunction {
     toArray: (length?: number) => string[];
+    // (undocumented)
+    toColors: (length?: number) => Color[];
 }
 
 // Warning: (ae-missing-release-tag) "ColorScales" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
@@ -656,6 +658,7 @@ export interface Theme {
     link: MarkFunction<Link>;
     // (undocumented)
     name: string;
+    nearest: (color: string, scale?: NominalColorScaleFunction) => Color;
     // (undocumented)
     node: MarkFunction<Node>;
     // (undocumented)
@@ -789,6 +792,8 @@ export class ThemeImpl implements Theme {
     link: (markConfig?: MarkConfig) => Link;
     // (undocumented)
     get name(): string;
+    // (undocumented)
+    nearest(color: string, scale?: NominalColorScaleFunction): Color;
     // (undocumented)
     node: (markConfig?: MarkConfig) => Node;
     // (undocumented)

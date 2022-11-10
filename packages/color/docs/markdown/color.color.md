@@ -32,6 +32,9 @@ export declare class Color
 |  --- | --- | --- |
 |  [css(alpha)](./color.color.css.md) |  |  |
 |  [hex(alpha)](./color.color.hex.md) |  |  |
+|  [hsl()](./color.color.hsl.md) |  |  |
+|  [hsluv()](./color.color.hsluv.md) |  |  |
+|  [rgba(alpha)](./color.color.rgba.md) |  |  |
 |  [rgbaint(alpha)](./color.color.rgbaint.md) |  |  |
 |  [rgbav(alpha)](./color.color.rgbav.md) |  |  |
 |  [toString()](./color.color.tostring.md) |  |  |

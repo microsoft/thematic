@@ -15,5 +15,5 @@ export interface Rgba extends Rgb
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [a](./color.rgba.a.md) |  | number |  |
+|  [a?](./color.rgba.a.md) |  | number | <i>(Optional)</i> |
 

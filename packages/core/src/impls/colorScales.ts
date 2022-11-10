@@ -57,6 +57,10 @@ export function nominal(
 		})
 	}
 
+	fn.toColors = function (length?: number) {
+		return this.toArray(length).map(color => new Color(color))
+	}
+
 	return fn
 }
 
@@ -99,6 +103,10 @@ export function continuous(
 		return new Array(l).fill(1).map((_a, i) => {
 			return fn(step * i).hex()
 		})
+	}
+
+	fn.toColors = function (length?: number) {
+		return this.toArray(length).map(color => new Color(color))
 	}
 
 	return fn

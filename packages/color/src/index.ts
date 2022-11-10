@@ -5,6 +5,7 @@
 export * from './chroma.js'
 export * from './Color.js'
 export * from './colorBlindness.js'
+export * from './nearest.js'
 export * from './scheme.js'
 export * from './types.js'
 

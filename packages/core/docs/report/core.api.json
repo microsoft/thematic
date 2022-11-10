@@ -2347,6 +2347,42 @@
                 "startIndex": 1,
                 "endIndex": 2
               }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/core!ColorScaleFunction#toColors:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "toColors: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(length?: number) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Color",
+                  "canonicalReference": "@thematic/color!Color:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "toColors",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
             }
           ],
           "extendsTokenRanges": []
@@ -6240,6 +6276,47 @@
             },
             {
               "kind": "PropertySignature",
+              "canonicalReference": "@thematic/core!Theme#nearest:member",
+              "docComment": "/**\n * Returns a theme color that's the closest to a CSS color string we can find. Note that by default this uses the standard nominal scale with 20 entries so there is plenty of variety to choose from. Pass in a different scale instance if you want something else to choose from.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nearest: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(color: string, scale?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NominalColorScaleFunction",
+                  "canonicalReference": "@thematic/core!NominalColorScaleFunction:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ") => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Color",
+                  "canonicalReference": "@thematic/color!Color:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "nearest",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "@thematic/core!Theme#node:member",
               "docComment": "",
               "excerptTokens": [
@@ -8312,6 +8389,71 @@
               },
               "isStatic": false,
               "isProtected": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@thematic/core!ThemeImpl#nearest:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nearest(color: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", scale?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NominalColorScaleFunction",
+                  "canonicalReference": "@thematic/core!NominalColorScaleFunction:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Color",
+                  "canonicalReference": "@thematic/color!Color:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "color",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "scale",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": true
+                }
+              ],
+              "isOptional": false,
+              "name": "nearest"
             },
             {
               "kind": "Property",

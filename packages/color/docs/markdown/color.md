@@ -41,6 +41,9 @@
 |  [isNominal(name)](./color.isnominal.md) |  |
 |  [lch2hex(l, c, h)](./color.lch2hex.md) | Convert a set of l, c, and h values to a standard CSS-comptible hex string |
 |  [lighten(css, value)](./color.lighten.md) | Lighten a standard CSS color |
+|  [nearest(input, list)](./color.nearest.md) | <p>Finds the closest match from one color within a list.</p><p>This just uses the Hue component from the HSLuv variant. The idea is that we just want the visually closest color.</p><p>If you need something like Euclidean distance use chrome-js.distance directly.</p> |
+|  [rgba2hex(rgba)](./color.rgba2hex.md) |  |
+|  [rgbav2hex(rgbav)](./color.rgbav2hex.md) |  |
 
 ## Interfaces
 

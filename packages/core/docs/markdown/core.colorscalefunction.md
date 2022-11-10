@@ -15,4 +15,5 @@ export interface ColorScaleFunction
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
 |  [toArray](./core.colorscalefunction.toarray.md) |  | (length?: number) =&gt; string\[\] | Returns an array of scale colors in hex format. |
+|  [toColors](./core.colorscalefunction.tocolors.md) |  | (length?: number) =&gt; Color\[\] |  |
 

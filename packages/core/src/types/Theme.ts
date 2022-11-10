@@ -139,6 +139,7 @@ export interface ColorScaleFunction {
 	 * @param length - specific to override, otherwise it will use whatever length the scale was created with
 	 */
 	toArray: (length?: number) => string[]
+	toColors: (length?: number) => Color[]
 }
 
 export interface NominalColorScaleFunction extends ColorScaleFunction {
@@ -310,4 +311,10 @@ export interface Theme {
 	 * The return type can be anything: review the typings of the supplied transformer.
 	 */
 	transform: (transformer: Transformer) => unknown
+	/**
+	 * Returns a theme color that's the closest to a CSS color string we can find.
+	 * Note that by default this uses the standard nominal scale with 20 entries so there is plenty of variety to choose from.
+	 * Pass in a different scale instance if you want something else to choose from.
+	 */
+	nearest: (color: string, scale?: NominalColorScaleFunction) => Color
 }
