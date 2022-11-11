@@ -2,74 +2,55 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { ColorMaker } from '../scheme/HsluvColorLogic.js'
+import { getScheme } from '../scheme/HsluvColorLogic.js'
 
 const GREYS = [
-	[50, 0, 92],
-	[50, 0, 84],
-	[50, 0, 76],
-	[50, 0, 68],
-	[50, 0, 60],
-	[50, 0, 52],
-	[50, 0, 44],
-	[50, 0, 36.000000000000007],
-	[50, 0, 28],
-	[50, 0, 20],
+	'#e8e8e8',
+	'#d1d1d1',
+	'#bbbbbb',
+	'#a6a6a6',
+	'#919191',
+	'#7c7c7c',
+	'#686868',
+	'#555555',
+	'#424242',
+	'#303030',
 ]
+const SEQUENTIAL1 = ['#e8e8e8', '#dac7b7', '#d0a67a', '#ba8947', '#a06d00']
 
-const SEQUENTIAL1 = [
-	[50, 0, 92],
-	[50, 25, 81.5],
-	[50, 50, 71],
-	[50, 75, 60.5],
-	[50, 100, 50],
-]
-
-const SEQUENTIAL2 = [
-	[58.57142857142857, 0, 92],
-	[58.57142857142857, 25, 81.5],
-	[58.57142857142857, 50, 71],
-	[58.57142857142857, 75, 60.5],
-	[58.57142857142857, 100, 50],
-]
+const SEQUENTIAL2 = ['#e8e8e8', '#dbc8af', '#c8a97a', '#b18d47', '#977100']
 
 const DIVERGING = [
-	[140, 100, 50],
-	[140, 71.55417527999329, 61.947246382402824],
-	[140, 46.47580015448901, 72.48016393511462],
-	[140, 25.29822128134704, 81.37474706183424],
-	[140, 8.944271909999161, 88.24340579780035],
-	[50, 8.944271909999161, 88.24340579780035],
-	[50, 25.29822128134704, 81.37474706183424],
-	[50, 46.47580015448901, 72.48016393511462],
-	[50, 71.55417527999329, 61.947246382402824],
-	[50, 100, 50],
+	'#00894b',
+	'#50a771',
+	'#82bf97',
+	'#afd3ba',
+	'#d3e1d7',
+	'#e1ddd9',
+	'#dac7b6',
+	'#d2ab81',
+	'#bd8d4e',
+	'#a06d00',
 ]
 
-describe('ColorMaker', () => {
-	test('can be instantiated', () => {
-		expect(() => new ColorMaker([50, 50, 50], 50, 50, 50, true)).not.toThrow()
-	})
+// TODO: test light v dark
 
-	// TODO: test light v dark
+describe('getScheme', () => {
 	test('can create grey scales', () => {
-		const colorMaker = new ColorMaker([50, 50, 50], 50, 50, 50, true)
-		const greys = colorMaker.grey(10)
-		expect(greys).toEqual(GREYS)
-	})
-
-	test('can create sequential scales', () => {
-		const colorMaker = new ColorMaker([50, 50, 50], 50, 50, 50, true)
-		const sequential1 = colorMaker.sequential(5)
-		const sequential2 = colorMaker.sequential(5, 1)
-		expect(sequential1).toEqual(SEQUENTIAL1)
-		expect(sequential2).toEqual(SEQUENTIAL2)
-	})
-
-	test('can create diverging scales', () => {
-		const colorMaker = new ColorMaker([50, 50, 50], 50, 50, 50, true)
-		const diverging = colorMaker.diverging(10)
-		expect(diverging).toEqual(DIVERGING)
+		const scheme = getScheme(
+			{
+				accentHue: 50,
+				accentSaturation: 50,
+				accentLuminance: 50,
+				backgroundLevel: 50,
+				backgroundHueShift: 50,
+				nominalHueStep: 50,
+			},
+			10,
+			10,
+			true,
+		)
+		expect(scheme.greys).toEqual(GREYS)
 	})
 
 	describe('nominal count matches requested size', () => {
@@ -77,21 +58,93 @@ describe('ColorMaker', () => {
 		// but this can result in mismatched final counts
 		// ensure that the resulting nominal scales are trimmed correctly
 		test('default hue step (10)', () => {
-			const colorMaker = new ColorMaker([50, 50, 50], 50, 50, 10, true)
-			const scale = colorMaker.nominal(1)
-			expect(scale.size).toBe(1)
+			const scheme = getScheme(
+				{
+					accentHue: 50,
+					accentSaturation: 50,
+					accentLuminance: 50,
+					backgroundLevel: 50,
+					backgroundHueShift: 50,
+					nominalHueStep: 50,
+				},
+				1,
+				10,
+				true,
+			)
+			expect(scheme.nominal).toHaveLength(1)
 		})
 
 		test('hue step < 10 (3)', () => {
-			const colorMaker = new ColorMaker([50, 50, 50], 50, 50, 3, true)
-			const scale = colorMaker.nominal(1)
-			expect(scale.size).toBe(1)
+			const scheme = getScheme(
+				{
+					accentHue: 50,
+					accentSaturation: 50,
+					accentLuminance: 50,
+					backgroundLevel: 50,
+					backgroundHueShift: 50,
+					nominalHueStep: 3,
+				},
+				1,
+				10,
+				true,
+			)
+			expect(scheme.nominal).toHaveLength(1)
 		})
 
 		test('hue step > 10 (14)', () => {
-			const colorMaker = new ColorMaker([50, 50, 50], 50, 50, 14, true)
-			const scale = colorMaker.nominal(2)
-			expect(scale.size).toBe(2)
+			const scheme = getScheme(
+				{
+					accentHue: 50,
+					accentSaturation: 50,
+					accentLuminance: 50,
+					backgroundLevel: 50,
+					backgroundHueShift: 50,
+					nominalHueStep: 14,
+				},
+				2,
+				10,
+				true,
+			)
+			expect(scheme.nominal).toHaveLength(2)
+		})
+	})
+
+	describe('sequential scales', () => {
+		test('can create sequential scales', () => {
+			const scheme = getScheme(
+				{
+					accentHue: 50,
+					accentSaturation: 50,
+					accentLuminance: 50,
+					backgroundLevel: 50,
+					backgroundHueShift: 50,
+					nominalHueStep: 50,
+				},
+				10,
+				5,
+				true,
+			)
+			expect(scheme.sequential).toEqual(SEQUENTIAL1)
+			expect(scheme.sequential2).toEqual(SEQUENTIAL2)
+		})
+	})
+
+	describe('diverging scales', () => {
+		test('can create diverging scales', () => {
+			const scheme = getScheme(
+				{
+					accentHue: 50,
+					accentSaturation: 50,
+					accentLuminance: 50,
+					backgroundLevel: 50,
+					backgroundHueShift: 50,
+					nominalHueStep: 50,
+				},
+				10,
+				10,
+				true,
+			)
+			expect(scheme.diverging).toEqual(DIVERGING)
 		})
 	})
 })
