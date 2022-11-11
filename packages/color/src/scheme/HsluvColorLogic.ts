@@ -7,31 +7,31 @@ import chroma from 'chroma-js'
 import { hsluv2hex } from '../chroma.js'
 import type { Params, Scheme } from '../types'
 
-const lightTextLuminance = 95
-const darkTextLuminance = 20
-const lightScaleLuminance = 70
-const darkScaleLuminance = 70
-const maxSaturation = 100
-const maxLightLuminanceOffset = 5
-const maxDarkLuminanceOffset = 10
-const maxBackgroundChroma = 4 // absolute
-const lightScaleBackgroundLuminanceShift = 10
-const darkScaleBackgroundLuminanceShift = 3
-const analogousRange = 60
-const complementaryRange = 60
-const nominalSaturation = 90
-const nominalLighterShift = 15
-const nominalDarkerShift = 30
-const boldSaturationShift = 10
-const mutedSaturationShift = 55
-const minNominalSaturation = 10
-const minNominalLuminance = 50
-const linearExponent = 1
-const polynomialExponent = 1.5
-const lowContrastBackgroundShift = 20
-const darkestGrey = 20
-const lightestGrey = 90
-const offsetBackgroundLuminanceShift = 1
+const LIGHT_TEXT_LUMINANCE = 95
+const DARK_TEXT_LUMINANCE = 20
+const LIGHT_SCALE_LUMINANCE = 70
+const DARK_SCALE_LUMINANCE = 70
+const MAX_SATURATION = 100
+const MAX_LIGHT_LUMINANCE_OFFSET = 5
+const MAX_DARK_LUMINANCE_OFFSET = 10
+const MAX_BACKGROUND_CHROMA = 4 // absolute
+const LIGHT_SCALE_BACKGROUND_LUMINANCE_SHIFT = 10
+const DARK_SCALE_BACKGROUND_LUMINANCE_SHIFT = 3
+const ANALOGOUS_RANGE = 60
+const COMPLEMENTARY_RANGE = 60
+const NOMINAL_SATURATION = 90
+const NOMINAL_LIGHTER_SHIFT = 15
+const NOMINAL_DARKER_SHIFT = 30
+const BOLD_SATURATION_SHIFT = 10
+const MUTED_SATURATION_SHIFT = 55
+const MIN_NOMINAL_SATURATION = 10
+const MIN_NOMINAL_LUMINANCE = 50
+const LINEAR_EXPONENT = 1
+const POLYNOMIAL_EXPONENT = 1.5
+const LOW_CONTRAST_BACKGROUND_SHIFT = 20
+const DARKET_GREY = 20
+const LIGHTEST_GREY = 90
+const OFFSET_BACKGROUND_LUMINANCE_SHIFT = 1
 
 export interface NominalHueSequence {
 	bold: [number, number, number][]
@@ -82,15 +82,15 @@ export function polynomial_hsl_scale(
 function getOffsetHue([h]: HSLVector, hueShift: number) {
 	if (hueShift >= 25 && hueShift <= 75) {
 		//  analogous range
-		const delta = (analogousRange * (hueShift - 50)) / 25
+		const delta = (ANALOGOUS_RANGE * (hueShift - 50)) / 25
 		return (h + delta) % 360
 	} else if (hueShift > 75) {
 		// clockwise complementary range
-		const delta = 180 - (complementaryRange * (100 - hueShift)) / 25
+		const delta = 180 - (COMPLEMENTARY_RANGE * (100 - hueShift)) / 25
 		return (h + delta) % 360
 	} else {
 		// anticlockwise complementary range
-		const delta = 180 + (complementaryRange * hueShift) / 25
+		const delta = 180 + (COMPLEMENTARY_RANGE * hueShift) / 25
 		return (h + delta) % 360
 	}
 }
@@ -103,7 +103,7 @@ function getBackgroundSaturationaAndLuminance(
 	function normalizeSaturation(_h: number, l: number) {
 		let satGivingMaxChroma = 100
 		let c = chroma.hex(hsluv2hex(hue, 100, l)).hcl()[1]
-		while (c > maxBackgroundChroma && satGivingMaxChroma >= 0) {
+		while (c > MAX_BACKGROUND_CHROMA && satGivingMaxChroma >= 0) {
 			satGivingMaxChroma -= 1
 			c = chroma.hex(hsluv2hex(hue, satGivingMaxChroma, l)).hcl()[1]
 		}
@@ -111,19 +111,19 @@ function getBackgroundSaturationaAndLuminance(
 	}
 	if (light) {
 		if (backgroundLevel < 50) {
-			const l = 100 - maxLightLuminanceOffset
+			const l = 100 - MAX_LIGHT_LUMINANCE_OFFSET
 			return [(backgroundLevel * normalizeSaturation(hue, l)) / 50, l]
 		} else {
 			const l =
-				100 - maxLightLuminanceOffset * (1 - (backgroundLevel - 50) / 50)
+				100 - MAX_LIGHT_LUMINANCE_OFFSET * (1 - (backgroundLevel - 50) / 50)
 			return [normalizeSaturation(hue, l), l]
 		}
 	} else {
 		if (backgroundLevel < 50) {
-			const l = maxDarkLuminanceOffset
+			const l = MAX_DARK_LUMINANCE_OFFSET
 			return [(backgroundLevel * normalizeSaturation(hue, l)) / 50, l]
 		} else {
-			const l = maxDarkLuminanceOffset * (1 - (backgroundLevel - 50) / 50)
+			const l = MAX_DARK_LUMINANCE_OFFSET * (1 - (backgroundLevel - 50) / 50)
 			return [normalizeSaturation(hue, l), l]
 		}
 	}
@@ -152,8 +152,8 @@ export class ColorMaker {
 		public readonly nominalHueStep: number,
 		public readonly light: boolean,
 	) {
-		this.textLuminance = light ? darkTextLuminance : lightTextLuminance
-		this.scaleLuminance = light ? darkScaleLuminance : lightScaleLuminance
+		this.textLuminance = light ? DARK_TEXT_LUMINANCE : LIGHT_TEXT_LUMINANCE
+		this.scaleLuminance = light ? DARK_SCALE_LUMINANCE : LIGHT_SCALE_LUMINANCE
 
 		const h = getOffsetHue(this.accentHsl, this.backgroundHueShift)
 		const [s, l] = getBackgroundSaturationaAndLuminance(
@@ -163,19 +163,19 @@ export class ColorMaker {
 		)
 		this.backgroundHsl = [h, s, l]
 		const offsetBackgroundLuminance = light
-			? Math.min(100, l + offsetBackgroundLuminanceShift)
-			: Math.max(0, l - offsetBackgroundLuminanceShift)
+			? Math.min(100, l + OFFSET_BACKGROUND_LUMINANCE_SHIFT)
+			: Math.max(0, l - OFFSET_BACKGROUND_LUMINANCE_SHIFT)
 		this.offsetbackgroundHsl = [h, s, offsetBackgroundLuminance]
 		this.foregroundHsl = [0, 0, this.textLuminance]
 
 		this.greyLuminance = this.light
-			? this.backgroundHsl[2] - darkScaleBackgroundLuminanceShift
-			: this.backgroundHsl[2] + lightScaleBackgroundLuminanceShift
+			? this.backgroundHsl[2] - DARK_SCALE_BACKGROUND_LUMINANCE_SHIFT
+			: this.backgroundHsl[2] + LIGHT_SCALE_BACKGROUND_LUMINANCE_SHIFT
 		const mutedGreyLuminance = this.light
-			? this.backgroundHsl[2] - lowContrastBackgroundShift
-			: this.backgroundHsl[2] + lowContrastBackgroundShift
+			? this.backgroundHsl[2] - LOW_CONTRAST_BACKGROUND_SHIFT
+			: this.backgroundHsl[2] + LOW_CONTRAST_BACKGROUND_SHIFT
 
-		const boldGreyLuminance = this.light ? darkestGrey : lightestGrey
+		const boldGreyLuminance = this.light ? DARKET_GREY : LIGHTEST_GREY
 		const greys = this.explicitGrey(5, mutedGreyLuminance, boldGreyLuminance)
 		this.lowContrastAnnotationHsl = greys[0] as HSLVector
 		this.lowMidContrastAnnotationHsl = greys[1] as HSLVector
@@ -184,13 +184,13 @@ export class ColorMaker {
 		this.highContrastAnnotationHsl = greys[4] as HSLVector
 		// halfway to the background from the darkest/lightest
 		const faintLuminance = this.light
-			? (100 - lightestGrey) / 2 + lightestGrey
-			: darkestGrey / 2
+			? (100 - LIGHTEST_GREY) / 2 + LIGHTEST_GREY
+			: DARKET_GREY / 2
 		this.faintAnnotationHsl = [this.accentHsl[0], 0, faintLuminance]
 	}
 
 	public grey(size: number): HSLVector[] {
-		const boldGreyLuminance = this.light ? darkestGrey : lightestGrey
+		const boldGreyLuminance = this.light ? DARKET_GREY : LIGHTEST_GREY
 		return this.explicitGrey(size, this.greyLuminance, boldGreyLuminance)
 	}
 
@@ -219,7 +219,7 @@ export class ColorMaker {
 	) {
 		const greyFrom: HSLVector = [this.accentHsl[0], 0, startLuminance]
 		const greyTo: HSLVector = [this.accentHsl[0], 0, endLuminance]
-		return polynomial_hsl_scale(linearExponent, greyFrom, greyTo, size)
+		return polynomial_hsl_scale(LINEAR_EXPONENT, greyFrom, greyTo, size)
 	}
 
 	private getAccentsAndComplements(
@@ -242,12 +242,12 @@ export class ColorMaker {
 		const greyComplement: HSLVector = [complementHue, 0, greyLuminance]
 		const maxSaturationAccent: HSLVector = [
 			accentHue,
-			maxSaturation,
+			MAX_SATURATION,
 			colorLuminance,
 		]
 		const maxSaturationComplement: HSLVector = [
 			complementHue,
-			maxSaturation,
+			MAX_SATURATION,
 			colorLuminance,
 		]
 
@@ -265,7 +265,7 @@ export class ColorMaker {
 			offset,
 		)
 		return polynomial_hsl_scale(
-			linearExponent,
+			LINEAR_EXPONENT,
 			greyAccent,
 			maxSaturationAccent,
 			size,
@@ -276,7 +276,7 @@ export class ColorMaker {
 		const { greyAccent, maxSaturationComplement } =
 			this.getAccentsAndComplements(size, offset)
 		return polynomial_hsl_scale(
-			linearExponent,
+			LINEAR_EXPONENT,
 			greyAccent,
 			maxSaturationComplement,
 			size,
@@ -295,7 +295,7 @@ export class ColorMaker {
 		const cut = size % 2 === 0 ? half + 1 : half
 
 		let diverging = polynomial_hsl_scale(
-			polynomialExponent,
+			POLYNOMIAL_EXPONENT,
 			greyComplement,
 			maxSaturationComplement,
 			cut,
@@ -304,7 +304,7 @@ export class ColorMaker {
 			.reverse()
 
 		let toAdd = polynomial_hsl_scale(
-			polynomialExponent,
+			POLYNOMIAL_EXPONENT,
 			greyAccent,
 			maxSaturationAccent,
 			cut,
@@ -354,27 +354,27 @@ export class ColorMaker {
 		// which can result in minimum counts higher than requested
 		hues = hues.slice(0, size)
 
-		let baseSaturation = nominalSaturation
+		let baseSaturation = NOMINAL_SATURATION
 		let baseLuminance = this.scaleLuminance
 
 		const addHue = (hue: number) => {
 			nominal.push([hue, baseSaturation, baseLuminance])
 			nominalBold.push([
 				hue,
-				0.5 * (nominalSaturation + baseSaturation) + boldSaturationShift,
-				0.5 * (this.scaleLuminance + baseLuminance) - nominalDarkerShift,
+				0.5 * (NOMINAL_SATURATION + baseSaturation) + BOLD_SATURATION_SHIFT,
+				0.5 * (this.scaleLuminance + baseLuminance) - NOMINAL_DARKER_SHIFT,
 			])
 			nominalMuted.push([
 				hue,
-				0.5 * (nominalSaturation + baseSaturation) - mutedSaturationShift,
-				0.5 * (this.scaleLuminance + baseLuminance) + nominalLighterShift,
+				0.5 * (NOMINAL_SATURATION + baseSaturation) - MUTED_SATURATION_SHIFT,
+				0.5 * (this.scaleLuminance + baseLuminance) + NOMINAL_LIGHTER_SHIFT,
 			])
 			nominalHues.push(hue)
 			if (nominal.length % 3 === 0) {
-				baseSaturation = Math.max(baseSaturation - 1, minNominalSaturation)
+				baseSaturation = Math.max(baseSaturation - 1, MIN_NOMINAL_SATURATION)
 			}
 			if (nominal.length % 6 === 0) {
-				baseLuminance = Math.max(baseLuminance - 1, minNominalLuminance)
+				baseLuminance = Math.max(baseLuminance - 1, MIN_NOMINAL_LUMINANCE)
 			}
 		}
 
