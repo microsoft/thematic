@@ -152,3 +152,5 @@ export interface Hsl {
 	s: number
 	l: number
 }
+
+export type HslVector = [number, number, number]

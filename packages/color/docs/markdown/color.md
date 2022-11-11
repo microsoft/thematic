@@ -63,3 +63,9 @@
 |  --- | --- |
 |  [defaultParams](./color.defaultparams.md) |  |
 
+## Type Aliases
+
+|  Type Alias | Description |
+|  --- | --- |
+|  [HslVector](./color.hslvector.md) |  |
+

@@ -177,6 +177,11 @@ export interface Hsl {
 // @public (undocumented)
 export function hsluv2hex(h: number, s: number, l: number): string;
 
+// Warning: (ae-missing-release-tag) "HslVector" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type HslVector = [number, number, number];
+
 // Warning: (ae-missing-release-tag) "Hsv" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)

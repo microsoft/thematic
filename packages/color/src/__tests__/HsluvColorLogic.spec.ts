@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { ColorMaker, polynomial_scale } from '../scheme/HsluvColorLogic.js'
+import { ColorMaker } from '../scheme/HsluvColorLogic.js'
 
 const GREYS = [
 	[50, 0, 92],
@@ -51,6 +51,7 @@ describe('ColorMaker', () => {
 		expect(() => new ColorMaker([50, 50, 50], 50, 50, 50, true)).not.toThrow()
 	})
 
+	// TODO: test light v dark
 	test('can create grey scales', () => {
 		const colorMaker = new ColorMaker([50, 50, 50], 50, 50, 50, true)
 		const greys = colorMaker.grey(10)
@@ -69,14 +70,6 @@ describe('ColorMaker', () => {
 		const colorMaker = new ColorMaker([50, 50, 50], 50, 50, 50, true)
 		const diverging = colorMaker.diverging(10)
 		expect(diverging).toEqual(DIVERGING)
-	})
-
-	test('has polynomial scales', () => {
-		const scale1 = polynomial_scale(1, 0, 10, 11).map(x => Math.round(x))
-		expect(scale1).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-
-		const scale2 = polynomial_scale(2, 0, 64, 8).map(x => Math.round(x))
-		expect(scale2).toEqual([0, 1, 5, 12, 21, 33, 47, 64])
 	})
 
 	describe('nominal count matches requested size', () => {

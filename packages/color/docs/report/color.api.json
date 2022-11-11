@@ -2143,6 +2143,31 @@
           "name": "hsluv2hex"
         },
         {
+          "kind": "TypeAlias",
+          "canonicalReference": "@thematic/color!HslVector:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type HslVector = "
+            },
+            {
+              "kind": "Content",
+              "text": "[number, number, number]"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "HslVector",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
           "kind": "Interface",
           "canonicalReference": "@thematic/color!Hsv:interface",
           "docComment": "",
