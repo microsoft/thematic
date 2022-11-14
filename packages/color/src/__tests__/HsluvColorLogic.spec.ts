@@ -41,7 +41,7 @@ describe('getScheme', () => {
 			{
 				accentHue: 50,
 				accentSaturation: 50,
-				accentLuminance: 50,
+				accentLightness: 50,
 				backgroundLevel: 50,
 				backgroundHueShift: 50,
 				nominalHueStep: 50,
@@ -62,7 +62,7 @@ describe('getScheme', () => {
 				{
 					accentHue: 50,
 					accentSaturation: 50,
-					accentLuminance: 50,
+					accentLightness: 50,
 					backgroundLevel: 50,
 					backgroundHueShift: 50,
 					nominalHueStep: 50,
@@ -79,7 +79,7 @@ describe('getScheme', () => {
 				{
 					accentHue: 50,
 					accentSaturation: 50,
-					accentLuminance: 50,
+					accentLightness: 50,
 					backgroundLevel: 50,
 					backgroundHueShift: 50,
 					nominalHueStep: 3,
@@ -96,7 +96,7 @@ describe('getScheme', () => {
 				{
 					accentHue: 50,
 					accentSaturation: 50,
-					accentLuminance: 50,
+					accentLightness: 50,
 					backgroundLevel: 50,
 					backgroundHueShift: 50,
 					nominalHueStep: 14,
@@ -115,7 +115,7 @@ describe('getScheme', () => {
 				{
 					accentHue: 50,
 					accentSaturation: 50,
-					accentLuminance: 50,
+					accentLightness: 50,
 					backgroundLevel: 50,
 					backgroundHueShift: 50,
 					nominalHueStep: 50,
@@ -135,7 +135,7 @@ describe('getScheme', () => {
 				{
 					accentHue: 50,
 					accentSaturation: 50,
-					accentLuminance: 50,
+					accentLightness: 50,
 					backgroundLevel: 50,
 					backgroundHueShift: 50,
 					nominalHueStep: 50,

@@ -1,6 +1,6 @@
-import { polynomialSequence } from '../scheme/functions.js'
+import { polynomialSequence } from '../scheme/utils.js'
 
-describe('schema compute functions', () => {
+describe('schema compute utils', () => {
 	describe('polynomialSequence', () => {
 		test('default linear', () => {
 			const scale1 = polynomialSequence(0, 10, 11).map(x => Math.round(x))

@@ -6,7 +6,7 @@
 import chroma from 'chroma-js'
 import { Hsluv } from 'hsluv'
 
-import type { Hsl, Hsv, Rgb, Rgba } from './types.js'
+import type { Hsl, HslVector, Hsv, Rgb, Rgba } from './types.js'
 
 /**
  * This is a variety of color utilities to minimize additional direct dependencies
@@ -28,15 +28,27 @@ export function css2hsluv(css: string): [number, number, number] {
 	) as [number, number, number]
 }
 
-export function hsluv2hex(h: number, s: number, l: number): string {
+export function hsluv2hex(hsluv: HslVector): string {
 	const conv = new Hsluv()
-	conv.hsluv_h = h
-	conv.hsluv_s = s
-	conv.hsluv_l = l
+	conv.hsluv_h = hsluv[0]
+	conv.hsluv_s = hsluv[1]
+	conv.hsluv_l = hsluv[2]
 	conv.hsluvToHex()
 	return conv.hex
 }
 
+/**
+ * Transforms a list of HSLuv vectors to hex strings.
+ * @param values
+ * @returns
+ */
+export function hsluvList2HexList(hsluvs: HslVector[]): string[] {
+	return hsluvs.map(hsluv2hex)
+}
+
+export function hsluv2hsl(hsluv: HslVector): [number, number, number] {
+	return chroma(hsluv2hex(hsluv)).hsl()
+}
 /**
  * Convert a standard CSS-compatible string to [l, c, h] array
  *

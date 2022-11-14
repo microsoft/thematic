@@ -13,7 +13,7 @@ export * from './types.js'
 export const defaultParams = {
 	accentHue: 252,
 	accentSaturation: 89,
-	accentLuminance: 50,
+	accentLightness: 50,
 	backgroundHueShift: 50,
 	backgroundLevel: 95,
 	nominalHueStep: 10,

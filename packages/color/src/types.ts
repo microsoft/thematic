@@ -6,10 +6,10 @@
 /**
  * This is the core set of parameters for generating schemes using the ColorPicker
  */
-export interface Params {
+export interface SchemeParams {
 	accentHue: number
 	accentSaturation: number
-	accentLuminance: number
+	accentLightness: number
 	backgroundHueShift: number
 	backgroundLevel: number
 	nominalHueStep: number

@@ -52,7 +52,7 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 			updateParams({
 				accentHue: h,
 				accentSaturation: s,
-				accentLuminance: l,
+				accentLightness: l,
 			})
 		},
 		[updateParams],
@@ -67,8 +67,8 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 		(v: number) => updateParams({ accentSaturation: v }),
 		[updateParams],
 	)
-	const handleAccentLuminanceChange = useCallback(
-		(v: number) => updateParams({ accentLuminance: v }),
+	const handleAccentLightnessChange = useCallback(
+		(v: number) => updateParams({ accentLightness: v }),
 		[updateParams],
 	)
 	const handleBackgroundLevelChange = useCallback(
@@ -87,7 +87,7 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 	const {
 		accentHue,
 		accentSaturation,
-		accentLuminance,
+		accentLightness,
 		backgroundLevel,
 		backgroundHueShift,
 		nominalHueStep,
@@ -143,11 +143,11 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 					<div style={sliderStyles}>
 						<Slider
 							label="Accent lightness"
-							value={accentLuminance}
+							value={accentLightness}
 							min={0}
 							max={100}
 							step={1}
-							onChange={handleAccentLuminanceChange}
+							onChange={handleAccentLightnessChange}
 						/>
 					</div>
 					<div style={sliderStyles}>

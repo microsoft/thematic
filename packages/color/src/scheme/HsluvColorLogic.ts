@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { hsluv2hex } from '../chroma.js'
-import type { Params, Scheme } from '../types'
+import { hsluv2hex, hsluvList2HexList } from '../chroma.js'
+import type { Scheme, SchemeParams } from '../types'
 import {
 	getAnnotations,
 	getBackgroundHsl,
@@ -17,7 +17,6 @@ import {
 	getOffsetBackgroundHsl,
 	getSequentialSequence,
 	greySequence,
-	hsluvList2HexList,
 } from './functions.js'
 
 /**
@@ -56,7 +55,7 @@ const OFFSET_BACKGROUND_LUMINANCE_SHIFT = 1
 
 // TODO: this should probably throw errors if out-of-bounds values are submitted OR, wrap around the geometry if that's always valid
 export function getScheme(
-	params: Params,
+	params: SchemeParams,
 	nominalItemCount: number,
 	sequentialItemCount: number,
 	light: boolean,
@@ -64,7 +63,7 @@ export function getScheme(
 	const {
 		accentHue,
 		accentSaturation,
-		accentLuminance,
+		accentLightness,
 		backgroundLevel,
 		backgroundHueShift,
 		nominalHueStep,
@@ -88,7 +87,7 @@ export function getScheme(
 		light,
 	)
 
-	const [, , backgroundLuminance] = backgroundHsl
+	const [, , backgroundLightness] = backgroundHsl
 
 	const offsetbackgroundHsl = getOffsetBackgroundHsl(
 		light,
@@ -96,16 +95,16 @@ export function getScheme(
 		OFFSET_BACKGROUND_LUMINANCE_SHIFT,
 	)
 
-	const boldGreyLuminance = light ? DARKEST_GREY : LIGHTEST_GREY
-	const greyLuminance = light
-		? backgroundLuminance - DARK_SCALE_BACKGROUND_LUMINANCE_SHIFT
-		: backgroundLuminance + LIGHT_SCALE_BACKGROUND_LUMINANCE_SHIFT
+	const boldGreyLightness = light ? DARKEST_GREY : LIGHTEST_GREY
+	const greyLightness = light
+		? backgroundLightness - DARK_SCALE_BACKGROUND_LUMINANCE_SHIFT
+		: backgroundLightness + LIGHT_SCALE_BACKGROUND_LUMINANCE_SHIFT
 
 	const greys = greySequence(
 		accentHue,
 		sequentialItemCount,
-		greyLuminance,
-		boldGreyLuminance,
+		greyLightness,
+		boldGreyLightness,
 	)
 
 	const {
@@ -117,15 +116,15 @@ export function getScheme(
 		highContrastAnnotationHsl,
 	} = getAnnotations(
 		accentHue,
-		backgroundLuminance,
-		boldGreyLuminance,
+		backgroundLightness,
+		boldGreyLightness,
 		LOW_CONTRAST_BACKGROUND_SHIFT,
 		LIGHTEST_GREY,
 		DARKEST_GREY,
 		light,
 	)
 
-	const scaleLuminance = light ? DARK_SCALE_LUMINANCE : LIGHT_SCALE_LUMINANCE
+	const scaleLightness = light ? DARK_SCALE_LUMINANCE : LIGHT_SCALE_LUMINANCE
 	const nominalHues = getNominalHues(
 		accentHue,
 		nominalHueStep,
@@ -135,14 +134,14 @@ export function getScheme(
 		nominalHues,
 		NOMINAL_SATURATION,
 		MIN_NOMINAL_SATURATION,
-		scaleLuminance,
+		scaleLightness,
 		MIN_NOMINAL_LUMINANCE,
 	)
 	const nominalMuted = getNominalMutedSequence(
 		nominalHues,
 		NOMINAL_SATURATION,
 		MIN_NOMINAL_SATURATION,
-		scaleLuminance,
+		scaleLightness,
 		MIN_NOMINAL_LUMINANCE,
 		MUTED_SATURATION_SHIFT,
 		NOMINAL_LIGHTER_SHIFT,
@@ -151,7 +150,7 @@ export function getScheme(
 		nominalHues,
 		NOMINAL_SATURATION,
 		MIN_NOMINAL_SATURATION,
-		scaleLuminance,
+		scaleLightness,
 		MIN_NOMINAL_LUMINANCE,
 		BOLD_SATURATION_SHIFT,
 		NOMINAL_DARKER_SHIFT,
@@ -159,16 +158,16 @@ export function getScheme(
 
 	const sequential1 = getSequentialSequence(
 		nominalHues,
-		accentLuminance,
-		greyLuminance,
+		accentLightness,
+		greyLightness,
 		MAX_SATURATION,
 		sequentialItemCount,
 		0,
 	)
 	const sequential2 = getSequentialSequence(
 		nominalHues,
-		accentLuminance,
-		greyLuminance,
+		accentLightness,
+		greyLightness,
 		MAX_SATURATION,
 		sequentialItemCount,
 		1,
@@ -176,8 +175,8 @@ export function getScheme(
 
 	const diverging1 = getDivergingSequence(
 		nominalHues,
-		accentLuminance,
-		greyLuminance,
+		accentLightness,
+		greyLightness,
 		MAX_SATURATION,
 		POLYNOMIAL_EXPONENT,
 		sequentialItemCount,
@@ -185,24 +184,24 @@ export function getScheme(
 	)
 	const diverging2 = getDivergingSequence(
 		nominalHues,
-		accentLuminance,
-		greyLuminance,
+		accentLightness,
+		greyLightness,
 		MAX_SATURATION,
 		POLYNOMIAL_EXPONENT,
 		sequentialItemCount,
 		1,
 	)
 	return {
-		background: hsluv2hex(...backgroundHsl),
-		offsetBackground: hsluv2hex(...offsetbackgroundHsl),
-		foreground: hsluv2hex(...foregroundHsl),
-		accent: hsluv2hex(accentHue, accentSaturation, accentLuminance),
-		lowContrastAnnotation: hsluv2hex(...lowContrastAnnotationHsl),
-		lowMidContrastAnnotation: hsluv2hex(...lowMidContrastAnnotationHsl),
-		midContrastAnnotation: hsluv2hex(...midContrastAnnotationHsl),
-		midHighContrastAnnotation: hsluv2hex(...midHighContrastAnnotationHsl),
-		highContrastAnnotation: hsluv2hex(...highContrastAnnotationHsl),
-		faintAnnotation: hsluv2hex(...faintAnnotationHsl),
+		background: hsluv2hex(backgroundHsl),
+		offsetBackground: hsluv2hex(offsetbackgroundHsl),
+		foreground: hsluv2hex(foregroundHsl),
+		accent: hsluv2hex([accentHue, accentSaturation, accentLightness]),
+		lowContrastAnnotation: hsluv2hex(lowContrastAnnotationHsl),
+		lowMidContrastAnnotation: hsluv2hex(lowMidContrastAnnotationHsl),
+		midContrastAnnotation: hsluv2hex(midContrastAnnotationHsl),
+		midHighContrastAnnotation: hsluv2hex(midHighContrastAnnotationHsl),
+		highContrastAnnotation: hsluv2hex(highContrastAnnotationHsl),
+		faintAnnotation: hsluv2hex(faintAnnotationHsl),
 		sequential: hsluvList2HexList(sequential1),
 		sequential2: hsluvList2HexList(sequential2),
 		diverging: hsluvList2HexList(diverging1),

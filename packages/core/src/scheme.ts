@@ -28,7 +28,7 @@ export function applyParams(spec: ThemeSpec): Params {
 	return {
 		accentHue: params.accentHue,
 		accentSaturation: params.accentSaturation,
-		accentLuminance: params.accentLuminance,
+		accentLightness: params.accentLightness,
 		backgroundHueShift: params.backgroundHueShift,
 		backgroundLevel: params.backgroundLevel,
 		nominalHueStep: params.nominalHueStep,

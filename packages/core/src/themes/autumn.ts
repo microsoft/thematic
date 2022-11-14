@@ -7,7 +7,7 @@ const autumnTheme = {
 	params: {
 		accentHue: 50,
 		accentSaturation: 86,
-		accentLuminance: 67,
+		accentLightness: 67,
 		backgroundLevel: 95,
 		backgroundHueShift: 50,
 		nominalHueStep: 10,
