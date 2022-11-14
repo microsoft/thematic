@@ -49,7 +49,7 @@ export const VegaChart: FC<VegaChartProps> = memo(function VegaChart({
 	const ref = useRef<HTMLDivElement>(null)
 	const view = useMemo(() => {
 		const spec = specs[type]
-		const merged = decorator(theme, spec, width, height)
+		const merged = decorator(theme, spec, { width, height })
 		const parsed = parse(merged)
 		return new View(parsed).renderer('svg')
 	}, [height, theme, type, width])

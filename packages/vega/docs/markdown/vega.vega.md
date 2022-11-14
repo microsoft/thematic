@@ -4,12 +4,17 @@
 
 ## vega() function
 
-Themes a vega spec using its top-level config block This is pretty easy for most visual properties since our field names match closely See https://vega.github.io/vega/docs/config/ TODO: allow specific overrides of any config block from the theme. For example, using a secondary sequential scale.
+Themes a vega spec using its top-level config block This is pretty easy for most visual properties since our field names match closely See https://vega.github.io/vega/docs/config/. Our theme config will \_not\_ override config blocks that are already in the spec, so you can customize any mark defaults independently.
 
 <b>Signature:</b>
 
 ```typescript
-export declare function vega(theme: Theme, spec: Spec, width?: number, height?: number): Spec;
+export declare function vega(theme: Theme, spec: Spec, options?: {
+    width?: number;
+    height?: number;
+    nominalCount?: number;
+    sequentialCount?: number;
+}): Spec;
 ```
 
 ## Parameters
@@ -18,8 +23,7 @@ export declare function vega(theme: Theme, spec: Spec, width?: number, height?: 
 |  --- | --- | --- |
 |  theme | Theme |  |
 |  spec | Spec |  |
-|  width | number | <i>(Optional)</i> |
-|  height | number | <i>(Optional)</i> |
+|  options | { width?: number; height?: number; nominalCount?: number; sequentialCount?: number; } | <i>(Optional)</i> |
 
 <b>Returns:</b>
 

@@ -3952,8 +3952,11 @@ __metadata:
     "@essex/scripts": ^22.1.0
     "@essex/tsconfig-base": ^1.0.2
     "@thematic/core": "workspace:^"
+    "@types/jest": ^29.2.2
+    "@types/lodash-es": ^4.17.6
     "@types/node": ^18.11.9
     jest: ^29.3.1
+    lodash-es: ^4.17.21
     vega: ^5.22.1
   peerDependencies:
     vega: 5

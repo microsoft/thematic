@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import type { SVGMark, Theme } from '@thematic/core'
+import merge from 'lodash-es/merge.js'
 import type { Spec } from 'vega'
 
 function mark(mark: SVGMark) {
@@ -119,14 +120,13 @@ function group(theme: Theme) {
 	return mark(theme.plotArea())
 }
 
-// TODO: allow configuration of the length
-function range(theme: Theme) {
+function range(theme: Theme, nominalCount = 10, sequentialCount = 100) {
 	return {
-		category: theme.scales().nominal().toArray(),
-		diverging: theme.scales().diverging().toArray(10),
-		heatmap: theme.scales().sequential().toArray(10),
-		ordinal: theme.scales().sequential().toArray(10),
-		ramp: theme.scales().sequential().toArray(10),
+		category: theme.scales().nominal().toArray(nominalCount),
+		diverging: theme.scales().diverging().toArray(sequentialCount),
+		heatmap: theme.scales().sequential().toArray(sequentialCount),
+		ordinal: theme.scales().sequential().toArray(sequentialCount),
+		ramp: theme.scales().sequential().toArray(sequentialCount),
 	}
 }
 
@@ -144,10 +144,6 @@ const transformers = {
 	text,
 	axis,
 	legend,
-}
-
-function clone(fragment: Spec) {
-	return JSON.parse(JSON.stringify(fragment))
 }
 
 // override stuff where there are bugs in vega
@@ -172,18 +168,22 @@ function __hack_fix__(theme: Theme, spec: Spec) {
 /**
  * Themes a vega spec using its top-level config block
  * This is pretty easy for most visual properties since our field names match closely
- * See 	https://vega.github.io/vega/docs/config/
- * TODO: allow specific overrides of any config block from the theme. For example, using a secondary sequential scale.
+ * See 	https://vega.github.io/vega/docs/config/.
+ * Our theme config will _not_ override config blocks that are already in the spec,
+ * so you can customize any mark defaults independently.
  */
 export function vega(
 	theme: Theme,
 	spec: Spec,
-	width?: number,
-	height?: number,
+	options?: {
+		width?: number
+		height?: number
+		nominalCount?: number
+		sequentialCount?: number
+	},
 ): Spec {
 	const fields = [
 		'group',
-		'range',
 		'axis',
 		'rect',
 		'symbol',
@@ -195,15 +195,23 @@ export function vega(
 		'legend',
 	]
 
-	const merged: Spec = {
-		...clone(spec),
-		...chart(theme),
-		width,
-		height,
-		config: fields.reduce((acc, cur) => {
-			acc[cur] = (transformers as any)[cur](theme)
-			return acc
-		}, {} as any),
-	}
-	return __hack_fix__(theme, merged)
+	// execute each transformer to get the basic config
+	const config = fields.reduce((acc, cur) => {
+		acc[cur] = (transformers as any)[cur](theme)
+		return acc
+	}, {} as any)
+	// roll in the range config, which has optional params
+	config.range = range(theme, options?.nominalCount, options?.sequentialCount)
+
+	const base: Spec = merge(
+		{
+			chart: chart(theme),
+			width: options?.width,
+			height: options?.height,
+			config,
+		},
+		spec,
+	)
+
+	return __hack_fix__(theme, base)
 }
