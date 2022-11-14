@@ -4,7 +4,6 @@
 	"license": "MIT",
 	"scripts": {
 		"preinstall": "npx only-allow yarn",
-		"postinstall": "husky install",
 		"clean": "turbo run clean",
 		"build": "turbo run build",
 		"bundle": "turbo run bundle",
