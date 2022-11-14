@@ -14,20 +14,16 @@ export class Color {
     // (undocumented)
     hex(alpha?: number): string;
     // (undocumented)
-    hsl(): {
-        h: number;
-        s: number;
-        l: number;
-    };
+    hsl(): Hsl;
     // (undocumented)
-    hsluv(): [number, number, number];
+    hsluv(): HslVector;
     get raw(): string;
     // (undocumented)
     rgba(alpha?: number): Rgba;
     // (undocumented)
     rgbaint(alpha?: number): number;
     // (undocumented)
-    rgbav(alpha?: number): [number, number, number, number];
+    rgbav(alpha?: number): RGBAV;
     // (undocumented)
     toString(): string;
 }
@@ -72,6 +68,8 @@ export enum ColorBlindnessMode {
 export enum ColorSpace {
     CSS = "css",
     HEX = "hex",
+    HSL = "hsl",
+    HSLUV = "hsluv",
     RGB = "rgb",
     RGBA = "rgba",
     RGBA_NUMBER = "rgbaint",
@@ -101,7 +99,7 @@ export function css2hsl(css: string, _alpha?: number): Hsl;
 // Warning: (ae-missing-release-tag) "css2hsluv" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export function css2hsluv(css: string): [number, number, number];
+export function css2hsluv(css: string): HslVector;
 
 // Warning: (ae-missing-release-tag) "css2hsv" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -111,7 +109,7 @@ export function css2hsv(css: string, _alpha?: number): Hsv;
 // Warning: (ae-missing-release-tag) "css2lch" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export function css2lch(css: string): [number, number, number];
+export function css2lch(css: string): HslVector;
 
 // Warning: (ae-missing-release-tag) "css2rgb" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -123,15 +121,15 @@ export function css2rgb(css: string, _alpha?: number): Rgb;
 // @public
 export function css2rgba(css: string, alpha?: number): Rgba;
 
-// Warning: (ae-missing-release-tag) "css2rgbaNumber" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "css2rgbaint" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export function css2rgbaNumber(css: string, alpha?: number): number;
+export function css2rgbaint(css: string, alpha?: number): number;
 
-// Warning: (ae-missing-release-tag) "css2rgbaVector" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "css2rgbav" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export function css2rgbaVector(css: string, alpha?: number): [number, number, number, number];
+export function css2rgbav(css: string, alpha?: number): [number, number, number, number];
 
 // Warning: (ae-missing-release-tag) "darken" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -144,7 +142,7 @@ export function darken(css: string, value?: number): string;
 export const defaultParams: {
     accentHue: number;
     accentSaturation: number;
-    accentLuminance: number;
+    accentLightness: number;
     backgroundHueShift: number;
     backgroundLevel: number;
     nominalHueStep: number;
@@ -158,7 +156,7 @@ export function getNamedSchemeColor(scheme: Scheme, path?: string): Color;
 // Warning: (ae-missing-release-tag) "getScheme" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export function getScheme(params: Params, nominalItemCount: number, sequentialItemCount: number, light: boolean): Scheme;
+export function getScheme(params: SchemeParams, nominalItemCount: number, sequentialItemCount: number, light: boolean): Scheme;
 
 // Warning: (ae-missing-release-tag) "Hsl" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -175,7 +173,12 @@ export interface Hsl {
 // Warning: (ae-missing-release-tag) "hsluv2hex" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export function hsluv2hex(h: number, s: number, l: number): string;
+export function hsluv2hex(hsluv: HslVector): string;
+
+// Warning: (ae-missing-release-tag) "hsluv2hsl" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export function hsluv2hsl(hsluv: HslVector): HslVector;
 
 // Warning: (ae-missing-release-tag) "HslVector" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -214,24 +217,6 @@ export function lighten(css: string, value?: number): string;
 // @public
 export function nearest(input: Color, list: Color[]): Color;
 
-// Warning: (ae-missing-release-tag) "Params" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public
-export interface Params {
-    // (undocumented)
-    accentHue: number;
-    // (undocumented)
-    accentLuminance: number;
-    // (undocumented)
-    accentSaturation: number;
-    // (undocumented)
-    backgroundHueShift: number;
-    // (undocumented)
-    backgroundLevel: number;
-    // (undocumented)
-    nominalHueStep: number;
-}
-
 // Warning: (ae-missing-release-tag) "Rgb" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
@@ -257,10 +242,15 @@ export interface Rgba extends Rgb {
 // @public (undocumented)
 export function rgba2hex(rgba: Rgba): string;
 
+// Warning: (ae-missing-release-tag) "RGBAV" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export type RGBAV = [number, number, number, number];
+
 // Warning: (ae-missing-release-tag) "rgbav2hex" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export function rgbav2hex(rgbav: [number, number, number, number]): string;
+export function rgbav2hex(rgbav: RGBAV): string;
 
 // Warning: (ae-missing-release-tag) "Scheme" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -306,6 +296,24 @@ export interface Scheme {
     sequential2: string[];
     // (undocumented)
     warning: string;
+}
+
+// Warning: (ae-missing-release-tag) "SchemeParams" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface SchemeParams {
+    // (undocumented)
+    accentHue: number;
+    // (undocumented)
+    accentLightness: number;
+    // (undocumented)
+    accentSaturation: number;
+    // (undocumented)
+    backgroundHueShift: number;
+    // (undocumented)
+    backgroundLevel: number;
+    // (undocumented)
+    nominalHueStep: number;
 }
 
 // (No @packageDocumentation comment for this package)

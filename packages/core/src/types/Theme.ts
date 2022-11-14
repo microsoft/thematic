@@ -2,7 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { Color, ColorBlindnessMode, Params, Scheme } from '@thematic/color'
+import type {
+	Color,
+	ColorBlindnessMode,
+	Scheme,
+	SchemeParams,
+} from '@thematic/color'
 
 import type { ScaleType, SelectionState, ThemeVariant } from './enums.js'
 import type { ThemeConfig } from './ThemeConfig.js'
@@ -263,7 +268,7 @@ export interface Theme {
 	name: string
 	dark: boolean
 	variant: ThemeVariant
-	params: Params
+	params: SchemeParams
 	scheme: Scheme
 	spec: ThemeSpec
 	config: ThemeConfig

@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { ColorBlindnessMode, Params, Scheme } from '@thematic/color'
+import type { ColorBlindnessMode, Scheme, SchemeParams } from '@thematic/color'
 import { colorBlindness, defaultParams, getScheme } from '@thematic/color'
 import merge from 'lodash-es/merge.js'
 import set from 'lodash-es/set.js'
@@ -20,10 +20,10 @@ type Config = {
 }
 
 /**
- * Creates a completed Params block from a ThemeDefinition, making sure missing optional fields are populated.
+ * Creates a completed SchemeParams block from a ThemeDefinition, making sure missing optional fields are populated.
  * @param themeDefinition
  */
-export function applyParams(spec: ThemeSpec): Params {
+export function applyParams(spec: ThemeSpec): SchemeParams {
 	const { params = defaultParams } = spec
 	return {
 		accentHue: params.accentHue,
@@ -36,7 +36,7 @@ export function applyParams(spec: ThemeSpec): Params {
 }
 
 /**
- * Creates a computed scheme from a ThemeDefinition (specifically, the Params in the definition).
+ * Creates a computed scheme from a ThemeDefinition (specifically, the SchemeParams in the definition).
  * Note that this creates scales with 10 items as a default, useful for saving to file, etc.
  * If more gradations are desired, a new scheme should be created at point-of-use.
  * TODO: separate the scale bisection using Scheme functions that allow request of different

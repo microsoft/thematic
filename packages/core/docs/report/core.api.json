@@ -6367,8 +6367,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "Params",
-                  "canonicalReference": "@thematic/color!Params:interface"
+                  "text": "SchemeParams",
+                  "canonicalReference": "@thematic/color!SchemeParams:interface"
                 },
                 {
                   "kind": "Content",
@@ -8509,8 +8509,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "Params",
-                  "canonicalReference": "@thematic/color!Params:interface"
+                  "text": "SchemeParams",
+                  "canonicalReference": "@thematic/color!SchemeParams:interface"
                 },
                 {
                   "kind": "Content",
@@ -9255,8 +9255,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "Params",
-                  "canonicalReference": "@thematic/color!Params:interface"
+                  "text": "SchemeParams",
+                  "canonicalReference": "@thematic/color!SchemeParams:interface"
                 },
                 {
                   "kind": "Content",

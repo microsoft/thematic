@@ -6,8 +6,8 @@
 
 import { Color } from '@thematic/color';
 import { ColorBlindnessMode } from '@thematic/color';
-import type { Params } from '@thematic/color';
 import type { Scheme } from '@thematic/color';
+import type { SchemeParams } from '@thematic/color';
 
 // Warning: (ae-missing-release-tag) "Application" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -662,7 +662,7 @@ export interface Theme {
     // (undocumented)
     node: MarkFunction<Node>;
     // (undocumented)
-    params: Params;
+    params: SchemeParams;
     // (undocumented)
     plotArea: ChromeFunction<PlotArea>;
     // (undocumented)
@@ -797,7 +797,7 @@ export class ThemeImpl implements Theme {
     // (undocumented)
     node: (markConfig?: MarkConfig) => Node;
     // (undocumented)
-    get params(): Params;
+    get params(): SchemeParams;
     // (undocumented)
     plotArea: () => PlotArea;
     // (undocumented)
@@ -848,7 +848,7 @@ export interface ThemeSpec {
     // (undocumented)
     name?: string;
     // (undocumented)
-    params?: Params;
+    params?: SchemeParams;
 }
 
 // Warning: (ae-missing-release-tag) "ThemeVariant" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)

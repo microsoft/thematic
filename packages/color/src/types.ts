@@ -129,6 +129,15 @@ export enum ColorSpace {
 	 * (i.e., r, g \<\< 8, b \<\< 16, a \<\< 24)
 	 */
 	RGBA_NUMBER = 'rgbaint',
+	/**
+	 * HSL color space, { h, s, l }.
+	 */
+	HSL = 'hsl',
+	/**
+	 * HSLuv, which is a perceptually balanced space. [h, s, l].
+	 * https://www.hsluv.org/
+	 */
+	HSLUV = 'hsluv',
 }
 
 export interface Rgb {
@@ -152,5 +161,7 @@ export interface Hsl {
 	s: number
 	l: number
 }
+
+export type RGBAV = [number, number, number, number]
 
 export type HslVector = [number, number, number]

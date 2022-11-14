@@ -41,7 +41,7 @@ export declare class Theme implements ITheme
 |  [link](./core.themeimpl.link.md) |  | (markConfig?: [MarkConfig](./core.markconfig.md)<!-- -->) =&gt; [Link](./core.link.md) |  |
 |  [name](./core.themeimpl.name.md) | <code>readonly</code> | string |  |
 |  [node](./core.themeimpl.node.md) |  | (markConfig?: [MarkConfig](./core.markconfig.md)<!-- -->) =&gt; [Node](./core.node.md) |  |
-|  [params](./core.themeimpl.params.md) | <code>readonly</code> | Params |  |
+|  [params](./core.themeimpl.params.md) | <code>readonly</code> | SchemeParams |  |
 |  [plotArea](./core.themeimpl.plotarea.md) |  | () =&gt; [PlotArea](./core.plotarea.md) |  |
 |  [process](./core.themeimpl.process.md) |  | (markConfig?: [MarkConfig](./core.markconfig.md)<!-- -->) =&gt; [Process](./core.process.md) |  |
 |  [rect](./core.themeimpl.rect.md) |  | (markConfig?: [MarkConfig](./core.markconfig.md)<!-- -->) =&gt; [Rect](./core.rect.md) |  |

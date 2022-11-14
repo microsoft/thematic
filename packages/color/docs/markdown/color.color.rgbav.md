@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-rgbav(alpha?: number): [number, number, number, number];
+rgbav(alpha?: number): RGBAV;
 ```
 
 ## Parameters
@@ -18,5 +18,5 @@ rgbav(alpha?: number): [number, number, number, number];
 
 <b>Returns:</b>
 
-\[number, number, number, number\]
+[RGBAV](./color.rgbav.md)
 

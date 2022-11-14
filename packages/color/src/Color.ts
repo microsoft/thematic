@@ -8,10 +8,10 @@ import {
 	css2hsl,
 	css2hsluv,
 	css2rgba,
-	css2rgbaNumber,
-	css2rgbaVector,
+	css2rgbaint,
+	css2rgbav,
 } from './chroma.js'
-import type { Rgba } from './types.js'
+import type { Hsl, HslVector, Rgba, RGBAV } from './types.js'
 
 /**
  * This class represents an instance of a color.
@@ -41,19 +41,19 @@ export class Color {
 	css(alpha?: number): string {
 		return css2css(this._raw, alpha || this._alpha)
 	}
-	rgbav(alpha?: number): [number, number, number, number] {
-		return css2rgbaVector(this._raw, alpha || this._alpha)
+	rgbav(alpha?: number): RGBAV {
+		return css2rgbav(this._raw, alpha || this._alpha)
 	}
 	rgbaint(alpha?: number): number {
-		return css2rgbaNumber(this._raw, alpha || this._alpha)
+		return css2rgbaint(this._raw, alpha || this._alpha)
 	}
 	rgba(alpha?: number): Rgba {
 		return css2rgba(this._raw, alpha)
 	}
-	hsluv(): [number, number, number] {
+	hsluv(): HslVector {
 		return css2hsluv(this._raw)
 	}
-	hsl(): { h: number; s: number; l: number } {
+	hsl(): Hsl {
 		return css2hsl(this._raw)
 	}
 	toString(): string {

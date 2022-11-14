@@ -32,12 +32,13 @@
 |  [css2lch(css)](./color.css2lch.md) | Convert a standard CSS-compatible string to \[l, c, h\] array |
 |  [css2rgb(css, \_alpha)](./color.css2rgb.md) | Converts a standard CSS color to an {<!-- -->r, g, b<!-- -->} object |
 |  [css2rgba(css, alpha)](./color.css2rgba.md) | Converts a standard CSS color to an { r, g, b, a } object. |
-|  [css2rgbaNumber(css, alpha)](./color.css2rgbanumber.md) | Convert a standard CSS string to an integer number. This is commonly used in GL code. |
-|  [css2rgbaVector(css, alpha)](./color.css2rgbavector.md) | Convert a standard CSS string to vector of \[r, g, b, a\] values scaled from 0-1. This is typically used in WebGl. |
+|  [css2rgbaint(css, alpha)](./color.css2rgbaint.md) | Convert a standard CSS string to an integer number. This is commonly used in GL code. |
+|  [css2rgbav(css, alpha)](./color.css2rgbav.md) | Convert a standard CSS string to vector of \[r, g, b, a\] values scaled from 0-1. This is typically used in WebGl. |
 |  [darken(css, value)](./color.darken.md) | Darken a standard CSS color |
 |  [getNamedSchemeColor(scheme, path)](./color.getnamedschemecolor.md) | Extracts a thematic Color using its scheme "path". |
 |  [getScheme(params, nominalItemCount, sequentialItemCount, light)](./color.getscheme.md) |  |
-|  [hsluv2hex(h, s, l)](./color.hsluv2hex.md) |  |
+|  [hsluv2hex(hsluv)](./color.hsluv2hex.md) |  |
+|  [hsluv2hsl(hsluv)](./color.hsluv2hsl.md) |  |
 |  [isNominal(name)](./color.isnominal.md) |  |
 |  [lch2hex(l, c, h)](./color.lch2hex.md) | Convert a set of l, c, and h values to a standard CSS-comptible hex string |
 |  [lighten(css, value)](./color.lighten.md) | Lighten a standard CSS color |
@@ -52,10 +53,10 @@
 |  [ColorBlindnessMeta](./color.colorblindnessmeta.md) | Interface for meta container about color blindness. Note that incidence is the reported number for males, as female color blindness is very rare in comparison (overall 1 in 12 males, 1 in 200 females) |
 |  [Hsl](./color.hsl.md) |  |
 |  [Hsv](./color.hsv.md) |  |
-|  [Params](./color.params.md) | This is the core set of parameters for generating schemes using the ColorPicker |
 |  [Rgb](./color.rgb.md) |  |
 |  [Rgba](./color.rgba.md) |  |
 |  [Scheme](./color.scheme.md) | Core color properties for a computed color scheme. Note the values are all strings - our color default representation uses hex codes. |
+|  [SchemeParams](./color.schemeparams.md) | This is the core set of parameters for generating schemes using the ColorPicker |
 
 ## Variables
 
@@ -68,4 +69,5 @@
 |  Type Alias | Description |
 |  --- | --- |
 |  [HslVector](./color.hslvector.md) |  |
+|  [RGBAV](./color.rgbav.md) |  |
 

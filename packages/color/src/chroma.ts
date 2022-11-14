@@ -6,7 +6,7 @@
 import chroma from 'chroma-js'
 import { Hsluv } from 'hsluv'
 
-import type { Hsl, HslVector, Hsv, Rgb, Rgba } from './types.js'
+import type { Hsl, HslVector, Hsv, Rgb, Rgba, RGBAV } from './types.js'
 
 /**
  * This is a variety of color utilities to minimize additional direct dependencies
@@ -18,14 +18,13 @@ import type { Hsl, HslVector, Hsv, Rgb, Rgba } from './types.js'
  *
  * @param css - the css color hex string
  */
-export function css2hsluv(css: string): [number, number, number] {
+export function css2hsluv(css: string): HslVector {
 	const conv = new Hsluv()
 	conv.hex = chroma(css).hex()
 	conv.hexToHsluv()
-
 	return [conv.hsluv_h, conv.hsluv_s, conv.hsluv_l].map((v: number) =>
 		Math.round(v),
-	) as [number, number, number]
+	) as HslVector
 }
 
 export function hsluv2hex(hsluv: HslVector): string {
@@ -37,16 +36,7 @@ export function hsluv2hex(hsluv: HslVector): string {
 	return conv.hex
 }
 
-/**
- * Transforms a list of HSLuv vectors to hex strings.
- * @param values
- * @returns
- */
-export function hsluvList2HexList(hsluvs: HslVector[]): string[] {
-	return hsluvs.map(hsluv2hex)
-}
-
-export function hsluv2hsl(hsluv: HslVector): [number, number, number] {
+export function hsluv2hsl(hsluv: HslVector): HslVector {
 	return chroma(hsluv2hex(hsluv)).hsl()
 }
 /**
@@ -54,10 +44,10 @@ export function hsluv2hsl(hsluv: HslVector): [number, number, number] {
  *
  * @param css - the css color hex string
  */
-export function css2lch(css: string): [number, number, number] {
+export function css2lch(css: string): HslVector {
 	return chroma(css)
 		.lch()
-		.map((v: number) => Math.round(v)) as [number, number, number]
+		.map((v: number) => Math.round(v)) as HslVector
 }
 
 /**
@@ -239,7 +229,7 @@ export function css2hex(css: string, alpha?: number): string {
  * @param css - the css color hex string
  * @param alpha - optional alpha override from 0-1. Not all CSS strings include alpha, so you can provide it if needed.
  */
-export function css2rgbaVector(
+export function css2rgbav(
 	css: string,
 	alpha?: number,
 ): [number, number, number, number] {
@@ -258,7 +248,7 @@ export function css2rgbaVector(
  * @param css - the css color hex string
  * @param alpha - the alpha value to use [0-1]
  */
-export function css2rgbaNumber(css: string, alpha?: number): number {
+export function css2rgbaint(css: string, alpha?: number): number {
 	if (css === 'none') {
 		return 0
 	}
@@ -272,6 +262,6 @@ export function css2rgbaNumber(css: string, alpha?: number): number {
 	return color
 }
 
-export function rgbav2hex(rgbav: [number, number, number, number]): string {
+export function rgbav2hex(rgbav: RGBAV): string {
 	return chroma(rgbav).hex()
 }

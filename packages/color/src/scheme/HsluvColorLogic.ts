@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { hsluv2hex, hsluvList2HexList } from '../chroma.js'
-import type { Scheme, SchemeParams } from '../types'
+import { hsluv2hex } from '../chroma.js'
+import type { HslVector, Scheme, SchemeParams } from '../types'
 import {
 	getAnnotations,
 	getBackgroundHsl,
@@ -202,15 +202,24 @@ export function getScheme(
 		midHighContrastAnnotation: hsluv2hex(midHighContrastAnnotationHsl),
 		highContrastAnnotation: hsluv2hex(highContrastAnnotationHsl),
 		faintAnnotation: hsluv2hex(faintAnnotationHsl),
-		sequential: hsluvList2HexList(sequential1),
-		sequential2: hsluvList2HexList(sequential2),
-		diverging: hsluvList2HexList(diverging1),
-		diverging2: hsluvList2HexList(diverging2),
-		nominalBold: hsluvList2HexList(nominalBold),
-		nominal: hsluvList2HexList(nominal),
-		nominalMuted: hsluvList2HexList(nominalMuted),
-		greys: hsluvList2HexList(greys),
+		sequential: hsluvList2hexList(sequential1),
+		sequential2: hsluvList2hexList(sequential2),
+		diverging: hsluvList2hexList(diverging1),
+		diverging2: hsluvList2hexList(diverging2),
+		nominalBold: hsluvList2hexList(nominalBold),
+		nominal: hsluvList2hexList(nominal),
+		nominalMuted: hsluvList2hexList(nominalMuted),
+		greys: hsluvList2hexList(greys),
 		warning: '#ff8c00',
 		error: '#d13438',
 	}
+}
+
+/**
+ * Transforms a list of HSLuv vectors to hex strings.
+ * @param values
+ * @returns
+ */
+function hsluvList2hexList(hsluvs: HslVector[]): string[] {
+	return hsluvs.map(hsluv2hex)
 }

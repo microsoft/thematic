@@ -7,14 +7,14 @@
 <b>Signature:</b>
 
 ```typescript
-export declare function getScheme(params: Params, nominalItemCount: number, sequentialItemCount: number, light: boolean): Scheme;
+export declare function getScheme(params: SchemeParams, nominalItemCount: number, sequentialItemCount: number, light: boolean): Scheme;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  params | [Params](./color.params.md) |  |
+|  params | [SchemeParams](./color.schemeparams.md) |  |
 |  nominalItemCount | number |  |
 |  sequentialItemCount | number |  |
 |  light | boolean |  |

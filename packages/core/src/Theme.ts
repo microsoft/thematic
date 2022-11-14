@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { Params, Scheme } from '@thematic/color'
+import type { Scheme, SchemeParams } from '@thematic/color'
 import { Color, ColorBlindnessMode, nearest } from '@thematic/color'
 import merge from 'lodash-es/merge.js'
 
@@ -80,7 +80,7 @@ export class Theme implements ITheme {
 	private _spec: ThemeSpec
 	private _themeDefinition: ThemeDefinition
 	private _config: ThemeConfig
-	private _params: Params
+	private _params: SchemeParams
 	private _scheme: Scheme
 	private _schemeCache: { [size: number]: Scheme }
 
@@ -152,7 +152,7 @@ export class Theme implements ITheme {
 	public get config(): ThemeConfig {
 		return this._config
 	}
-	public get params(): Params {
+	public get params(): SchemeParams {
 		return this._params
 	}
 	public get scheme(): Scheme {

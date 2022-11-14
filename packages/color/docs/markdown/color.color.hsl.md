@@ -7,13 +7,9 @@
 <b>Signature:</b>
 
 ```typescript
-hsl(): {
-        h: number;
-        s: number;
-        l: number;
-    };
+hsl(): Hsl;
 ```
 <b>Returns:</b>
 
-{ h: number; s: number; l: number; }
+[Hsl](./color.hsl.md)
 

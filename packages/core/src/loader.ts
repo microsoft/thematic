@@ -34,7 +34,7 @@ export const defaultThemes: ThemeListing[] = Object.entries(themes).map(
 		return {
 			id: key,
 			name: value.name,
-			accent: hsluv2hex(accentHue, accentSaturation, accentLightness),
+			accent: hsluv2hex([accentHue, accentSaturation, accentLightness]),
 		}
 	},
 )
