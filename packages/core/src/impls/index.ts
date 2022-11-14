@@ -2,18 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Color } from '@thematic/color'
+import { Color } from '@thematic/color';
 
-import type {
-	Application,
-	ApplicationSpec,
-	Chart,
-	ChartSpec,
-} from '../types/index.js'
+import type { Application, ApplicationSpec, Chart, ChartSpec } from '../types/index.js';
 
-export * from './colorScales.js'
-export * from './svg-chrome.js'
-export * from './svg-marks.js'
+export * from './colorScales.js';
+export * from './svg-chrome.js';
+export * from './svg-marks.js';
 
 export function ApplicationImpl(application: ApplicationSpec): Application {
 	return {
@@ -30,12 +25,12 @@ export function ApplicationImpl(application: ApplicationSpec): Application {
 		highContrast: () => new Color(application.highContrast!),
 		border: () => new Color(application.border!),
 		faint: () => new Color(application.faint!),
-	}
+	};
 }
 
 export function ChartImpl(chart: ChartSpec): Chart {
 	return {
 		backgroundColor: () => new Color(chart.backgroundColor!),
 		padding: () => chart.padding!,
-	}
+	};
 }

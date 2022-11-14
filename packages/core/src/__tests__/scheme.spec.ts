@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { computeDefinition } from '../scheme.js'
+import { computeDefinition } from '../scheme.js';
 
-const definition = {}
+const definition = {};
 
 const scheme = {
 	background: '#111111',
@@ -25,23 +25,23 @@ const scheme = {
 	greys: ['lightgrey', 'darkgrey'],
 	warning: 'orange',
 	error: 'red',
-}
+};
 describe('scheme overlays', () => {
 	describe('computeDefinition', () => {
-		const def = computeDefinition(definition, scheme)
+		const def = computeDefinition(definition, scheme);
 		test('single props', () => {
-			expect(def.application!.background).toBe(scheme.background)
-			expect(def.plotArea!.fill).toBe(scheme.offsetBackground)
-		})
+			expect(def.application!.background).toBe(scheme.background);
+			expect(def.plotArea!.fill).toBe(scheme.offsetBackground);
+		});
 
 		test('scale-based props', () => {
-			expect(def.rect!.fill).toBe(scheme.nominal[0])
-		})
+			expect(def.rect!.fill).toBe(scheme.nominal[0]);
+		});
 
 		test('signal props', () => {
-			expect(def.rect!.hovered!.fill).toBe(scheme.nominalBold[0])
-			expect(def.rect!.selected!.fill).toBe(scheme.nominalBold[0])
-			expect(def.rect!.suppressed!.fill).toBe(scheme.nominalMuted[0])
-		})
-	})
-})
+			expect(def.rect!.hovered!.fill).toBe(scheme.nominalBold[0]);
+			expect(def.rect!.selected!.fill).toBe(scheme.nominalBold[0]);
+			expect(def.rect!.suppressed!.fill).toBe(scheme.nominalMuted[0]);
+		});
+	});
+});

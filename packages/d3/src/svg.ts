@@ -2,26 +2,14 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type {
-	Arc,
-	Area,
-	Chart,
-	Circle,
-	Line,
-	Link,
-	Node,
-	PlotArea,
-	Rect,
-	SVGMark,
-	Text,
-} from '@thematic/core'
-import type { Selection } from 'd3-selection'
+import type { Arc, Area, Chart, Circle, Line, Link, Node, PlotArea, Rect, SVGMark, Text } from '@thematic/core';
+import type { Selection } from 'd3-selection';
 
 export function svg(
 	selection: Selection<Element, any, Element, any>,
 	child: Chart,
 ): Selection<Element, any, Element, any> {
-	return selection.attr('fill', child.backgroundColor().hex())
+	return selection.attr('fill', child.backgroundColor().hex());
 }
 
 /**
@@ -29,16 +17,13 @@ export function svg(
  * @param selection - the d3 selection
  * @param child - the child block
  */
-function mark(
-	selection: Selection<Element, any, Element, any>,
-	child: SVGMark,
-): Selection<Element, any, Element, any> {
+function mark(selection: Selection<Element, any, Element, any>, child: SVGMark): Selection<Element, any, Element, any> {
 	return selection
-		.attr('fill', d => child.fill(d).hex())
-		.attr('fill-opacity', d => child.fillOpacity(d))
-		.attr('stroke', d => child.stroke(d).hex())
-		.attr('stroke-opacity', d => child.strokeOpacity(d))
-		.attr('stroke-width', d => child.strokeWidth(d))
+		.attr('fill', (d) => child.fill(d).hex())
+		.attr('fill-opacity', (d) => child.fillOpacity(d))
+		.attr('stroke', (d) => child.stroke(d).hex())
+		.attr('stroke-opacity', (d) => child.strokeOpacity(d))
+		.attr('stroke-width', (d) => child.strokeWidth(d));
 }
 
 /**
@@ -50,7 +35,7 @@ export function rect(
 	selection: Selection<Element, any, Element, any>,
 	child: Rect | PlotArea,
 ): Selection<Element, any, Element, any> {
-	return selection.call(mark, child)
+	return selection.call(mark, child);
 }
 
 /**
@@ -62,7 +47,7 @@ export function circle(
 	selection: Selection<Element, any, Element, any>,
 	child: Circle | Node,
 ): Selection<Element, any, Element, any> {
-	return selection.attr('r', d => child.radius(d)).call(mark, child)
+	return selection.attr('r', (d) => child.radius(d)).call(mark, child);
 }
 
 /**
@@ -74,7 +59,7 @@ export function line(
 	selection: Selection<Element, any, Element, any>,
 	child: Line | Link,
 ): Selection<Element, any, Element, any> {
-	return selection.call(mark, child)
+	return selection.call(mark, child);
 }
 
 /**
@@ -86,10 +71,7 @@ export function text(
 	selection: Selection<Element, any, Element, any>,
 	child: Text,
 ): Selection<Element, any, Element, any> {
-	return selection
-		.attr('font-size', child.fontSize())
-		.attr('font-family', child.fontFamily())
-		.call(mark, child)
+	return selection.attr('font-size', child.fontSize()).attr('font-family', child.fontFamily()).call(mark, child);
 }
 
 /**
@@ -101,5 +83,5 @@ export function path(
 	selection: Selection<Element, any, Element, any>,
 	child: Area | Arc,
 ): Selection<Element, any, Element, any> {
-	return selection.call(mark, child)
+	return selection.call(mark, child);
 }

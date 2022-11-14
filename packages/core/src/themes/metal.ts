@@ -12,5 +12,5 @@ const metalTheme = {
 		backgroundHueShift: 100,
 		nominalHueStep: 21,
 	},
-}
-export default metalTheme
+};
+export default metalTheme;

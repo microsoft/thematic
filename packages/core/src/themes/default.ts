@@ -12,5 +12,5 @@ const defaultTheme = {
 		backgroundHueShift: 50,
 		nominalHueStep: 10,
 	},
-}
-export default defaultTheme
+};
+export default defaultTheme;

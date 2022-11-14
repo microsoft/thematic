@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { css2css } from '@thematic/color'
-import type { Application, SVGMark } from '@thematic/core'
-import type { CSSProperties } from 'react'
+import { css2css } from '@thematic/color';
+import type { Application, SVGMark } from '@thematic/core';
+import type { CSSProperties } from 'react';
 
 /**
  * Converts a basic mark config to CSS-compatible object
@@ -16,17 +16,11 @@ import type { CSSProperties } from 'react'
  */
 export function mark2style(config: SVGMark, datum?: any): CSSProperties {
 	return {
-		backgroundColor: css2css(
-			config.fill(datum).hex(),
-			config.fillOpacity(datum),
-		),
+		backgroundColor: css2css(config.fill(datum).hex(), config.fillOpacity(datum)),
 		borderStyle: 'solid', //TODO: thematic should support this...
 		borderWidth: config.strokeWidth(datum),
-		borderColor: css2css(
-			config.stroke(datum).hex(),
-			config.strokeOpacity(datum),
-		),
-	}
+		borderColor: css2css(config.stroke(datum).hex(), config.strokeOpacity(datum)),
+	};
 }
 
 /**
@@ -38,5 +32,5 @@ export function application2style(config: Application): CSSProperties {
 	return {
 		backgroundColor: config.background().hex(),
 		color: config.foreground().hex(),
-	}
+	};
 }

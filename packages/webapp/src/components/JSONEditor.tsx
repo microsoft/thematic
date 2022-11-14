@@ -2,11 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { TextField } from '@fluentui/react'
-import type { FC } from 'react'
+import { TextField } from '@fluentui/react';
+import type { FC } from 'react';
 
 export interface JSONEditorProps {
-	value: unknown
+	value: unknown;
 }
 
 // the deep nesting of the component requires several layers of size adjustment
@@ -26,14 +26,7 @@ const styles = {
 		fontFamily: 'monospace',
 		fontSize: 11,
 	},
-}
+};
 export const JSONEditor: FC<JSONEditorProps> = ({ value }: JSONEditorProps) => {
-	return (
-		<TextField
-			styles={styles}
-			multiline={true}
-			readOnly={true}
-			value={JSON.stringify(value, null, 2)}
-		/>
-	)
-}
+	return <TextField styles={styles} multiline={true} readOnly={true} value={JSON.stringify(value, null, 2)} />;
+};

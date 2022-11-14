@@ -2,11 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { useThematicFluent } from '@thematic/fluent'
-import { useMemo } from 'react'
+import { useThematicFluent } from '@thematic/fluent';
+import { useMemo } from 'react';
 
 export function useStyles() {
-	const theme = useThematicFluent()
+	const theme = useThematicFluent();
 	return useMemo(
 		() => ({
 			root: {
@@ -21,5 +21,5 @@ export function useStyles() {
 			},
 		}),
 		[theme],
-	)
+	);
 }

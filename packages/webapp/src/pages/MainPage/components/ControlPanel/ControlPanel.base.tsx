@@ -2,38 +2,38 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import './ControlPanel.css'
+import './ControlPanel.css';
 
-import { EnumDropdown } from '@essex/components'
-import type { IDropdownOption, ISelectableOption } from '@fluentui/react'
-import { Dropdown, Position, SpinButton, Toggle } from '@fluentui/react'
-import { colorBlindnessInfo, ColorBlindnessMode } from '@thematic/color'
-import type { Theme, ThemeListing } from '@thematic/core'
-import { ColorPickerButton } from '@thematic/fluent'
-import type { FC } from 'react'
-import { useCallback, useMemo } from 'react'
+import { EnumDropdown } from '@essex/components';
+import type { IDropdownOption, ISelectableOption } from '@fluentui/react';
+import { Dropdown, Position, SpinButton, Toggle } from '@fluentui/react';
+import { colorBlindnessInfo, ColorBlindnessMode } from '@thematic/color';
+import type { Theme, ThemeListing } from '@thematic/core';
+import { ColorPickerButton } from '@thematic/fluent';
+import type { FC } from 'react';
+import { useCallback, useMemo } from 'react';
 
 export interface ControlPanelProps {
-	themes: ThemeListing[]
-	themeInfo: ThemeListing
-	chartSize: number
-	drawNodes: boolean
-	drawLinks: boolean
-	scaleItemCount: number
-	colorBlindnessMode: ColorBlindnessMode
-	darkMode: boolean
-	onThemeLoaded: (theme: Theme) => void
-	onThemeChange: (t: ThemeListing) => void
-	onChartSizeChange: (n: number) => void
-	onDrawNodesChange: (d: boolean) => void
-	onDrawLinksChange: (d: boolean) => void
-	onScaleItemCountChange: (value: number) => void
-	onColorBlindnessModeChange: (mode: ColorBlindnessMode) => void
-	onDarkModeChange: (d: boolean) => void
+	themes: ThemeListing[];
+	themeInfo: ThemeListing;
+	chartSize: number;
+	drawNodes: boolean;
+	drawLinks: boolean;
+	scaleItemCount: number;
+	colorBlindnessMode: ColorBlindnessMode;
+	darkMode: boolean;
+	onThemeLoaded: (theme: Theme) => void;
+	onThemeChange: (t: ThemeListing) => void;
+	onChartSizeChange: (n: number) => void;
+	onDrawNodesChange: (d: boolean) => void;
+	onDrawLinksChange: (d: boolean) => void;
+	onScaleItemCountChange: (value: number) => void;
+	onColorBlindnessModeChange: (mode: ColorBlindnessMode) => void;
+	onDarkModeChange: (d: boolean) => void;
 }
 
-const SCALE_MIN = 1
-const SCALE_MAX = 1000
+const SCALE_MIN = 1;
+const SCALE_MAX = 1000;
 
 export const ControlPanel: FC<ControlPanelProps> = ({
 	themes,
@@ -56,107 +56,87 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 	const handleThemeChange = useCallback(
 		(_event: React.FormEvent<HTMLDivElement>, option?: IDropdownOption) => {
 			if (option) {
-				const found = themes.find(t => t.id === option.key)
+				const found = themes.find((t) => t.id === option.key);
 				if (found) {
-					onThemeChange(found)
+					onThemeChange(found);
 				}
 			}
 		},
 		[themes, onThemeChange],
-	)
-	const handleChartIncrement = useCallback(
-		() => onChartSizeChange(chartSize + 100),
-		[onChartSizeChange, chartSize],
-	)
-	const handleChartDecrement = useCallback(
-		() => onChartSizeChange(chartSize - 100),
-		[onChartSizeChange, chartSize],
-	)
+	);
+	const handleChartIncrement = useCallback(() => onChartSizeChange(chartSize + 100), [onChartSizeChange, chartSize]);
+	const handleChartDecrement = useCallback(() => onChartSizeChange(chartSize - 100), [onChartSizeChange, chartSize]);
 	const handleChartValidate = useCallback(
 		(v: string) => {
-			const num = parseInt(v, 10)
+			const num = parseInt(v, 10);
 			if (!isNaN(num) && num >= 100) {
-				onChartSizeChange(num)
+				onChartSizeChange(num);
 			}
 		},
 		[onChartSizeChange],
-	)
+	);
 
 	const handleDarkChange = useCallback(() => {
-		onDarkModeChange(!darkMode)
-	}, [darkMode, onDarkModeChange])
+		onDarkModeChange(!darkMode);
+	}, [darkMode, onDarkModeChange]);
 
 	const handleDrawNodesChange = useCallback(
-		(_event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
-			onDrawNodesChange(!!checked),
+		(_event: React.MouseEvent<HTMLElement>, checked?: boolean) => onDrawNodesChange(!!checked),
 		[onDrawNodesChange],
-	)
+	);
 	const handleDrawLinksChange = useCallback(
-		(_event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
-			onDrawLinksChange(!!checked),
+		(_event: React.MouseEvent<HTMLElement>, checked?: boolean) => onDrawLinksChange(!!checked),
 		[onDrawLinksChange],
-	)
+	);
 	const changeValue = useCallback(
 		(value: string, change = 0) => {
-			const num = parseInt(value, 10)
+			const num = parseInt(value, 10);
 			if (!isNaN(num)) {
-				const updated = num + (change as number)
+				const updated = num + (change as number);
 				if (updated >= SCALE_MIN && updated <= SCALE_MAX) {
-					onScaleItemCountChange(updated)
+					onScaleItemCountChange(updated);
 				}
 			}
 		},
 		[onScaleItemCountChange],
-	)
-	const handleScaleValidate = useCallback(
-		(v: string) => changeValue(v),
-		[changeValue],
-	)
+	);
+	const handleScaleValidate = useCallback((v: string) => changeValue(v), [changeValue]);
 	const handleScaleIncrement = useCallback(
 		(v: string) => {
-			changeValue(v, 1)
+			changeValue(v, 1);
 		},
 		[changeValue],
-	)
-	const handleScaleDecrement = useCallback(
-		(v: string) => changeValue(v, -1),
-		[changeValue],
-	)
+	);
+	const handleScaleDecrement = useCallback((v: string) => changeValue(v, -1), [changeValue]);
 
 	const handleColorBlindnessChange = useCallback(
 		(_event: React.FormEvent<HTMLDivElement>, option?: IDropdownOption) =>
 			onColorBlindnessModeChange(option?.key as ColorBlindnessMode),
 		[onColorBlindnessModeChange],
-	)
+	);
 
-	const cbInfo = useMemo(
-		() => colorBlindnessInfo(colorBlindnessMode),
-		[colorBlindnessMode],
-	)
-	const renderDropdownOption = useCallback(
-		(option: ISelectableOption | undefined) => {
-			return option ? (
-				<div
-					style={{
-						borderLeft: `8px solid ${option.data.accent as string}`,
-						paddingLeft: 8,
-					}}
-				>
-					{option.text}
-				</div>
-			) : null
-		},
-		[],
-	)
+	const cbInfo = useMemo(() => colorBlindnessInfo(colorBlindnessMode), [colorBlindnessMode]);
+	const renderDropdownOption = useCallback((option: ISelectableOption | undefined) => {
+		return option ? (
+			<div
+				style={{
+					borderLeft: `8px solid ${option.data.accent as string}`,
+					paddingLeft: 8,
+				}}
+			>
+				{option.text}
+			</div>
+		) : null;
+	}, []);
 	const options = useMemo(
 		() =>
-			themes.map(t => ({
+			themes.map((t) => ({
 				key: t.id,
 				text: t.name,
 				data: t,
 			})),
 		[themes],
-	)
+	);
 	return (
 		<div className="control-wrapper">
 			<h1>thematic</h1>
@@ -180,11 +160,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 					<ColorPickerButton label="Accent" onChange={onThemeLoaded} />
 				</div>
 				<div className="control">
-					<Toggle
-						label="Dark mode"
-						checked={darkMode}
-						onChange={handleDarkChange}
-					/>
+					<Toggle label="Dark mode" checked={darkMode} onChange={handleDarkChange} />
 				</div>
 				<div className="control spinner">
 					<SpinButton
@@ -217,18 +193,10 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 					/>
 				</div>
 				<div className="control">
-					<Toggle
-						label="Draw nodes"
-						checked={drawNodes}
-						onChange={handleDrawNodesChange}
-					/>
+					<Toggle label="Draw nodes" checked={drawNodes} onChange={handleDrawNodesChange} />
 				</div>
 				<div className="control">
-					<Toggle
-						label="Draw links"
-						checked={drawLinks}
-						onChange={handleDrawLinksChange}
-					/>
+					<Toggle label="Draw links" checked={drawLinks} onChange={handleDrawLinksChange} />
 				</div>
 				<div className="control">
 					<EnumDropdown
@@ -247,14 +215,12 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 					{colorBlindnessMode !== ColorBlindnessMode.None && (
 						<div className="cb-info">
 							{`${cbInfo.description}. Affecting ${
-								cbInfo.incidence < 0.01
-									? '<1'
-									: `~${Math.round(cbInfo.incidence * 100)}`
+								cbInfo.incidence < 0.01 ? '<1' : `~${Math.round(cbInfo.incidence * 100)}`
 							}% of males.`}
 						</div>
 					)}
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};

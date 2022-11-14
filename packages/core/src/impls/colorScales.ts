@@ -2,15 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Color } from '@thematic/color'
-import murmur from 'murmurhash-js'
+import { Color } from '@thematic/color';
+import murmur from 'murmurhash-js';
 
-import { linear, log, quantile } from '../scales.js'
-import type {
-	ContinuousColorScaleFunction,
-	NominalColorScaleFunction,
-} from '../types/index.js'
-import { ScaleType } from '../types/index.js'
+import { linear, log, quantile } from '../scales.js';
+import type { ContinuousColorScaleFunction, NominalColorScaleFunction } from '../types/index.js';
+import { ScaleType } from '../types/index.js';
 
 /**
  * Nominal (categorical) scale generator.
@@ -25,39 +22,38 @@ export function nominal(
 	 */
 	domain?: string[] | number[],
 ): NominalColorScaleFunction {
-	const colorCache = new Map()
+	const colorCache = new Map();
 	// if an array of values was sent in to predictably seed the nominal order,
 	// use it to pre-populate the cache.
 	if (domain) {
-		const sorted = [...domain].sort()
+		const sorted = [...domain].sort();
 		sorted.forEach((key, idx) => {
-			colorCache.set(`${key}`, colors[idx])
-		})
+			colorCache.set(`${key}`, colors[idx]);
+		});
 	}
 	const getColor = (key: string | number) => {
-		const strkey = `${key}`
+		const strkey = `${key}`;
 		if (!colorCache.has(strkey)) {
-			const hash =
-				typeof key === 'number' ? key : murmur.murmur3(strkey, 0xabcdef)
-			colorCache.set(strkey, colors[hash % colors.length])
+			const hash = typeof key === 'number' ? key : murmur.murmur3(strkey, 0xabcdef);
+			colorCache.set(strkey, colors[hash % colors.length]);
 		}
-		const cached = colorCache.get(strkey)
-		return cached || 'none'
-	}
+		const cached = colorCache.get(strkey);
+		return cached || 'none';
+	};
 
 	const fn = (key: string | number) => {
-		const color = getColor(key)
-		return new Color(color)
-	}
+		const color = getColor(key);
+		return new Color(color);
+	};
 
 	fn.toArray = function (length?: number) {
-		const l = length ? length : domain ? domain.length : colors.length
+		const l = length ? length : domain ? domain.length : colors.length;
 		return new Array(l).fill(1).map((_a, i) => {
-			return fn(i).hex()
-		})
-	}
+			return fn(i).hex();
+		});
+	};
 
-	return fn
+	return fn;
 }
 
 export function continuous(
@@ -66,42 +62,41 @@ export function continuous(
 	scaleType: ScaleType | undefined,
 	quantiles?: number,
 ): ContinuousColorScaleFunction {
-	let scale: (value: number) => number
+	let scale: (value: number) => number;
 	// this ensures no infinite values can be used with log scale
 	// note that the results can still be unpredictable if the domain crosses zero
-	const safedomain = domain.map(d => (d === 0 ? 1e-10 : d))
+	const safedomain = domain.map((d) => (d === 0 ? 1e-10 : d));
 	switch (scaleType) {
 		case ScaleType.Log: {
-			scale = log(safedomain)
-			break
+			scale = log(safedomain);
+			break;
 		}
 		case ScaleType.Quantile: {
-			scale = quantile(domain, quantiles || 10)
-			break
+			scale = quantile(domain, quantiles || 10);
+			break;
 		}
 		default:
-			scale = linear(domain)
-			break
+			scale = linear(domain);
+			break;
 	}
-	const { length } = colorStops
-	const max = length - 1
+	const { length } = colorStops;
+	const max = length - 1;
 
 	const fn = (value: number) => {
-		const index = Math.floor(scale(value) * max)
+		const index = Math.floor(scale(value) * max);
 		// make sure the index is in bounds for safe clamping
-		const i = index < 0 ? 0 : index > max ? max : index
-		const color = colorStops[i] as string
-		return new Color(color)
-	}
+		const i = index < 0 ? 0 : index > max ? max : index;
+		const color = colorStops[i] as string;
+		return new Color(color);
+	};
 
 	fn.toArray = function (length?: number) {
-		const l = length || colorStops.length
-		const step =
-			((domain[domain.length - 1] as number) - (domain[0] as number)) / l
+		const l = length || colorStops.length;
+		const step = ((domain[domain.length - 1] as number) - (domain[0] as number)) / l;
 		return new Array(l).fill(1).map((_a, i) => {
-			return fn(step * i).hex()
-		})
-	}
+			return fn(step * i).hex();
+		});
+	};
 
-	return fn
+	return fn;
 }

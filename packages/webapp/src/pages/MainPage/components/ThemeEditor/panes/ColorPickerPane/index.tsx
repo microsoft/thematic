@@ -2,16 +2,16 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import './ColorPicker.css'
+import './ColorPicker.css';
 
-import type { Theme } from '@thematic/core'
-import type { FC } from 'react'
+import type { Theme } from '@thematic/core';
+import type { FC } from 'react';
 
-import { useSetTheme } from '../../../../../../state/index.js'
-import { ColorSelection } from './ColorSelection.js'
+import { useSetTheme } from '../../../../../../state/index.js';
+import { ColorSelection } from './ColorSelection.js';
 
 export interface ColorPickerProps {
-	themeLoaded: (theme: Theme) => void
+	themeLoaded: (theme: Theme) => void;
 }
 
 const ColorPickerComponent: FC<ColorPickerProps> = ({ themeLoaded }) => {
@@ -19,10 +19,10 @@ const ColorPickerComponent: FC<ColorPickerProps> = ({ themeLoaded }) => {
 		<div>
 			<ColorSelection onThemeLoaded={themeLoaded} />
 		</div>
-	)
-}
+	);
+};
 
 export const ColorPicker = () => {
-	const themeLoaded = useSetTheme()
-	return <ColorPickerComponent themeLoaded={themeLoaded} />
-}
+	const themeLoaded = useSetTheme();
+	return <ColorPickerComponent themeLoaded={themeLoaded} />;
+};

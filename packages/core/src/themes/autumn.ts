@@ -12,5 +12,5 @@ const autumnTheme = {
 		backgroundHueShift: 50,
 		nominalHueStep: 10,
 	},
-}
-export default autumnTheme
+};
+export default autumnTheme;

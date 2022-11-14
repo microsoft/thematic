@@ -128,5 +128,5 @@ const themeDefaults = {
 		strokeWidth: 6,
 		strokeOpacity: 1,
 	},
-}
-export default themeDefaults
+};
+export default themeDefaults;

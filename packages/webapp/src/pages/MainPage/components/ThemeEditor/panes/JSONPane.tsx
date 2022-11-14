@@ -2,25 +2,22 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { useThematic } from '@thematic/react'
-import type { FC } from 'react'
-import { useMemo } from 'react'
+import { useThematic } from '@thematic/react';
+import type { FC } from 'react';
+import { useMemo } from 'react';
 
-import { DownloadLink } from '../../../../../components/DownloadLink.js'
-import { JSONEditor } from '../../../../../components/JSONEditor.js'
-import { useScaleItemCount } from '../../../../../state/index.js'
+import { DownloadLink } from '../../../../../components/DownloadLink.js';
+import { JSONEditor } from '../../../../../components/JSONEditor.js';
+import { useScaleItemCount } from '../../../../../state/index.js';
 
 export interface JSONPaneProps {
-	scaleItemCount?: number
+	scaleItemCount?: number;
 }
 
 const JSONPaneComponent: FC<JSONPaneProps> = ({ scaleItemCount }) => {
-	const theme = useThematic()
-	const value = useMemo(
-		() => theme.toJSON({ scaleItemCount }),
-		[theme, scaleItemCount],
-	)
-	const blobParts = useMemo(() => [JSON.stringify(value, null, 2)], [value])
+	const theme = useThematic();
+	const value = useMemo(() => theme.toJSON({ scaleItemCount }), [theme, scaleItemCount]);
+	const blobParts = useMemo(() => [JSON.stringify(value, null, 2)], [value]);
 	return (
 		<div style={{ width: '100%', height: '90%' }}>
 			<JSONEditor value={value} />
@@ -30,10 +27,10 @@ const JSONPaneComponent: FC<JSONPaneProps> = ({ scaleItemCount }) => {
 				styles={{ root: { fontSize: '0.5em' } }}
 			/>
 		</div>
-	)
-}
+	);
+};
 
 export const JSONPane = () => {
-	const [scaleItemCount] = useScaleItemCount()
-	return <JSONPaneComponent scaleItemCount={scaleItemCount} />
-}
+	const [scaleItemCount] = useScaleItemCount();
+	return <JSONPaneComponent scaleItemCount={scaleItemCount} />;
+};

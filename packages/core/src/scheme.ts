@@ -2,29 +2,29 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { ColorBlindnessMode, Params, Scheme } from '@thematic/color'
-import { colorBlindness, defaultParams, getScheme } from '@thematic/color'
-import merge from 'lodash-es/merge.js'
-import set from 'lodash-es/set.js'
+import type { ColorBlindnessMode, Params, Scheme } from '@thematic/color';
+import { colorBlindness, defaultParams, getScheme } from '@thematic/color';
+import merge from 'lodash-es/merge.js';
+import set from 'lodash-es/set.js';
 
-import defaults from './themes/defaults.js'
-import type { SVGSpec, ThemeDefinition, ThemeSpec } from './types/index.js'
+import defaults from './themes/defaults.js';
+import type { SVGSpec, ThemeDefinition, ThemeSpec } from './types/index.js';
 
 // these are static default settings for the marks that are not derived from the computed scheme
-const DEFAULT_NOMINAL_ITEMS = 10
-const DEFAULT_SEQUENTIAL_ITEMS = 100
+const DEFAULT_NOMINAL_ITEMS = 10;
+const DEFAULT_SEQUENTIAL_ITEMS = 100;
 
 type Config = {
-	value: string | number
-	paths: string[]
-}
+	value: string | number;
+	paths: string[];
+};
 
 /**
  * Creates a completed Params block from a ThemeDefinition, making sure missing optional fields are populated.
  * @param themeDefinition
  */
 export function applyParams(spec: ThemeSpec): Params {
-	const { params = defaultParams } = spec
+	const { params = defaultParams } = spec;
 	return {
 		accentHue: params.accentHue,
 		accentSaturation: params.accentSaturation,
@@ -32,7 +32,7 @@ export function applyParams(spec: ThemeSpec): Params {
 		backgroundHueShift: params.backgroundHueShift,
 		backgroundLevel: params.backgroundLevel,
 		nominalHueStep: params.nominalHueStep,
-	}
+	};
 }
 
 /**
@@ -50,9 +50,9 @@ export function createScheme(
 	nominalItemCount: number = DEFAULT_NOMINAL_ITEMS,
 	sequentialItemCount: number = DEFAULT_SEQUENTIAL_ITEMS,
 ): Scheme {
-	const params = applyParams(spec)
-	const scheme = getScheme(params, nominalItemCount, sequentialItemCount, !dark)
-	return colorBlindness(scheme, colorBlindnessMode)
+	const params = applyParams(spec);
+	const scheme = getScheme(params, nominalItemCount, sequentialItemCount, !dark);
+	return colorBlindness(scheme, colorBlindnessMode);
 }
 
 export function applyScheme(
@@ -60,23 +60,13 @@ export function applyScheme(
 	nominalItemCount: number = DEFAULT_NOMINAL_ITEMS,
 	sequentialItemCount: number = DEFAULT_SEQUENTIAL_ITEMS,
 ): ThemeSpec {
-	const light = getScheme(
-		spec.params!,
-		nominalItemCount,
-		sequentialItemCount,
-		true,
-	)
-	const dark = getScheme(
-		spec.params!,
-		nominalItemCount,
-		sequentialItemCount,
-		false,
-	)
+	const light = getScheme(spec.params!, nominalItemCount, sequentialItemCount, true);
+	const dark = getScheme(spec.params!, nominalItemCount, sequentialItemCount, false);
 	return {
 		...spec,
 		light,
 		dark,
-	}
+	};
 }
 
 /**
@@ -85,10 +75,7 @@ export function applyScheme(
  * @param overrides
  * @param scheme
  */
-export function computeDefinition(
-	overrides: ThemeDefinition,
-	scheme: Scheme,
-): ThemeDefinition {
+export function computeDefinition(overrides: ThemeDefinition, scheme: Scheme): ThemeDefinition {
 	// we only need to fill in the subset of properties we want to overwrite, because lodash merge will do a deep overlay
 	// this bit of config defines the mapping declaratively, the reducer below it creates the correct subobjects to merge
 	// https://lodash.com/docs/#merge
@@ -121,14 +108,7 @@ export function computeDefinition(
 		},
 		{
 			value: scheme.nominal[0] as string,
-			paths: [
-				'rect.fill',
-				'area.fill',
-				'arc.fill',
-				'node.fill',
-				'circle.stroke',
-				'line.stroke',
-			],
+			paths: ['rect.fill', 'area.fill', 'arc.fill', 'node.fill', 'circle.stroke', 'line.stroke'],
 		},
 		{
 			// very light grey, for subtle borders and backgrounds
@@ -156,13 +136,7 @@ export function computeDefinition(
 		{
 			// medium contrast grey, for general, non-aggressive mark bounds
 			value: scheme.midContrastAnnotation,
-			paths: [
-				'axisTickLabels.fill',
-				'axisTitle.fill',
-				'process.fill',
-				'tooltip.stroke',
-				'application.midContrast',
-			],
+			paths: ['axisTickLabels.fill', 'axisTitle.fill', 'process.fill', 'tooltip.stroke', 'application.midContrast'],
 		},
 		{
 			value: scheme.midHighContrastAnnotation,
@@ -181,13 +155,13 @@ export function computeDefinition(
 				'application.highContrast',
 			],
 		},
-	]
+	];
 
-	const base = reduceConfig(baseConfigs)
+	const base = reduceConfig(baseConfigs);
 
 	// this is the core populated overlay with all computed colors but no signals
 	// note that theme definition goes last because it may contain manual overrides
-	const baseOverlay: ThemeDefinition = merge({}, defaults, base, overrides)
+	const baseOverlay: ThemeDefinition = merge({}, defaults, base, overrides);
 
 	const signalConfigs: Config[] = [
 		{
@@ -371,54 +345,35 @@ export function computeDefinition(
 			value: 'bold',
 			paths: ['text.hovered.fontWeight', 'text.selected.fontWeight'],
 		},
-	]
+	];
 
-	const signalOverlay = reduceConfig(signalConfigs)
+	const signalOverlay = reduceConfig(signalConfigs);
 
-	const signalMarks = [
-		'circle',
-		'rect',
-		'line',
-		'area',
-		'arc',
-		'node',
-		'link',
-		'process',
-		'flow',
-		'text',
-		'rule',
-	]
+	const signalMarks = ['circle', 'rect', 'line', 'area', 'arc', 'node', 'link', 'process', 'flow', 'text', 'rule'];
 
 	// this gives a fully-complete set of marks with populated signal props as copies of the originals
-	const signalDefaultsOverlay = signalMarks.reduce(
-		(acc: ThemeDefinition, cur: string) => {
-			const b = baseOverlay[cur as keyof ThemeDefinition] as SVGSpec
-			const s = {
-				hovered: { ...b },
-				selected: { ...b },
-				suppressed: { ...b },
-				hidden: { ...b },
-				nodata: { ...b },
-			}
-			acc[cur as keyof ThemeDefinition] = s
-			return acc
-		},
-		{} as ThemeDefinition,
-	)
+	const signalDefaultsOverlay = signalMarks.reduce((acc: ThemeDefinition, cur: string) => {
+		const b = baseOverlay[cur as keyof ThemeDefinition] as SVGSpec;
+		const s = {
+			hovered: { ...b },
+			selected: { ...b },
+			suppressed: { ...b },
+			hidden: { ...b },
+			nodata: { ...b },
+		};
+		acc[cur as keyof ThemeDefinition] = s;
+		return acc;
+	}, {} as ThemeDefinition);
 
-	const merged: ThemeDefinition = merge(
-		baseOverlay,
-		signalDefaultsOverlay,
-		signalOverlay,
-	)
+	const merged: ThemeDefinition = merge(baseOverlay, signalDefaultsOverlay, signalOverlay);
 
-	return merged
+	return merged;
 }
 
 function reduceConfig(configs: Config[]): ThemeDefinition {
 	return configs.reduce((acc, cur) => {
-		const { value, paths } = cur
-		paths.forEach(path => set(acc, path, value))
-		return acc
-	}, {} as ThemeDefinition)
+		const { value, paths } = cur;
+		paths.forEach((path) => set(acc, path, value));
+		return acc;
+	}, {} as ThemeDefinition);
 }

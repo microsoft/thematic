@@ -2,42 +2,34 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { IconButton } from '@fluentui/react'
-import { contrast } from '@thematic/color'
-import type { CSSProperties, FC } from 'react'
-import { useMemo } from 'react'
+import { IconButton } from '@fluentui/react';
+import { contrast } from '@thematic/color';
+import type { CSSProperties, FC } from 'react';
+import { useMemo } from 'react';
 
 export interface ContrastProps {
-	foreground: string
-	background: string
-	error: string
-	showLink?: boolean
+	foreground: string;
+	background: string;
+	error: string;
+	showLink?: boolean;
 }
 
-const WCAG = 4.5
-const ICON_SIZE = '0.7em'
-const NOTE = 'WCAG guidelines recommend a minimum contrast ratio of 4.5:1'
+const WCAG = 4.5;
+const ICON_SIZE = '0.7em';
+const NOTE = 'WCAG guidelines recommend a minimum contrast ratio of 4.5:1';
 
-export const Contrast: FC<ContrastProps> = ({
-	foreground,
-	background,
-	error,
-	showLink,
-}) => {
-	const c = useMemo(
-		() => contrast(foreground, background),
-		[foreground, background],
-	)
-	const low = c < WCAG
+export const Contrast: FC<ContrastProps> = ({ foreground, background, error, showLink }) => {
+	const c = useMemo(() => contrast(foreground, background), [foreground, background]);
+	const low = c < WCAG;
 	const style = useMemo(() => {
-		const s: CSSProperties = {}
+		const s: CSSProperties = {};
 		if (low) {
-			s.color = error
+			s.color = error;
 		}
-		return s
-	}, [low, error])
+		return s;
+	}, [low, error]);
 
-	const display = Math.round(c * 100) / 100
+	const display = Math.round(c * 100) / 100;
 	return (
 		<>
 			<span style={style} title={NOTE}>
@@ -53,8 +45,8 @@ export const Contrast: FC<ContrastProps> = ({
 				/>
 			) : null}
 		</>
-	)
-}
+	);
+};
 
 const buttonStyles = {
 	root: {
@@ -64,4 +56,4 @@ const buttonStyles = {
 	icon: {
 		fontSize: ICON_SIZE,
 	},
-}
+};

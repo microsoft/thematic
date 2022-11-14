@@ -2,19 +2,19 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import './index.css'
+import './index.css';
 
-import { EnumButtonBar } from '@essex/components'
-import { Label } from '@fluentui/react'
-import type { ChromeType, MarkType } from '@thematic/core'
-import { SelectionState } from '@thematic/core'
-import { useThematicFluent } from '@thematic/fluent'
-import type { FC } from 'react'
-import { useCallback, useMemo, useState } from 'react'
+import { EnumButtonBar } from '@essex/components';
+import { Label } from '@fluentui/react';
+import type { ChromeType, MarkType } from '@thematic/core';
+import { SelectionState } from '@thematic/core';
+import { useThematicFluent } from '@thematic/fluent';
+import type { FC } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
-import { GridCell } from './GridCell.js'
+import { GridCell } from './GridCell.js';
 
-const SIZE = 30
+const SIZE = 30;
 
 const markKeys: MarkType[] = [
 	'rect',
@@ -28,7 +28,7 @@ const markKeys: MarkType[] = [
 	'process',
 	'flow',
 	'text',
-]
+];
 const chromeKeys: ChromeType[] = [
 	'plotArea',
 	'gridLines',
@@ -37,16 +37,14 @@ const chromeKeys: ChromeType[] = [
 	'axisTickLabels',
 	'axisTitle',
 	'tooltip',
-]
+];
 
 export const MarkGrid: FC = () => {
-	const theme = useThematicFluent()
-	const [selectionState, setSelectionState] = useState<SelectionState>(
-		SelectionState.Normal,
-	)
+	const theme = useThematicFluent();
+	const [selectionState, setSelectionState] = useState<SelectionState>(SelectionState.Normal);
 	const handleSelectionStateChange = useCallback((s: string | number) => {
-		setSelectionState(s as SelectionState)
-	}, [])
+		setSelectionState(s as SelectionState);
+	}, []);
 
 	const labelStyle = useMemo(
 		() => ({
@@ -55,18 +53,13 @@ export const MarkGrid: FC = () => {
 			color: theme.palette.neutralTertiaryAlt,
 		}),
 		[theme],
-	)
+	);
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column' }}>
 			<div style={labelStyle}>On-chart marks</div>
 			<div className="mark-grid">
-				{markKeys.map(key => (
-					<GridCell
-						key={key}
-						name={key}
-						size={SIZE}
-						selectionState={selectionState}
-					/>
+				{markKeys.map((key) => (
+					<GridCell key={key} name={key} size={SIZE} selectionState={selectionState} />
 				))}
 				<div>
 					<Label>Selection state</Label>
@@ -92,13 +85,13 @@ export const MarkGrid: FC = () => {
 			</div>
 			<div style={labelStyle}>Chart chrome</div>
 			<div className="mark-grid">
-				{chromeKeys.map(key => (
+				{chromeKeys.map((key) => (
 					<GridCell key={key} name={key} size={SIZE} />
 				))}
 			</div>
 		</div>
-	)
-}
+	);
+};
 
 const iconNames = [
 	'CheckMark',
@@ -107,4 +100,4 @@ const iconNames = [
 	'GenericScanFilled',
 	'Hide',
 	'StatusCircleQuestionMark',
-]
+];

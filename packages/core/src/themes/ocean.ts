@@ -12,5 +12,5 @@ const oceanTheme = {
 		backgroundHueShift: 40,
 		nominalHueStep: 0,
 	},
-}
-export default oceanTheme
+};
+export default oceanTheme;

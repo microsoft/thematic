@@ -3,11 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import chroma from 'chroma-js'
-import { Hsluv } from 'hsluv'
+import chroma from 'chroma-js';
+import { Hsluv } from 'hsluv';
 
-import type { Hsl, Hsv, Rgb, Rgba } from './types.js'
-const converter = new Hsluv()
+import type { Hsl, Hsv, Rgb, Rgba } from './types.js';
+const converter = new Hsluv();
 
 /**
  * This is a variety of color utilities to minimize additional direct dependencies
@@ -20,20 +20,22 @@ const converter = new Hsluv()
  * @param css - the css color hex string
  */
 export function css2hsluv(css: string): [number, number, number] {
-	converter.hex = chroma(css).hex()
-	converter.hexToHsluv()
+	converter.hex = chroma(css).hex();
+	converter.hexToHsluv();
 
-	return [converter.hsluv_h, converter.hsluv_s, converter.hsluv_l].map(
-		(v: number) => Math.round(v),
-	) as [number, number, number]
+	return [converter.hsluv_h, converter.hsluv_s, converter.hsluv_l].map((v: number) => Math.round(v)) as [
+		number,
+		number,
+		number,
+	];
 }
 
 export function hsluv2hex(h: number, s: number, l: number): string {
-	converter.hsluv_h = h
-	converter.hsluv_s = s
-	converter.hsluv_l = l
-	converter.hsluvToHex()
-	return converter.hex
+	converter.hsluv_h = h;
+	converter.hsluv_s = s;
+	converter.hsluv_l = l;
+	converter.hsluvToHex();
+	return converter.hex;
 }
 
 /**
@@ -44,7 +46,7 @@ export function hsluv2hex(h: number, s: number, l: number): string {
 export function css2lch(css: string): [number, number, number] {
 	return chroma(css)
 		.lch()
-		.map((v: number) => Math.round(v)) as [number, number, number]
+		.map((v: number) => Math.round(v)) as [number, number, number];
 }
 
 /**
@@ -55,7 +57,7 @@ export function css2lch(css: string): [number, number, number] {
  * @param h - the hue value
  */
 export function lch2hex(l: number, c: number, h: number): string {
-	return chroma(l, c, h, 'lch').hex()
+	return chroma(l, c, h, 'lch').hex();
 }
 
 /**
@@ -65,7 +67,7 @@ export function lch2hex(l: number, c: number, h: number): string {
  * @param value - the value to darken by
  */
 export function darken(css: string, value?: number): string {
-	return chroma(css).darken(value).hex()
+	return chroma(css).darken(value).hex();
 }
 
 /**
@@ -75,7 +77,7 @@ export function darken(css: string, value?: number): string {
  * @param value - the value to brighten by
  */
 export function lighten(css: string, value?: number): string {
-	return chroma(css).brighten(value).hex()
+	return chroma(css).brighten(value).hex();
 }
 
 /**
@@ -85,7 +87,7 @@ export function lighten(css: string, value?: number): string {
  * @param background - the background CSS string
  */
 export function contrast(foreground: string, background: string): number {
-	return chroma.contrast(foreground, background)
+	return chroma.contrast(foreground, background);
 }
 
 /**
@@ -100,14 +102,14 @@ export function css2rgb(css: string, _alpha?: number): Rgb {
 			r: 0,
 			g: 0,
 			b: 0,
-		}
+		};
 	}
-	const [r, g, b] = chroma(css).rgb()
+	const [r, g, b] = chroma(css).rgb();
 	return {
 		r,
 		g,
 		b,
-	}
+	};
 }
 
 /**
@@ -123,16 +125,16 @@ export function css2rgba(css: string, alpha?: number): Rgba {
 			g: 0,
 			b: 0,
 			a: 0,
-		}
+		};
 	}
-	const [r, g, b, aa] = chroma(css).rgba()
-	const a = alpha !== undefined ? alpha : aa
+	const [r, g, b, aa] = chroma(css).rgba();
+	const a = alpha !== undefined ? alpha : aa;
 	return {
 		r,
 		g,
 		b,
 		a,
-	}
+	};
 }
 
 /**
@@ -147,14 +149,14 @@ export function css2hsv(css: string, _alpha?: number): Hsv {
 			h: 0,
 			s: 0,
 			v: 0,
-		}
+		};
 	}
-	const [h, s, v] = chroma(css).hsv()
+	const [h, s, v] = chroma(css).hsv();
 	return {
 		h,
 		s,
 		v,
-	}
+	};
 }
 
 /**
@@ -169,14 +171,14 @@ export function css2hsl(css: string, _alpha?: number): Hsl {
 			h: 0,
 			s: 0,
 			l: 0,
-		}
+		};
 	}
-	const [h, s, l] = chroma(css).hsl()
+	const [h, s, l] = chroma(css).hsl();
 	return {
 		h,
 		s,
 		l,
-	}
+	};
 }
 
 /**
@@ -188,12 +190,12 @@ export function css2hsl(css: string, _alpha?: number): Hsl {
  */
 export function css2css(css: string, alpha?: number): string {
 	if (css === 'none') {
-		return 'transparent'
+		return 'transparent';
 	}
 	// chroma chaining returns a new object
-	const c = chroma(css)
-	const ca = alpha !== undefined ? c.alpha(alpha) : c
-	return ca.css()
+	const c = chroma(css);
+	const ca = alpha !== undefined ? c.alpha(alpha) : c;
+	return ca.css();
 }
 
 /**
@@ -208,11 +210,11 @@ export function css2css(css: string, alpha?: number): string {
  */
 export function css2hex(css: string, alpha?: number): string {
 	if (css === 'none') {
-		return 'none'
+		return 'none';
 	}
-	const c = chroma(css)
-	const ca = alpha !== undefined ? c.alpha(alpha) : c
-	return ca.hex()
+	const c = chroma(css);
+	const ca = alpha !== undefined ? c.alpha(alpha) : c;
+	return ca.hex();
 }
 
 /**
@@ -222,16 +224,13 @@ export function css2hex(css: string, alpha?: number): string {
  * @param css - the css color hex string
  * @param alpha - optional alpha override from 0-1. Not all CSS strings include alpha, so you can provide it if needed.
  */
-export function css2rgbaVector(
-	css: string,
-	alpha?: number,
-): [number, number, number, number] {
+export function css2rgbaVector(css: string, alpha?: number): [number, number, number, number] {
 	if (css === 'none') {
-		return [0, 0, 0, 0]
+		return [0, 0, 0, 0];
 	}
-	const [r, g, b, aa] = chroma(css).rgba()
-	const a = alpha !== undefined ? alpha : aa
-	return [r / 255, g / 255, b / 255, a]
+	const [r, g, b, aa] = chroma(css).rgba();
+	const a = alpha !== undefined ? alpha : aa;
+	return [r / 255, g / 255, b / 255, a];
 }
 
 /**
@@ -243,14 +242,14 @@ export function css2rgbaVector(
  */
 export function css2rgbaNumber(css: string, alpha?: number): number {
 	if (css === 'none') {
-		return 0
+		return 0;
 	}
-	const [r, g, b, aa] = chroma(css).rgba()
-	const a = alpha !== undefined ? alpha : aa
-	let color = 0
-	color |= r
-	color |= g << 8
-	color |= b << 16
-	color |= (a * 255) << 24
-	return color
+	const [r, g, b, aa] = chroma(css).rgba();
+	const a = alpha !== undefined ? alpha : aa;
+	let color = 0;
+	color |= r;
+	color |= g << 8;
+	color |= b << 16;
+	color |= (a * 255) << 24;
+	return color;
 }

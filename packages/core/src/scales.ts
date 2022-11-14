@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { scaleLinear, scaleLog } from 'd3-scale'
+import { scaleLinear, scaleLog } from 'd3-scale';
 
 // NOTE: the linear/log scale are basically d3 scales, but we haven't exposed the
 // full d3 functionality, so they've been nerfed
@@ -14,12 +14,9 @@ import { scaleLinear, scaleLog } from 'd3-scale'
  * with less exposed functionality such as chaining
  * @param domain - the input domain
  */
-export function linear(
-	domain: number[],
-	clamp = true,
-): (value: number) => number {
-	const scale = scaleLinear().domain(domain).clamp(clamp)
-	return (value: number) => scale(value) as number
+export function linear(domain: number[], clamp = true): (value: number) => number {
+	const scale = scaleLinear().domain(domain).clamp(clamp);
+	return (value: number) => scale(value) as number;
 }
 
 /**
@@ -30,35 +27,35 @@ export function linear(
  * @param domain - the input domain
  */
 export function log(domain: number[], clamp = true): (value: number) => number {
-	const scale = scaleLog().domain(domain).clamp(clamp)
-	return (value: number) => scale(value) as number
+	const scale = scaleLog().domain(domain).clamp(clamp);
+	return (value: number) => scale(value) as number;
 }
 
 // holds an array of numbers along with the bounds
 // this replicates the histogram format of d3
 export interface Bin extends Array<number> {
-	x0?: number
-	x1?: number
+	x0?: number;
+	x1?: number;
 }
 
 function findForwardBreak(data: number[], start: number) {
-	const value = data[start - 1]
+	const value = data[start - 1];
 	for (let i = start; i < data.length; i++) {
 		if (data[i] !== value) {
-			return i - start
+			return i - start;
 		}
 	}
-	return data.length - start
+	return data.length - start;
 }
 
 function findBackwardBreak(data: number[], start: number) {
-	const value = data[start - 1]
+	const value = data[start - 1];
 	for (let i = start - 1; i >= 0; i--) {
 		if (data[i] !== value) {
-			return start - i - 1
+			return start - i - 1;
 		}
 	}
-	return start
+	return start;
 }
 
 /**
@@ -72,30 +69,30 @@ function findBackwardBreak(data: number[], start: number) {
  * @param smoothing - look forward and backward to minimize variation in bin lengths
  */
 function quantizeHistogram(data: number[], bins: number, smoothing?: boolean) {
-	const values = data.sort((a, b) => a - b)
-	let binLength = Math.ceil(values.length / bins) // starting bin length is always the ideal
-	const binStructure: Bin[] = []
-	let start = 0
+	const values = data.sort((a, b) => a - b);
+	let binLength = Math.ceil(values.length / bins); // starting bin length is always the ideal
+	const binStructure: Bin[] = [];
+	let start = 0;
 	for (let i = 0; i < bins; i++) {
-		const end = start + binLength
-		const forward = findForwardBreak(values, end)
-		const backward = findBackwardBreak(values, end)
-		const moveBackward = backward < forward && backward < binLength
-		const newEnd = smoothing && moveBackward ? end - backward : end + forward
-		const bin: Bin = values.slice(start, newEnd)
+		const end = start + binLength;
+		const forward = findForwardBreak(values, end);
+		const backward = findBackwardBreak(values, end);
+		const moveBackward = backward < forward && backward < binLength;
+		const newEnd = smoothing && moveBackward ? end - backward : end + forward;
+		const bin: Bin = values.slice(start, newEnd);
 		if (bin.length > 0) {
-			bin.x0 = bin[0] as number
-			bin.x1 = bin[bin.length - 1] as number
-			binStructure.push(bin)
+			bin.x0 = bin[0] as number;
+			bin.x1 = bin[bin.length - 1] as number;
+			binStructure.push(bin);
 		}
 
-		start = newEnd
+		start = newEnd;
 		// recalculate bin length with remaining values and bins, in case a really large bin skewed everything
 		if (newEnd !== end) {
-			binLength = Math.ceil((values.length - newEnd) / (bins - (i + 1)))
+			binLength = Math.ceil((values.length - newEnd) / (bins - (i + 1)));
 		}
 	}
-	return binStructure
+	return binStructure;
 }
 
 /**
@@ -109,26 +106,23 @@ function quantizeHistogram(data: number[], bins: number, smoothing?: boolean) {
  * @param domain - array of numeric data values to bin into quantiles
  * @param bins - number of quantile bins to use (default = 10)
  */
-export function quantile(
-	domain: number[],
-	bins?: number,
-): (value: number) => number {
-	const quantized = quantizeHistogram(domain, bins || 10, true)
+export function quantile(domain: number[], bins?: number): (value: number) => number {
+	const quantized = quantizeHistogram(domain, bins || 10, true);
 	const histoLinearScale = scaleLinear()
 		.domain([0, bins! - 1])
-		.range([0, 1])
+		.range([0, 1]);
 	const scale = (value: number) => {
-		const binIndex = quantized.findIndex(bin => {
-			return value >= bin.x0! && value <= bin.x1!
-		})
-		return histoLinearScale(binIndex)
-	}
+		const binIndex = quantized.findIndex((bin) => {
+			return value >= bin.x0! && value <= bin.x1!;
+		});
+		return histoLinearScale(binIndex);
+	};
 	scale.bins = quantized.map(({ x0, x1, length }) => ({
 		min: x0,
 		max: x1,
 		size: length,
-	}))
-	return scale as (input: number) => number
+	}));
+	return scale as (input: number) => number;
 }
 
 export interface LearningState {
@@ -136,14 +130,14 @@ export interface LearningState {
 	 * Current value of the learning. When elapsed time is 0 (i.e., the learning was just applied),
 	 * this will be 1.0. As time elapses and the learning fades, this declines toward 0.
 	 */
-	value: number
+	value: number;
 	/**
 	 * This is a measure of the recall strength needed. If learning exposure happens frequently,
 	 * this will increase slowly because the recall stays high. As time elapses between exposures,
 	 * this increases because recall is more difficult. If the learning value reaches zero (i.e.,
 	 * there is too much time between exposures for any reasonable recall), then this resets.
 	 */
-	strength: number
+	strength: number;
 }
 /**
  * Creates a scale that modulates a value in a manner comparable to human learning and recall.
@@ -165,31 +159,28 @@ export function recall() {
 	/**
 	 * @param elapsedTime time in milliseconds since the last learning exposure
 	 */
-	return (
-		elapsedTime: number,
-		state: LearningState = { value: 0, strength: 0 },
-	): LearningState => {
-		const s = { ...state }
+	return (elapsedTime: number, state: LearningState = { value: 0, strength: 0 }): LearningState => {
+		const s = { ...state };
 		if (elapsedTime === 0) {
 			if (s.strength === 0) {
 				// first activation - initialize the decay params
-				s.strength = 1
-				s.value = 1
+				s.strength = 1;
+				s.value = 1;
 			} else {
 				// follow-on activations, just update the strength
-				s.strength += 1 - s.value
+				s.strength += 1 - s.value;
 			}
 		}
 		if (s.strength > 0) {
-			const d = elapsedTime / 1000 // the learning decay works based on seconds
-			const exponent = -d / s.strength
-			s.value = Math.exp(exponent)
+			const d = elapsedTime / 1000; // the learning decay works based on seconds
+			const exponent = -d / s.strength;
+			s.value = Math.exp(exponent);
 		} else {
-			s.value = 0
+			s.value = 0;
 		}
 		if (s.value === 0) {
-			s.strength = 1
+			s.strength = 1;
 		}
-		return s
-	}
+		return s;
+	};
 }

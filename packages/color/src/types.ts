@@ -7,12 +7,12 @@
  * This is the core set of parameters for generating schemes using the ColorPicker
  */
 export interface Params {
-	accentHue: number
-	accentSaturation: number
-	accentLuminance: number
-	backgroundHueShift: number
-	backgroundLevel: number
-	nominalHueStep: number
+	accentHue: number;
+	accentSaturation: number;
+	accentLuminance: number;
+	backgroundHueShift: number;
+	backgroundLevel: number;
+	nominalHueStep: number;
 }
 
 /**
@@ -20,26 +20,26 @@ export interface Params {
  * Note the values are all strings - our color default representation uses hex codes.
  */
 export interface Scheme {
-	background: string
-	offsetBackground: string
-	foreground: string
-	accent: string
-	warning: string
-	error: string
-	faintAnnotation: string
-	lowContrastAnnotation: string
-	lowMidContrastAnnotation: string
-	midContrastAnnotation: string
-	midHighContrastAnnotation: string
-	highContrastAnnotation: string
-	sequential: string[]
-	sequential2: string[]
-	diverging: string[]
-	diverging2: string[]
-	nominalBold: string[]
-	nominal: string[]
-	nominalMuted: string[]
-	greys: string[]
+	background: string;
+	offsetBackground: string;
+	foreground: string;
+	accent: string;
+	warning: string;
+	error: string;
+	faintAnnotation: string;
+	lowContrastAnnotation: string;
+	lowMidContrastAnnotation: string;
+	midContrastAnnotation: string;
+	midHighContrastAnnotation: string;
+	highContrastAnnotation: string;
+	sequential: string[];
+	sequential2: string[];
+	diverging: string[];
+	diverging2: string[];
+	nominalBold: string[];
+	nominal: string[];
+	nominalMuted: string[];
+	greys: string[];
 }
 
 /**
@@ -89,8 +89,8 @@ export enum ColorBlindnessMode {
  * (overall 1 in 12 males, 1 in 200 females)
  */
 export interface ColorBlindnessMeta {
-	incidence: number
-	description: string
+	incidence: number;
+	description: string;
 }
 
 /**
@@ -132,23 +132,23 @@ export enum ColorSpace {
 }
 
 export interface Rgb {
-	r: number
-	g: number
-	b: number
+	r: number;
+	g: number;
+	b: number;
 }
 
 export interface Rgba extends Rgb {
-	a: number
+	a: number;
 }
 
 export interface Hsv {
-	h: number
-	s: number
-	v: number
+	h: number;
+	s: number;
+	v: number;
 }
 
 export interface Hsl {
-	h: number
-	s: number
-	l: number
+	h: number;
+	s: number;
+	l: number;
 }

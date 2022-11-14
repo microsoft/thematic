@@ -2,17 +2,17 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import './MainPage.css'
+import './MainPage.css';
 
-import { useThematicFluent } from '@thematic/fluent'
-import type { FC } from 'react'
+import { useThematicFluent } from '@thematic/fluent';
+import type { FC } from 'react';
 
-import { ControlPanel } from './components/ControlPanel/ControlPanel.js'
-import { ThemeEditor } from './components/ThemeEditor/ThemeEditor.js'
-import { ThemeViewer } from './components/ThemeViewer/ThemeViewer.js'
+import { ControlPanel } from './components/ControlPanel/ControlPanel.js';
+import { ThemeEditor } from './components/ThemeEditor/ThemeEditor.js';
+import { ThemeViewer } from './components/ThemeViewer/ThemeViewer.js';
 
 export const MainPage: FC = () => {
-	const theme = useThematicFluent()
+	const theme = useThematicFluent();
 	return (
 		<div className="app">
 			<div
@@ -32,5 +32,5 @@ export const MainPage: FC = () => {
 				</div>
 			</div>
 		</div>
-	)
-}
+	);
+};

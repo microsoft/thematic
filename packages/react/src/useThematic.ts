@@ -2,15 +2,15 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { Theme } from '@thematic/core'
-import { useContext } from 'react'
+import type { Theme } from '@thematic/core';
+import { useContext } from 'react';
 
-import { ThematicContext } from './ThematicContext.js'
+import { ThematicContext } from './ThematicContext.js';
 
 /**
  * Hook to retrieve the thematic theme directly.
  */
 export function useThematic(dark?: boolean): Theme {
-	const theme = useContext(ThematicContext)
-	return dark ? theme.toDark() : theme
+	const theme = useContext(ThematicContext);
+	return dark ? theme.toDark() : theme;
 }

@@ -2,68 +2,60 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { Theme } from '@thematic/core'
-import type { Axis } from 'd3-axis'
-import type { Selection } from 'd3-selection'
+import type { Theme } from '@thematic/core';
+import type { Axis } from 'd3-axis';
+import type { Selection } from 'd3-selection';
 
-import {
-	line as lineCall,
-	rect as rectCall,
-	svg as svgCall,
-	text as textCall,
-} from './svg.js'
+import { line as lineCall, rect as rectCall, svg as svgCall, text as textCall } from './svg.js';
 
 export interface SelectionOptions {
 	/**
 	 * This is a map of event handlers to apply to the selection.
 	 */
-	on: { [key: string]: any }
+	on: { [key: string]: any };
 	/**
 	 * This is a map of ad-hoc attrs to apply to the selection.
 	 */
-	attr: { [key: string]: any }
+	attr: { [key: string]: any };
 	/**
 	 * Map of ad-hoc classes to add or remove from the selection.
 	 */
-	classed: { [key: string]: any }
+	classed: { [key: string]: any };
 	/**
 	 * Map of ad-hoc styles to add or remove from the selection.
 	 */
-	style: { [key: string]: any }
+	style: { [key: string]: any };
 }
 
 export interface ChartOptions extends SelectionOptions {
-	width?: number
-	height?: number
+	width?: number;
+	height?: number;
 }
 
 export interface PlotAreaOptions extends ChartOptions {
-	marginTop?: number
-	marginBottom?: number
-	marginLeft?: number
-	marginRight?: number
+	marginTop?: number;
+	marginBottom?: number;
+	marginLeft?: number;
+	marginRight?: number;
 }
 
 function getSelectionOptions(
 	_selection: Selection<Element, any, Element, any>,
 	options?: Partial<SelectionOptions>,
 ): SelectionOptions {
-	const _on = options?.on || {}
-	const _attr = options?.attr || {}
-	const _classed = options?.classed || {}
-	const _style = options?.style || {}
-	return { on: _on, attr: _attr, classed: _classed, style: _style }
+	const _on = options?.on || {};
+	const _attr = options?.attr || {};
+	const _classed = options?.classed || {};
+	const _style = options?.style || {};
+	return { on: _on, attr: _attr, classed: _classed, style: _style };
 }
 
-function getChartOptions(
-	selection: Selection<Element, any, Element, any>,
-	options?: ChartOptions,
-): ChartOptions {
-	const w = options?.width
-	const h = options?.height
-	const width = w || +selection.attr('width') || 0
-	const height = h || +selection.attr('height') || 0
-	const sOpts = getSelectionOptions(selection, options)
+function getChartOptions(selection: Selection<Element, any, Element, any>, options?: ChartOptions): ChartOptions {
+	const w = options?.width;
+	const h = options?.height;
+	const width = w || +selection.attr('width') || 0;
+	const height = h || +selection.attr('height') || 0;
+	const sOpts = getSelectionOptions(selection, options);
 	return {
 		on: sOpts.on,
 		attr: {
@@ -74,30 +66,30 @@ function getChartOptions(
 		},
 		classed: sOpts.classed,
 		style: sOpts.style,
-	}
+	};
 }
 
 function getPlotAreaOptions(
 	selection: Selection<Element, any, Element, any>,
 	options?: PlotAreaOptions,
 ): PlotAreaOptions {
-	const marginTop = options?.marginTop || 0
-	const marginBottom = options?.marginBottom || 0
-	const marginLeft = options?.marginLeft || 0
-	const marginRight = options?.marginRight || 0
+	const marginTop = options?.marginTop || 0;
+	const marginBottom = options?.marginBottom || 0;
+	const marginLeft = options?.marginLeft || 0;
+	const marginRight = options?.marginRight || 0;
 
 	// for the dimensions we need to either use what is provided directly, or compute from parent
-	const w = options?.width
-	const h = options?.height
+	const w = options?.width;
+	const h = options?.height;
 	const parent = selection.select(function (this: any) {
-		return this.parentNode
-	} as any)
-	const pw = (parent && +parent.attr('width')) || 0
-	const ph = (parent && +parent.attr('height')) || 0
-	const width = w || pw - marginLeft - marginRight
-	const height = h || ph - marginTop - marginBottom
+		return this.parentNode;
+	} as any);
+	const pw = (parent && +parent.attr('width')) || 0;
+	const ph = (parent && +parent.attr('height')) || 0;
+	const width = w || pw - marginLeft - marginRight;
+	const height = h || ph - marginTop - marginBottom;
 
-	const sOpts = getSelectionOptions(selection, options)
+	const sOpts = getSelectionOptions(selection, options);
 	return {
 		width,
 		height,
@@ -114,7 +106,7 @@ function getPlotAreaOptions(
 		},
 		classed: sOpts.classed,
 		style: sOpts.style,
-	}
+	};
 }
 
 /**
@@ -128,12 +120,12 @@ export function attr(
 	selection: Selection<Element, any, Element, any>,
 	attrs?: { [key: string]: any },
 ): Selection<Element, any, Element, any> {
-	let ret = selection
-	Object.entries(attrs || {}).forEach(entry => {
-		const [key, value] = entry
-		ret = selection.attr(key, value)
-	})
-	return ret
+	let ret = selection;
+	Object.entries(attrs || {}).forEach((entry) => {
+		const [key, value] = entry;
+		ret = selection.attr(key, value);
+	});
+	return ret;
 }
 
 /**
@@ -147,12 +139,12 @@ export function on(
 	selection: Selection<Element, any, Element, any>,
 	ons?: { [key: string]: any },
 ): Selection<Element, any, Element, any> {
-	let ret = selection
-	Object.entries(ons || {}).forEach(entry => {
-		const [key, value] = entry
-		ret = selection.on(key, value)
-	})
-	return ret
+	let ret = selection;
+	Object.entries(ons || {}).forEach((entry) => {
+		const [key, value] = entry;
+		ret = selection.on(key, value);
+	});
+	return ret;
 }
 
 /**
@@ -167,12 +159,12 @@ export function classed(
 	selection: Selection<Element, any, Element, any>,
 	classes?: { [key: string]: any },
 ): Selection<Element, any, Element, any> {
-	let ret = selection
-	Object.entries(classes || {}).forEach(entry => {
-		const [key, value] = entry
-		ret = selection.classed(key, value)
-	})
-	return ret
+	let ret = selection;
+	Object.entries(classes || {}).forEach((entry) => {
+		const [key, value] = entry;
+		ret = selection.classed(key, value);
+	});
+	return ret;
 }
 
 /**
@@ -187,12 +179,12 @@ export function style(
 	selection: Selection<Element, any, Element, any>,
 	styles?: { [key: string]: any },
 ): Selection<Element, any, Element, any> {
-	let ret = selection
-	Object.entries(styles || {}).forEach(entry => {
-		const [key, value] = entry
-		ret = selection.style(key, value)
-	})
-	return ret
+	let ret = selection;
+	Object.entries(styles || {}).forEach((entry) => {
+		const [key, value] = entry;
+		ret = selection.style(key, value);
+	});
+	return ret;
 }
 
 function applyBaseOptions(
@@ -205,7 +197,7 @@ function applyBaseOptions(
 		.call(on, options?.on)
 		.call(attr, options?.attr)
 		.call(classed, options?.classed)
-		.call(style, options?.style)
+		.call(style, options?.style);
 }
 /**
  * Applies chart properties to a selection.
@@ -219,11 +211,8 @@ export function chart(
 	theme: Theme,
 	options?: ChartOptions,
 ): Selection<Element, any, Element, any> {
-	const opts = getChartOptions(svg, options)
-	return svg
-		.classed('thematic-chart', true)
-		.call(svgCall, theme.chart())
-		.call(applyBaseOptions, opts)
+	const opts = getChartOptions(svg, options);
+	return svg.classed('thematic-chart', true).call(svgCall, theme.chart()).call(applyBaseOptions, opts);
 }
 
 /**
@@ -241,18 +230,16 @@ export function plotArea(
 	theme: Theme,
 	options?: PlotAreaOptions,
 ): Selection<Element, any, Element, any> {
-	const p = theme.plotArea()
-	const opts = getPlotAreaOptions(group, options)
-	const { marginTop, marginLeft } = opts
-	group
-		.classed('thematic-plot-area', true)
-		.attr('transform', `translate(${marginLeft ?? 0},${marginTop ?? 0})`)
+	const p = theme.plotArea();
+	const opts = getPlotAreaOptions(group, options);
+	const { marginTop, marginLeft } = opts;
+	group.classed('thematic-plot-area', true).attr('transform', `translate(${marginLeft ?? 0},${marginTop ?? 0})`);
 	group
 		.append('rect')
 		.classed('thematic-plot-area-background', true)
 		.call(rectCall as any, p)
-		.call(applyBaseOptions as any, opts)
-	return group
+		.call(applyBaseOptions as any, opts);
+	return group;
 }
 
 /**
@@ -281,17 +268,15 @@ export function axis(
 	 * instance, and simplify the usage quite a bit. If we did this we may want to return that
 	 * generator instance so users can continue manipulating it if they want to override anything.
 	 */
-	const opts = getSelectionOptions(group, options)
-	const ticks = theme.axisTicks()
-	axisGenerator.tickSizeInner(ticks.innerSize())
-	axisGenerator.tickSizeOuter(ticks.outerSize())
+	const opts = getSelectionOptions(group, options);
+	const ticks = theme.axisTicks();
+	axisGenerator.tickSizeInner(ticks.innerSize());
+	axisGenerator.tickSizeOuter(ticks.outerSize());
 	group
 		.call(axisGenerator as any)
-		.call(g => g.select('.domain').call(lineCall as any, theme.axisLine()))
-		.call(g => g.selectAll('.tick > line').call(lineCall as any, ticks))
-		.call(g =>
-			g.selectAll('.tick > text').call(textCall as any, theme.axisTickLabels()),
-		)
-		.call(applyBaseOptions, opts)
-	return group
+		.call((g) => g.select('.domain').call(lineCall as any, theme.axisLine()))
+		.call((g) => g.selectAll('.tick > line').call(lineCall as any, ticks))
+		.call((g) => g.selectAll('.tick > text').call(textCall as any, theme.axisTickLabels()))
+		.call(applyBaseOptions, opts);
+	return group;
 }

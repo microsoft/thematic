@@ -4,12 +4,12 @@
  */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
-import cb from 'color-blind'
+import cb from 'color-blind';
 
-import type { ColorBlindnessMeta, Scheme } from './types.js'
-import { ColorBlindnessMode } from './types.js'
+import type { ColorBlindnessMeta, Scheme } from './types.js';
+import { ColorBlindnessMode } from './types.js';
 
-const noop = (color: string) => color
+const noop = (color: string) => color;
 
 /**
  * Returns a copy of a Thematic Scheme with color blindness simulation applied.
@@ -17,26 +17,21 @@ const noop = (color: string) => color
  * @param scheme - the color scheme
  * @param mode - the colorblindness mode
  */
-export function colorBlindness(
-	scheme: Scheme,
-	mode?: ColorBlindnessMode,
-): Scheme {
-	const fnName = mode || ColorBlindnessMode.None
+export function colorBlindness(scheme: Scheme, mode?: ColorBlindnessMode): Scheme {
+	const fnName = mode || ColorBlindnessMode.None;
 	if (!fnName) {
-		throw new Error(
-			`could not find ColorBlindnessMode "${JSON.stringify(mode)}"`,
-		)
+		throw new Error(`could not find ColorBlindnessMode "${JSON.stringify(mode)}"`);
 	}
-	const fn = cb[fnName] || noop
+	const fn = cb[fnName] || noop;
 	return Object.entries(scheme).reduce((acc, cur) => {
-		const [key, value] = cur
+		const [key, value] = cur;
 		if (Array.isArray(value)) {
-			acc[key] = value.map(c => fn(c))
+			acc[key] = value.map((c) => fn(c));
 		} else {
-			acc[key] = fn(value)
+			acc[key] = fn(value);
 		}
-		return acc
-	}, {} as Record<string, any>) as Scheme
+		return acc;
+	}, {} as Record<string, any>) as Scheme;
 }
 
 const cbMeta: Record<string, ColorBlindnessMeta> = {
@@ -70,22 +65,19 @@ const cbMeta: Record<string, ColorBlindnessMeta> = {
 	},
 	achromatopsia: {
 		incidence: 0.003,
-		description:
-			'No color, often due to retinal transduction pathway, extremely rare',
+		description: 'No color, often due to retinal transduction pathway, extremely rare',
 	},
-}
+};
 
 /**
  * Returns the indicence rates and description of a given colorblindess mode.
  *
  * @param mode - the colorblindness mode
  */
-export function colorBlindnessInfo(
-	mode: ColorBlindnessMode,
-): ColorBlindnessMeta {
-	const meta = cbMeta[mode]
+export function colorBlindnessInfo(mode: ColorBlindnessMode): ColorBlindnessMeta {
+	const meta = cbMeta[mode];
 	if (!meta) {
-		throw new Error(`could not find info for ${mode}`)
+		throw new Error(`could not find info for ${mode}`);
 	}
-	return meta
+	return meta;
 }

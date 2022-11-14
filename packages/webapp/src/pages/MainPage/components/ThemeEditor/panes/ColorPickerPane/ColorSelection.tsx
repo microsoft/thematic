@@ -3,12 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import type { Theme } from '@thematic/core'
-import { ColorPicker, ColorPickerLayout } from '@thematic/fluent'
-import type { FC } from 'react'
+import type { Theme } from '@thematic/core';
+import { ColorPicker, ColorPickerLayout } from '@thematic/fluent';
+import type { FC } from 'react';
 
 export interface ColorSelectionProps {
-	onThemeLoaded: (theme: Theme) => void
+	onThemeLoaded: (theme: Theme) => void;
 }
 
 export const ColorSelection: FC<ColorSelectionProps> = ({ onThemeLoaded }) => {
@@ -20,5 +20,5 @@ export const ColorSelection: FC<ColorSelectionProps> = ({ onThemeLoaded }) => {
 				styles={{ sliders: { width: 400 } }}
 			/>
 		</div>
-	)
-}
+	);
+};

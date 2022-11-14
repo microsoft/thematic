@@ -2,23 +2,17 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { SelectionState, ThemeElementType } from '@thematic/core'
-import { mark2style, useThematic } from '@thematic/react'
-import type { CSSProperties, FC } from 'react'
-import { useMemo } from 'react'
+import type { SelectionState, ThemeElementType } from '@thematic/core';
+import { mark2style, useThematic } from '@thematic/react';
+import type { CSSProperties, FC } from 'react';
+import { useMemo } from 'react';
 
-import {
-	Arc,
-	Circle,
-	Line,
-	Rect,
-	Text,
-} from '../../../../../../components/svg/index.js'
+import { Arc, Circle, Line, Rect, Text } from '../../../../../../components/svg/index.js';
 
 export interface GridCellProps {
-	name: ThemeElementType
-	size: number
-	selectionState?: SelectionState
+	name: ThemeElementType;
+	size: number;
+	selectionState?: SelectionState;
 }
 
 const selectMark = (key: ThemeElementType) => {
@@ -27,11 +21,11 @@ const selectMark = (key: ThemeElementType) => {
 		case 'plotArea':
 		case 'area':
 		case 'tooltip':
-			return Rect
+			return Rect;
 		case 'circle':
 		case 'process':
 		case 'node':
-			return Circle
+			return Circle;
 		case 'line':
 		case 'rule':
 		case 'flow':
@@ -39,22 +33,22 @@ const selectMark = (key: ThemeElementType) => {
 		case 'axisLine':
 		case 'axisTicks':
 		case 'gridLines':
-			return Line
+			return Line;
 		case 'arc':
-			return Arc
+			return Arc;
 		case 'text':
 		case 'axisTickLabels':
 		case 'axisTitle':
-			return Text
+			return Text;
 		default:
-			throw new Error('Unsupported mark type')
+			throw new Error('Unsupported mark type');
 	}
-}
+};
 
 export const GridCell: FC<GridCellProps> = ({ name, size, selectionState }) => {
-	const theme = useThematic()
-	const Mark = useMemo(() => selectMark(name), [name])
-	const exampleSize = size * 1.5
+	const theme = useThematic();
+	const Mark = useMemo(() => selectMark(name), [name]);
+	const exampleSize = size * 1.5;
 	const exampleStyle: CSSProperties = useMemo(
 		() => ({
 			...mark2style(theme.plotArea()),
@@ -62,11 +56,8 @@ export const GridCell: FC<GridCellProps> = ({ name, size, selectionState }) => {
 			height: exampleSize,
 		}),
 		[theme, exampleSize],
-	)
-	const config = useMemo(
-		() => theme[name]({ selectionState }),
-		[theme, name, selectionState],
-	)
+	);
+	const config = useMemo(() => theme[name]({ selectionState }), [theme, name, selectionState]);
 	return (
 		<div className="mark-grid-cell">
 			<h3 className="mark-grid-cell-title">{name}</h3>
@@ -74,5 +65,5 @@ export const GridCell: FC<GridCellProps> = ({ name, size, selectionState }) => {
 				<Mark config={config} size={size} />
 			</div>
 		</div>
-	)
-}
+	);
+};

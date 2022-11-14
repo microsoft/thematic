@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Color } from '@thematic/color'
+import { Color } from '@thematic/color';
 
 import type {
 	Arc,
@@ -30,139 +30,121 @@ import type {
 	SVGMark,
 	Text,
 	TextSpec,
-} from '../types/index.js'
-import { SelectionState } from '../types/index.js'
+} from '../types/index.js';
+import { SelectionState } from '../types/index.js';
 
-const identity = (datum: any) => datum
+const identity = (datum: any) => datum;
 
 // this just returns a string prop for the corresponding spec subobject
-function selectionStateString(
-	selectionState: SelectionState | ((d?: any) => SelectionState),
-	datum: any,
-) {
-	const state =
-		typeof selectionState === 'function'
-			? selectionState(datum)
-			: selectionState
+function selectionStateString(selectionState: SelectionState | ((d?: any) => SelectionState), datum: any) {
+	const state = typeof selectionState === 'function' ? selectionState(datum) : selectionState;
 	switch (state) {
 		case SelectionState.Hovered:
-			return 'hovered'
+			return 'hovered';
 		case SelectionState.Selected:
-			return 'selected'
+			return 'selected';
 		case SelectionState.Suppressed:
-			return 'suppressed'
+			return 'suppressed';
 		case SelectionState.Hidden:
-			return 'hidden'
+			return 'hidden';
 		case SelectionState.NoData:
-			return 'nodata'
+			return 'nodata';
 		default:
-			return 'normal'
+			return 'normal';
 	}
 }
 
 // sift through various layers of options to get a final value for a mark
 // this includes defaults from the spec, hard-coded overrides, and scaled values
-function getMarkValue(
-	spec: SignaledSVGSpec,
-	property: string,
-	markConfig?: MarkConfig,
-	datum?: any,
-) {
-	const selectionState = markConfig?.selectionState
-	const scaleBindings = markConfig?.scaleBindings
-	const overrides = markConfig?.overrides
-	const generalAccessor = markConfig?.accessor
-	const selectionProp = selectionStateString(selectionState!, datum)
-	const mark: SignaledSVGSpec = (spec as any)[selectionProp] || spec
+function getMarkValue(spec: SignaledSVGSpec, property: string, markConfig?: MarkConfig, datum?: any) {
+	const selectionState = markConfig?.selectionState;
+	const scaleBindings = markConfig?.scaleBindings;
+	const overrides = markConfig?.overrides;
+	const generalAccessor = markConfig?.accessor;
+	const selectionProp = selectionStateString(selectionState!, datum);
+	const mark: SignaledSVGSpec = (spec as any)[selectionProp] || spec;
 	if (overrides?.[property]) {
-		return overrides[property]
+		return overrides[property];
 	}
 	if (scaleBindings?.[property]) {
-		const { scale, accessor = generalAccessor || identity } =
-			scaleBindings[property]!
-		const value = accessor(datum)
-		return scale(value)
+		const { scale, accessor = generalAccessor || identity } = scaleBindings[property]!;
+		const value = accessor(datum);
+		return scale(value);
 	}
-	return (mark as any)[property]
+	return (mark as any)[property];
 }
 
 function SVGMarkImpl(spec: SignaledSVGSpec, markConfig?: MarkConfig): SVGMark {
 	return {
 		fill: (datum?: any) => {
-			const color = getMarkValue(spec, 'fill', markConfig, datum)
+			const color = getMarkValue(spec, 'fill', markConfig, datum);
 			// we'll get a Color if the user has supplied one of our scales
 			// we need to override it so we can get the computed opacity
-			const hex = typeof color === 'string' ? color : color.hex()
-			const opacity = getMarkValue(spec, 'fillOpacity', markConfig, datum)
-			return new Color(hex, opacity)
+			const hex = typeof color === 'string' ? color : color.hex();
+			const opacity = getMarkValue(spec, 'fillOpacity', markConfig, datum);
+			return new Color(hex, opacity);
 		},
 		fillOpacity: (datum?: any) => {
-			return getMarkValue(spec, 'fillOpacity', markConfig, datum)
+			return getMarkValue(spec, 'fillOpacity', markConfig, datum);
 		},
 		stroke: (datum?: any) => {
-			const color = getMarkValue(spec, 'stroke', markConfig, datum)
-			const hex = typeof color === 'string' ? color : color.hex()
-			const opacity = getMarkValue(spec, 'strokeOpacity', markConfig, datum)
-			return new Color(hex, opacity)
+			const color = getMarkValue(spec, 'stroke', markConfig, datum);
+			const hex = typeof color === 'string' ? color : color.hex();
+			const opacity = getMarkValue(spec, 'strokeOpacity', markConfig, datum);
+			return new Color(hex, opacity);
 		},
 		strokeOpacity: (datum?: any) => {
-			return getMarkValue(spec, 'strokeOpacity', markConfig, datum)
+			return getMarkValue(spec, 'strokeOpacity', markConfig, datum);
 		},
 		strokeWidth: (datum?: any) => {
-			return getMarkValue(spec, 'strokeWidth', markConfig, datum)
+			return getMarkValue(spec, 'strokeWidth', markConfig, datum);
 		},
-	}
+	};
 }
 
 export function RectImpl(spec: RectSpec, markConfig?: MarkConfig): Rect {
-	return SVGMarkImpl(spec, markConfig)
+	return SVGMarkImpl(spec, markConfig);
 }
 
 export function AreaImpl(spec: AreaSpec, markConfig?: MarkConfig): Area {
-	return RectImpl(spec, markConfig)
+	return RectImpl(spec, markConfig);
 }
 export function ArcImpl(spec: ArcSpec, markConfig?: MarkConfig): Arc {
-	return SVGMarkImpl(spec, markConfig)
+	return SVGMarkImpl(spec, markConfig);
 }
 export function LineImpl(spec: LineSpec, markConfig?: MarkConfig): Line {
-	return SVGMarkImpl(spec, markConfig)
+	return SVGMarkImpl(spec, markConfig);
 }
 export function RuleImpl(spec: RuleSpec, markConfig?: MarkConfig): Rule {
-	return SVGMarkImpl(spec, markConfig)
+	return SVGMarkImpl(spec, markConfig);
 }
 export function LinkImpl(spec: LinkSpec, markConfig?: MarkConfig): Link {
-	return LineImpl(spec, markConfig)
+	return LineImpl(spec, markConfig);
 }
 export function FlowImpl(spec: FlowSpec, markConfig?: MarkConfig): Flow {
-	return LineImpl(spec, markConfig)
+	return LineImpl(spec, markConfig);
 }
 
 export function CircleImpl(spec: CircleSpec, markConfig?: MarkConfig): Circle {
 	return {
 		...SVGMarkImpl(spec, markConfig),
 		radius: (datum?: any) => getMarkValue(spec, 'radius', markConfig, datum),
-	}
+	};
 }
 
 export function NodeImpl(spec: NodeSpec, markConfig?: MarkConfig): Node {
-	return CircleImpl(spec, markConfig)
+	return CircleImpl(spec, markConfig);
 }
 
-export function ProcessImpl(
-	spec: ProcessSpec,
-	markConfig?: MarkConfig,
-): Process {
-	return CircleImpl(spec, markConfig)
+export function ProcessImpl(spec: ProcessSpec, markConfig?: MarkConfig): Process {
+	return CircleImpl(spec, markConfig);
 }
 
 export function TextImpl(spec: TextSpec, markConfig?: MarkConfig): Text {
 	return {
 		...SVGMarkImpl(spec, markConfig),
-		fontWeight: (datum?: any) =>
-			getMarkValue(spec, 'fontWeight', markConfig, datum),
-		fontFamily: (datum?: any) =>
-			getMarkValue(spec, 'fontFamily', markConfig, datum),
-		fontSize: (datum?: any) =>
-			getMarkValue(spec, 'fontSize', markConfig, datum),
-	}
+		fontWeight: (datum?: any) => getMarkValue(spec, 'fontWeight', markConfig, datum),
+		fontFamily: (datum?: any) => getMarkValue(spec, 'fontFamily', markConfig, datum),
+		fontSize: (datum?: any) => getMarkValue(spec, 'fontSize', markConfig, datum),
+	};
 }

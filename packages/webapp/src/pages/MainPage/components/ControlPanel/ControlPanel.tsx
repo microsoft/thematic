@@ -12,19 +12,19 @@ import {
 	useSetTheme,
 	useThemeInfo,
 	useThemes,
-} from '../../../../state/index.js'
-import { ControlPanel as ControlPanelBase } from './ControlPanel.base.js'
+} from '../../../../state/index.js';
+import { ControlPanel as ControlPanelBase } from './ControlPanel.base.js';
 
 export const ControlPanel = () => {
-	const [drawNodes, setDrawNodes] = useDrawNodes()
-	const [drawLinks, setDrawLinks] = useDrawLinks()
-	const [chartSize, setChartSize] = useChartSize()
-	const [scaleItemCount, setScaleItemCount] = useScaleItemCount()
-	const [colorBlindnessMode, setColorBlindnessMode] = useColorBlindnessMode()
-	const [darkMode, setDarkMode] = useDarkMode()
-	const [themes] = useThemes()
-	const [themeInfo, setThemeInfo] = useThemeInfo()
-	const setTheme = useSetTheme()
+	const [drawNodes, setDrawNodes] = useDrawNodes();
+	const [drawLinks, setDrawLinks] = useDrawLinks();
+	const [chartSize, setChartSize] = useChartSize();
+	const [scaleItemCount, setScaleItemCount] = useScaleItemCount();
+	const [colorBlindnessMode, setColorBlindnessMode] = useColorBlindnessMode();
+	const [darkMode, setDarkMode] = useDarkMode();
+	const [themes] = useThemes();
+	const [themeInfo, setThemeInfo] = useThemeInfo();
+	const setTheme = useSetTheme();
 	return (
 		<ControlPanelBase
 			drawNodes={drawNodes}
@@ -44,5 +44,5 @@ export const ControlPanel = () => {
 			onThemeChange={setThemeInfo}
 			onThemeLoaded={setTheme}
 		/>
-	)
-}
+	);
+};

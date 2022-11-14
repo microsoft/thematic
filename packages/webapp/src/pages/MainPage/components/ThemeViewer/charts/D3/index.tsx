@@ -2,39 +2,38 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { SelectionState } from '@thematic/core'
-import { axis, chart, circle, plotArea } from '@thematic/d3'
-import { useThematic } from '@thematic/react'
-import { axisBottom, axisLeft } from 'd3-axis'
-import { scaleLinear } from 'd3-scale'
-import type { Selection } from 'd3-selection'
-import { select } from 'd3-selection'
-import type { FC } from 'react'
-import { useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { SelectionState } from '@thematic/core';
+import { axis, chart, circle, plotArea } from '@thematic/d3';
+import { useThematic } from '@thematic/react';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { scaleLinear } from 'd3-scale';
+import type { Selection } from 'd3-selection';
+import { select } from 'd3-selection';
+import type { FC } from 'react';
+import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 
 export interface ChartProps {
-	width?: number
-	height?: number
+	width?: number;
+	height?: number;
 }
 
-const MARGIN = 25
-const LEGEND_WIDTH = 20
-const MIN_RADIUS = 5
-const MAX_RADIUS = 15
-const CIRCLE_FILL_OPACITY = 0.8
-const DATA_LENGTH = 20
+const MARGIN = 25;
+const LEGEND_WIDTH = 20;
+const MIN_RADIUS = 5;
+const MAX_RADIUS = 15;
+const CIRCLE_FILL_OPACITY = 0.8;
+const DATA_LENGTH = 20;
 
 /**
  * Simple chart using raw d3, intended to show how scale bindings work
  */
 export const D3Chart: FC<ChartProps> = ({ width = 800, height = 600 }) => {
-	const theme = useThematic()
-	const ref = useRef(null)
+	const theme = useThematic();
+	const ref = useRef(null);
 
-	const [svg, setSvg] = useState<Selection<SVGElement, any, SVGElement, any>>()
+	const [svg, setSvg] = useState<Selection<SVGElement, any, SVGElement, any>>();
 
-	const [plot, setPlot] =
-		useState<Selection<SVGGElement, any, SVGGElement, any>>()
+	const [plot, setPlot] = useState<Selection<SVGGElement, any, SVGGElement, any>>();
 
 	// random data for scatterplot
 	// TODO: load in a meaningful dataset to demonstrate the scatterplot better?
@@ -44,66 +43,56 @@ export const D3Chart: FC<ChartProps> = ({ width = 800, height = 600 }) => {
 			count: Math.random(),
 			x: Math.random(),
 			y: Math.random(),
-		}))
-	}, [])
-	const plotHeight = useMemo(() => height - MARGIN * 2, [height])
-	const plotWidth = useMemo(() => width - MARGIN * 2 - LEGEND_WIDTH, [width])
-	const xScale = useMemo(() => scaleLinear().range([0, plotWidth]), [plotWidth])
-	const yScale = useMemo(
-		() => scaleLinear().range([plotHeight, 0]),
-		[plotHeight],
-	)
-	const cxScale = useMemo(
-		() => scaleLinear().range([MAX_RADIUS, plotWidth - MAX_RADIUS]),
-		[plotWidth],
-	)
-	const cyScale = useMemo(
-		() => scaleLinear().range([plotHeight - MAX_RADIUS, MAX_RADIUS]),
-		[plotHeight],
-	)
+		}));
+	}, []);
+	const plotHeight = useMemo(() => height - MARGIN * 2, [height]);
+	const plotWidth = useMemo(() => width - MARGIN * 2 - LEGEND_WIDTH, [width]);
+	const xScale = useMemo(() => scaleLinear().range([0, plotWidth]), [plotWidth]);
+	const yScale = useMemo(() => scaleLinear().range([plotHeight, 0]), [plotHeight]);
+	const cxScale = useMemo(() => scaleLinear().range([MAX_RADIUS, plotWidth - MAX_RADIUS]), [plotWidth]);
+	const cyScale = useMemo(() => scaleLinear().range([plotHeight - MAX_RADIUS, MAX_RADIUS]), [plotHeight]);
 
 	useLayoutEffect(() => {
 		if (ref) {
-			select(ref.current).select('*').remove()
+			select(ref.current).select('*').remove();
 		}
 
 		const svg = select(ref.current).call(chart as any, theme, {
 			width,
 			height,
-		})
+		});
 
-		setSvg(svg as any)
-	}, [height, ref, theme, width])
+		setSvg(svg as any);
+	}, [height, ref, theme, width]);
 
 	useLayoutEffect(() => {
 		if (svg) {
-			svg.selectAll('g').remove()
+			svg.selectAll('g').remove();
 			const g = svg.append('g').call(plotArea as any, theme, {
 				// room for axes
 				marginBottom: MARGIN,
 				marginLeft: MARGIN,
 				marginTop: MARGIN,
 				marginRight: MARGIN + LEGEND_WIDTH,
-			})
-			setPlot(g as any)
+			});
+			setPlot(g as any);
 		}
-	}, [svg, theme])
+	}, [svg, theme]);
 
 	useLayoutEffect(() => {
 		if (plot) {
-			plot.selectAll('circle').remove()
+			plot.selectAll('circle').remove();
 			// create a series of random circles, with the fill bound to a sequential scale
 			const circ = theme.circle({
-				selectionState: d =>
-					d.weight < 50 ? SelectionState.Selected : SelectionState.Suppressed,
+				selectionState: (d) => (d.weight < 50 ? SelectionState.Selected : SelectionState.Suppressed),
 				scaleBindings: {
 					fill: {
 						scale: theme.scales().diverging2([-1, 1]),
-						accessor: d => d.weight,
+						accessor: (d) => d.weight,
 					},
 					radius: {
 						scale: scaleLinear().range([MIN_RADIUS, MAX_RADIUS]),
-						accessor: d => d.count,
+						accessor: (d) => d.count,
 					},
 				},
 				overrides: {
@@ -112,17 +101,17 @@ export const D3Chart: FC<ChartProps> = ({ width = 800, height = 600 }) => {
 					stroke: '#222',
 					fillOpacity: CIRCLE_FILL_OPACITY,
 				},
-			})
+			});
 			plot
 				.selectAll('circle')
 				.data(data)
 				.enter()
 				.append('circle')
 				.call(circle as any, circ)
-				.attr('cx', d => cxScale(d.x) as number)
-				.attr('cy', d => cyScale(d.y) as number)
+				.attr('cx', (d) => cxScale(d.x) as number)
+				.attr('cy', (d) => cyScale(d.y) as number);
 		}
-	}, [theme, plot, cxScale, cyScale, data])
+	}, [theme, plot, cxScale, cyScale, data]);
 
 	useLayoutEffect(() => {
 		if (svg) {
@@ -131,30 +120,30 @@ export const D3Chart: FC<ChartProps> = ({ width = 800, height = 600 }) => {
 				attr: {
 					transform: `translate(${MARGIN}, ${plotHeight + MARGIN})`,
 				},
-			})
+			});
 			// y axis
 			svg.append('g').call(axis as any, theme, axisLeft(yScale), {
 				attr: {
 					transform: `translate(${MARGIN}, ${MARGIN})`,
 				},
-			})
+			});
 		}
-	}, [theme, svg, plotHeight, xScale, yScale])
+	}, [theme, svg, plotHeight, xScale, yScale]);
 
 	// add a very simple legend to show the gradient
 	useLayoutEffect(() => {
 		if (svg) {
-			svg.select('.legend').remove()
+			svg.select('.legend').remove();
 			const g = svg
 				.append('g')
 				.attr('class', 'legend')
-				.attr('transform', `translate(${plotWidth + MARGIN},${MARGIN})`)
+				.attr('transform', `translate(${plotWidth + MARGIN},${MARGIN})`);
 			g.append('rect')
 				.attr('width', LEGEND_WIDTH)
 				.attr('height', plotHeight)
-				.call(plotArea as any, theme)
-			const slices = new Array(plotHeight).fill(1)
-			const scale = theme.scales().diverging2([0, plotHeight])
+				.call(plotArea as any, theme);
+			const slices = new Array(plotHeight).fill(1);
+			const scale = theme.scales().diverging2([0, plotHeight]);
 			g.selectAll('rect')
 				.data(slices)
 				.enter()
@@ -164,7 +153,7 @@ export const D3Chart: FC<ChartProps> = ({ width = 800, height = 600 }) => {
 				.attr('x', 1)
 				.attr('y', (_d, i) => plotHeight - i)
 				.attr('fill', (_d, i) => scale(i).hex())
-				.attr('fill-opacity', CIRCLE_FILL_OPACITY)
+				.attr('fill-opacity', CIRCLE_FILL_OPACITY);
 			const labels = [
 				{
 					t: '1',
@@ -178,20 +167,20 @@ export const D3Chart: FC<ChartProps> = ({ width = 800, height = 600 }) => {
 					t: '-1',
 					y: plotHeight - 8,
 				},
-			]
+			];
 			g.selectAll('text')
 				.data(labels)
 				.enter()
 				.append('text')
-				.text(d => d.t)
+				.text((d) => d.t)
 				.attr('fill', theme.axisTickLabels().fill().hex())
 				.attr('font-size', 10)
 				.attr('x', LEGEND_WIDTH / 2)
-				.attr('y', d => d.y)
+				.attr('y', (d) => d.y)
 				.attr('text-anchor', 'middle')
-				.attr('dominant-baseline', 'middle')
+				.attr('dominant-baseline', 'middle');
 		}
-	}, [theme, svg, plotWidth, plotHeight])
+	}, [theme, svg, plotWidth, plotHeight]);
 
-	return <svg ref={ref} />
-}
+	return <svg ref={ref} />;
+};

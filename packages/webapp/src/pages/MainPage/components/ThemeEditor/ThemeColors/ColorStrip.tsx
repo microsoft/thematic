@@ -3,23 +3,17 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import type { FC } from 'react'
-import { useMemo } from 'react'
+import type { FC } from 'react';
+import { useMemo } from 'react';
 
 export interface ColorStripProps {
-	colors: string[]
-	labelColors?: string[]
-	foreground: string
-	background: string
-	label: string
+	colors: string[];
+	labelColors?: string[];
+	foreground: string;
+	background: string;
+	label: string;
 }
-export const ColorStrip: FC<ColorStripProps> = ({
-	colors,
-	labelColors,
-	foreground,
-	background,
-	label,
-}) => {
+export const ColorStrip: FC<ColorStripProps> = ({ colors, labelColors, foreground, background, label }) => {
 	const colorBlocks = useMemo(
 		() =>
 			colors.map((color, index) => {
@@ -41,10 +35,10 @@ export const ColorStrip: FC<ColorStripProps> = ({
 					>
 						{color}
 					</div>
-				)
+				);
 			}),
 		[colors, background, label, labelColors],
-	)
+	);
 	const foregroundStyle = useMemo(
 		() => ({
 			width: 65,
@@ -57,7 +51,7 @@ export const ColorStrip: FC<ColorStripProps> = ({
 			padding: 5,
 		}),
 		[foreground],
-	)
+	);
 	return (
 		<div
 			style={{
@@ -75,5 +69,5 @@ export const ColorStrip: FC<ColorStripProps> = ({
 				{colorBlocks}
 			</div>
 		</div>
-	)
-}
+	);
+};

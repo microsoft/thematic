@@ -3,25 +3,20 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import type { FC } from 'react'
-import { useMemo } from 'react'
+import type { FC } from 'react';
+import { useMemo } from 'react';
 
 export interface ColorBandProps {
-	colors: string[]
-	foreground: string
-	label: string
-	width: number
+	colors: string[];
+	foreground: string;
+	label: string;
+	width: number;
 }
-export const ColorBand: FC<ColorBandProps> = ({
-	colors,
-	foreground,
-	label,
-	width,
-}) => {
+export const ColorBand: FC<ColorBandProps> = ({ colors, foreground, label, width }) => {
 	const colorBlocks = useMemo(() => {
 		// hard-coded 83 is the label width + (2 * padding) + (2 * margin) + (2 * band margin)
 		// 65 + 10 + 4 + 4
-		const slice = width ? (width - 83) / colors.length : 0
+		const slice = width ? (width - 83) / colors.length : 0;
 		return colors.map((color, index) => {
 			return (
 				<div
@@ -35,9 +30,9 @@ export const ColorBand: FC<ColorBandProps> = ({
 						padding: 0,
 					}}
 				/>
-			)
-		})
-	}, [colors, width])
+			);
+		});
+	}, [colors, width]);
 	const foregroundStyle = useMemo(
 		() => ({
 			width: 65,
@@ -50,7 +45,7 @@ export const ColorBand: FC<ColorBandProps> = ({
 			padding: 5,
 		}),
 		[foreground],
-	)
+	);
 	return (
 		<div
 			style={{
@@ -60,12 +55,12 @@ export const ColorBand: FC<ColorBandProps> = ({
 			<div style={foregroundStyle}>{label}</div>
 			<div style={layoutStyle}>{colorBlocks}</div>
 		</div>
-	)
-}
+	);
+};
 
 const layoutStyle = {
 	margin: 2,
 	display: 'flex',
 	flexFlow: 'row',
 	flexWrap: 'wrap' as const,
-}
+};

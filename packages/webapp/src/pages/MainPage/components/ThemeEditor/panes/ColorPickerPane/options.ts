@@ -31,20 +31,20 @@ export const backgroundHueShiftOptions = [
 		label: '+170 Complement',
 		value: 170,
 	},
-]
+];
 
 const getBackgroundLevelOptions = (): {
-	label: string
-	value: number
+	label: string;
+	value: number;
 }[] => {
-	const options: { label: string; value: number }[] = []
+	const options: { label: string; value: number }[] = [];
 	for (let i = 0; i <= 100; i += 10) {
 		options.push({
 			label: `${i}`,
 			value: i,
-		})
+		});
 	}
-	return options
-}
+	return options;
+};
 
-export const backgroundLevelOptions = getBackgroundLevelOptions()
+export const backgroundLevelOptions = getBackgroundLevelOptions();

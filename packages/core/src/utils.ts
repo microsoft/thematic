@@ -2,12 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { ScaleType } from './types/enums.js'
-import type {
-	ContinuousColorScaleFunction,
-	NominalColorScaleFunction,
-	Theme,
-} from './types/Theme.js'
+import type { ScaleType } from './types/enums.js';
+import type { ContinuousColorScaleFunction, NominalColorScaleFunction, Theme } from './types/Theme.js';
 
 /**
  * Flexible scale selector
@@ -24,24 +20,24 @@ export function chooseScale(
 	domain?: [number, number],
 	scaleType?: ScaleType,
 ): NominalColorScaleFunction | ContinuousColorScaleFunction {
-	const scales = theme.scales()
+	const scales = theme.scales();
 	switch (name) {
 		case 'sequential':
-			return scales.sequential(domain, scaleType)
+			return scales.sequential(domain, scaleType);
 		case 'sequential2':
-			return scales.sequential2(domain, scaleType)
+			return scales.sequential2(domain, scaleType);
 		case 'diverging':
-			return scales.diverging(domain, scaleType)
+			return scales.diverging(domain, scaleType);
 		case 'diverging2':
-			return scales.diverging2(domain, scaleType)
+			return scales.diverging2(domain, scaleType);
 		case 'greys':
-			return scales.greys(domain, scaleType)
+			return scales.greys(domain, scaleType);
 		case 'nominalMuted':
-			return scales.nominalMuted(nominalCount)
+			return scales.nominalMuted(nominalCount);
 		case 'nominalBold':
-			return scales.nominalBold(nominalCount)
+			return scales.nominalBold(nominalCount);
 		case 'nominal':
 		default:
-			return scales.nominal(nominalCount)
+			return scales.nominal(nominalCount);
 	}
 }

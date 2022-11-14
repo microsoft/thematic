@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { ScaleType, Theme } from '@thematic/core'
-import { SelectionState } from '@thematic/core'
-import type { Selection } from 'd3-selection'
+import type { ScaleType, Theme } from '@thematic/core';
+import { SelectionState } from '@thematic/core';
+import type { Selection } from 'd3-selection';
 
 /**
  * Creates a d3-compatible nominal scale using the theme.
@@ -13,8 +13,8 @@ import type { Selection } from 'd3-selection'
  * @param size - the scale size
  */
 export function nominal(theme: Theme, size: number): (key: any) => string {
-	const scale = theme.scales().nominal(size)
-	return (key: any): string => scale(key).hex()
+	const scale = theme.scales().nominal(size);
+	return (key: any): string => scale(key).hex();
 }
 
 /**
@@ -24,8 +24,8 @@ export function nominal(theme: Theme, size: number): (key: any) => string {
  * @param size - the scale size
  */
 export function nominalBold(theme: Theme, size: number): (key: any) => string {
-	const scale = theme.scales().nominalBold(size)
-	return (key: any): string => scale(key).hex()
+	const scale = theme.scales().nominalBold(size);
+	return (key: any): string => scale(key).hex();
 }
 
 /**
@@ -35,8 +35,8 @@ export function nominalBold(theme: Theme, size: number): (key: any) => string {
  * @param size - the scale size
  */
 export function nominalMuted(theme: Theme, size: number): (key: any) => string {
-	const scale = theme.scales().nominalMuted(size)
-	return (key: any): string => scale(key).hex()
+	const scale = theme.scales().nominalMuted(size);
+	return (key: any): string => scale(key).hex();
 }
 
 /**
@@ -53,8 +53,8 @@ export function sequential(
 	scaleType?: ScaleType,
 	quantiles?: number,
 ): (value: number) => string {
-	const scale = theme.scales().sequential(domain, scaleType, quantiles)
-	return (value: number): string => scale(value).hex()
+	const scale = theme.scales().sequential(domain, scaleType, quantiles);
+	return (value: number): string => scale(value).hex();
 }
 
 /**
@@ -71,8 +71,8 @@ export function sequential2(
 	scaleType?: ScaleType,
 	quantiles?: number,
 ): (value: number) => string {
-	const scale = theme.scales().sequential2(domain, scaleType, quantiles)
-	return (value: number): string => scale(value).hex()
+	const scale = theme.scales().sequential2(domain, scaleType, quantiles);
+	return (value: number): string => scale(value).hex();
 }
 
 /**
@@ -89,8 +89,8 @@ export function diverging(
 	scaleType?: ScaleType,
 	quantiles?: number,
 ): (value: number) => string {
-	const scale = theme.scales().diverging(domain, scaleType, quantiles)
-	return (value: number): string => scale(value).hex()
+	const scale = theme.scales().diverging(domain, scaleType, quantiles);
+	return (value: number): string => scale(value).hex();
 }
 
 /**
@@ -107,8 +107,8 @@ export function diverging2(
 	scaleType?: ScaleType,
 	quantiles?: number,
 ): (value: number) => string {
-	const scale = theme.scales().diverging2(domain, scaleType, quantiles)
-	return (value: number): string => scale(value).hex()
+	const scale = theme.scales().diverging2(domain, scaleType, quantiles);
+	return (value: number): string => scale(value).hex();
 }
 
 /**
@@ -125,8 +125,8 @@ export function greys(
 	scaleType?: ScaleType,
 	quantiles?: number,
 ): (value: number) => string {
-	const scale = theme.scales().greys(domain, scaleType, quantiles)
-	return (value: number): string => scale(value).hex()
+	const scale = theme.scales().greys(domain, scaleType, quantiles);
+	return (value: number): string => scale(value).hex();
 }
 
 // TODO: this sort of logic should be baked into the core theme,
@@ -139,23 +139,23 @@ export function applyNominalAttrWithSignalState(
 	theme: Theme,
 	size: number,
 ): void {
-	const normal = theme.scales().nominal(size)
-	const muted = theme.scales().nominalMuted(size)
-	const bold = theme.scales().nominalBold(size)
-	selection.attr(attr, d => {
-		const selectionState = getState(d)
-		const key = accessor(d)
+	const normal = theme.scales().nominal(size);
+	const muted = theme.scales().nominalMuted(size);
+	const bold = theme.scales().nominalBold(size);
+	selection.attr(attr, (d) => {
+		const selectionState = getState(d);
+		const key = accessor(d);
 		switch (selectionState) {
 			case SelectionState.Normal:
-				return normal(key).hex()
+				return normal(key).hex();
 			case SelectionState.Hovered:
-				return bold(key).hex()
+				return bold(key).hex();
 			case SelectionState.Selected:
-				return bold(key).hex()
+				return bold(key).hex();
 			case SelectionState.Suppressed:
-				return muted(key).hex()
+				return muted(key).hex();
 			default:
-				return null
+				return null;
 		}
-	})
+	});
 }

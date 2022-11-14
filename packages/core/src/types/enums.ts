@@ -63,7 +63,7 @@ export type MarkType =
 	| 'flow'
 	| 'link'
 	| 'arc'
-	| 'text'
+	| 'text';
 export type ChromeType =
 	| 'plotArea'
 	| 'tooltip'
@@ -71,5 +71,5 @@ export type ChromeType =
 	| 'axisTicks'
 	| 'gridLines'
 	| 'axisTickLabels'
-	| 'axisTitle'
-export type ThemeElementType = MarkType | ChromeType
+	| 'axisTitle';
+export type ThemeElementType = MarkType | ChromeType;
