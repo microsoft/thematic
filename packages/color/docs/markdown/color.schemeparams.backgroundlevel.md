@@ -4,6 +4,8 @@
 
 ## SchemeParams.backgroundLevel property
 
+Background level - modulates the background lightness and saturation.
+
 <b>Signature:</b>
 
 ```typescript

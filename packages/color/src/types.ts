@@ -7,11 +7,35 @@
  * This is the core set of parameters for generating schemes using the ColorPicker
  */
 export interface SchemeParams {
+	/**
+	 * HSL hue component for the accent.
+	 * Valid range is 0-360 (degrees).
+	 */
 	accentHue: number
+	/**
+	 * HSL saturation component for the accent.
+	 * Valid range is 0-100.
+	 */
 	accentSaturation: number
+	/**
+	 * HSL lightness component for the accent.
+	 * Valid range is 0-100.
+	 */
 	accentLightness: number
+	/**
+	 * Background shift - modulates the background color to tilt toward the hue or toward white/grey.
+	 * Valid range is 0-100.
+	 */
 	backgroundHueShift: number
+	/**
+	 * Background level - modulates the background lightness and saturation.
+	 * Valid range is 0-100.
+	 */
 	backgroundLevel: number
+	/**
+	 * Hue step - adjusts the cycle distance between scale hues.
+	 * Notional range is 0-21. Technically this has no top-limit, but nominal scales will regress toward the hue.
+	 */
 	nominalHueStep: number
 }
 

@@ -302,17 +302,11 @@ export interface Scheme {
 //
 // @public
 export interface SchemeParams {
-    // (undocumented)
     accentHue: number;
-    // (undocumented)
     accentLightness: number;
-    // (undocumented)
     accentSaturation: number;
-    // (undocumented)
     backgroundHueShift: number;
-    // (undocumented)
     backgroundLevel: number;
-    // (undocumented)
     nominalHueStep: number;
 }
 

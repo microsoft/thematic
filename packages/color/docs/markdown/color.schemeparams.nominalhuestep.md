@@ -4,6 +4,8 @@
 
 ## SchemeParams.nominalHueStep property
 
+Hue step - adjusts the cycle distance between scale hues.
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,6 +4,7 @@
  */
 
 import { hsluv2hex } from '../chroma.js'
+import { defaultParams } from '../index.js'
 import type { HslVector, Scheme, SchemeParams } from '../types'
 import {
 	getAnnotations,
@@ -53,7 +54,15 @@ const DARKEST_GREY = 20
 const LIGHTEST_GREY = 90
 const OFFSET_BACKGROUND_LUMINANCE_SHIFT = 1
 
-// TODO: this should probably throw errors if out-of-bounds values are submitted OR, wrap around the geometry if that's always valid
+/**
+ * Takes a set of core params and generates all of the scale computes required for a Schema,
+ * using HSLuv color space for even perceptual qualities.
+ * @param params
+ * @param nominalItemCount
+ * @param sequentialItemCount
+ * @param light
+ * @returns
+ */
 export function getScheme(
 	params: SchemeParams,
 	nominalItemCount: number,
@@ -67,12 +76,12 @@ export function getScheme(
 		backgroundLevel,
 		backgroundHueShift,
 		nominalHueStep,
-	} = params
+	} = validateParams(params)
 
 	const foregroundHsl = getForegroundHsl(
-		light,
 		DARK_TEXT_LUMINANCE,
 		LIGHT_TEXT_LUMINANCE,
+		light,
 	)
 
 	const backgroundHsl = getBackgroundHsl(
@@ -87,12 +96,12 @@ export function getScheme(
 		light,
 	)
 
-	const [, , backgroundLightness] = backgroundHsl
+	const backgroundLightness = backgroundHsl[2]
 
 	const offsetbackgroundHsl = getOffsetBackgroundHsl(
-		light,
 		backgroundHsl,
 		OFFSET_BACKGROUND_LUMINANCE_SHIFT,
+		light,
 	)
 
 	const boldGreyLightness = light ? DARKEST_GREY : LIGHTEST_GREY
@@ -222,4 +231,74 @@ export function getScheme(
  */
 function hsluvList2hexList(hsluvs: HslVector[]): string[] {
 	return hsluvs.map(hsluv2hex)
+}
+
+/**
+ * Validates the param limits, and returns a clean set or throws if unadjustable.
+ * @param params
+ */
+export function validateParams(params: Partial<SchemeParams>): SchemeParams {
+	const {
+		accentHue,
+		accentSaturation,
+		accentLightness,
+		backgroundLevel,
+		backgroundHueShift,
+		nominalHueStep,
+	} = params
+
+	const hueShift = backgroundHueShift || defaultParams.backgroundHueShift
+	const level = backgroundLevel || defaultParams.backgroundLevel
+	const step = nominalHueStep || defaultParams.nominalHueStep
+
+	if (!accentHue) {
+		throw new Error(
+			'Must supply an accent hue from 0-360. <undefined> was supplied.',
+		)
+	}
+
+	if (!accentLightness) {
+		throw new Error(
+			'Must supply an accent lightness from 0-100. <undefined> was supplied.',
+		)
+	}
+
+	if (!accentSaturation) {
+		throw new Error(
+			'Must supply an accent saturation from 0-100. <undefined> was supplied.',
+		)
+	}
+
+	if (accentLightness < 0 || accentLightness > 100) {
+		throw new Error(
+			`accentLightness ${accentLightness} is out of valid range: 0-100`,
+		)
+	}
+
+	if (accentSaturation < 0 || accentSaturation > 100) {
+		throw new Error(
+			`accentSaturation ${accentSaturation} is out of valid range: 0-100`,
+		)
+	}
+
+	if (level < 0 || level > 100) {
+		throw new Error(`backgroundLevel ${level} is out of valid range: 0-100`)
+	}
+
+	if (hueShift < 0 || hueShift > 100) {
+		throw new Error(
+			`backgroundHueShift ${hueShift} is out of valid range: 0-100`,
+		)
+	}
+
+	const hueMod = accentHue % 360
+
+	return {
+		accentHue: hueMod > 0 ? hueMod : accentHue,
+		accentLightness,
+		accentSaturation,
+		backgroundHueShift: hueShift,
+		backgroundLevel: level,
+		nominalHueStep: step,
+	}
 }

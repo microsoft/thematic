@@ -4,6 +4,8 @@
 
 ## SchemeParams.accentSaturation property
 
+HSL saturation component for the accent. Valid range is 0-100.
+
 <b>Signature:</b>
 
 ```typescript

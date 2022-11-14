@@ -108,17 +108,13 @@ export function getBackgroundLightness(
 export function getBackgroundSaturation(
 	hue: number,
 	lightness: number,
-	backgroundLevel: number,
-	maxBackgroundChroma: number,
+	level: number,
+	maxChroma: number,
 ): number {
-	if (backgroundLevel < 50) {
-		return (
-			(backgroundLevel *
-				normalizeSaturation(hue, lightness, maxBackgroundChroma)) /
-			50
-		)
+	if (level < 50) {
+		return (level * normalizeSaturation(hue, lightness, maxChroma)) / 50
 	} else {
-		return normalizeSaturation(hue, lightness, maxBackgroundChroma)
+		return normalizeSaturation(hue, lightness, maxChroma)
 	}
 }
 
@@ -169,36 +165,31 @@ export function getAccentsAndComplements(
 
 export function getBackgroundHsl(
 	hue: number,
-	backgroundLevel: number,
-	backgroundHueShift: number,
+	level: number,
+	hueShift: number,
 	maxLightLightnessOffset: number,
 	maxDarkLightnessOffset: number,
-	maxBackgroundChroma: number,
+	maxChroma: number,
 	analogousRange: number,
 	complementaryRange: number,
 	light: boolean,
 ): HslVector {
-	const h = getOffsetHue(
-		hue,
-		backgroundHueShift,
-		analogousRange,
-		complementaryRange,
-	)
+	const h = getOffsetHue(hue, hueShift, analogousRange, complementaryRange)
 	const l = getBackgroundLightness(
-		backgroundLevel,
+		level,
 		maxLightLightnessOffset,
 		maxDarkLightnessOffset,
 		light,
 	)
-	const s = getBackgroundSaturation(h, l, backgroundLevel, maxBackgroundChroma)
+	const s = getBackgroundSaturation(h, l, level, maxChroma)
 	return [h, s, l]
 }
 
 /**
  * Returns a sequence of hue components using the specified step starting from an initial hue.
  * Attempts to cycle in a way that is predictable but does not result in similar neighbor colors.
- * @param accentHsl
- * @param nominalHueStep
+ * @param start
+ * @param step
  * @param size
  * @returns
  */
@@ -226,17 +217,26 @@ export function getNominalHues(start: number, step: number, size: number) {
 	}
 
 	// trim the core hues to match requested size
-	// this acounts for initialHues calculation
+	// this accounts for initialHues calculation
 	// which can result in minimum counts higher than requested
 	return hues.slice(0, size)
 }
 
+/**
+ * Gets a nominal sequence with even perception based on a core hue set.
+ * @param hues
+ * @param saturation
+ * @param minSaturation
+ * @param lightness
+ * @param minLightness
+ * @returns
+ */
 export function getNominalSequence(
 	hues: number[],
 	saturation: number,
-	minimumSaturation: number,
+	minSaturation: number,
 	lightness: number,
-	minimumLightness: number,
+	minLightness: number,
 ) {
 	let baseSaturation = saturation
 	let baseLightness = lightness
@@ -244,23 +244,34 @@ export function getNominalSequence(
 	return hues.map((hue, idx) => {
 		const hsl = [hue, baseSaturation, baseLightness] as HslVector
 		if ((idx + 1) % 3 === 0) {
-			baseSaturation = Math.max(baseSaturation - 1, minimumSaturation)
+			baseSaturation = Math.max(baseSaturation - 1, minSaturation)
 		}
 		if ((idx + 1) % 6 === 0) {
-			baseLightness = Math.max(baseLightness - 1, minimumLightness)
+			baseLightness = Math.max(baseLightness - 1, minLightness)
 		}
 		return hsl
 	})
 }
 
+/**
+ * Gets the muted nominal sequence by decreasing the saturation and increasing lightness
+ * @param hues
+ * @param saturation
+ * @param minSaturation
+ * @param lightness
+ * @param minLightness
+ * @param saturationShift
+ * @param nominalShift
+ * @returns
+ */
 export function getNominalMutedSequence(
 	hues: number[],
 	saturation: number,
-	minimumSaturation: number,
+	minSaturation: number,
 	lightness: number,
-	minimumLightness: number,
-	mutedSaturationShift: number,
-	nominalLighterShift: number,
+	minLightness: number,
+	saturationShift: number,
+	nominalShift: number,
 ) {
 	const nominalSaturation = saturation
 	let baseSaturation = saturation
@@ -269,27 +280,38 @@ export function getNominalMutedSequence(
 	return hues.map((hue, idx) => {
 		const hsl = [
 			hue,
-			0.5 * (nominalSaturation + baseSaturation) - mutedSaturationShift,
-			0.5 * (lightness + baseLightness) + nominalLighterShift,
+			0.5 * (nominalSaturation + baseSaturation) - saturationShift,
+			0.5 * (lightness + baseLightness) + nominalShift,
 		] as HslVector
 		if ((idx + 1) % 3 === 0) {
-			baseSaturation = Math.max(baseSaturation - 1, minimumSaturation)
+			baseSaturation = Math.max(baseSaturation - 1, minSaturation)
 		}
 		if ((idx + 1) % 6 === 0) {
-			baseLightness = Math.max(baseLightness - 1, minimumLightness)
+			baseLightness = Math.max(baseLightness - 1, minLightness)
 		}
 		return hsl
 	})
 }
 
+/**
+ * Gets the bold nominal sequence by increasing the saturation and decreasing lightness
+ * @param hues
+ * @param saturation
+ * @param minSaturation
+ * @param lightness
+ * @param minLightness
+ * @param saturationShift
+ * @param nominalShift
+ * @returns
+ */
 export function getNominalBoldSequence(
 	hues: number[],
 	saturation: number,
-	minimumSaturation: number,
+	minSaturation: number,
 	lightness: number,
-	minimumLightness: number,
-	boldSaturationShift: number,
-	nominalDarkerShift: number,
+	minLightness: number,
+	saturationShift: number,
+	nominalShift: number,
 ) {
 	const nominalSaturation = saturation
 	let baseSaturation = saturation
@@ -298,14 +320,14 @@ export function getNominalBoldSequence(
 	return hues.map((hue, idx) => {
 		const hsl = [
 			hue,
-			0.5 * (nominalSaturation + baseSaturation) + boldSaturationShift,
-			0.5 * (lightness + baseLightness) - nominalDarkerShift,
+			0.5 * (nominalSaturation + baseSaturation) + saturationShift,
+			0.5 * (lightness + baseLightness) - nominalShift,
 		] as HslVector
 		if ((idx + 1) % 3 === 0) {
-			baseSaturation = Math.max(baseSaturation - 1, minimumSaturation)
+			baseSaturation = Math.max(baseSaturation - 1, minSaturation)
 		}
 		if ((idx + 1) % 6 === 0) {
-			baseLightness = Math.max(baseLightness - 1, minimumLightness)
+			baseLightness = Math.max(baseLightness - 1, minLightness)
 		}
 		return hsl
 	})
@@ -416,24 +438,23 @@ export function getAnnotations(
 }
 
 export function getForegroundHsl(
-	light: boolean,
 	darkTextLightness: number,
 	lightTextLightness: number,
+	light: boolean,
 ): HslVector {
 	const textLightness = light ? darkTextLightness : lightTextLightness
 	return [0, 0, textLightness]
 }
 
 export function getOffsetBackgroundHsl(
-	light: boolean,
 	backgroundHsl: HslVector,
-	offsetBackgroundLightnessShift: number,
+	lightnessShift: number,
+	light: boolean,
 ): HslVector {
-	const [backgroundHue, backgroundSaturation, backgroundLightness] =
-		backgroundHsl
-	const offsetBackgroundLightness = light
-		? Math.min(100, backgroundLightness + offsetBackgroundLightnessShift)
-		: Math.max(0, backgroundLightness - offsetBackgroundLightnessShift)
+	const [hue, saturation, lightness] = backgroundHsl
+	const offsetLightness = light
+		? Math.min(100, lightness + lightnessShift)
+		: Math.max(0, lightness - lightnessShift)
 
-	return [backgroundHue, backgroundSaturation, offsetBackgroundLightness]
+	return [hue, saturation, offsetLightness]
 }

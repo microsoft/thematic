@@ -16,10 +16,10 @@ export interface SchemeParams
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [accentHue](./color.schemeparams.accenthue.md) |  | number |  |
-|  [accentLightness](./color.schemeparams.accentlightness.md) |  | number |  |
-|  [accentSaturation](./color.schemeparams.accentsaturation.md) |  | number |  |
-|  [backgroundHueShift](./color.schemeparams.backgroundhueshift.md) |  | number |  |
-|  [backgroundLevel](./color.schemeparams.backgroundlevel.md) |  | number |  |
-|  [nominalHueStep](./color.schemeparams.nominalhuestep.md) |  | number |  |
+|  [accentHue](./color.schemeparams.accenthue.md) |  | number | HSL hue component for the accent. Valid range is 0-360 (degrees). |
+|  [accentLightness](./color.schemeparams.accentlightness.md) |  | number | HSL lightness component for the accent. Valid range is 0-100. |
+|  [accentSaturation](./color.schemeparams.accentsaturation.md) |  | number | HSL saturation component for the accent. Valid range is 0-100. |
+|  [backgroundHueShift](./color.schemeparams.backgroundhueshift.md) |  | number | Background shift - modulates the background color to tilt toward the hue or toward white/grey. |
+|  [backgroundLevel](./color.schemeparams.backgroundlevel.md) |  | number | Background level - modulates the background lightness and saturation. |
+|  [nominalHueStep](./color.schemeparams.nominalhuestep.md) |  | number | Hue step - adjusts the cycle distance between scale hues. |
 

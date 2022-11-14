@@ -3419,7 +3419,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "@thematic/color!SchemeParams#accentHue:member",
-              "docComment": "",
+              "docComment": "/**\n * HSL hue component for the accent. Valid range is 0-360 (degrees).\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -3446,7 +3446,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "@thematic/color!SchemeParams#accentLightness:member",
-              "docComment": "",
+              "docComment": "/**\n * HSL lightness component for the accent. Valid range is 0-100.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -3473,7 +3473,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "@thematic/color!SchemeParams#accentSaturation:member",
-              "docComment": "",
+              "docComment": "/**\n * HSL saturation component for the accent. Valid range is 0-100.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -3500,7 +3500,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "@thematic/color!SchemeParams#backgroundHueShift:member",
-              "docComment": "",
+              "docComment": "/**\n * Background shift - modulates the background color to tilt toward the hue or toward white/grey.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -3527,7 +3527,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "@thematic/color!SchemeParams#backgroundLevel:member",
-              "docComment": "",
+              "docComment": "/**\n * Background level - modulates the background lightness and saturation.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -3554,7 +3554,7 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "@thematic/color!SchemeParams#nominalHueStep:member",
-              "docComment": "",
+              "docComment": "/**\n * Hue step - adjusts the cycle distance between scale hues.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",

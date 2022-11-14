@@ -4,6 +4,8 @@
 
 ## SchemeParams.accentHue property
 
+HSL hue component for the accent. Valid range is 0-360 (degrees).
+
 <b>Signature:</b>
 
 ```typescript

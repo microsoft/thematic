@@ -2,7 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { getScheme } from '../scheme/HsluvColorLogic.js'
+import { defaultParams } from '../index.js'
+import { getScheme, validateParams } from '../scheme/HsluvColorLogic.js'
 
 const GREYS = [
 	'#e8e8e8',
@@ -146,5 +147,39 @@ describe('getScheme', () => {
 			)
 			expect(scheme.diverging).toEqual(DIVERGING)
 		})
+	})
+})
+
+describe('validateParams', () => {
+	test('cycle accent hue', () => {
+		const within360 = validateParams({
+			...defaultParams,
+			accentHue: 100,
+		})
+
+		expect(within360.accentHue).toBe(100)
+
+		const cycledOnce = validateParams({
+			...defaultParams,
+			accentHue: 420,
+		})
+		expect(cycledOnce.accentHue).toBe(60)
+
+		const cycledMany = validateParams({
+			...defaultParams,
+			accentHue: 1111,
+		})
+		expect(cycledMany.accentHue).toBe(31)
+	})
+
+	test('fill in defaults', () => {
+		const params = validateParams({
+			accentHue: 100,
+			accentLightness: 100,
+			accentSaturation: 100,
+		})
+		expect(params.backgroundHueShift).toBe(defaultParams.backgroundHueShift)
+		expect(params.backgroundLevel).toBe(defaultParams.backgroundLevel)
+		expect(params.nominalHueStep).toBe(defaultParams.nominalHueStep)
 	})
 })

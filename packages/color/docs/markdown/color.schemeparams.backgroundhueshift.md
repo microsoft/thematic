@@ -4,6 +4,8 @@
 
 ## SchemeParams.backgroundHueShift property
 
+Background shift - modulates the background color to tilt toward the hue or toward white/grey.
+
 <b>Signature:</b>
 
 ```typescript
