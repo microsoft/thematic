@@ -13,7 +13,6 @@
 		"test": "turbo run test",
 		"start": "turbo run start",
 		"publish": "turbo run release",
-		"prettify": "essex prettify",
 		"ci": "turbo run ci",
 		"is_clean": "git diff-index HEAD --quiet || git status",
 		"release": "run-s clean build publish",
