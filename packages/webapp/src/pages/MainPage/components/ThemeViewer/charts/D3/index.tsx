@@ -63,7 +63,9 @@ export const D3Chart: FC<ChartProps> = ({ width = 800, height = 600 }) => {
 	)
 
 	useLayoutEffect(() => {
-		if (ref) select(ref.current).select('*').remove()
+		if (ref) {
+			select(ref.current).select('*').remove()
+		}
 
 		const svg = select(ref.current).call(chart as any, theme, {
 			width,

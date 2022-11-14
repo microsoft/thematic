@@ -34,25 +34,25 @@ export const ApplicationPalette: FC = () => {
 	return (
 		<div className="application-palette">
 			<ColorStrip
-				vertical
+				vertical={true}
 				colorDefinitions={primaries}
 				swatchStyle={styles.swatch}
 				labelStyle={styles.label}
 			/>
 			<ColorStrip
-				vertical
+				vertical={true}
 				colorDefinitions={signals}
 				swatchStyle={styles.swatch}
 				labelStyle={styles.label}
 			/>
 			<ColorStrip
-				vertical
+				vertical={true}
 				colorDefinitions={secondaries}
 				swatchStyle={styles.swatch}
 				labelStyle={styles.label}
 			/>
 			<ColorStrip
-				vertical
+				vertical={true}
 				colorDefinitions={elements}
 				swatchStyle={styles.swatch}
 				labelStyle={styles.label}

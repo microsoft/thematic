@@ -56,7 +56,7 @@ export const FluentPalette: FC<FluentPaletteProps> = ({ theme }) => {
 			<div>
 				<div style={styles.header}>Primary</div>
 				<ColorStrip
-					vertical
+					vertical={true}
 					colorDefinitions={primaries}
 					swatchStyle={styles.swatch}
 				/>
@@ -64,7 +64,7 @@ export const FluentPalette: FC<FluentPaletteProps> = ({ theme }) => {
 			<div>
 				<div style={styles.header}>Foreground</div>
 				<ColorStrip
-					vertical
+					vertical={true}
 					colorDefinitions={foregrounds}
 					swatchStyle={styles.swatch}
 				/>
@@ -72,7 +72,7 @@ export const FluentPalette: FC<FluentPaletteProps> = ({ theme }) => {
 			<div>
 				<div style={styles.header}>Background</div>
 				<ColorStrip
-					vertical
+					vertical={true}
 					colorDefinitions={backgrounds}
 					swatchStyle={styles.swatch}
 				/>

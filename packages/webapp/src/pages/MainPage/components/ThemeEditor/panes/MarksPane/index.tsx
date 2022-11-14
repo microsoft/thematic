@@ -76,7 +76,7 @@ export const MarkGrid: FC = () => {
 							selected={selectionState}
 							onChange={handleSelectionStateChange}
 							iconNames={iconNames}
-							iconOnly
+							iconOnly={true}
 							styles={{
 								root: {
 									padding: 0,

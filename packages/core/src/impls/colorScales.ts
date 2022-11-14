@@ -71,12 +71,14 @@ export function continuous(
 	// note that the results can still be unpredictable if the domain crosses zero
 	const safedomain = domain.map(d => (d === 0 ? 1e-10 : d))
 	switch (scaleType) {
-		case ScaleType.Log:
+		case ScaleType.Log: {
 			scale = log(safedomain)
 			break
-		case ScaleType.Quantile:
+		}
+		case ScaleType.Quantile: {
 			scale = quantile(domain, quantiles || 10)
 			break
+		}
 		default:
 			scale = linear(domain)
 			break

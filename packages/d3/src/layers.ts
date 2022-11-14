@@ -48,10 +48,10 @@ function getSelectionOptions(
 	_selection: Selection<Element, any, Element, any>,
 	options?: Partial<SelectionOptions>,
 ): SelectionOptions {
-	const _on = (options && options.on) || {}
-	const _attr = (options && options.attr) || {}
-	const _classed = (options && options.classed) || {}
-	const _style = (options && options.style) || {}
+	const _on = options?.on || {}
+	const _attr = options?.attr || {}
+	const _classed = options?.classed || {}
+	const _style = options?.style || {}
 	return { on: _on, attr: _attr, classed: _classed, style: _style }
 }
 
@@ -59,8 +59,8 @@ function getChartOptions(
 	selection: Selection<Element, any, Element, any>,
 	options?: ChartOptions,
 ): ChartOptions {
-	const w = options && options.width
-	const h = options && options.height
+	const w = options?.width
+	const h = options?.height
 	const width = w || +selection.attr('width') || 0
 	const height = h || +selection.attr('height') || 0
 	const sOpts = getSelectionOptions(selection, options)
@@ -81,14 +81,14 @@ function getPlotAreaOptions(
 	selection: Selection<Element, any, Element, any>,
 	options?: PlotAreaOptions,
 ): PlotAreaOptions {
-	const marginTop = (options && options.marginTop) || 0
-	const marginBottom = (options && options.marginBottom) || 0
-	const marginLeft = (options && options.marginLeft) || 0
-	const marginRight = (options && options.marginRight) || 0
+	const marginTop = options?.marginTop || 0
+	const marginBottom = options?.marginBottom || 0
+	const marginLeft = options?.marginLeft || 0
+	const marginRight = options?.marginRight || 0
 
 	// for the dimensions we need to either use what is provided directly, or compute from parent
-	const w = options && options.width
-	const h = options && options.height
+	const w = options?.width
+	const h = options?.height
 	const parent = selection.select(function (this: any) {
 		return this.parentNode
 	} as any)

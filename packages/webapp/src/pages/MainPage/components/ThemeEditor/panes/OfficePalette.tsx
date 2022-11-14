@@ -39,7 +39,7 @@ export const OfficePalette: FC<OfficePaletteProps> = ({ colors }) => {
 			<div>
 				<div style={styles.header}>Primary</div>
 				<ColorStrip
-					vertical
+					vertical={true}
 					colorDefinitions={mains}
 					swatchStyle={styles.swatch}
 				/>
@@ -47,7 +47,7 @@ export const OfficePalette: FC<OfficePaletteProps> = ({ colors }) => {
 			<div>
 				<div style={styles.header}>Accent</div>
 				<ColorStrip
-					vertical
+					vertical={true}
 					colorDefinitions={accents}
 					swatchStyle={styles.swatch}
 				/>

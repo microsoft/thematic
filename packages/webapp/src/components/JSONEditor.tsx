@@ -31,8 +31,8 @@ export const JSONEditor: FC<JSONEditorProps> = ({ value }: JSONEditorProps) => {
 	return (
 		<TextField
 			styles={styles}
-			multiline
-			readOnly
+			multiline={true}
+			readOnly={true}
 			value={JSON.stringify(value, null, 2)}
 		/>
 	)

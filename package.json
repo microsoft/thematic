@@ -9,7 +9,7 @@
 		"build": "turbo run build",
 		"bundle": "turbo run bundle",
 		"lint": "turbo run lint",
-		"lint_fix": "turbo run lint --fix",
+		"lint_fix": "turbo run lint_fix",
 		"test": "turbo run test",
 		"start": "turbo run start",
 		"publish": "turbo run release",

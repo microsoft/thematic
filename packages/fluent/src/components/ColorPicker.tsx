@@ -33,15 +33,14 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 
 	const updateParams = useCallback(
 		(params: PartialParams) => {
-			onChange &&
-				onChange(
-					theme.clone({
-						params: {
-							...theme.params,
-							...params,
-						},
-					}),
-				)
+			onChange?.(
+				theme.clone({
+					params: {
+						...theme.params,
+						...params,
+					},
+				}),
+			)
 		},
 		[theme, onChange],
 	)
@@ -99,14 +98,14 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 	const slidersStyles: CSSProperties = useMemo(
 		() => ({
 			width: 300, // default max width of color picker, so the sliders match
-			...(styles && styles.sliders),
+			...styles?.sliders,
 		}),
 		[styles],
 	)
 	const sliderStyles: CSSProperties = useMemo(
 		() => ({
 			marginTop: 8,
-			...(styles && styles.slider),
+			...styles?.slider,
 		}),
 		[styles],
 	)

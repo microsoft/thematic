@@ -18,7 +18,8 @@
 		"clean": "essex clean",
 		"build": "essex build --docs",
 		"release": "yarn npm publish --tolerate-republish --access public",
-		"lint": "essex lint --fix"
+		"lint_fix": "rome check --apply-suggested src && rome format --write src",
+		"lint": "rome ci src"
 	},
 	"dependencies": {
 		"chroma-js": "^2.4.2",
@@ -31,7 +32,8 @@
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/chroma-js": "^2.1.4",
 		"@types/jest": "^29.1.2",
-		"@types/node": "^18.8.4"
+		"@types/node": "^18.8.4",
+		"rome": "^10.0.1"
 	},
 	"peerDependencies": {
 		"@types/chroma-js": "*",

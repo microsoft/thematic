@@ -19,7 +19,8 @@
 		"build": "essex build --skipExportCheck --docs",
 		"release": "yarn npm publish --tolerate-republish --access public",
 		"test": "NODE_OPTIONS=--experimental-vm-modules yarn node $(yarn bin jest) --runInBand",
-		"lint": "essex lint --fix"
+		"lint_fix": "rome check --apply-suggested src && rome format --write src",
+		"lint": "rome ci src"
 	},
 	"dependencies": {
 		"@thematic/color": "workspace:^",
@@ -39,7 +40,8 @@
 		"@types/react": "^18.0.21",
 		"chroma-js": "^2.4.2",
 		"jest": "^29.1.2",
-		"react": "^18.2.0"
+		"react": "^18.2.0",
+		"rome": "^10.0.1"
 	},
 	"peerDependencies": {
 		"@fluentui/react": ">= 8",

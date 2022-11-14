@@ -49,7 +49,7 @@ export const ThemeViewer: FC<ThemeViewerProps> = ({
 			{...common}
 			drawNodes={drawNodes}
 			drawLinks={drawLinks}
-			categoricalFill
+			categoricalFill={true}
 		/>,
 		<D3Graph
 			key="graph-3"
@@ -57,7 +57,7 @@ export const ThemeViewer: FC<ThemeViewerProps> = ({
 			{...common}
 			drawNodes={drawNodes}
 			drawLinks={drawLinks}
-			sequentialFill
+			sequentialFill={true}
 		/>,
 	]
 
@@ -74,7 +74,7 @@ export const ThemeViewer: FC<ThemeViewerProps> = ({
 								{graph}
 							</div>
 						))}
-						<div className="example-grid-item" key={`example-rar-chart`}>
+						<div className="example-grid-item" key={'example-rar-chart'}>
 							<D3Chart {...common} />
 						</div>
 						{charts.map(chart => (

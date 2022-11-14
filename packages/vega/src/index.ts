@@ -158,7 +158,7 @@ function __hack_fix__(theme: Theme, spec: Spec) {
 	if (spec.marks) {
 		spec.marks.forEach(mark => {
 			if (mark.type === 'arc') {
-				if (mark.encode && mark.encode.enter && !mark.encode.enter.stroke) {
+				if (mark.encode?.enter && !mark.encode.enter.stroke) {
 					mark.encode.enter.stroke = {
 						value: theme.arc().stroke().hex(),
 					}

@@ -32,7 +32,12 @@ export const GimpPane: FC = () => {
 	const value: string = useMemo(() => theme.transform(gimp) as string, [theme])
 	return (
 		<div style={{ width: '100%' }}>
-			<TextField styles={styles} multiline readOnly value={value} />
+			<TextField
+				styles={styles}
+				multiline={true}
+				readOnly={true}
+				value={value}
+			/>
 			<DownloadLink
 				filename={`${theme.name}-${theme.variant}.gpl`}
 				blobParts={[value]}

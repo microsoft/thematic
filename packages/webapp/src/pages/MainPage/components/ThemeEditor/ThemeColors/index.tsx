@@ -90,7 +90,7 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 							foreground={foregroundColor!}
 							background={backgroundColor!}
 							error={errorColor!}
-							showLink
+							showLink={true}
 						/>
 						)
 					</li>
@@ -100,7 +100,7 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 							foreground={accentColor!}
 							background={backgroundColor!}
 							error={errorColor!}
-							showLink
+							showLink={true}
 						/>
 						)
 					</li>

@@ -18,7 +18,8 @@
 		"clean": "essex clean",
 		"build": "essex build --skipExportCheck --docs",
 		"release": "yarn npm publish --tolerate-republish --access public",
-		"lint": "essex lint --fix"
+		"lint_fix": "rome check --apply-suggested src && rome format --write src",
+		"lint": "rome ci src"
 	},
 	"dependencies": {
 		"@thematic/color": "workspace:^",
@@ -29,7 +30,8 @@
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/node": "^18.8.4",
 		"@types/react": "^18.0.21",
-		"react": "^18.2.0"
+		"react": "^18.2.0",
+		"rome": "^10.0.1"
 	},
 	"peerDependencies": {
 		"@types/node": "*",

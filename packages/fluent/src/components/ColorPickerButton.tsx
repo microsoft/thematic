@@ -19,7 +19,7 @@ export const ColorPickerButton: FC<ColorPickerButtonProps> = memo(
 				paddingTop: 0,
 				paddingBottom: 0,
 				marginBottom: -3,
-				...(styles && styles.label),
+				...styles?.label,
 			}),
 			[styles],
 		)

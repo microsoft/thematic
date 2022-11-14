@@ -33,11 +33,11 @@ export const backgroundHueShiftOptions = [
 	},
 ]
 
-const getBackgroundLevelOptions = (): Array<{
+const getBackgroundLevelOptions = (): {
 	label: string
 	value: number
-}> => {
-	const options: Array<{ label: string; value: number }> = []
+}[] => {
+	const options: { label: string; value: number }[] = []
 	for (let i = 0; i <= 100; i += 10) {
 		options.push({
 			label: `${i}`,

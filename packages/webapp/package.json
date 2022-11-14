@@ -10,7 +10,8 @@
 		"bundle": "essex bundle",
 		"start": "essex serve",
 		"start:webapp": "yarn start",
-		"lint": "essex lint --fix"
+		"lint_fix": "rome check --apply-suggested src && rome format --write src",
+		"lint": "rome ci src"
 	},
 	"repository": {
 		"type": "git",
@@ -45,6 +46,7 @@
 		"@types/node": "^18.8.4",
 		"@types/react": "^18.0.21",
 		"@types/react-dom": "^18.0.6",
+		"rome": "^10.0.1",
 		"typescript": "^4.8.4"
 	},
 	"browserslist": [

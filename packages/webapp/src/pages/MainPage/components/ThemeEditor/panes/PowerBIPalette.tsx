@@ -50,7 +50,7 @@ export const PowerBIPalette: FC<PowerBIPaletteProps> = ({ colors }) => {
 			<div>
 				<div style={styles.header}>Primary</div>
 				<ColorStrip
-					vertical
+					vertical={true}
 					colorDefinitions={mains}
 					swatchStyle={styles.swatch}
 				/>
@@ -59,12 +59,12 @@ export const PowerBIPalette: FC<PowerBIPaletteProps> = ({ colors }) => {
 				<div style={styles.header}>Data Colors</div>
 				<div style={{ display: 'flex', alignItems: ' flex-start' }}>
 					<ColorStrip
-						vertical
+						vertical={true}
 						colorDefinitions={dataColorsLeft}
 						swatchStyle={styles.swatch}
 					/>
 					<ColorStrip
-						vertical
+						vertical={true}
 						colorDefinitions={dataColorsRight}
 						swatchStyle={styles.swatch}
 					/>
