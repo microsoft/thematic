@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { darken, lighten } from '@thematic/color'
+import { darken, lighten } from '@thematic/color';
 
 /**
  * The getShade/getBackgroundShade functions in fluent do not work correctly.
@@ -36,7 +36,7 @@ const foreground = {
 			neutralDark: 0.14,
 		},
 	},
-}
+};
 
 const background = {
 	default: {
@@ -59,23 +59,23 @@ const background = {
 			neutralLighterAlt: 0.132,
 		},
 	},
-}
+};
 
 const applyDarken = (color: string, mapping: Record<string, number>) => {
 	return Object.entries(mapping).reduce((acc, cur) => {
-		const [key, value] = cur
-		acc[key] = darken(color, value)
-		return acc
-	}, {} as Record<string, string>)
-}
+		const [key, value] = cur;
+		acc[key] = darken(color, value);
+		return acc;
+	}, {} as Record<string, string>);
+};
 
 const applyLighten = (color: string, mapping: Record<string, number>) => {
 	return Object.entries(mapping).reduce((acc, cur) => {
-		const [key, value] = cur
-		acc[key] = lighten(color, value)
-		return acc
-	}, {} as Record<string, string>)
-}
+		const [key, value] = cur;
+		acc[key] = lighten(color, value);
+		return acc;
+	}, {} as Record<string, string>);
+};
 
 /**
  * This applies some theme shade corrections by lightening and darkening various colors.
@@ -83,16 +83,13 @@ const applyLighten = (color: string, mapping: Record<string, number>) => {
  * @param inverted
  * @returns
  */
-export const correctShades = (
-	fluentJson: Record<string, string>,
-	inverted = false,
-): Record<string, string> => {
-	const { foregroundColor, backgroundColor } = fluentJson
+export const correctShades = (fluentJson: Record<string, string>, inverted = false): Record<string, string> => {
+	const { foregroundColor, backgroundColor } = fluentJson;
 	if (!foregroundColor) {
-		throw new Error('foregroundColor not defined')
+		throw new Error('foregroundColor not defined');
 	}
 	if (!backgroundColor) {
-		throw new Error('backgroundColor not defined')
+		throw new Error('backgroundColor not defined');
 	}
 	if (inverted) {
 		return {
@@ -102,7 +99,7 @@ export const correctShades = (
 			...applyLighten(backgroundColor, background.invert.lighten),
 			black: '#ffffff',
 			white: backgroundColor,
-		}
+		};
 	} else {
 		return {
 			...fluentJson,
@@ -111,6 +108,6 @@ export const correctShades = (
 			...applyDarken(backgroundColor, background.default.darken),
 			black: '#000000',
 			white: backgroundColor,
-		}
+		};
 	}
-}
+};

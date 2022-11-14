@@ -2,15 +2,15 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { Theme } from '@thematic/core'
+import type { Theme } from '@thematic/core';
 
-import { FluentTheme } from './FluentTheme.js'
-import type { FluentTheme as IFluentTheme } from './types.js'
+import { FluentTheme } from './FluentTheme.js';
+import type { FluentTheme as IFluentTheme } from './types.js';
 
 /**
  * Load a Fluent theme instance derived from a thematic theme
  * @param theme - the theme
  */
 export function loadFluentTheme(theme: Theme): IFluentTheme {
-	return new FluentTheme(theme)
+	return new FluentTheme(theme);
 }

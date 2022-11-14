@@ -2,15 +2,15 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import chroma from 'chroma-js'
+import chroma from 'chroma-js';
 
-import { correctShades } from '../shades.js'
+import { correctShades } from '../shades.js';
 
 describe('theme shading correction functions', () => {
 	// many of the shades for these sets will be a perfect match, but there are a few with slight
 	// differences in the resulting hex code. none should be greater than 3, which is very close.
 	// this was computed with a distance minimizing function for each shade (resulting config in shades.ts)
-	const colorDistance = 3
+	const colorDistance = 3;
 
 	test('fluent default example', () => {
 		// this is the default fluent palette
@@ -31,15 +31,15 @@ describe('theme shading correction functions', () => {
 			neutralTertiary: '#a19f9d',
 			neutralTertiaryAlt: '#c8c6c4',
 			white: '#ffffff',
-		}
+		};
 
-		const fixed = correctShades(palette, false)
+		const fixed = correctShades(palette, false);
 
-		Object.keys(palette).forEach(key => {
-			const dist = chroma.distance(palette[key], fixed[key], 'rgb')
-			expect(dist).toBeLessThan(colorDistance)
-		})
-	})
+		Object.keys(palette).forEach((key) => {
+			const dist = chroma.distance(palette[key], fixed[key], 'rgb');
+			expect(dist).toBeLessThan(colorDistance);
+		});
+	});
 
 	test('fluent dark example', () => {
 		// there is no default dark fluent theme, so we used this exampe to tune the shades for similar results
@@ -61,13 +61,13 @@ describe('theme shading correction functions', () => {
 			neutralLighter: '#252423',
 			neutralLighterAlt: '#201f1e',
 			white: '#1b1a19',
-		}
+		};
 
-		const fixed = correctShades(palette, true)
+		const fixed = correctShades(palette, true);
 
-		Object.keys(palette).forEach(key => {
-			const dist = chroma.distance(palette[key], fixed[key], 'rgb')
-			expect(dist).toBeLessThan(colorDistance)
-		})
-	})
-})
+		Object.keys(palette).forEach((key) => {
+			const dist = chroma.distance(palette[key], fixed[key], 'rgb');
+			expect(dist).toBeLessThan(colorDistance);
+		});
+	});
+});

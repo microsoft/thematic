@@ -2,5 +2,5 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-export * from './shades.js'
-export * from './themeJson.js'
+export * from './shades.js';
+export * from './themeJson.js';
