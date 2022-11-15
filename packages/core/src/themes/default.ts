@@ -11,6 +11,8 @@ const defaultTheme = {
 		backgroundLevel: 95,
 		backgroundHueShift: 50,
 		nominalHueStep: 10,
+		greyHue: 72,
+		greySaturation: 7,
 	},
 }
 export default defaultTheme

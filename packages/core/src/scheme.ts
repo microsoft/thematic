@@ -24,14 +24,10 @@ type Config = {
  * @param themeDefinition
  */
 export function applyParams(spec: ThemeSpec): SchemeParams {
-	const { params = defaultParams } = spec
+	const { params } = spec
 	return {
-		accentHue: params.accentHue,
-		accentSaturation: params.accentSaturation,
-		accentLightness: params.accentLightness,
-		backgroundHueShift: params.backgroundHueShift,
-		backgroundLevel: params.backgroundLevel,
-		nominalHueStep: params.nominalHueStep,
+		...defaultParams,
+		...params,
 	}
 }
 
@@ -133,7 +129,7 @@ export function computeDefinition(
 		{
 			// very light grey, for subtle borders and backgrounds
 			value: scheme.faintAnnotation,
-			paths: ['application.faint'],
+			paths: ['application.faint', 'gridLines.stroke'],
 		},
 		{
 			// low contrast grey, so they don't occupy lots of visual attention
@@ -143,7 +139,6 @@ export function computeDefinition(
 				'plotArea.stroke',
 				'axisLine.stroke',
 				'axisTicks.stroke',
-				'gridLines.stroke',
 				'arc.stroke',
 				'application.border',
 				'application.lowContrast',

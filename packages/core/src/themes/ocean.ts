@@ -9,8 +9,10 @@ const oceanTheme = {
 		accentSaturation: 95,
 		accentLightness: 61,
 		backgroundLevel: 90,
-		backgroundHueShift: 40,
+		backgroundHueShift: 50,
 		nominalHueStep: 0,
+		greyHue: 100,
+		greySaturation: 7,
 	},
 }
 export default oceanTheme

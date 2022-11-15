@@ -120,6 +120,7 @@ export function getScheme(
 		backgroundLevel,
 		backgroundHueShift,
 		nominalHueStep,
+		greyHue,
 		greySaturation,
 	} = validateParams(params)
 
@@ -185,7 +186,7 @@ export function getScheme(
 	)
 
 	const greys = greySequence(
-		accentHue,
+		greyHue,
 		sequentialItemCount,
 		greyLightness,
 		boldGreyLightness,
@@ -200,7 +201,7 @@ export function getScheme(
 		midHighContrastAnnotationHsl,
 		highContrastAnnotationHsl,
 	} = getAnnotations(
-		accentHue,
+		greyHue,
 		backgroundLightness,
 		boldGreyLightness,
 		lowContrastBackgroundShift,
@@ -322,27 +323,37 @@ export function validateParams(params: SchemeParams): Required<SchemeParams> {
 		backgroundLevel,
 		backgroundHueShift,
 		nominalHueStep,
+		greyHue,
 		greySaturation,
 	} = params
 
-	const hueShift = backgroundHueShift || defaultParams.backgroundHueShift
-	const level = backgroundLevel || defaultParams.backgroundLevel
-	const step = nominalHueStep || defaultParams.nominalHueStep
-	const greySat = greySaturation || defaultParams.greySaturation
+	const hueShift =
+		backgroundHueShift === undefined
+			? defaultParams.backgroundHueShift
+			: backgroundHueShift
+	const level =
+		backgroundLevel === undefined
+			? defaultParams.backgroundLevel
+			: backgroundLevel
+	const step =
+		nominalHueStep === undefined ? defaultParams.nominalHueStep : nominalHueStep
+	const grey = greyHue === undefined ? defaultParams.greyHue : greyHue
+	const greySat =
+		greySaturation === undefined ? defaultParams.greySaturation : greySaturation
 
-	if (!accentHue) {
+	if (accentHue === undefined) {
 		throw new Error(
 			'Must supply an accent hue from 0-360. <undefined> was supplied.',
 		)
 	}
 
-	if (!accentLightness) {
+	if (accentLightness === undefined) {
 		throw new Error(
 			'Must supply an accent lightness from 0-100. <undefined> was supplied.',
 		)
 	}
 
-	if (!accentSaturation) {
+	if (accentSaturation === undefined) {
 		throw new Error(
 			'Must supply an accent saturation from 0-100. <undefined> was supplied.',
 		)
@@ -375,6 +386,7 @@ export function validateParams(params: SchemeParams): Required<SchemeParams> {
 	}
 
 	const hueMod = accentHue % 360
+	const greyMod = grey % 360
 
 	return {
 		accentHue: hueMod > 0 ? hueMod : accentHue,
@@ -383,6 +395,7 @@ export function validateParams(params: SchemeParams): Required<SchemeParams> {
 		backgroundHueShift: hueShift,
 		backgroundLevel: level,
 		nominalHueStep: step,
+		greyHue: greyMod > 0 ? greyMod : grey,
 		greySaturation: greySat,
 	}
 }

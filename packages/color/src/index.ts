@@ -19,5 +19,6 @@ export const defaultParams = {
 	backgroundHueShift: 50,
 	backgroundLevel: 95,
 	nominalHueStep: 10,
-	greySaturation: 0,
+	greyHue: 72,
+	greySaturation: 7,
 }

@@ -8,9 +8,11 @@ const metalTheme = {
 		accentHue: 242,
 		accentSaturation: 46,
 		accentLightness: 45,
-		backgroundLevel: 98,
-		backgroundHueShift: 100,
+		backgroundLevel: 90,
+		backgroundHueShift: 50,
 		nominalHueStep: 21,
+		greyHue: 242,
+		greySaturation: 20,
 	},
 }
 export default metalTheme

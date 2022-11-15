@@ -11,6 +11,8 @@ const autumnTheme = {
 		backgroundLevel: 95,
 		backgroundHueShift: 50,
 		nominalHueStep: 10,
+		greyHue: 50,
+		greySaturation: 10,
 	},
 }
 export default autumnTheme

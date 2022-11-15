@@ -5,7 +5,7 @@
 import { defaultParams } from '../index.js'
 import { getScheme, validateParams } from '../scheme/HsluvColorLogic.js'
 
-const GREYS = [
+const NEUTRAL_GREYS = [
 	'#e8e8e8',
 	'#d1d1d1',
 	'#bbbbbb',
@@ -46,12 +46,14 @@ describe('getScheme', () => {
 				backgroundLevel: 50,
 				backgroundHueShift: 50,
 				nominalHueStep: 50,
+				greyHue: 50,
+				greySaturation: 0,
 			},
 			10,
 			10,
 			true,
 		)
-		expect(scheme.greys).toEqual(GREYS)
+		expect(scheme.greys).toEqual(NEUTRAL_GREYS)
 	})
 
 	describe('nominal count matches requested size', () => {

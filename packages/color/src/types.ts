@@ -38,7 +38,11 @@ export interface SchemeParams {
 	 */
 	nominalHueStep?: number
 	/**
-	 * Optional saturation to mix some of the accent hue into grey scales.
+	 * Optional hue to mix some of warm or cool into grey scales.
+	 */
+	greyHue?: number
+	/**
+	 * Optional saturation to mix some of warm or cool into grey scales.
 	 */
 	greySaturation?: number
 }
