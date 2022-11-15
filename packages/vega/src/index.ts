@@ -122,9 +122,9 @@ function group(theme: Theme) {
 
 function range(theme: Theme, nominalCount = 10, sequentialCount = 100) {
 	return {
-		category: theme.scales().nominal().toArray(nominalCount),
+		category: theme.scales().nominal(nominalCount).toArray(),
 		diverging: theme.scales().diverging().toArray(sequentialCount),
-		heatmap: theme.scales().sequential().toArray(sequentialCount),
+		heatmap: theme.scales().rainbow().toArray(),
 		ordinal: theme.scales().sequential().toArray(sequentialCount),
 		ramp: theme.scales().sequential().toArray(sequentialCount),
 	}

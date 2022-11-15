@@ -51,9 +51,6 @@ export interface TuningParameters {
 	nominalBoldLightnessShift: number
 	nominalBoldSaturationShift: number
 
-	rainbowSaturation: number
-	rainbowLightness: number
-
 	maxBackgroundChroma: number
 	lowContrastBackgroundShift: number
 	offsetBackgroundLightnessShift: number
@@ -92,9 +89,6 @@ function getDefaultTuning(
 
 		nominalBoldSaturationShift: 10,
 		nominalBoldLightnessShift: -30,
-
-		rainbowSaturation: 100,
-		rainbowLightness: 60,
 
 		maxBackgroundChroma: 4,
 		lowContrastBackgroundShift: 20,
@@ -150,8 +144,6 @@ export function getScheme(
 		nominalBoldLightnessShift,
 		nominalMutedSaturationShift,
 		nominalBoldSaturationShift,
-		rainbowSaturation,
-		rainbowLightness,
 		minNominalSaturation,
 		minNominalLightness,
 		lowContrastBackgroundShift,
@@ -290,8 +282,8 @@ export function getScheme(
 
 	const rainbow = getNominalRainbowSequence(
 		accentHue,
-		rainbowSaturation,
-		rainbowLightness,
+		scaleSaturation,
+		scaleLightness,
 	)
 	return {
 		background: hsluv2hex(backgroundHsl),
