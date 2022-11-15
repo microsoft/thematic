@@ -305,6 +305,16 @@ export function getNominalBoldSequence(
 	})
 }
 
+export function getNominalRainbowSequence(
+	start: number,
+	saturation: number,
+	lightness: number,
+) {
+	return new Array(360)
+		.fill(1)
+		.map((a, i) => [i + start, saturation, lightness] as HslVector)
+}
+
 /**
  * Creates a sequence of greys from a {start} to {end} lightness.
  * Note the optional saturation - by default this is 0 for pure greys,

@@ -64,6 +64,7 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 		sequential2,
 		diverging2,
 		greys,
+		rainbow,
 	] = useScales(scaleItemCount)
 	return (
 		<div
@@ -172,6 +173,12 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 						colors={greys!}
 						width={BAND_WIDTH}
 					/>
+					<ColorBand
+						label="Rainbow"
+						foreground={foregroundColor!}
+						colors={rainbow!}
+						width={BAND_WIDTH}
+					/>
 				</div>
 				<h3 style={{ color: headerColor! }}>Color matching</h3>
 				<div
@@ -224,6 +231,7 @@ function useScales(scaleItemCount: number) {
 			theme.scales().sequential2(bandDomain).toArray(),
 			theme.scales().diverging2(bandDomain).toArray(),
 			theme.scales().greys(bandDomain).toArray(),
+			theme.scales().rainbow(bandDomain).toArray(),
 		]
 	}, [theme, scaleItemCount])
 }

@@ -4,10 +4,10 @@
 
 ## SchemeParams.backgroundHueShift property
 
-Background shift - modulates the background color to tilt toward the hue or toward white/grey.
+Background shift - modulates the background color to tilt toward the hue or toward white/grey. Valid range is 0-100.
 
 <b>Signature:</b>
 
 ```typescript
-backgroundHueShift: number;
+backgroundHueShift?: number;
 ```

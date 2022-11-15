@@ -4,10 +4,12 @@
 
 ## getScheme() function
 
+Takes a set of core params and generates all of the scale computes required for a Schema, using HSLuv color space for even perceptual qualities.
+
 <b>Signature:</b>
 
 ```typescript
-export declare function getScheme(params: SchemeParams, nominalItemCount: number, sequentialItemCount: number, light: boolean): Scheme;
+export declare function getScheme(params: SchemeParams, nominalItemCount: number, sequentialItemCount: number, light: boolean, tuning?: TuningParameters): Scheme;
 ```
 
 ## Parameters
@@ -18,8 +20,10 @@ export declare function getScheme(params: SchemeParams, nominalItemCount: number
 |  nominalItemCount | number |  |
 |  sequentialItemCount | number |  |
 |  light | boolean |  |
+|  tuning | TuningParameters | <i>(Optional)</i> |
 
 <b>Returns:</b>
 
 [Scheme](./color.scheme.md)
+
 

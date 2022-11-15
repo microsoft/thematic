@@ -4,10 +4,10 @@
 
 ## SchemeParams.nominalHueStep property
 
-Hue step - adjusts the cycle distance between scale hues.
+Hue step - adjusts the cycle distance between scale hues. Notional range is 0-21. Technically this has no top-limit, but nominal scales will regress toward the hue.
 
 <b>Signature:</b>
 
 ```typescript
-nominalHueStep: number;
+nominalHueStep?: number;
 ```

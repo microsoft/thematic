@@ -153,27 +153,6 @@ describe('getScheme', () => {
 })
 
 describe('validateParams', () => {
-	test('cycle accent hue', () => {
-		const within360 = validateParams({
-			...defaultParams,
-			accentHue: 100,
-		})
-
-		expect(within360.accentHue).toBe(100)
-
-		const cycledOnce = validateParams({
-			...defaultParams,
-			accentHue: 420,
-		})
-		expect(cycledOnce.accentHue).toBe(60)
-
-		const cycledMany = validateParams({
-			...defaultParams,
-			accentHue: 1111,
-		})
-		expect(cycledMany.accentHue).toBe(31)
-	})
-
 	test('fill in defaults', () => {
 		const params = validateParams({
 			accentHue: 100,

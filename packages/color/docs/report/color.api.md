@@ -138,7 +138,7 @@ export function darken(css: string, value?: number): string;
 
 // Warning: (ae-missing-release-tag) "defaultParams" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public (undocumented)
+// @public
 export const defaultParams: {
     accentHue: number;
     accentSaturation: number;
@@ -146,6 +146,8 @@ export const defaultParams: {
     backgroundHueShift: number;
     backgroundLevel: number;
     nominalHueStep: number;
+    greyHue: number;
+    greySaturation: number;
 };
 
 // Warning: (ae-missing-release-tag) "getNamedSchemeColor" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
@@ -153,10 +155,11 @@ export const defaultParams: {
 // @public
 export function getNamedSchemeColor(scheme: Scheme, path?: string): Color;
 
+// Warning: (ae-forgotten-export) The symbol "TuningParameters" needs to be exported by the entry point index.d.ts
 // Warning: (ae-missing-release-tag) "getScheme" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public (undocumented)
-export function getScheme(params: SchemeParams, nominalItemCount: number, sequentialItemCount: number, light: boolean): Scheme;
+// @public
+export function getScheme(params: SchemeParams, nominalItemCount: number, sequentialItemCount: number, light: boolean, tuning?: TuningParameters): Scheme;
 
 // Warning: (ae-missing-release-tag) "Hsl" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -291,6 +294,8 @@ export interface Scheme {
     // (undocumented)
     offsetBackground: string;
     // (undocumented)
+    rainbow: string[];
+    // (undocumented)
     sequential: string[];
     // (undocumented)
     sequential2: string[];
@@ -305,9 +310,11 @@ export interface SchemeParams {
     accentHue: number;
     accentLightness: number;
     accentSaturation: number;
-    backgroundHueShift: number;
-    backgroundLevel: number;
-    nominalHueStep: number;
+    backgroundHueShift?: number;
+    backgroundLevel?: number;
+    greyHue?: number;
+    greySaturation?: number;
+    nominalHueStep?: number;
 }
 
 // (No @packageDocumentation comment for this package)

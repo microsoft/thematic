@@ -1840,7 +1840,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "@thematic/color!defaultParams:var",
-          "docComment": "",
+          "docComment": "/**\n * Default set of params useful for initializing new themes with our \"standard look\".\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1848,7 +1848,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    accentHue: number;\n    accentSaturation: number;\n    accentLightness: number;\n    backgroundHueShift: number;\n    backgroundLevel: number;\n    nominalHueStep: number;\n}"
+              "text": "{\n    accentHue: number;\n    accentSaturation: number;\n    accentLightness: number;\n    backgroundHueShift: number;\n    backgroundLevel: number;\n    nominalHueStep: number;\n    greyHue: number;\n    greySaturation: number;\n}"
             }
           ],
           "isReadonly": true,
@@ -1924,7 +1924,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@thematic/color!getScheme:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * Takes a set of core params and generates all of the scale computes required for a Schema, using HSLuv color space for even perceptual qualities.\n *\n * @param params - \n *\n * @param nominalItemCount - \n *\n * @param sequentialItemCount - \n *\n * @param light - \n *\n * @returns \n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1961,6 +1961,15 @@
             },
             {
               "kind": "Content",
+              "text": ", tuning?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "TuningParameters",
+              "canonicalReference": "@thematic/color!TuningParameters:interface"
+            },
+            {
+              "kind": "Content",
               "text": "): "
             },
             {
@@ -1974,8 +1983,8 @@
             }
           ],
           "returnTypeTokenRange": {
-            "startIndex": 9,
-            "endIndex": 10
+            "startIndex": 11,
+            "endIndex": 12
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -2011,6 +2020,14 @@
                 "endIndex": 8
               },
               "isOptional": false
+            },
+            {
+              "parameterName": "tuning",
+              "parameterTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 10
+              },
+              "isOptional": true
             }
           ],
           "name": "getScheme"
@@ -3320,6 +3337,33 @@
             },
             {
               "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!Scheme#rainbow:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "rainbow: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "rainbow",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "@thematic/color!Scheme#sequential:member",
               "docComment": "",
               "excerptTokens": [
@@ -3500,11 +3544,11 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "@thematic/color!SchemeParams#backgroundHueShift:member",
-              "docComment": "/**\n * Background shift - modulates the background color to tilt toward the hue or toward white/grey.\n */\n",
+              "docComment": "/**\n * Background shift - modulates the background color to tilt toward the hue or toward white/grey. Valid range is 0-100.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "backgroundHueShift: "
+                  "text": "backgroundHueShift?: "
                 },
                 {
                   "kind": "Content",
@@ -3516,7 +3560,7 @@
                 }
               ],
               "isReadonly": false,
-              "isOptional": false,
+              "isOptional": true,
               "releaseTag": "Public",
               "name": "backgroundHueShift",
               "propertyTypeTokenRange": {
@@ -3527,11 +3571,11 @@
             {
               "kind": "PropertySignature",
               "canonicalReference": "@thematic/color!SchemeParams#backgroundLevel:member",
-              "docComment": "/**\n * Background level - modulates the background lightness and saturation.\n */\n",
+              "docComment": "/**\n * Background level - modulates the background lightness and saturation. Valid range is 0-100.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "backgroundLevel: "
+                  "text": "backgroundLevel?: "
                 },
                 {
                   "kind": "Content",
@@ -3543,7 +3587,7 @@
                 }
               ],
               "isReadonly": false,
-              "isOptional": false,
+              "isOptional": true,
               "releaseTag": "Public",
               "name": "backgroundLevel",
               "propertyTypeTokenRange": {
@@ -3553,12 +3597,12 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@thematic/color!SchemeParams#nominalHueStep:member",
-              "docComment": "/**\n * Hue step - adjusts the cycle distance between scale hues.\n */\n",
+              "canonicalReference": "@thematic/color!SchemeParams#greyHue:member",
+              "docComment": "/**\n * Optional hue to mix some of warm or cool into grey scales.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "nominalHueStep: "
+                  "text": "greyHue?: "
                 },
                 {
                   "kind": "Content",
@@ -3570,7 +3614,61 @@
                 }
               ],
               "isReadonly": false,
-              "isOptional": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "greyHue",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!SchemeParams#greySaturation:member",
+              "docComment": "/**\n * Optional saturation to mix some of warm or cool into grey scales.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "greySaturation?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "greySaturation",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!SchemeParams#nominalHueStep:member",
+              "docComment": "/**\n * Hue step - adjusts the cycle distance between scale hues. Notional range is 0-21. Technically this has no top-limit, but nominal scales will regress toward the hue.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nominalHueStep?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
               "releaseTag": "Public",
               "name": "nominalHueStep",
               "propertyTypeTokenRange": {

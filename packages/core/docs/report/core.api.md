@@ -248,6 +248,8 @@ export interface ColorScales {
     nominalBold: (sizeOrDomain?: number | string[] | number[]) => NominalColorScaleFunction;
     // (undocumented)
     nominalMuted: (sizeOrDomain?: number | string[] | number[]) => NominalColorScaleFunction;
+    // (undocumented)
+    rainbow: (domain?: number[], scaleType?: ScaleType, quantiles?: number) => ContinuousColorScaleFunction;
     sequential: (domain?: number[], scaleType?: ScaleType, quantiles?: number) => ContinuousColorScaleFunction;
     // (undocumented)
     sequential2: (domain?: number[], scaleType?: ScaleType, quantiles?: number) => ContinuousColorScaleFunction;

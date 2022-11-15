@@ -36,7 +36,7 @@
 |  [css2rgbav(css, alpha)](./color.css2rgbav.md) | Convert a standard CSS string to vector of \[r, g, b, a\] values scaled from 0-1. This is typically used in WebGl. |
 |  [darken(css, value)](./color.darken.md) | Darken a standard CSS color |
 |  [getNamedSchemeColor(scheme, path)](./color.getnamedschemecolor.md) | Extracts a thematic Color using its scheme "path". |
-|  [getScheme(params, nominalItemCount, sequentialItemCount, light)](./color.getscheme.md) |  |
+|  [getScheme(params, nominalItemCount, sequentialItemCount, light, tuning)](./color.getscheme.md) | Takes a set of core params and generates all of the scale computes required for a Schema, using HSLuv color space for even perceptual qualities. |
 |  [hsluv2hex(hsluv)](./color.hsluv2hex.md) |  |
 |  [hsluv2hsl(hsluv)](./color.hsluv2hsl.md) |  |
 |  [isNominal(name)](./color.isnominal.md) |  |
@@ -62,7 +62,7 @@
 
 |  Variable | Description |
 |  --- | --- |
-|  [defaultParams](./color.defaultparams.md) |  |
+|  [defaultParams](./color.defaultparams.md) | Default set of params useful for initializing new themes with our "standard look". |
 
 ## Type Aliases
 

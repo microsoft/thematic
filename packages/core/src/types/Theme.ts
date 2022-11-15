@@ -197,6 +197,11 @@ export interface ColorScales {
 		scaleType?: ScaleType,
 		quantiles?: number,
 	) => ContinuousColorScaleFunction
+	rainbow: (
+		domain?: number[],
+		scaleType?: ScaleType,
+		quantiles?: number,
+	) => ContinuousColorScaleFunction
 }
 
 /**

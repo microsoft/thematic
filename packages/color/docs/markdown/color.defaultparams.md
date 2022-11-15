@@ -4,6 +4,8 @@
 
 ## defaultParams variable
 
+Default set of params useful for initializing new themes with our "standard look".
+
 <b>Signature:</b>
 
 ```typescript
@@ -14,5 +16,7 @@ defaultParams: {
     backgroundHueShift: number;
     backgroundLevel: number;
     nominalHueStep: number;
+    greyHue: number;
+    greySaturation: number;
 }
 ```

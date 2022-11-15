@@ -33,6 +33,7 @@ export interface Scheme
 |  [nominalBold](./color.scheme.nominalbold.md) |  | string\[\] |  |
 |  [nominalMuted](./color.scheme.nominalmuted.md) |  | string\[\] |  |
 |  [offsetBackground](./color.scheme.offsetbackground.md) |  | string |  |
+|  [rainbow](./color.scheme.rainbow.md) |  | string\[\] |  |
 |  [sequential](./color.scheme.sequential.md) |  | string\[\] |  |
 |  [sequential2](./color.scheme.sequential2.md) |  | string\[\] |  |
 |  [warning](./color.scheme.warning.md) |  | string |  |

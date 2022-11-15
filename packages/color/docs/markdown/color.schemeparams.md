@@ -19,7 +19,9 @@ export interface SchemeParams
 |  [accentHue](./color.schemeparams.accenthue.md) |  | number | HSL hue component for the accent. Valid range is 0-360 (degrees). |
 |  [accentLightness](./color.schemeparams.accentlightness.md) |  | number | HSL lightness component for the accent. Valid range is 0-100. |
 |  [accentSaturation](./color.schemeparams.accentsaturation.md) |  | number | HSL saturation component for the accent. Valid range is 0-100. |
-|  [backgroundHueShift](./color.schemeparams.backgroundhueshift.md) |  | number | Background shift - modulates the background color to tilt toward the hue or toward white/grey. |
-|  [backgroundLevel](./color.schemeparams.backgroundlevel.md) |  | number | Background level - modulates the background lightness and saturation. |
-|  [nominalHueStep](./color.schemeparams.nominalhuestep.md) |  | number | Hue step - adjusts the cycle distance between scale hues. |
+|  [backgroundHueShift?](./color.schemeparams.backgroundhueshift.md) |  | number | <i>(Optional)</i> Background shift - modulates the background color to tilt toward the hue or toward white/grey. Valid range is 0-100. |
+|  [backgroundLevel?](./color.schemeparams.backgroundlevel.md) |  | number | <i>(Optional)</i> Background level - modulates the background lightness and saturation. Valid range is 0-100. |
+|  [greyHue?](./color.schemeparams.greyhue.md) |  | number | <i>(Optional)</i> Optional hue to mix some of warm or cool into grey scales. |
+|  [greySaturation?](./color.schemeparams.greysaturation.md) |  | number | <i>(Optional)</i> Optional saturation to mix some of warm or cool into grey scales. |
+|  [nominalHueStep?](./color.schemeparams.nominalhuestep.md) |  | number | <i>(Optional)</i> Hue step - adjusts the cycle distance between scale hues. Notional range is 0-21. Technically this has no top-limit, but nominal scales will regress toward the hue. |
 

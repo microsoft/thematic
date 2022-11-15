@@ -236,6 +236,14 @@ export class Theme implements ITheme {
 				const scheme = this.getScheme(100)
 				return continuous(scheme.greys, domain, scaleType, quantiles)
 			},
+			rainbow: (
+				domain: number[] = [0, 1],
+				scaleType?: ScaleType,
+				quantiles?: number,
+			) => {
+				const scheme = this.getScheme(360)
+				return continuous(scheme.rainbow, domain, scaleType, quantiles)
+			},
 		}
 	}
 	public application = (): Application => {

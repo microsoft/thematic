@@ -15,6 +15,7 @@ import {
 	getNominalBoldSequence,
 	getNominalHues,
 	getNominalMutedSequence,
+	getNominalRainbowSequence,
 	getNominalSequence,
 	getOffsetBackgroundHsl,
 	getSequentialSequence,
@@ -48,6 +49,9 @@ export interface TuningParameters {
 
 	nominalBoldLightnessShift: number
 	nominalBoldSaturationShift: number
+
+	rainbowSaturation: number
+	rainbowLightness: number
 
 	maxBackgroundChroma: number
 	lowContrastBackgroundShift: number
@@ -86,6 +90,9 @@ function getDefaultTuning(
 
 		nominalBoldSaturationShift: 10,
 		nominalBoldLightnessShift: 30,
+
+		rainbowSaturation: 100,
+		rainbowLightness: 60,
 
 		maxBackgroundChroma: 4,
 		lowContrastBackgroundShift: 20,
@@ -142,6 +149,8 @@ export function getScheme(
 		nominalBoldLightnessShift,
 		nominalMutedSaturationShift,
 		nominalBoldSaturationShift,
+		rainbowSaturation,
+		rainbowLightness,
 		minNominalSaturation,
 		minNominalLightness,
 		lowContrastBackgroundShift,
@@ -278,6 +287,12 @@ export function getScheme(
 		sequentialItemCount,
 		1,
 	)
+
+	const rainbow = getNominalRainbowSequence(
+		accentHue,
+		rainbowSaturation,
+		rainbowLightness,
+	)
 	return {
 		background: hsluv2hex(backgroundHsl),
 		offsetBackground: hsluv2hex(offsetbackgroundHsl),
@@ -297,6 +312,7 @@ export function getScheme(
 		nominal: hsluvList2hexList(nominal),
 		nominalMuted: hsluvList2hexList(nominalMuted),
 		greys: hsluvList2hexList(greys),
+		rainbow: hsluvList2hexList(rainbow),
 		warning: '#ff8c00',
 		error: '#d13438',
 	}
@@ -385,17 +401,14 @@ export function validateParams(params: SchemeParams): Required<SchemeParams> {
 		throw new Error(`greySaturation ${greySat} is out of valid range: 0-100`)
 	}
 
-	const hueMod = accentHue % 360
-	const greyMod = grey % 360
-
 	return {
-		accentHue: hueMod > 0 ? hueMod : accentHue,
+		accentHue,
 		accentLightness,
 		accentSaturation,
 		backgroundHueShift: hueShift,
 		backgroundLevel: level,
 		nominalHueStep: step,
-		greyHue: greyMod > 0 ? greyMod : grey,
+		greyHue: grey,
 		greySaturation: greySat,
 	}
 }

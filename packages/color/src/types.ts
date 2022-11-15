@@ -72,6 +72,7 @@ export interface Scheme {
 	nominal: string[]
 	nominalMuted: string[]
 	greys: string[]
+	rainbow: string[]
 }
 
 /**
