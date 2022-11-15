@@ -2,14 +2,16 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { IColor } from '@fluentui/react'
+import type { IColor, ISliderStyles } from '@fluentui/react'
 import { ColorPicker as FluentColorPicker, Slider } from '@fluentui/react'
 import type { SchemeParams } from '@thematic/color'
 import { css2hsluv } from '@thematic/color'
+import merge from 'lodash-es/merge.js'
 import type { CSSProperties, FC } from 'react'
 import { useCallback, useMemo } from 'react'
 
 import { useThematicFluent } from '../provider/useThematicFluent.js'
+import { useSliderChange } from './ColorPicker.hooks.js'
 import type { ColorPickerProps } from './ColorPicker.types.js'
 import { ColorPickerLayout } from './ColorPicker.types.js'
 
@@ -59,26 +61,27 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 	)
 
 	// TODO: debounce sliders so the value can be shown updating
-	const handleAccentHueChange = useCallback(
-		(v: number) => updateParams({ accentHue: v }),
-		[updateParams],
+	const handleAccentHueChange = useSliderChange('accentHue', updateParams)
+	const handleAccentSaturationChange = useSliderChange(
+		'accentSaturation',
+		updateParams,
 	)
-	const handleaccentSaturationChange = useCallback(
-		(v: number) => updateParams({ accentSaturation: v }),
-		[updateParams],
+	const handleAccentLightnessChange = useSliderChange(
+		'accentLightness',
+		updateParams,
 	)
-	const handleAccentLightnessChange = useCallback(
-		(v: number) => updateParams({ accentLightness: v }),
-		[updateParams],
+	const handleScaleSaturationChange = useSliderChange(
+		'scaleSaturation',
+		updateParams,
 	)
-	const handleScaleSaturationChange = useCallback(
-		(v: number) => updateParams({ scaleSaturation: v }),
-		[updateParams],
+	const handleScaleLightnessChange = useSliderChange(
+		'scaleLightness',
+		updateParams,
 	)
-
-	const handleScaleLightnessChange = useCallback(
-		(v: number) => updateParams({ scaleLightness: v }),
-		[updateParams],
+	const handleGreyHueChange = useSliderChange('greyHue', updateParams)
+	const handleGreySaturationChange = useSliderChange(
+		'greySaturation',
+		updateParams,
 	)
 
 	const {
@@ -87,11 +90,10 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 		accentLightness,
 		scaleSaturation,
 		scaleLightness,
+		greyHue,
+		greySaturation,
 	} = theme.params
 
-	// TODO: it would be really nice to make these IStyle objects and pass directly to
-	// child component instead of wrapping them in a div
-	// however, there are type incompatibilities that make it wonky
 	const slidersStyles: CSSProperties = useMemo(
 		() => ({
 			width: 300, // default max width of color picker, so the sliders match
@@ -99,11 +101,21 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 		}),
 		[styles],
 	)
-	const sliderStyles: CSSProperties = useMemo(
-		() => ({
-			marginTop: 8,
-			...(styles && styles.slider),
-		}),
+	const sliderStyles: ISliderStyles = useMemo(
+		() =>
+			merge(
+				{
+					root: {
+						marginTop: 8,
+						textAlign: 'left',
+					},
+					valueLabel: {
+						margin: 0,
+						padding: 0,
+					},
+				},
+				styles && styles.slider,
+			),
 		[styles],
 	)
 	const color = useMemo(() => theme.palette.themePrimary, [theme])
@@ -116,70 +128,91 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 			/>
 			{lyt === ColorPickerLayout.SideBySide ? (
 				<div style={slidersStyles}>
-					<div style={sliderStyles}>
-						<Slider
-							label="Accent hue"
-							value={accentHue}
-							min={0}
-							max={360}
-							step={1}
-							onChange={handleAccentHueChange}
-						/>
+					<Slider
+						label="Accent hue"
+						value={accentHue}
+						min={0}
+						max={360}
+						step={1}
+						onChange={handleAccentHueChange}
+						styles={sliderStyles}
+					/>
+					<Slider
+						label="Accent saturation"
+						value={accentSaturation}
+						min={0}
+						max={100}
+						step={1}
+						onChange={handleAccentSaturationChange}
+						styles={sliderStyles}
+					/>
+					<Slider
+						label="Accent lightness"
+						value={accentLightness}
+						min={0}
+						max={100}
+						step={1}
+						onChange={handleAccentLightnessChange}
+						styles={sliderStyles}
+					/>
+					<div style={pairFlexStyle}>
+						<div style={pairStyle}>
+							<Slider
+								label="Scale saturation"
+								value={scaleSaturation}
+								min={0}
+								max={100}
+								step={1}
+								onChange={handleScaleSaturationChange}
+								styles={sliderStyles}
+							/>
+						</div>
+						<div style={pairStyle}>
+							<Slider
+								label="Scale lightness"
+								value={scaleLightness}
+								min={0}
+								max={100}
+								step={1}
+								onChange={handleScaleLightnessChange}
+								styles={sliderStyles}
+							/>
+						</div>
 					</div>
-					<div style={sliderStyles}>
-						<Slider
-							label="Accent saturation"
-							value={accentSaturation}
-							min={0}
-							max={100}
-							step={1}
-							onChange={handleaccentSaturationChange}
-						/>
+					<div style={pairFlexStyle}>
+						<div style={pairStyle}>
+							<Slider
+								label="Grey hue"
+								value={greyHue}
+								min={0}
+								max={360}
+								step={1}
+								onChange={handleGreyHueChange}
+								styles={sliderStyles}
+							/>
+						</div>
+						<div style={pairStyle}>
+							<Slider
+								label="Grey saturation"
+								value={greySaturation}
+								min={0}
+								max={100}
+								step={1}
+								onChange={handleGreySaturationChange}
+								styles={sliderStyles}
+							/>
+						</div>
 					</div>
-					<div style={sliderStyles}>
-						<Slider
-							label="Accent lightness"
-							value={accentLightness}
-							min={0}
-							max={100}
-							step={1}
-							onChange={handleAccentLightnessChange}
-						/>
-					</div>
-					<div style={sliderStyles}>
-						<Slider
-							label="Scale saturation"
-							value={scaleSaturation}
-							min={0}
-							max={100}
-							step={1}
-							onChange={handleScaleSaturationChange}
-						/>
-					</div>
-
-					<div style={sliderStyles}>
-						<Slider
-							label="Scale lightness"
-							value={scaleLightness}
-							min={0}
-							max={100}
-							step={1}
-							onChange={handleScaleLightnessChange}
-						/>
-					</div>
-					{/*
-					<div style={sliderStyles}>
-						<Slider
-							label="Nominal scale step"
-							value={nominalHueStep}
-							min={0}
-							max={21}
-							step={1}
-							onChange={handleNominalHueStepChange}
-						/>
-					</div> */}
 				</div>
 			) : null}
 		</div>
 	)
+}
+
+const pairFlexStyle = {
+	display: 'flex',
+}
+
+const pairStyle = {
+	width: '50%',
 }
