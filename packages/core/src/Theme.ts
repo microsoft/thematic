@@ -82,7 +82,6 @@ export class Theme implements ITheme {
 	private _config: ThemeConfig
 	private _params: SchemeParams
 	private _scheme: Scheme
-	private _schemeCache: { [size: number]: Scheme }
 
 	/**
 	 * Creates a new Theme instance using the params defined in the spec.
@@ -92,7 +91,6 @@ export class Theme implements ITheme {
 	 */
 	public constructor(spec: ThemeSpec, config?: ThemeConfig) {
 		const conf = merge({}, defaultConfig, config)
-		this._schemeCache = {}
 		const scheme = createScheme(spec, conf.dark, conf.colorBlindnessMode)
 		this._scheme = scheme
 		this._spec = applyScheme(spec)
@@ -311,21 +309,13 @@ export class Theme implements ITheme {
 	 * Gets the scheme with the appropriate size
 	 * @param size - The number of elements in the scheme
 	 */
-	// TODO: this cache overcomes slow scale computes, but they shouldn't be slow
 	private getScheme(size = 0) {
-		if (!this._schemeCache[size]) {
-			this._schemeCache[size] = createScheme(
-				this._spec,
-				this._config.dark,
-				this._config.colorBlindnessMode,
-				size,
-				size,
-			)
-		}
-		const result = this._schemeCache[size]
-		if (!result) {
-			throw new Error(`could not locate schema with size ${size}`)
-		}
-		return result
+		return createScheme(
+			this._spec,
+			this._config.dark,
+			this._config.colorBlindnessMode,
+			size,
+			size,
+		)
 	}
 }
