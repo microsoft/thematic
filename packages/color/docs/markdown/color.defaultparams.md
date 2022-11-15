@@ -13,9 +13,8 @@ defaultParams: {
     accentHue: number;
     accentSaturation: number;
     accentLightness: number;
-    backgroundHueShift: number;
-    backgroundLevel: number;
-    nominalHueStep: number;
+    scaleSaturation: number;
+    scaleLightness: number;
     greyHue: number;
     greySaturation: number;
 }

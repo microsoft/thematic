@@ -143,9 +143,8 @@ export const defaultParams: {
     accentHue: number;
     accentSaturation: number;
     accentLightness: number;
-    backgroundHueShift: number;
-    backgroundLevel: number;
-    nominalHueStep: number;
+    scaleSaturation: number;
+    scaleLightness: number;
     greyHue: number;
     greySaturation: number;
 };
@@ -159,7 +158,7 @@ export function getNamedSchemeColor(scheme: Scheme, path?: string): Color;
 // Warning: (ae-missing-release-tag) "getScheme" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export function getScheme(params: SchemeParams, nominalItemCount: number, sequentialItemCount: number, light: boolean, tuning?: TuningParameters): Scheme;
+export function getScheme(params: SchemeParams, nominalItemCount: number, sequentialItemCount: number, light: boolean, tuning?: Partial<TuningParameters>): Scheme;
 
 // Warning: (ae-missing-release-tag) "Hsl" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -310,11 +309,10 @@ export interface SchemeParams {
     accentHue: number;
     accentLightness: number;
     accentSaturation: number;
-    backgroundHueShift?: number;
-    backgroundLevel?: number;
     greyHue?: number;
     greySaturation?: number;
-    nominalHueStep?: number;
+    scaleLightness?: number;
+    scaleSaturation?: number;
 }
 
 // (No @packageDocumentation comment for this package)

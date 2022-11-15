@@ -1848,7 +1848,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    accentHue: number;\n    accentSaturation: number;\n    accentLightness: number;\n    backgroundHueShift: number;\n    backgroundLevel: number;\n    nominalHueStep: number;\n    greyHue: number;\n    greySaturation: number;\n}"
+              "text": "{\n    accentHue: number;\n    accentSaturation: number;\n    accentLightness: number;\n    scaleSaturation: number;\n    scaleLightness: number;\n    greyHue: number;\n    greySaturation: number;\n}"
             }
           ],
           "isReadonly": true,
@@ -1965,8 +1965,21 @@
             },
             {
               "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
               "text": "TuningParameters",
               "canonicalReference": "@thematic/color!TuningParameters:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
             },
             {
               "kind": "Content",
@@ -1983,8 +1996,8 @@
             }
           ],
           "returnTypeTokenRange": {
-            "startIndex": 11,
-            "endIndex": 12
+            "startIndex": 14,
+            "endIndex": 15
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -2025,7 +2038,7 @@
               "parameterName": "tuning",
               "parameterTypeTokenRange": {
                 "startIndex": 9,
-                "endIndex": 10
+                "endIndex": 13
               },
               "isOptional": true
             }
@@ -3543,60 +3556,6 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@thematic/color!SchemeParams#backgroundHueShift:member",
-              "docComment": "/**\n * Background shift - modulates the background color to tilt toward the hue or toward white/grey. Valid range is 0-100.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "backgroundHueShift?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "number"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "backgroundHueShift",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/color!SchemeParams#backgroundLevel:member",
-              "docComment": "/**\n * Background level - modulates the background lightness and saturation. Valid range is 0-100.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "backgroundLevel?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "number"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "backgroundLevel",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
               "canonicalReference": "@thematic/color!SchemeParams#greyHue:member",
               "docComment": "/**\n * Optional hue to mix some of warm or cool into grey scales.\n */\n",
               "excerptTokens": [
@@ -3651,12 +3610,12 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@thematic/color!SchemeParams#nominalHueStep:member",
-              "docComment": "/**\n * Hue step - adjusts the cycle distance between scale hues. Notional range is 0-21. Technically this has no top-limit, but nominal scales will regress toward the hue.\n */\n",
+              "canonicalReference": "@thematic/color!SchemeParams#scaleLightness:member",
+              "docComment": "/**\n * Sets the default lightness for nominal scales. Muted and bold scales are a fixed lightness +-\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "nominalHueStep?: "
+                  "text": "scaleLightness?: "
                 },
                 {
                   "kind": "Content",
@@ -3670,7 +3629,34 @@
               "isReadonly": false,
               "isOptional": true,
               "releaseTag": "Public",
-              "name": "nominalHueStep",
+              "name": "scaleLightness",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!SchemeParams#scaleSaturation:member",
+              "docComment": "/**\n * Sets the default saturation for nominal scales. Muted and bold scales are a fixed saturation +-\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "scaleSaturation?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "scaleSaturation",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2

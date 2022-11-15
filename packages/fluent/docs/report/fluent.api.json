@@ -724,8 +724,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "CSSProperties",
-                  "canonicalReference": "@types/react!~React.CSSProperties:interface"
+                  "text": "ISliderStyles",
+                  "canonicalReference": "@fluentui/react!ISliderStyles:interface"
                 },
                 {
                   "kind": "Content",

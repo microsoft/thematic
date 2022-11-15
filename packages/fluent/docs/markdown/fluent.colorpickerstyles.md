@@ -14,6 +14,6 @@ export interface ColorPickerStyles
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [slider?](./fluent.colorpickerstyles.slider.md) |  | CSSProperties | <i>(Optional)</i> |
+|  [slider?](./fluent.colorpickerstyles.slider.md) |  | ISliderStyles | <i>(Optional)</i> |
 |  [sliders?](./fluent.colorpickerstyles.sliders.md) |  | CSSProperties | <i>(Optional)</i> |
 

@@ -12,6 +12,7 @@ import type { FC } from 'react';
 import type { IChoiceGroupStyles } from '@fluentui/react';
 import type { IDropdownOption } from '@fluentui/react';
 import type { IDropdownProps } from '@fluentui/react';
+import type { ISliderStyles } from '@fluentui/react';
 import type { NominalColorScaleFunction } from '@thematic/core';
 import type { ReactNode } from 'react';
 import type { ScaleType } from '@thematic/core';
@@ -89,7 +90,7 @@ export interface ColorPickerProps {
 // @public (undocumented)
 export interface ColorPickerStyles {
     // (undocumented)
-    slider?: CSSProperties;
+    slider?: ISliderStyles;
     // (undocumented)
     sliders?: CSSProperties;
 }
