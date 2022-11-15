@@ -71,16 +71,13 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 		(v: number) => updateParams({ accentLightness: v }),
 		[updateParams],
 	)
-	const handleBackgroundLevelChange = useCallback(
-		(v: number) => updateParams({ backgroundLevel: v }),
+	const handleScaleSaturationChange = useCallback(
+		(v: number) => updateParams({ scaleSaturation: v }),
 		[updateParams],
 	)
-	const handleBackgroundHueShiftChange = useCallback(
-		(v: number) => updateParams({ backgroundHueShift: v }),
-		[updateParams],
-	)
-	const handleNominalHueStepChange = useCallback(
-		(v: number) => updateParams({ nominalHueStep: v }),
+
+	const handleScaleLightnessChange = useCallback(
+		(v: number) => updateParams({ scaleLightness: v }),
 		[updateParams],
 	)
 
@@ -88,9 +85,8 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 		accentHue,
 		accentSaturation,
 		accentLightness,
-		backgroundLevel,
-		backgroundHueShift,
-		nominalHueStep,
+		scaleSaturation,
+		scaleLightness,
 	} = theme.params
 
 	// TODO: it would be really nice to make these IStyle objects and pass directly to
@@ -152,24 +148,26 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 					</div>
 					<div style={sliderStyles}>
 						<Slider
-							label="Background level"
-							value={backgroundLevel}
+							label="Scale saturation"
+							value={scaleSaturation}
 							min={0}
 							max={100}
 							step={1}
-							onChange={handleBackgroundLevelChange}
+							onChange={handleScaleSaturationChange}
 						/>
 					</div>
+
 					<div style={sliderStyles}>
 						<Slider
-							label="Background hue shift"
-							value={backgroundHueShift}
+							label="Scale lightness"
+							value={scaleLightness}
 							min={0}
 							max={100}
 							step={1}
-							onChange={handleBackgroundHueShiftChange}
+							onChange={handleScaleLightnessChange}
 						/>
 					</div>
+					{/*
 					<div style={sliderStyles}>
 						<Slider
 							label="Nominal scale step"
@@ -179,7 +177,7 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 							step={1}
 							onChange={handleNominalHueStepChange}
 						/>
-					</div>
+					</div> */}
 				</div>
 			) : null}
 		</div>

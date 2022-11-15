@@ -28,18 +28,20 @@ export interface TuningParameters {
 	analogousRange: number
 	complementaryRange: number
 
+	nominalHueStep: number
+
 	lightTextLightness: number
-	lightScaleLightness: number
 	lightMaxLightnessOffset: number
 	lightBackgroundLightnessShift: number
 
 	darkTextLightness: number
-	darkScaleLightness: number
 	darkMaxLightnessOffet: number
 	darkBackgroundLightnessShift: number
 
+	backgroundLevel: number
+	backgroundHueShift: number
+
 	maxSaturation: number
-	nominalSaturation: number
 	minNominalSaturation: number
 	minNominalLightness: number
 
@@ -64,23 +66,24 @@ export interface TuningParameters {
 
 function getDefaultTuning(
 	tuning?: Partial<TuningParameters>,
-): TuningParameters {
+): Required<TuningParameters> {
 	return {
 		analogousRange: 60,
 		complementaryRange: 60,
 
 		lightTextLightness: 95,
-		lightScaleLightness: 70,
 		lightMaxLightnessOffset: 5,
 		lightBackgroundLightnessShift: 10,
 
 		darkTextLightness: 20,
-		darkScaleLightness: 70,
 		darkMaxLightnessOffet: 10,
 		darkBackgroundLightnessShift: 3,
 
+		backgroundLevel: 95,
+		backgroundHueShift: 50,
+
+		nominalHueStep: 10,
 		maxSaturation: 100,
-		nominalSaturation: 90,
 		minNominalSaturation: 10,
 		minNominalLightness: 50,
 
@@ -117,15 +120,14 @@ export function getScheme(
 	nominalItemCount: number,
 	sequentialItemCount: number,
 	light: boolean,
-	tuning?: TuningParameters,
+	tuning?: Partial<TuningParameters>,
 ): Scheme {
 	const {
 		accentHue,
 		accentSaturation,
 		accentLightness,
-		backgroundLevel,
-		backgroundHueShift,
-		nominalHueStep,
+		scaleSaturation,
+		scaleLightness,
 		greyHue,
 		greySaturation,
 	} = validateParams(params)
@@ -133,17 +135,17 @@ export function getScheme(
 	const {
 		analogousRange,
 		complementaryRange,
+		nominalHueStep,
 		maxBackgroundChroma,
 		lightMaxLightnessOffset,
 		darkMaxLightnessOffet,
 		lightTextLightness,
 		darkTextLightness,
-		lightScaleLightness,
-		darkScaleLightness,
 		maxSaturation,
-		nominalSaturation,
 		lightBackgroundLightnessShift,
 		darkBackgroundLightnessShift,
+		backgroundLevel,
+		backgroundHueShift,
 		nominalMutedLightnessShift,
 		nominalBoldLightnessShift,
 		nominalMutedSaturationShift,
@@ -219,7 +221,6 @@ export function getScheme(
 		light,
 	)
 
-	const scaleLightness = light ? darkScaleLightness : lightScaleLightness
 	const nominalHues = getNominalHues(
 		accentHue,
 		nominalHueStep,
@@ -227,14 +228,14 @@ export function getScheme(
 	)
 	const nominal = getNominalSequence(
 		nominalHues,
-		nominalSaturation,
+		scaleSaturation,
 		minNominalSaturation,
 		scaleLightness,
 		minNominalLightness,
 	)
 	const nominalMuted = getNominalShiftedSequence(
 		nominalHues,
-		nominalSaturation,
+		scaleSaturation,
 		minNominalSaturation,
 		scaleLightness,
 		minNominalLightness,
@@ -243,7 +244,7 @@ export function getScheme(
 	)
 	const nominalBold = getNominalShiftedSequence(
 		nominalHues,
-		nominalSaturation,
+		scaleSaturation,
 		minNominalSaturation,
 		scaleLightness,
 		minNominalLightness,
@@ -335,23 +336,18 @@ export function validateParams(params: SchemeParams): Required<SchemeParams> {
 		accentHue,
 		accentSaturation,
 		accentLightness,
-		backgroundLevel,
-		backgroundHueShift,
-		nominalHueStep,
+		scaleSaturation,
+		scaleLightness,
 		greyHue,
 		greySaturation,
 	} = params
 
-	const hueShift =
-		backgroundHueShift === undefined
-			? defaultParams.backgroundHueShift
-			: backgroundHueShift
-	const level =
-		backgroundLevel === undefined
-			? defaultParams.backgroundLevel
-			: backgroundLevel
-	const step =
-		nominalHueStep === undefined ? defaultParams.nominalHueStep : nominalHueStep
+	const scaleSat =
+		scaleSaturation === undefined
+			? defaultParams.scaleSaturation
+			: scaleSaturation
+	const scaleLt =
+		scaleLightness === undefined ? defaultParams.scaleLightness : scaleLightness
 	const grey = greyHue === undefined ? defaultParams.greyHue : greyHue
 	const greySat =
 		greySaturation === undefined ? defaultParams.greySaturation : greySaturation
@@ -386,14 +382,12 @@ export function validateParams(params: SchemeParams): Required<SchemeParams> {
 		)
 	}
 
-	if (level < 0 || level > 100) {
-		throw new Error(`backgroundLevel ${level} is out of valid range: 0-100`)
+	if (scaleSat < 0 || scaleSat > 100) {
+		throw new Error(`scaleSaturation ${scaleSat} is out of valid range: 0-100`)
 	}
 
-	if (hueShift < 0 || hueShift > 100) {
-		throw new Error(
-			`backgroundHueShift ${hueShift} is out of valid range: 0-100`,
-		)
+	if (scaleLt < 0 || scaleLt > 100) {
+		throw new Error(`scaleLightness ${scaleLt} is out of valid range: 0-100`)
 	}
 
 	if (greySat < 0 || greySat > 100) {
@@ -404,9 +398,8 @@ export function validateParams(params: SchemeParams): Required<SchemeParams> {
 		accentHue,
 		accentLightness,
 		accentSaturation,
-		backgroundHueShift: hueShift,
-		backgroundLevel: level,
-		nominalHueStep: step,
+		scaleSaturation: scaleSat,
+		scaleLightness: scaleLightness,
 		greyHue: grey,
 		greySaturation: greySat,
 	}

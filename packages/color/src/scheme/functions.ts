@@ -160,6 +160,7 @@ export function getAccentsAndComplements(
 /**
  * Returns a sequence of hue components using the specified step starting from an initial hue.
  * Attempts to cycle in a way that is predictable but does not result in similar neighbor colors.
+ * Note that there is a standard cycle for the most common 10 hue scales, and then it randomizes more.
  * @param start
  * @param step
  * @param size
@@ -196,6 +197,8 @@ export function getNominalHues(start: number, step: number, size: number) {
 
 /**
  * Gets a nominal sequence with even perception based on a core hue set.
+ * In order to maintain some differentiation, at greater quantities
+ * the colors are shifted in saturation and lightness.
  * @param hues
  * @param saturation
  * @param minSaturation
@@ -252,8 +255,11 @@ export function getNominalShiftedSequence(
 	return hues.map((hue, idx) => {
 		const hsl = [
 			hue,
-			0.5 * (nominalSaturation + baseSaturation) + saturationShift,
-			0.5 * (lightness + baseLightness) + lightnessShift,
+			Math.min(
+				0.5 * (nominalSaturation + baseSaturation) + saturationShift,
+				100,
+			),
+			Math.min(0.5 * (lightness + baseLightness) + lightnessShift, 100),
 		] as HslVector
 		if ((idx + 1) % 3 === 0) {
 			baseSaturation = Math.max(baseSaturation - 1, minSaturation)

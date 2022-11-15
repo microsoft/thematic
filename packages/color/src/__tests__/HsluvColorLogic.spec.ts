@@ -6,47 +6,57 @@ import { defaultParams } from '../index.js'
 import { getScheme, validateParams } from '../scheme/HsluvColorLogic.js'
 
 const NEUTRAL_GREYS = [
-	'#e8e8e8',
-	'#d1d1d1',
-	'#bbbbbb',
-	'#a6a6a6',
-	'#919191',
-	'#7c7c7c',
-	'#686868',
-	'#555555',
-	'#424242',
+	'#f5f5f5',
+	'#dddddd',
+	'#c5c5c5',
+	'#aeaeae',
+	'#979797',
+	'#818181',
+	'#6c6c6c',
+	'#575757',
+	'#434343',
 	'#303030',
 ]
-const SEQUENTIAL1 = ['#e8e8e8', '#dac7b7', '#d0a67a', '#ba8947', '#a06d00']
 
-const SEQUENTIAL2 = ['#e8e8e8', '#dbc8af', '#c8a97a', '#b18d47', '#977100']
+const TINTED_GREYS = [
+	'#f6f5f3',
+	'#e0ddd5',
+	'#c8c5be',
+	'#b0aea7',
+	'#999791',
+	'#83817c',
+	'#6d6c67',
+	'#585754',
+	'#444340',
+	'#31302e',
+]
+
+const SEQUENTIAL1 = ['#f5f5f5', '#e0d1c5', '#d7ac7e', '#bd8c49', '#a06d00']
+
+const SEQUENTIAL2 = ['#f5f5f5', '#d9d1df', '#c7a9da', '#be78e5', '#c200fb']
 
 const DIVERGING = [
 	'#00894b',
-	'#50a771',
-	'#82bf97',
-	'#afd3ba',
-	'#d3e1d7',
-	'#e1ddd9',
-	'#dac7b6',
-	'#d2ab81',
-	'#bd8d4e',
+	'#52aa73',
+	'#87c69c',
+	'#b7ddc3',
+	'#e3ebe5',
+	'#ebe9e7',
+	'#e0d1c4',
+	'#dab186',
+	'#c19050',
 	'#a06d00',
 ]
 
 // TODO: test light v dark
 
 describe('getScheme', () => {
-	test('can create grey scales', () => {
+	test('creates neutral grey scales (no saturation)', () => {
 		const scheme = getScheme(
 			{
 				accentHue: 50,
 				accentSaturation: 50,
 				accentLightness: 50,
-				backgroundLevel: 50,
-				backgroundHueShift: 50,
-				nominalHueStep: 50,
-				greyHue: 50,
 				greySaturation: 0,
 			},
 			10,
@@ -54,6 +64,20 @@ describe('getScheme', () => {
 			true,
 		)
 		expect(scheme.greys).toEqual(NEUTRAL_GREYS)
+	})
+
+	test('creates tinted grey scales (default)', () => {
+		const scheme = getScheme(
+			{
+				accentHue: 50,
+				accentSaturation: 50,
+				accentLightness: 50,
+			},
+			10,
+			10,
+			true,
+		)
+		expect(scheme.greys).toEqual(TINTED_GREYS)
 	})
 
 	describe('nominal count matches requested size', () => {
@@ -66,9 +90,6 @@ describe('getScheme', () => {
 					accentHue: 50,
 					accentSaturation: 50,
 					accentLightness: 50,
-					backgroundLevel: 50,
-					backgroundHueShift: 50,
-					nominalHueStep: 50,
 				},
 				1,
 				10,
@@ -83,13 +104,13 @@ describe('getScheme', () => {
 					accentHue: 50,
 					accentSaturation: 50,
 					accentLightness: 50,
-					backgroundLevel: 50,
-					backgroundHueShift: 50,
-					nominalHueStep: 3,
 				},
 				1,
 				10,
 				true,
+				{
+					nominalHueStep: 3,
+				},
 			)
 			expect(scheme.nominal).toHaveLength(1)
 		})
@@ -100,28 +121,25 @@ describe('getScheme', () => {
 					accentHue: 50,
 					accentSaturation: 50,
 					accentLightness: 50,
-					backgroundLevel: 50,
-					backgroundHueShift: 50,
-					nominalHueStep: 14,
 				},
 				2,
 				10,
 				true,
+				{
+					nominalHueStep: 14,
+				},
 			)
 			expect(scheme.nominal).toHaveLength(2)
 		})
 	})
 
 	describe('sequential scales', () => {
-		test('can create sequential scales', () => {
+		test('creates sequential scales', () => {
 			const scheme = getScheme(
 				{
 					accentHue: 50,
 					accentSaturation: 50,
 					accentLightness: 50,
-					backgroundLevel: 50,
-					backgroundHueShift: 50,
-					nominalHueStep: 50,
 				},
 				10,
 				5,
@@ -133,15 +151,12 @@ describe('getScheme', () => {
 	})
 
 	describe('diverging scales', () => {
-		test('can create diverging scales', () => {
+		test('creates diverging scales', () => {
 			const scheme = getScheme(
 				{
 					accentHue: 50,
 					accentSaturation: 50,
 					accentLightness: 50,
-					backgroundLevel: 50,
-					backgroundHueShift: 50,
-					nominalHueStep: 50,
 				},
 				10,
 				10,
@@ -159,8 +174,7 @@ describe('validateParams', () => {
 			accentLightness: 100,
 			accentSaturation: 100,
 		})
-		expect(params.backgroundHueShift).toBe(defaultParams.backgroundHueShift)
-		expect(params.backgroundLevel).toBe(defaultParams.backgroundLevel)
-		expect(params.nominalHueStep).toBe(defaultParams.nominalHueStep)
+		expect(params.greyHue).toBe(defaultParams.greyHue)
+		expect(params.greySaturation).toBe(defaultParams.greySaturation)
 	})
 })

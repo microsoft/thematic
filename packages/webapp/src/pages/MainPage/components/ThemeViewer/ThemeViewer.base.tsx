@@ -64,9 +64,6 @@ export const ThemeViewer: FC<ThemeViewerProps> = ({
 	return (
 		<div className="theme-wrapper">
 			<Pivot>
-				<PivotItem headerText="Thematic controls">
-					<FluentControls />
-				</PivotItem>
 				<PivotItem headerText="Example visualizations">
 					<div className="example-grid">
 						{graphs.map((graph, i) => (
@@ -83,6 +80,9 @@ export const ThemeViewer: FC<ThemeViewerProps> = ({
 							</div>
 						))}
 					</div>
+				</PivotItem>
+				<PivotItem headerText="Thematic controls">
+					<FluentControls />
 				</PivotItem>
 			</Pivot>
 		</div>

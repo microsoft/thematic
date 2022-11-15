@@ -23,20 +23,15 @@ export interface SchemeParams {
 	 */
 	accentLightness: number
 	/**
-	 * Background shift - modulates the background color to tilt toward the hue or toward white/grey.
-	 * Valid range is 0-100.
+	 * Sets the default saturation for nominal scales.
+	 * Muted and bold scales are a fixed saturation +-
 	 */
-	backgroundHueShift?: number
+	scaleSaturation?: number
 	/**
-	 * Background level - modulates the background lightness and saturation.
-	 * Valid range is 0-100.
+	 * Sets the default lightness for nominal scales.
+	 * Muted and bold scales are a fixed lightness +-
 	 */
-	backgroundLevel?: number
-	/**
-	 * Hue step - adjusts the cycle distance between scale hues.
-	 * Notional range is 0-21. Technically this has no top-limit, but nominal scales will regress toward the hue.
-	 */
-	nominalHueStep?: number
+	scaleLightness?: number
 	/**
 	 * Optional hue to mix some of warm or cool into grey scales.
 	 */
