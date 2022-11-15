@@ -302,7 +302,7 @@ export class Theme implements ITheme {
 		const c = new Color(color)
 		const colors = scale
 			? scale.toColors()
-			: this.scales().nominal().toColors(20)
+			: this.scales().nominal(20).toColors()
 		return nearest(c, colors)
 	}
 	/**

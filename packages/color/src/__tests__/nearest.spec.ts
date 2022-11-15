@@ -35,7 +35,7 @@ describe('nearest', () => {
 		test('orange', () => {
 			const color = new Color('orange')
 			const match = nearest(color, colors)
-			expect(match.hex()).toBe('#ce9e3f')
+			expect(match.hex()).toBe('#e7973c')
 		})
 
 		test('yellow', () => {
@@ -127,7 +127,7 @@ describe('nearest', () => {
 		test('indigo', () => {
 			const color = new Color('indigo')
 			const match = nearest(color, colors)
-			expect(match.hex()).toBe('#d291f7')
+			expect(match.hex()).toBe('#b197f3')
 		})
 
 		test('violet', () => {

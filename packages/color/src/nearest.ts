@@ -15,11 +15,11 @@ import type { Color } from './Color.js'
  * @param list
  */
 export function nearest(input: Color, list: Color[]): Color {
-	const hsl = input.hsl()
+	const hsl = input.hsluv()
 	const distances = list.map(color => {
-		const hsl2 = color.hsl()
-		const left = hsl.h
-		const right = hsl2.h
+		const hsl2 = color.hsluv()
+		const left = hsl[0]
+		const right = hsl2[0]
 		let delta1 = Math.abs(left - right)
 		if (delta1 > 180) {
 			delta1 = 360 - delta1
