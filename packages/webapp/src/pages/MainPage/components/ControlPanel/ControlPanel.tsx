@@ -3,11 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import {
-	useChartSize,
 	useColorBlindnessMode,
 	useDarkMode,
-	useDrawLinks,
-	useDrawNodes,
 	useScaleItemCount,
 	useSetTheme,
 	useThemeInfo,
@@ -16,9 +13,6 @@ import {
 import { ControlPanel as ControlPanelBase } from './ControlPanel.base.js'
 
 export const ControlPanel = () => {
-	const [drawNodes, setDrawNodes] = useDrawNodes()
-	const [drawLinks, setDrawLinks] = useDrawLinks()
-	const [chartSize, setChartSize] = useChartSize()
 	const [scaleItemCount, setScaleItemCount] = useScaleItemCount()
 	const [colorBlindnessMode, setColorBlindnessMode] = useColorBlindnessMode()
 	const [darkMode, setDarkMode] = useDarkMode()
@@ -27,12 +21,6 @@ export const ControlPanel = () => {
 	const setTheme = useSetTheme()
 	return (
 		<ControlPanelBase
-			drawNodes={drawNodes}
-			onDrawNodesChange={setDrawNodes}
-			drawLinks={drawLinks}
-			onDrawLinksChange={setDrawLinks}
-			chartSize={chartSize}
-			onChartSizeChange={setChartSize}
 			scaleItemCount={scaleItemCount}
 			onScaleItemCountChange={setScaleItemCount}
 			colorBlindnessMode={colorBlindnessMode}

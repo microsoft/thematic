@@ -16,17 +16,11 @@ import { useCallback, useMemo } from 'react'
 export interface ControlPanelProps {
 	themes: ThemeListing[]
 	themeInfo: ThemeListing
-	chartSize: number
-	drawNodes: boolean
-	drawLinks: boolean
 	scaleItemCount: number
 	colorBlindnessMode: ColorBlindnessMode
 	darkMode: boolean
 	onThemeLoaded: (theme: Theme) => void
 	onThemeChange: (t: ThemeListing) => void
-	onChartSizeChange: (n: number) => void
-	onDrawNodesChange: (d: boolean) => void
-	onDrawLinksChange: (d: boolean) => void
 	onScaleItemCountChange: (value: number) => void
 	onColorBlindnessModeChange: (mode: ColorBlindnessMode) => void
 	onDarkModeChange: (d: boolean) => void
@@ -38,17 +32,11 @@ const SCALE_MAX = 1000
 export const ControlPanel: FC<ControlPanelProps> = ({
 	themes,
 	themeInfo,
-	chartSize,
-	drawNodes,
-	drawLinks,
 	scaleItemCount,
 	colorBlindnessMode,
 	darkMode,
 	onThemeLoaded,
 	onThemeChange,
-	onChartSizeChange,
-	onDrawNodesChange,
-	onDrawLinksChange,
 	onScaleItemCountChange,
 	onColorBlindnessModeChange,
 	onDarkModeChange,
@@ -64,38 +52,11 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 		},
 		[themes, onThemeChange],
 	)
-	const handleChartIncrement = useCallback(
-		() => onChartSizeChange(chartSize + 100),
-		[onChartSizeChange, chartSize],
-	)
-	const handleChartDecrement = useCallback(
-		() => onChartSizeChange(chartSize - 100),
-		[onChartSizeChange, chartSize],
-	)
-	const handleChartValidate = useCallback(
-		(v: string) => {
-			const num = parseInt(v, 10)
-			if (!isNaN(num) && num >= 100) {
-				onChartSizeChange(num)
-			}
-		},
-		[onChartSizeChange],
-	)
 
 	const handleDarkChange = useCallback(() => {
 		onDarkModeChange(!darkMode)
 	}, [darkMode, onDarkModeChange])
 
-	const handleDrawNodesChange = useCallback(
-		(_event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
-			onDrawNodesChange(!!checked),
-		[onDrawNodesChange],
-	)
-	const handleDrawLinksChange = useCallback(
-		(_event: React.MouseEvent<HTMLElement>, checked?: boolean) =>
-			onDrawLinksChange(!!checked),
-		[onDrawLinksChange],
-	)
 	const changeValue = useCallback(
 		(value: string, change = 0) => {
 			const num = parseInt(value, 10)
@@ -199,35 +160,6 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 						onValidate={handleScaleValidate}
 						incrementButtonAriaLabel={'Increase value by 1'}
 						decrementButtonAriaLabel={'Decrease value by 1'}
-					/>
-				</div>
-				<div className="control spinner">
-					<SpinButton
-						label="Chart size"
-						labelPosition={Position.top}
-						value={chartSize.toString()}
-						min={100}
-						max={2000}
-						step={100}
-						onIncrement={handleChartIncrement}
-						onDecrement={handleChartDecrement}
-						onValidate={handleChartValidate}
-						incrementButtonAriaLabel={'Increase value by 1'}
-						decrementButtonAriaLabel={'Decrease value by 1'}
-					/>
-				</div>
-				<div className="control">
-					<Toggle
-						label="Draw nodes"
-						checked={drawNodes}
-						onChange={handleDrawNodesChange}
-					/>
-				</div>
-				<div className="control">
-					<Toggle
-						label="Draw links"
-						checked={drawLinks}
-						onChange={handleDrawLinksChange}
 					/>
 				</div>
 				<div className="control">

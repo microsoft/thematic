@@ -8,6 +8,8 @@ const autumnTheme = {
 		accentHue: 50,
 		accentSaturation: 86,
 		accentLightness: 67,
+		scaleSaturation: 90,
+		scaleLightness: 70,
 		greyHue: 50,
 		greySaturation: 10,
 	},

@@ -1,0 +1,18 @@
+.chart-control-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 10px;
+}
+.chart-controls {
+	display: flex;
+}
+.chart-control {
+	display: flex;
+	margin-left: 20px;
+	margin-right: 20px;
+	align-items: center;
+}
+.chart-spinner {
+	width: 80px;
+}
