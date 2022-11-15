@@ -12,11 +12,10 @@ import {
 	getDivergingSequence,
 	getForegroundHsl,
 	getGreyLightness,
-	getNominalBoldSequence,
 	getNominalHues,
-	getNominalMutedSequence,
 	getNominalRainbowSequence,
 	getNominalSequence,
+	getNominalShiftedSequence,
 	getOffsetBackgroundHsl,
 	getSequentialSequence,
 	greySequence,
@@ -85,11 +84,11 @@ function getDefaultTuning(
 		minNominalSaturation: 10,
 		minNominalLightness: 50,
 
-		nominalMutedSaturationShift: 55,
+		nominalMutedSaturationShift: -55,
 		nominalMutedLightnessShift: 15,
 
 		nominalBoldSaturationShift: 10,
-		nominalBoldLightnessShift: 30,
+		nominalBoldLightnessShift: -30,
 
 		rainbowSaturation: 100,
 		rainbowLightness: 60,
@@ -233,7 +232,7 @@ export function getScheme(
 		scaleLightness,
 		minNominalLightness,
 	)
-	const nominalMuted = getNominalMutedSequence(
+	const nominalMuted = getNominalShiftedSequence(
 		nominalHues,
 		nominalSaturation,
 		minNominalSaturation,
@@ -242,7 +241,7 @@ export function getScheme(
 		nominalMutedSaturationShift,
 		nominalMutedLightnessShift,
 	)
-	const nominalBold = getNominalBoldSequence(
+	const nominalBold = getNominalShiftedSequence(
 		nominalHues,
 		nominalSaturation,
 		minNominalSaturation,

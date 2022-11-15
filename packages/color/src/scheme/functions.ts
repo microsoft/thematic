@@ -236,47 +236,7 @@ export function getNominalSequence(
  * @param nominalShift
  * @returns
  */
-export function getNominalMutedSequence(
-	hues: number[],
-	saturation: number,
-	minSaturation: number,
-	lightness: number,
-	minLightness: number,
-	saturationShift: number,
-	lightnessShift: number,
-) {
-	const nominalSaturation = saturation
-	let baseSaturation = saturation
-	let baseLightness = lightness
-
-	return hues.map((hue, idx) => {
-		const hsl = [
-			hue,
-			0.5 * (nominalSaturation + baseSaturation) - saturationShift,
-			0.5 * (lightness + baseLightness) + lightnessShift,
-		] as HslVector
-		if ((idx + 1) % 3 === 0) {
-			baseSaturation = Math.max(baseSaturation - 1, minSaturation)
-		}
-		if ((idx + 1) % 6 === 0) {
-			baseLightness = Math.max(baseLightness - 1, minLightness)
-		}
-		return hsl
-	})
-}
-
-/**
- * Gets the bold nominal sequence by increasing the saturation and decreasing lightness
- * @param hues
- * @param saturation
- * @param minSaturation
- * @param lightness
- * @param minLightness
- * @param saturationShift
- * @param lightnessShift
- * @returns
- */
-export function getNominalBoldSequence(
+export function getNominalShiftedSequence(
 	hues: number[],
 	saturation: number,
 	minSaturation: number,
@@ -293,7 +253,7 @@ export function getNominalBoldSequence(
 		const hsl = [
 			hue,
 			0.5 * (nominalSaturation + baseSaturation) + saturationShift,
-			0.5 * (lightness + baseLightness) - lightnessShift,
+			0.5 * (lightness + baseLightness) + lightnessShift,
 		] as HslVector
 		if ((idx + 1) % 3 === 0) {
 			baseSaturation = Math.max(baseSaturation - 1, minSaturation)
@@ -312,7 +272,7 @@ export function getNominalRainbowSequence(
 ) {
 	return new Array(360)
 		.fill(1)
-		.map((a, i) => [i + start, saturation, lightness] as HslVector)
+		.map((_a, i) => [i + start, saturation, lightness] as HslVector)
 }
 
 /**
