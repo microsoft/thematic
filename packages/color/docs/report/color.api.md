@@ -292,6 +292,11 @@ export interface Scheme {
     nominalMuted: string[];
     // (undocumented)
     offsetBackground: string;
+    primary: string;
+    // (undocumented)
+    primaryBold: string;
+    // (undocumented)
+    primaryMuted: string;
     // (undocumented)
     rainbow: string[];
     // (undocumented)

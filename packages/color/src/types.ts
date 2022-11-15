@@ -53,6 +53,12 @@ export interface Scheme {
 	accent: string
 	warning: string
 	error: string
+	/**
+	 * Primary data color, derived from the accent.
+	 */
+	dataPrimary: string
+	dataPrimaryMuted: string
+	dataPrimaryBold: string
 	faintAnnotation: string
 	lowContrastAnnotation: string
 	lowMidContrastAnnotation: string

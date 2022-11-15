@@ -33,6 +33,9 @@ export interface Scheme
 |  [nominalBold](./color.scheme.nominalbold.md) |  | string\[\] |  |
 |  [nominalMuted](./color.scheme.nominalmuted.md) |  | string\[\] |  |
 |  [offsetBackground](./color.scheme.offsetbackground.md) |  | string |  |
+|  [primary](./color.scheme.primary.md) |  | string | Primary data color, derived from the accent |
+|  [primaryBold](./color.scheme.primarybold.md) |  | string |  |
+|  [primaryMuted](./color.scheme.primarymuted.md) |  | string |  |
 |  [rainbow](./color.scheme.rainbow.md) |  | string\[\] |  |
 |  [sequential](./color.scheme.sequential.md) |  | string\[\] |  |
 |  [sequential2](./color.scheme.sequential2.md) |  | string\[\] |  |

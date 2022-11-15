@@ -13,6 +13,7 @@ import { ColorBand } from './ColorBand.js'
 import { ColorStrip } from './ColorStrip.js'
 import { Contrast } from './Contrast.js'
 import { NamedPalette } from './NamedPalette.js'
+import { PrimaryDataColor } from './PrimaryDataColor.js'
 
 // this is the same number we use under the hood when constructing the continuous scales,
 // so it makes sense to use here and potentially allow the gradation bands to be visible,
@@ -112,6 +113,8 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 						)
 					</li>
 				</ul>
+				<h3 style={{ color: headerColor! }}>Primary data color</h3>
+				<PrimaryDataColor />
 				<h3 style={{ color: headerColor! }}>Scales</h3>
 				<div
 					style={{

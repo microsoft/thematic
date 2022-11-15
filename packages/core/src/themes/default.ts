@@ -9,7 +9,7 @@ const defaultTheme = {
 		accentSaturation: 78,
 		accentLightness: 49,
 		scaleSaturation: 90,
-		scaleLightness: 70,
+		scaleLightness: 67,
 		greyHue: 72,
 		greySaturation: 7,
 	},

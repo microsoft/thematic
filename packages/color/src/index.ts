@@ -17,7 +17,7 @@ export const defaultParams = {
 	accentSaturation: 89,
 	accentLightness: 50,
 	scaleSaturation: 90,
-	scaleLightness: 70,
+	scaleLightness: 67,
 	greyHue: 72,
 	greySaturation: 7,
 }

@@ -9,7 +9,7 @@ const autumnTheme = {
 		accentSaturation: 86,
 		accentLightness: 67,
 		scaleSaturation: 90,
-		scaleLightness: 70,
+		scaleLightness: 67,
 		greyHue: 50,
 		greySaturation: 10,
 	},

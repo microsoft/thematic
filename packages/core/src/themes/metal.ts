@@ -9,7 +9,7 @@ const metalTheme = {
 		accentSaturation: 46,
 		accentLightness: 45,
 		scaleSaturation: 90,
-		scaleLightness: 70,
+		scaleLightness: 67,
 		greyHue: 242,
 		greySaturation: 20,
 	},

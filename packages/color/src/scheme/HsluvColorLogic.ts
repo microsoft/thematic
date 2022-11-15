@@ -58,6 +58,8 @@ export interface TuningParameters {
 	lightestGrey: number
 	darkestGrey: number
 
+	reservedDataColors: number
+
 	polynomialExponent: number
 }
 
@@ -96,6 +98,7 @@ function getDefaultTuning(
 		lightestGrey: 90,
 		darkestGrey: 20,
 		polynomialExponent: 1.5,
+		reservedDataColors: 1,
 		...tuning,
 	}
 }
@@ -150,6 +153,7 @@ export function getScheme(
 		offsetBackgroundLightnessShift,
 		lightestGrey,
 		darkestGrey,
+		reservedDataColors,
 		polynomialExponent,
 	} = getDefaultTuning(tuning)
 
@@ -216,7 +220,7 @@ export function getScheme(
 	const nominalHues = getNominalHues(
 		accentHue,
 		nominalHueStep,
-		nominalItemCount,
+		nominalItemCount + reservedDataColors,
 	)
 	const nominal = getNominalSequence(
 		nominalHues,
@@ -290,6 +294,9 @@ export function getScheme(
 		offsetBackground: hsluv2hex(offsetbackgroundHsl),
 		foreground: hsluv2hex(foregroundHsl),
 		accent: hsluv2hex([accentHue, accentSaturation, accentLightness]),
+		dataPrimary: hsluv2hex(nominal[0]!),
+		dataPrimaryMuted: hsluv2hex(nominalMuted[0]!),
+		dataPrimaryBold: hsluv2hex(nominalBold[0]!),
 		lowContrastAnnotation: hsluv2hex(lowContrastAnnotationHsl),
 		lowMidContrastAnnotation: hsluv2hex(lowMidContrastAnnotationHsl),
 		midContrastAnnotation: hsluv2hex(midContrastAnnotationHsl),
@@ -300,9 +307,9 @@ export function getScheme(
 		sequential2: hsluvList2hexList(sequential2),
 		diverging: hsluvList2hexList(diverging1),
 		diverging2: hsluvList2hexList(diverging2),
-		nominalBold: hsluvList2hexList(nominalBold),
-		nominal: hsluvList2hexList(nominal),
-		nominalMuted: hsluvList2hexList(nominalMuted),
+		nominalBold: hsluvList2hexList(nominalBold.slice(reservedDataColors)),
+		nominal: hsluvList2hexList(nominal.slice(reservedDataColors)),
+		nominalMuted: hsluvList2hexList(nominalMuted.slice(reservedDataColors)),
 		greys: hsluvList2hexList(greys),
 		rainbow: hsluvList2hexList(rainbow),
 		warning: '#ff8c00',

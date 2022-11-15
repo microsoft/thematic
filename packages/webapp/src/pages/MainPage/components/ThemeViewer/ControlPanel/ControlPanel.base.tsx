@@ -4,7 +4,6 @@
  */
 import './ControlPanel.css'
 
-import type { ISelectableOption } from '@fluentui/react'
 import { Position, SpinButton, Toggle } from '@fluentui/react'
 import type { FC } from 'react'
 import { useCallback } from 'react'

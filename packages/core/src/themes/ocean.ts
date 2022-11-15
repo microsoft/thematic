@@ -9,7 +9,7 @@ const oceanTheme = {
 		accentSaturation: 95,
 		accentLightness: 61,
 		scaleSaturation: 90,
-		scaleLightness: 70,
+		scaleLightness: 67,
 		greyHue: 100,
 		greySaturation: 7,
 	},

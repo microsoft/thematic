@@ -167,8 +167,8 @@ export function getAccentsAndComplements(
  * @returns
  */
 export function getNominalHues(start: number, step: number, size: number) {
-	const initialHues = step <= 10 ? 13 - step : step - 8
-	const hueDirection = step <= 10 ? -1 : 1
+	const initialHues = step <= 11 ? 13 - step : step - 8
+	const hueDirection = step <= 11 ? -1 : 1
 
 	let hues: number[] = []
 	let hueStep = 360.0 / initialHues

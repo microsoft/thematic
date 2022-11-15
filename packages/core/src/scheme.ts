@@ -116,7 +116,7 @@ export function computeDefinition(
 			paths: ['application.error'],
 		},
 		{
-			value: scheme.nominal[0] as string,
+			value: scheme.dataPrimary,
 			paths: [
 				'rect.fill',
 				'area.fill',
@@ -186,7 +186,7 @@ export function computeDefinition(
 
 	const signalConfigs: Config[] = [
 		{
-			value: scheme.nominalBold[0] as string,
+			value: scheme.dataPrimaryBold,
 			paths: [
 				'rect.hovered.fill',
 				'area.hovered.fill',
@@ -203,7 +203,7 @@ export function computeDefinition(
 			],
 		},
 		{
-			value: scheme.nominalMuted[0] as string,
+			value: scheme.dataPrimaryMuted,
 			paths: [
 				'rect.suppressed.fill',
 				'area.suppressed.fill',
