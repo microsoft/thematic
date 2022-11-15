@@ -11,6 +11,7 @@ import {
 	getBackgroundHsl,
 	getDivergingSequence,
 	getForegroundHsl,
+	getGreyLightness,
 	getNominalBoldSequence,
 	getNominalHues,
 	getNominalMutedSequence,
@@ -21,38 +22,80 @@ import {
 } from './functions.js'
 
 /**
- * This section is a set of tuning constants for the color scheme generation.
- * Each one should be parameterized in the functions, but this provides a top-level
- * look at the defaults we use.
+ * Detailed tuning for the scale generation algorithms.
  */
-const ANALOGOUS_RANGE = 60
-const COMPLEMENTARY_RANGE = 60
-const MAX_BACKGROUND_CHROMA = 4 // absolute
+export interface TuningParameters {
+	analogousRange: number
+	complementaryRange: number
 
-const MAX_LIGHT_LUMINANCE_OFFSET = 5
-const MAX_DARK_LUMINANCE_OFFSET = 10
+	lightTextLightness: number
+	lightScaleLightness: number
+	lightMaxLightnessOffset: number
+	lightBackgroundLightnessShift: number
 
-const LIGHT_TEXT_LUMINANCE = 95
-const DARK_TEXT_LUMINANCE = 20
-const LIGHT_SCALE_LUMINANCE = 70
-const DARK_SCALE_LUMINANCE = 70
-const MAX_SATURATION = 100
+	darkTextLightness: number
+	darkScaleLightness: number
+	darkMaxLightnessOffet: number
+	darkBackgroundLightnessShift: number
 
-const LIGHT_SCALE_BACKGROUND_LUMINANCE_SHIFT = 10
-const DARK_SCALE_BACKGROUND_LUMINANCE_SHIFT = 3
+	maxSaturation: number
+	nominalSaturation: number
+	minNominalSaturation: number
+	minNominalLightness: number
 
-const NOMINAL_SATURATION = 90
-const NOMINAL_LIGHTER_SHIFT = 15
-const NOMINAL_DARKER_SHIFT = 30
-const BOLD_SATURATION_SHIFT = 10
-const MUTED_SATURATION_SHIFT = 55
-const MIN_NOMINAL_SATURATION = 10
-const MIN_NOMINAL_LUMINANCE = 50
-const POLYNOMIAL_EXPONENT = 1.5
-const LOW_CONTRAST_BACKGROUND_SHIFT = 20
-const DARKEST_GREY = 20
-const LIGHTEST_GREY = 90
-const OFFSET_BACKGROUND_LUMINANCE_SHIFT = 1
+	nominalMutedSaturationShift: number
+	nominalMutedLightnessShift: number
+
+	nominalBoldLightnessShift: number
+	nominalBoldSaturationShift: number
+
+	maxBackgroundChroma: number
+	lowContrastBackgroundShift: number
+	offsetBackgroundLightnessShift: number
+
+	lightestGrey: number
+	darkestGrey: number
+
+	polynomialExponent: number
+}
+
+function getDefaultTuning(
+	tuning?: Partial<TuningParameters>,
+): TuningParameters {
+	return {
+		analogousRange: 60,
+		complementaryRange: 60,
+
+		lightTextLightness: 95,
+		lightScaleLightness: 70,
+		lightMaxLightnessOffset: 5,
+		lightBackgroundLightnessShift: 10,
+
+		darkTextLightness: 20,
+		darkScaleLightness: 70,
+		darkMaxLightnessOffet: 10,
+		darkBackgroundLightnessShift: 3,
+
+		maxSaturation: 100,
+		nominalSaturation: 90,
+		minNominalSaturation: 10,
+		minNominalLightness: 50,
+
+		nominalMutedSaturationShift: 55,
+		nominalMutedLightnessShift: 15,
+
+		nominalBoldSaturationShift: 10,
+		nominalBoldLightnessShift: 30,
+
+		maxBackgroundChroma: 4,
+		lowContrastBackgroundShift: 20,
+		offsetBackgroundLightnessShift: 1,
+		lightestGrey: 90,
+		darkestGrey: 20,
+		polynomialExponent: 1.5,
+		...tuning,
+	}
+}
 
 /**
  * Takes a set of core params and generates all of the scale computes required for a Schema,
@@ -68,6 +111,7 @@ export function getScheme(
 	nominalItemCount: number,
 	sequentialItemCount: number,
 	light: boolean,
+	tuning?: TuningParameters,
 ): Scheme {
 	const {
 		accentHue,
@@ -76,11 +120,39 @@ export function getScheme(
 		backgroundLevel,
 		backgroundHueShift,
 		nominalHueStep,
+		greySaturation,
 	} = validateParams(params)
 
+	const {
+		analogousRange,
+		complementaryRange,
+		maxBackgroundChroma,
+		lightMaxLightnessOffset,
+		darkMaxLightnessOffet,
+		lightTextLightness,
+		darkTextLightness,
+		lightScaleLightness,
+		darkScaleLightness,
+		maxSaturation,
+		nominalSaturation,
+		lightBackgroundLightnessShift,
+		darkBackgroundLightnessShift,
+		nominalMutedLightnessShift,
+		nominalBoldLightnessShift,
+		nominalMutedSaturationShift,
+		nominalBoldSaturationShift,
+		minNominalSaturation,
+		minNominalLightness,
+		lowContrastBackgroundShift,
+		offsetBackgroundLightnessShift,
+		lightestGrey,
+		darkestGrey,
+		polynomialExponent,
+	} = getDefaultTuning(tuning)
+
 	const foregroundHsl = getForegroundHsl(
-		DARK_TEXT_LUMINANCE,
-		LIGHT_TEXT_LUMINANCE,
+		lightTextLightness,
+		darkTextLightness,
 		light,
 	)
 
@@ -88,11 +160,11 @@ export function getScheme(
 		accentHue,
 		backgroundLevel,
 		backgroundHueShift,
-		MAX_LIGHT_LUMINANCE_OFFSET,
-		MAX_DARK_LUMINANCE_OFFSET,
-		MAX_BACKGROUND_CHROMA,
-		ANALOGOUS_RANGE,
-		COMPLEMENTARY_RANGE,
+		lightMaxLightnessOffset,
+		darkMaxLightnessOffet,
+		maxBackgroundChroma,
+		analogousRange,
+		complementaryRange,
 		light,
 	)
 
@@ -100,20 +172,24 @@ export function getScheme(
 
 	const offsetbackgroundHsl = getOffsetBackgroundHsl(
 		backgroundHsl,
-		OFFSET_BACKGROUND_LUMINANCE_SHIFT,
+		offsetBackgroundLightnessShift,
 		light,
 	)
 
-	const boldGreyLightness = light ? DARKEST_GREY : LIGHTEST_GREY
-	const greyLightness = light
-		? backgroundLightness - DARK_SCALE_BACKGROUND_LUMINANCE_SHIFT
-		: backgroundLightness + LIGHT_SCALE_BACKGROUND_LUMINANCE_SHIFT
+	const boldGreyLightness = light ? darkestGrey : lightestGrey
+	const greyLightness = getGreyLightness(
+		backgroundLightness,
+		lightBackgroundLightnessShift,
+		darkBackgroundLightnessShift,
+		light,
+	)
 
 	const greys = greySequence(
 		accentHue,
 		sequentialItemCount,
 		greyLightness,
 		boldGreyLightness,
+		greySaturation,
 	)
 
 	const {
@@ -127,13 +203,14 @@ export function getScheme(
 		accentHue,
 		backgroundLightness,
 		boldGreyLightness,
-		LOW_CONTRAST_BACKGROUND_SHIFT,
-		LIGHTEST_GREY,
-		DARKEST_GREY,
+		lowContrastBackgroundShift,
+		lightestGrey,
+		darkestGrey,
+		greySaturation,
 		light,
 	)
 
-	const scaleLightness = light ? DARK_SCALE_LUMINANCE : LIGHT_SCALE_LUMINANCE
+	const scaleLightness = light ? darkScaleLightness : lightScaleLightness
 	const nominalHues = getNominalHues(
 		accentHue,
 		nominalHueStep,
@@ -141,35 +218,35 @@ export function getScheme(
 	)
 	const nominal = getNominalSequence(
 		nominalHues,
-		NOMINAL_SATURATION,
-		MIN_NOMINAL_SATURATION,
+		nominalSaturation,
+		minNominalSaturation,
 		scaleLightness,
-		MIN_NOMINAL_LUMINANCE,
+		minNominalLightness,
 	)
 	const nominalMuted = getNominalMutedSequence(
 		nominalHues,
-		NOMINAL_SATURATION,
-		MIN_NOMINAL_SATURATION,
+		nominalSaturation,
+		minNominalSaturation,
 		scaleLightness,
-		MIN_NOMINAL_LUMINANCE,
-		MUTED_SATURATION_SHIFT,
-		NOMINAL_LIGHTER_SHIFT,
+		minNominalLightness,
+		nominalMutedSaturationShift,
+		nominalMutedLightnessShift,
 	)
 	const nominalBold = getNominalBoldSequence(
 		nominalHues,
-		NOMINAL_SATURATION,
-		MIN_NOMINAL_SATURATION,
+		nominalSaturation,
+		minNominalSaturation,
 		scaleLightness,
-		MIN_NOMINAL_LUMINANCE,
-		BOLD_SATURATION_SHIFT,
-		NOMINAL_DARKER_SHIFT,
+		minNominalLightness,
+		nominalBoldSaturationShift,
+		nominalBoldLightnessShift,
 	)
 
 	const sequential1 = getSequentialSequence(
 		nominalHues,
 		accentLightness,
 		greyLightness,
-		MAX_SATURATION,
+		maxSaturation,
 		sequentialItemCount,
 		0,
 	)
@@ -177,7 +254,7 @@ export function getScheme(
 		nominalHues,
 		accentLightness,
 		greyLightness,
-		MAX_SATURATION,
+		maxSaturation,
 		sequentialItemCount,
 		1,
 	)
@@ -186,8 +263,8 @@ export function getScheme(
 		nominalHues,
 		accentLightness,
 		greyLightness,
-		MAX_SATURATION,
-		POLYNOMIAL_EXPONENT,
+		maxSaturation,
+		polynomialExponent,
 		sequentialItemCount,
 		0,
 	)
@@ -195,8 +272,8 @@ export function getScheme(
 		nominalHues,
 		accentLightness,
 		greyLightness,
-		MAX_SATURATION,
-		POLYNOMIAL_EXPONENT,
+		maxSaturation,
+		polynomialExponent,
 		sequentialItemCount,
 		1,
 	)
@@ -237,7 +314,7 @@ function hsluvList2hexList(hsluvs: HslVector[]): string[] {
  * Validates the param limits, and returns a clean set or throws if unadjustable.
  * @param params
  */
-export function validateParams(params: Partial<SchemeParams>): SchemeParams {
+export function validateParams(params: SchemeParams): Required<SchemeParams> {
 	const {
 		accentHue,
 		accentSaturation,
@@ -245,11 +322,13 @@ export function validateParams(params: Partial<SchemeParams>): SchemeParams {
 		backgroundLevel,
 		backgroundHueShift,
 		nominalHueStep,
+		greySaturation,
 	} = params
 
 	const hueShift = backgroundHueShift || defaultParams.backgroundHueShift
 	const level = backgroundLevel || defaultParams.backgroundLevel
 	const step = nominalHueStep || defaultParams.nominalHueStep
+	const greySat = greySaturation || defaultParams.greySaturation
 
 	if (!accentHue) {
 		throw new Error(
@@ -291,6 +370,10 @@ export function validateParams(params: Partial<SchemeParams>): SchemeParams {
 		)
 	}
 
+	if (greySat < 0 || greySat > 100) {
+		throw new Error(`greySaturation ${greySat} is out of valid range: 0-100`)
+	}
+
 	const hueMod = accentHue % 360
 
 	return {
@@ -300,5 +383,6 @@ export function validateParams(params: Partial<SchemeParams>): SchemeParams {
 		backgroundHueShift: hueShift,
 		backgroundLevel: level,
 		nominalHueStep: step,
+		greySaturation: greySat,
 	}
 }

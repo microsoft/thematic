@@ -26,17 +26,21 @@ export interface SchemeParams {
 	 * Background shift - modulates the background color to tilt toward the hue or toward white/grey.
 	 * Valid range is 0-100.
 	 */
-	backgroundHueShift: number
+	backgroundHueShift?: number
 	/**
 	 * Background level - modulates the background lightness and saturation.
 	 * Valid range is 0-100.
 	 */
-	backgroundLevel: number
+	backgroundLevel?: number
 	/**
 	 * Hue step - adjusts the cycle distance between scale hues.
 	 * Notional range is 0-21. Technically this has no top-limit, but nominal scales will regress toward the hue.
 	 */
-	nominalHueStep: number
+	nominalHueStep?: number
+	/**
+	 * Optional saturation to mix some of the accent hue into grey scales.
+	 */
+	greySaturation?: number
 }
 
 /**

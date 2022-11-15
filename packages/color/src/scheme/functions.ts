@@ -8,57 +8,33 @@ import type { HslVector } from '../types.js'
 import { polynomialHslSequence } from './utils.js'
 
 /**
- * Creates a sequence of greys from a {start} to {end} lightness.
- * Note the optional saturation - by default this is 0 for pure greys,
- * but if you want some of the hue mixed in to warm or cool the sequence
- * you can bump this.
- * @param hue
- * @param size
- * @param startLightness
- * @param endLightness
- * @param saturation
- * @returns
- */
-export function greySequence(
-	hue: number,
-	size: number,
-	startLightness: number,
-	endLightness: number,
-	saturation = 0,
-) {
-	const greyFrom: HslVector = [hue, saturation, startLightness]
-	const greyTo: HslVector = [hue, saturation, endLightness]
-	return polynomialHslSequence(greyFrom, greyTo, size)
-}
-
-/**
  * Gets an offset hue based on the hue shift param.
  * This is used to tint the background color slightly.
  * Note that the shift parameter is arbitrarily binned using the 0-100 range:
  * 0-25 counterclockwise complementary, 25-75 analogous, 75+ clockwise complementary.
  * @param hue
- * @param hueShift
+ * @param shift
  * @param analagousRange
  * @param complementaryRange
  * @returns
  */
-export function getOffsetHue(
+function getOffsetHue(
 	hue: number,
-	hueShift: number,
+	shift: number,
 	analogousRange: number,
 	complementaryRange: number,
 ) {
-	if (hueShift >= 25 && hueShift <= 75) {
+	if (shift >= 25 && shift <= 75) {
 		//  analogous range
-		const delta = (analogousRange * (hueShift - 50)) / 25
+		const delta = (analogousRange * (shift - 50)) / 25
 		return (hue + delta) % 360
-	} else if (hueShift > 75) {
+	} else if (shift > 75) {
 		// clockwise complementary range
-		const delta = 180 - (complementaryRange * (100 - hueShift)) / 25
+		const delta = 180 - (complementaryRange * (100 - shift)) / 25
 		return (hue + delta) % 360
 	} else {
 		// anticlockwise complementary range
-		const delta = 180 + (complementaryRange * hueShift) / 25
+		const delta = 180 + (complementaryRange * shift) / 25
 		return (hue + delta) % 360
 	}
 }
@@ -71,7 +47,7 @@ export function getOffsetHue(
  * @param maxBackgroundChroma
  * @returns
  */
-export function normalizeSaturation(
+function normalizeSaturation(
 	hue: number,
 	lightness: number,
 	maxBackgroundChroma: number,
@@ -85,27 +61,27 @@ export function normalizeSaturation(
 	return satGivingMaxChroma
 }
 
-export function getBackgroundLightness(
-	backgroundLevel: number,
-	maxLightOffset: number,
-	maxDarkOffset: number,
+function getBackgroundLightness(
+	level: number,
+	lightMaxOffset: number,
+	darkMaxOffset: number,
 	light: boolean,
 ) {
 	if (light) {
-		if (backgroundLevel < 50) {
-			return 100 - maxLightOffset
+		if (level < 50) {
+			return 100 - lightMaxOffset
 		}
-		return 100 - maxLightOffset * (1 - (backgroundLevel - 50) / 50)
+		return 100 - lightMaxOffset * (1 - (level - 50) / 50)
 	} else {
-		if (backgroundLevel < 50) {
-			return maxDarkOffset
+		if (level < 50) {
+			return darkMaxOffset
 		} else {
-			return maxDarkOffset * (1 - (backgroundLevel - 50) / 50)
+			return darkMaxOffset * (1 - (level - 50) / 50)
 		}
 	}
 }
 
-export function getBackgroundSaturation(
+function getBackgroundSaturation(
 	hue: number,
 	lightness: number,
 	level: number,
@@ -116,6 +92,28 @@ export function getBackgroundSaturation(
 	} else {
 		return normalizeSaturation(hue, lightness, maxChroma)
 	}
+}
+
+export function getBackgroundHsl(
+	hue: number,
+	level: number,
+	shift: number,
+	lightMaxLightnessOffset: number,
+	darkMaxLightnessOffet: number,
+	maxChroma: number,
+	analogousRange: number,
+	complementaryRange: number,
+	light: boolean,
+): HslVector {
+	const h = getOffsetHue(hue, shift, analogousRange, complementaryRange)
+	const l = getBackgroundLightness(
+		level,
+		lightMaxLightnessOffset,
+		darkMaxLightnessOffet,
+		light,
+	)
+	const s = getBackgroundSaturation(h, l, level, maxChroma)
+	return [h, s, l]
 }
 
 /**
@@ -130,7 +128,7 @@ export function getBackgroundSaturation(
  */
 export function getAccentsAndComplements(
 	hues: number[],
-	colorLightness: number,
+	lightness: number,
 	greyLightness: number,
 	maxSaturation: number,
 	offset: number,
@@ -144,15 +142,11 @@ export function getAccentsAndComplements(
 	const complementHue = (accentHue + 90) % 360
 	const greyAccent: HslVector = [accentHue, 0, greyLightness]
 	const greyComplement: HslVector = [complementHue, 0, greyLightness]
-	const maxSaturationAccent: HslVector = [
-		accentHue,
-		maxSaturation,
-		colorLightness,
-	]
+	const maxSaturationAccent: HslVector = [accentHue, maxSaturation, lightness]
 	const maxSaturationComplement: HslVector = [
 		complementHue,
 		maxSaturation,
-		colorLightness,
+		lightness,
 	]
 
 	return {
@@ -161,28 +155,6 @@ export function getAccentsAndComplements(
 		maxSaturationAccent,
 		maxSaturationComplement,
 	}
-}
-
-export function getBackgroundHsl(
-	hue: number,
-	level: number,
-	hueShift: number,
-	maxLightLightnessOffset: number,
-	maxDarkLightnessOffset: number,
-	maxChroma: number,
-	analogousRange: number,
-	complementaryRange: number,
-	light: boolean,
-): HslVector {
-	const h = getOffsetHue(hue, hueShift, analogousRange, complementaryRange)
-	const l = getBackgroundLightness(
-		level,
-		maxLightLightnessOffset,
-		maxDarkLightnessOffset,
-		light,
-	)
-	const s = getBackgroundSaturation(h, l, level, maxChroma)
-	return [h, s, l]
 }
 
 /**
@@ -271,7 +243,7 @@ export function getNominalMutedSequence(
 	lightness: number,
 	minLightness: number,
 	saturationShift: number,
-	nominalShift: number,
+	lightnessShift: number,
 ) {
 	const nominalSaturation = saturation
 	let baseSaturation = saturation
@@ -281,7 +253,7 @@ export function getNominalMutedSequence(
 		const hsl = [
 			hue,
 			0.5 * (nominalSaturation + baseSaturation) - saturationShift,
-			0.5 * (lightness + baseLightness) + nominalShift,
+			0.5 * (lightness + baseLightness) + lightnessShift,
 		] as HslVector
 		if ((idx + 1) % 3 === 0) {
 			baseSaturation = Math.max(baseSaturation - 1, minSaturation)
@@ -301,7 +273,7 @@ export function getNominalMutedSequence(
  * @param lightness
  * @param minLightness
  * @param saturationShift
- * @param nominalShift
+ * @param lightnessShift
  * @returns
  */
 export function getNominalBoldSequence(
@@ -311,7 +283,7 @@ export function getNominalBoldSequence(
 	lightness: number,
 	minLightness: number,
 	saturationShift: number,
-	nominalShift: number,
+	lightnessShift: number,
 ) {
 	const nominalSaturation = saturation
 	let baseSaturation = saturation
@@ -321,7 +293,7 @@ export function getNominalBoldSequence(
 		const hsl = [
 			hue,
 			0.5 * (nominalSaturation + baseSaturation) + saturationShift,
-			0.5 * (lightness + baseLightness) - nominalShift,
+			0.5 * (lightness + baseLightness) - lightnessShift,
 		] as HslVector
 		if ((idx + 1) % 3 === 0) {
 			baseSaturation = Math.max(baseSaturation - 1, minSaturation)
@@ -333,9 +305,33 @@ export function getNominalBoldSequence(
 	})
 }
 
+/**
+ * Creates a sequence of greys from a {start} to {end} lightness.
+ * Note the optional saturation - by default this is 0 for pure greys,
+ * but if you want some of the hue mixed in to warm or cool the sequence
+ * you can bump this.
+ * @param hue
+ * @param size
+ * @param startLightness
+ * @param endLightness
+ * @param saturation
+ * @returns
+ */
+export function greySequence(
+	hue: number,
+	size: number,
+	startLightness: number,
+	endLightness: number,
+	saturation: number,
+) {
+	const greyFrom: HslVector = [hue, saturation, startLightness]
+	const greyTo: HslVector = [hue, saturation, endLightness]
+	return polynomialHslSequence(greyFrom, greyTo, size)
+}
+
 export function getSequentialSequence(
 	hues: number[],
-	colorLightness: number,
+	lightness: number,
 	greyLightness: number,
 	maxSaturation: number,
 	size: number,
@@ -343,7 +339,7 @@ export function getSequentialSequence(
 ) {
 	const { greyAccent, maxSaturationAccent } = getAccentsAndComplements(
 		hues,
-		colorLightness,
+		lightness,
 		greyLightness,
 		maxSaturation,
 		offset,
@@ -353,7 +349,7 @@ export function getSequentialSequence(
 
 export function getDivergingSequence(
 	hues: number[],
-	colorLightness: number,
+	lightness: number,
 	greyLightness: number,
 	maxSaturation: number,
 	polynomialExponent: number,
@@ -367,7 +363,7 @@ export function getDivergingSequence(
 		maxSaturationComplement,
 	} = getAccentsAndComplements(
 		hues,
-		colorLightness,
+		lightness,
 		greyLightness,
 		maxSaturation,
 		offset,
@@ -404,6 +400,7 @@ export function getAnnotations(
 	lowContrastbackgroundShift: number,
 	lightestGrey: number,
 	darkestGrey: number,
+	greySaturation: number,
 	light: boolean,
 ) {
 	const mutedGreyLightness = light
@@ -415,6 +412,7 @@ export function getAnnotations(
 		5,
 		mutedGreyLightness,
 		boldGreyLightness,
+		greySaturation,
 	)
 	const lowContrastAnnotationHsl = annotations[0] as HslVector
 	const lowMidContrastAnnotationHsl = annotations[1] as HslVector
@@ -438,8 +436,8 @@ export function getAnnotations(
 }
 
 export function getForegroundHsl(
-	darkTextLightness: number,
 	lightTextLightness: number,
+	darkTextLightness: number,
 	light: boolean,
 ): HslVector {
 	const textLightness = light ? darkTextLightness : lightTextLightness
@@ -457,4 +455,15 @@ export function getOffsetBackgroundHsl(
 		: Math.max(0, lightness - lightnessShift)
 
 	return [hue, saturation, offsetLightness]
+}
+
+export function getGreyLightness(
+	backgroundLightness: number,
+	lightBackgroundLightnessShift: number,
+	darkBackgroundLightnessShift: number,
+	light: boolean,
+) {
+	return light
+		? backgroundLightness - darkBackgroundLightnessShift
+		: backgroundLightness + lightBackgroundLightnessShift
 }
