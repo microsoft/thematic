@@ -213,23 +213,24 @@ export function getNominalSequence(
 	lightness: number,
 	minLightness: number,
 ) {
+	const minS = Math.min(saturation, minSaturation)
+	const minL = Math.min(lightness, minLightness)
 	let baseSaturation = saturation
 	let baseLightness = lightness
-
 	return hues.map((hue, idx) => {
 		const hsl = [hue, baseSaturation, baseLightness] as HslVector
-		if ((idx + 1) % 3 === 0) {
-			baseSaturation = Math.max(baseSaturation - 1, minSaturation)
+		if (idx > 9 && (idx + 1) % 3 === 0) {
+			baseSaturation = Math.max(baseSaturation - 1, minS)
 		}
-		if ((idx + 1) % 6 === 0) {
-			baseLightness = Math.max(baseLightness - 1, minLightness)
+		if (idx > 9 && (idx + 1) % 6 === 0) {
+			baseLightness = Math.max(baseLightness - 1, minL)
 		}
 		return hsl
 	})
 }
 
 /**
- * Gets the muted nominal sequence by decreasing the saturation and increasing lightness
+ * Gets the muted/bold nominal sequence by shifting the saturation and lightness
  * @param hues
  * @param saturation
  * @param minSaturation
@@ -253,18 +254,17 @@ export function getNominalShiftedSequence(
 	let baseLightness = lightness
 
 	return hues.map((hue, idx) => {
-		const hsl = [
-			hue,
-			Math.min(
-				0.5 * (nominalSaturation + baseSaturation) + saturationShift,
-				100,
-			),
-			Math.min(0.5 * (lightness + baseLightness) + lightnessShift, 100),
-		] as HslVector
-		if ((idx + 1) % 3 === 0) {
+		const shiftedS =
+			0.5 * (nominalSaturation + baseSaturation) + saturationShift
+		const shiftedL = 0.5 * (lightness + baseLightness) + lightnessShift
+		// correct for valid bounds
+		const correctedS = Math.min(Math.max(0, shiftedS), 100)
+		const correctedL = Math.min(Math.max(0, shiftedL), 100)
+		const hsl = [hue, correctedS, correctedL] as HslVector
+		if (idx > 9 && (idx + 1) % 3 === 0) {
 			baseSaturation = Math.max(baseSaturation - 1, minSaturation)
 		}
-		if ((idx + 1) % 6 === 0) {
+		if (idx > 9 && (idx + 1) % 6 === 0) {
 			baseLightness = Math.max(baseLightness - 1, minLightness)
 		}
 		return hsl

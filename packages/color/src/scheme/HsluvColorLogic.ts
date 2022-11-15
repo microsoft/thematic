@@ -391,7 +391,7 @@ export function validateParams(params: SchemeParams): Required<SchemeParams> {
 		accentLightness,
 		accentSaturation,
 		scaleSaturation: scaleSat,
-		scaleLightness: scaleLightness,
+		scaleLightness: scaleLt,
 		greyHue: grey,
 		greySaturation: greySat,
 	}
