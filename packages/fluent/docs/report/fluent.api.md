@@ -90,9 +90,9 @@ export interface ColorPickerProps {
 // @public (undocumented)
 export interface ColorPickerStyles {
     // (undocumented)
-    slider?: ISliderStyles;
+    container?: CSSProperties;
     // (undocumented)
-    sliders?: CSSProperties;
+    slider?: ISliderStyles;
 }
 
 // Warning: (ae-missing-release-tag) "FluentTheme" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)

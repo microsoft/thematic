@@ -262,6 +262,11 @@ export interface Scheme {
     accent: string;
     // (undocumented)
     background: string;
+    dataPrimary: string;
+    // (undocumented)
+    dataPrimaryBold: string;
+    // (undocumented)
+    dataPrimaryMuted: string;
     // (undocumented)
     diverging: string[];
     // (undocumented)
@@ -292,11 +297,6 @@ export interface Scheme {
     nominalMuted: string[];
     // (undocumented)
     offsetBackground: string;
-    primary: string;
-    // (undocumented)
-    primaryBold: string;
-    // (undocumented)
-    primaryMuted: string;
     // (undocumented)
     rainbow: string[];
     // (undocumented)

@@ -8,7 +8,7 @@ import { EnumDropdown } from '@essex/components'
 import type { IDropdownOption, ISelectableOption } from '@fluentui/react'
 import { Dropdown, Position, SpinButton, Toggle } from '@fluentui/react'
 import { colorBlindnessInfo, ColorBlindnessMode } from '@thematic/color'
-import type { Theme, ThemeListing } from '@thematic/core'
+import type { ThemeListing } from '@thematic/core'
 import type { FC } from 'react'
 import { useCallback, useMemo } from 'react'
 
