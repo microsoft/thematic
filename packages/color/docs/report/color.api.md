@@ -154,7 +154,6 @@ export const defaultParams: {
 // @public
 export function getNamedSchemeColor(scheme: Scheme, path?: string): Color;
 
-// Warning: (ae-forgotten-export) The symbol "TuningParameters" needs to be exported by the entry point index.d.ts
 // Warning: (ae-missing-release-tag) "getScheme" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
@@ -318,6 +317,60 @@ export interface SchemeParams {
     greySaturation?: number;
     scaleLightness?: number;
     scaleSaturation?: number;
+}
+
+// Warning: (ae-missing-release-tag) "TuningParameters" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface TuningParameters {
+    // (undocumented)
+    analogousRange: number;
+    // (undocumented)
+    backgroundHueShift: number;
+    // (undocumented)
+    backgroundLevel: number;
+    // (undocumented)
+    complementaryRange: number;
+    // (undocumented)
+    darkBackgroundLightnessShift: number;
+    // (undocumented)
+    darkestGrey: number;
+    // (undocumented)
+    darkMaxLightnessOffet: number;
+    // (undocumented)
+    darkTextLightness: number;
+    // (undocumented)
+    lightBackgroundLightnessShift: number;
+    // (undocumented)
+    lightestGrey: number;
+    // (undocumented)
+    lightMaxLightnessOffset: number;
+    // (undocumented)
+    lightTextLightness: number;
+    // (undocumented)
+    lowContrastBackgroundShift: number;
+    // (undocumented)
+    maxBackgroundChroma: number;
+    // (undocumented)
+    minNominalLightness: number;
+    // (undocumented)
+    minNominalSaturation: number;
+    // (undocumented)
+    nominalBoldLightnessShift: number;
+    // (undocumented)
+    nominalBoldSaturationShift: number;
+    // (undocumented)
+    nominalHueStep: number;
+    // (undocumented)
+    nominalMutedLightnessShift: number;
+    // (undocumented)
+    nominalMutedSaturationShift: number;
+    // (undocumented)
+    offsetBackgroundLightnessShift: number;
+    // (undocumented)
+    polynomialExponent: number;
+    // (undocumented)
+    reservedDataColors: number;
 }
 
 // (No @packageDocumentation comment for this package)

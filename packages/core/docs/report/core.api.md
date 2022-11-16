@@ -8,6 +8,7 @@ import { Color } from '@thematic/color';
 import { ColorBlindnessMode } from '@thematic/color';
 import type { Scheme } from '@thematic/color';
 import type { SchemeParams } from '@thematic/color';
+import type { TuningParameters } from '@thematic/color';
 
 // Warning: (ae-missing-release-tag) "Application" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -851,6 +852,8 @@ export interface ThemeSpec {
     name?: string;
     // (undocumented)
     params?: SchemeParams;
+    // (undocumented)
+    tuning?: TuningParameters;
 }
 
 // Warning: (ae-missing-release-tag) "ThemeVariant" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)

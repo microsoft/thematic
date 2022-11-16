@@ -5,7 +5,12 @@
 
 import { hsluv2hex } from '../chroma.js'
 import { defaultParams } from '../index.js'
-import type { HslVector, Scheme, SchemeParams } from '../types'
+import type {
+	HslVector,
+	Scheme,
+	SchemeParams,
+	TuningParameters,
+} from '../types'
 import {
 	getAnnotations,
 	getBackgroundHsl,
@@ -20,47 +25,6 @@ import {
 	getSequentialSequence,
 	greySequence,
 } from './functions.js'
-
-/**
- * Detailed tuning for the scale generation algorithms.
- */
-export interface TuningParameters {
-	analogousRange: number
-	complementaryRange: number
-
-	nominalHueStep: number
-
-	lightTextLightness: number
-	lightMaxLightnessOffset: number
-	lightBackgroundLightnessShift: number
-
-	darkTextLightness: number
-	darkMaxLightnessOffet: number
-	darkBackgroundLightnessShift: number
-
-	backgroundLevel: number
-	backgroundHueShift: number
-
-	minNominalSaturation: number
-	minNominalLightness: number
-
-	nominalMutedSaturationShift: number
-	nominalMutedLightnessShift: number
-
-	nominalBoldLightnessShift: number
-	nominalBoldSaturationShift: number
-
-	maxBackgroundChroma: number
-	lowContrastBackgroundShift: number
-	offsetBackgroundLightnessShift: number
-
-	lightestGrey: number
-	darkestGrey: number
-
-	reservedDataColors: number
-
-	polynomialExponent: number
-}
 
 function getDefaultTuning(
 	tuning?: Partial<TuningParameters>,

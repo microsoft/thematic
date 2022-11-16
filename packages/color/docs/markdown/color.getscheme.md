@@ -20,7 +20,7 @@ export declare function getScheme(params: SchemeParams, nominalItemCount: number
 |  nominalItemCount | number |  |
 |  sequentialItemCount | number |  |
 |  light | boolean |  |
-|  tuning | Partial&lt;TuningParameters&gt; | <i>(Optional)</i> |
+|  tuning | Partial&lt;[TuningParameters](./color.tuningparameters.md)<!-- -->&gt; | <i>(Optional)</i> |
 
 <b>Returns:</b>
 

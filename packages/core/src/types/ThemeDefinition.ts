@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { Scheme, SchemeParams } from '@thematic/color'
+import type { Scheme, SchemeParams, TuningParameters } from '@thematic/color'
 
 // TODO: the *Spec versions of these are for the raw json properties
 // this would be MUCH better specified as a JSONSchema with included validator
@@ -102,6 +102,7 @@ export interface ThemeSpec {
 	params?: SchemeParams
 	light?: Scheme
 	dark?: Scheme
+	tuning?: TuningParameters
 }
 
 /**

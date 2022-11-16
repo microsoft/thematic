@@ -43,6 +43,47 @@ export interface SchemeParams {
 }
 
 /**
+ * Detailed tuning for the scale generation algorithms.
+ */
+export interface TuningParameters {
+	analogousRange: number
+	complementaryRange: number
+
+	nominalHueStep: number
+
+	lightTextLightness: number
+	lightMaxLightnessOffset: number
+	lightBackgroundLightnessShift: number
+
+	darkTextLightness: number
+	darkMaxLightnessOffet: number
+	darkBackgroundLightnessShift: number
+
+	backgroundLevel: number
+	backgroundHueShift: number
+
+	minNominalSaturation: number
+	minNominalLightness: number
+
+	nominalMutedSaturationShift: number
+	nominalMutedLightnessShift: number
+
+	nominalBoldLightnessShift: number
+	nominalBoldSaturationShift: number
+
+	maxBackgroundChroma: number
+	lowContrastBackgroundShift: number
+	offsetBackgroundLightnessShift: number
+
+	lightestGrey: number
+	darkestGrey: number
+
+	reservedDataColors: number
+
+	polynomialExponent: number
+}
+
+/**
  * Core color properties for a computed color scheme.
  * Note the values are all strings - our color default representation uses hex codes.
  */

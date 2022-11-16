@@ -9312,6 +9312,34 @@
                 "startIndex": 1,
                 "endIndex": 2
               }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/core!ThemeSpec#tuning:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "tuning?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TuningParameters",
+                  "canonicalReference": "@thematic/color!TuningParameters:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "tuning",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
             }
           ],
           "extendsTokenRanges": []

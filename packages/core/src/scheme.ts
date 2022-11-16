@@ -47,7 +47,13 @@ export function createScheme(
 	sequentialItemCount: number = DEFAULT_SEQUENTIAL_ITEMS,
 ): Scheme {
 	const params = applyParams(spec)
-	const scheme = getScheme(params, nominalItemCount, sequentialItemCount, !dark)
+	const scheme = getScheme(
+		params,
+		nominalItemCount,
+		sequentialItemCount,
+		!dark,
+		spec.tuning,
+	)
 	return colorBlindness(scheme, colorBlindnessMode)
 }
 

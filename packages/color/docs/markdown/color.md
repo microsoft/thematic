@@ -57,6 +57,7 @@
 |  [Rgba](./color.rgba.md) |  |
 |  [Scheme](./color.scheme.md) | Core color properties for a computed color scheme. Note the values are all strings - our color default representation uses hex codes. |
 |  [SchemeParams](./color.schemeparams.md) | This is the core set of parameters for generating schemes using the ColorPicker |
+|  [TuningParameters](./color.tuningparameters.md) | Detailed tuning for the scale generation algorithms. |
 
 ## Variables
 
