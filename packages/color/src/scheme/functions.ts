@@ -40,27 +40,13 @@ function getOffsetHue(
 }
 
 /**
- * Find a saturation value that maximizes chroma for a given hue.
- * HSLuv has relative saturation, so we find this using HSL and map it back.
- * @param hue
- * @param lightness
- * @param maxBackgroundChroma
+ * Choose a background lightness based on the "level" and light/dark mode.
+ * @param level
+ * @param lightMaxOffset
+ * @param darkMaxOffset
+ * @param light
  * @returns
  */
-function normalizeSaturation(
-	hue: number,
-	lightness: number,
-	maxBackgroundChroma: number,
-) {
-	let satGivingMaxChroma = 100
-	let c = hsluv2hsl([hue, 100, lightness])[1]
-	while (c > maxBackgroundChroma && satGivingMaxChroma >= 0) {
-		satGivingMaxChroma -= 1
-		c = hsluv2hsl([hue, satGivingMaxChroma, lightness])[1]
-	}
-	return satGivingMaxChroma
-}
-
 function getBackgroundLightness(
 	level: number,
 	lightMaxOffset: number,
@@ -81,6 +67,36 @@ function getBackgroundLightness(
 	}
 }
 
+/**
+ * Find a saturation value that maximizes chroma for a given hue.
+ * HSLuv has relative saturation, so we find this using HSL and map it back.
+ * @param hue
+ * @param lightness
+ * @param maxBackgroundChroma
+ * @returns
+ */
+function normalizeSaturation(
+	hue: number,
+	lightness: number,
+	maxChroma: number,
+) {
+	let satGivingMaxChroma = 100
+	let c = hsluv2hsl([hue, 100, lightness])[1]
+	while (c > maxChroma && satGivingMaxChroma >= 0) {
+		satGivingMaxChroma -= 1
+		c = hsluv2hsl([hue, satGivingMaxChroma, lightness])[1]
+	}
+	return satGivingMaxChroma
+}
+
+/**
+ * Finds the ideal saturation for a given background config.
+ * @param hue
+ * @param lightness
+ * @param level
+ * @param maxChroma
+ * @returns
+ */
 function getBackgroundSaturation(
 	hue: number,
 	lightness: number,
@@ -94,6 +110,19 @@ function getBackgroundSaturation(
 	}
 }
 
+/**
+ * Gets the background HSL color based on our hue params and shifts.
+ * @param hue
+ * @param level
+ * @param shift
+ * @param lightMaxLightnessOffset
+ * @param darkMaxLightnessOffet
+ * @param maxChroma
+ * @param analogousRange
+ * @param complementaryRange
+ * @param light
+ * @returns
+ */
 export function getBackgroundHsl(
 	hue: number,
 	level: number,
@@ -245,13 +274,11 @@ export function getNominalShiftedSequence(
 	saturationShift: number,
 	lightnessShift: number,
 ) {
-	const nominalSaturation = saturation
 	let baseSaturation = saturation
 	let baseLightness = lightness
 
 	return hues.map((hue, idx) => {
-		const shiftedS =
-			0.5 * (nominalSaturation + baseSaturation) + saturationShift
+		const shiftedS = 0.5 * (saturation + baseSaturation) + saturationShift
 		const shiftedL = 0.5 * (lightness + baseLightness) + lightnessShift
 		// correct for valid bounds
 		const correctedS = Math.min(Math.max(0, shiftedS), 100)
@@ -267,6 +294,13 @@ export function getNominalShiftedSequence(
 	})
 }
 
+/**
+ * Just gets every hue, with consistent saturation and lightness.
+ * @param start
+ * @param saturation
+ * @param lightness
+ * @returns
+ */
 export function getNominalRainbowSequence(
 	start: number,
 	saturation: number,
@@ -281,7 +315,7 @@ export function getNominalRainbowSequence(
  * Creates a sequence of greys from a {start} to {end} lightness.
  * Note the optional saturation - by default this is 0 for pure greys,
  * but if you want some of the hue mixed in to warm or cool the sequence
- * you can bump this.
+ * you can bump this and the hue will emerge.
  * @param hue
  * @param size
  * @param startLightness
@@ -301,6 +335,16 @@ export function greySequence(
 	return polynomialHslSequence(greyFrom, greyTo, size)
 }
 
+/**
+ * Gets the sequential scale sequence from grey to the offset hue color.
+ * @param hues
+ * @param saturation
+ * @param lightness
+ * @param greyLightness
+ * @param size
+ * @param offset
+ * @returns
+ */
 export function getSequentialSequence(
 	hues: number[],
 	saturation: number,
@@ -319,6 +363,17 @@ export function getSequentialSequence(
 	return polynomialHslSequence(greyAccent, accent, size)
 }
 
+/**
+ * Gets the diverging scale sequence from a complement on one end to the offset hue on the other, with near-white in the middle.
+ * @param hues
+ * @param saturation
+ * @param lightness
+ * @param greyLightness
+ * @param polynomialExponent
+ * @param size
+ * @param offset
+ * @returns
+ */
 export function getDivergingSequence(
 	hues: number[],
 	saturation: number,
@@ -350,6 +405,18 @@ export function getDivergingSequence(
 	return diverging.concat(toAdd)
 }
 
+/**
+ * Gets the collection of greyscale annotations for text colors.
+ * @param accentHue
+ * @param backgroundLightness
+ * @param boldGreyLightness
+ * @param lowContrastbackgroundShift
+ * @param lightestGrey
+ * @param darkestGrey
+ * @param greySaturation
+ * @param light
+ * @returns
+ */
 export function getAnnotations(
 	accentHue: number,
 	backgroundLightness: number,
@@ -392,6 +459,13 @@ export function getAnnotations(
 	}
 }
 
+/**
+ * Gets the primary foreground (text) color.
+ * @param lightTextLightness
+ * @param darkTextLightness
+ * @param light
+ * @returns
+ */
 export function getForegroundHsl(
 	lightTextLightness: number,
 	darkTextLightness: number,
@@ -400,6 +474,14 @@ export function getForegroundHsl(
 	const textLightness = light ? darkTextLightness : lightTextLightness
 	return [0, 0, textLightness]
 }
+/**
+ * Gets the offset background - this is used for data plot area for example,
+ * so it stands out slightly from the regular application background.
+ * @param backgroundHsl
+ * @param lightnessShift
+ * @param light
+ * @returns
+ */
 
 export function getOffsetBackgroundHsl(
 	backgroundHsl: HslVector,
