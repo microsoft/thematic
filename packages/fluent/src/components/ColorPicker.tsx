@@ -8,7 +8,7 @@ import type { CSSProperties, FC } from 'react'
 
 import { useThematicFluent } from '../provider/useThematicFluent.js'
 import {
-	useOnParamsChange,
+	useParams,
 	usePickerChange,
 	useSliderChange,
 } from './ColorPicker.hooks.js'
@@ -34,13 +34,20 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 }) => {
 	const theme = useThematicFluent()
 
-	const lyt = layout || ColorPickerLayout.PickerOnly
+	const { params, updateParams } = useParams(theme, onChange)
 
-	const updateParams = useOnParamsChange(theme, onChange)
+	const {
+		accentHue,
+		accentSaturation,
+		accentLightness,
+		scaleSaturation,
+		scaleLightness,
+		greyHue,
+		greySaturation,
+	} = params
 
 	const handlePickerChange = usePickerChange(updateParams)
 
-	// TODO: debounce sliders so the value can be shown updating
 	const handleAccentHueChange = useSliderChange('accentHue', updateParams)
 	const handleAccentSaturationChange = useSliderChange(
 		'accentSaturation',
@@ -64,19 +71,9 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 		updateParams,
 	)
 
-	const {
-		accentHue,
-		accentSaturation,
-		accentLightness,
-		scaleSaturation,
-		scaleLightness,
-		greyHue,
-		greySaturation,
-	} = theme.params
-
+	const lyt = layout || ColorPickerLayout.PickerOnly
 	const containerStyle: CSSProperties = useContainerStyle(styles?.container)
 	const sliderStyles: ISliderStyles = useSliderStyles(styles?.slider)
-
 	const sectionHeaderStyle = useSectionHeaderStyle()
 
 	return (

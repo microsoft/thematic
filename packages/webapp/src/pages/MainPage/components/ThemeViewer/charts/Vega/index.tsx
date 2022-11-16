@@ -58,7 +58,7 @@ export const VegaChart: FC<VegaChartProps> = memo(function VegaChart({
 		if (ref.current != null) {
 			view.initialize(ref.current).run()
 		}
-	})
+	}, [ref, view])
 
 	return <div ref={ref} />
 })
