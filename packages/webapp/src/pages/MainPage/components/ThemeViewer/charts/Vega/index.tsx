@@ -20,16 +20,16 @@ import stackedBar from './specs/stacked-bar.json'
 import sunburst from './specs/sunburst.json'
 
 const specs: Record<string, any> = {
-	heatmap,
-	bar,
-	stackedBar,
-	line,
-	area,
-	stackedArea,
 	scatterPlot,
+	bar,
+	area,
+	stackedBar,
+	stackedArea,
+	line,
 	donut,
 	pyramid,
 	sunburst,
+	heatmap,
 }
 
 export const charts = Object.keys(specs)
