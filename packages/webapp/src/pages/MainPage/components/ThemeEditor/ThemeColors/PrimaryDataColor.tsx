@@ -71,12 +71,12 @@ function useThemePrimaryColors() {
 			},
 			{
 				color: muted,
-				label: 'primaryMuted',
+				label: 'muted',
 				secondaryLabel: muted,
 			},
 			{
 				color: bold,
-				label: 'primaryBold',
+				label: 'bold',
 				secondaryLabel: bold,
 			},
 		]

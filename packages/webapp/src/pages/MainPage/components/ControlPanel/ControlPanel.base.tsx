@@ -9,7 +9,6 @@ import type { IDropdownOption, ISelectableOption } from '@fluentui/react'
 import { Dropdown, Position, SpinButton, Toggle } from '@fluentui/react'
 import { colorBlindnessInfo, ColorBlindnessMode } from '@thematic/color'
 import type { Theme, ThemeListing } from '@thematic/core'
-import { ColorPickerButton } from '@thematic/fluent'
 import type { FC } from 'react'
 import { useCallback, useMemo } from 'react'
 
@@ -19,7 +18,6 @@ export interface ControlPanelProps {
 	scaleItemCount: number
 	colorBlindnessMode: ColorBlindnessMode
 	darkMode: boolean
-	onThemeLoaded: (theme: Theme) => void
 	onThemeChange: (t: ThemeListing) => void
 	onScaleItemCountChange: (value: number) => void
 	onColorBlindnessModeChange: (mode: ColorBlindnessMode) => void
@@ -35,7 +33,6 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 	scaleItemCount,
 	colorBlindnessMode,
 	darkMode,
-	onThemeLoaded,
 	onThemeChange,
 	onScaleItemCountChange,
 	onColorBlindnessModeChange,
@@ -138,9 +135,6 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 					/>
 				</div>
 				<div className="control">
-					<ColorPickerButton label="Accent" onChange={onThemeLoaded} />
-				</div>
-				<div className="control">
 					<Toggle
 						label="Dark mode"
 						checked={darkMode}
@@ -165,7 +159,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 				<div className="control">
 					<EnumDropdown
 						enumeration={ColorBlindnessMode}
-						label="Color blindness"
+						label="Color blindness test"
 						selectedKey={colorBlindnessMode}
 						onChange={handleColorBlindnessChange}
 						styles={{

@@ -128,32 +128,28 @@ export function getBackgroundHsl(
  */
 export function getAccentsAndComplements(
 	hues: number[],
+	saturation: number,
 	lightness: number,
 	greyLightness: number,
-	maxSaturation: number,
 	offset: number,
 ): {
 	greyAccent: HslVector
 	greyComplement: HslVector
-	maxSaturationAccent: HslVector
-	maxSaturationComplement: HslVector
+	accent: HslVector
+	complement: HslVector
 } {
 	const accentHue = hues[offset % hues.length] as number
 	const complementHue = (accentHue + 90) % 360
 	const greyAccent: HslVector = [accentHue, 0, greyLightness]
 	const greyComplement: HslVector = [complementHue, 0, greyLightness]
-	const maxSaturationAccent: HslVector = [accentHue, maxSaturation, lightness]
-	const maxSaturationComplement: HslVector = [
-		complementHue,
-		maxSaturation,
-		lightness,
-	]
+	const accent: HslVector = [accentHue, saturation, lightness]
+	const complement: HslVector = [complementHue, saturation, lightness]
 
 	return {
 		greyAccent,
 		greyComplement,
-		maxSaturationAccent,
-		maxSaturationComplement,
+		accent,
+		complement,
 	}
 }
 
@@ -295,10 +291,10 @@ export function getNominalRainbowSequence(
  */
 export function greySequence(
 	hue: number,
-	size: number,
+	saturation: number,
 	startLightness: number,
 	endLightness: number,
-	saturation: number,
+	size: number,
 ) {
 	const greyFrom: HslVector = [hue, saturation, startLightness]
 	const greyTo: HslVector = [hue, saturation, endLightness]
@@ -307,62 +303,47 @@ export function greySequence(
 
 export function getSequentialSequence(
 	hues: number[],
+	saturation: number,
 	lightness: number,
 	greyLightness: number,
-	maxSaturation: number,
 	size: number,
 	offset: number,
 ) {
-	const { greyAccent, maxSaturationAccent } = getAccentsAndComplements(
+	const { greyAccent, accent } = getAccentsAndComplements(
 		hues,
+		saturation,
 		lightness,
 		greyLightness,
-		maxSaturation,
 		offset,
 	)
-	return polynomialHslSequence(greyAccent, maxSaturationAccent, size)
+	return polynomialHslSequence(greyAccent, accent, size)
 }
 
 export function getDivergingSequence(
 	hues: number[],
+	saturation: number,
 	lightness: number,
 	greyLightness: number,
-	maxSaturation: number,
 	polynomialExponent: number,
 	size: number,
 	offset: number,
 ) {
-	const {
-		greyAccent,
-		greyComplement,
-		maxSaturationAccent,
-		maxSaturationComplement,
-	} = getAccentsAndComplements(
-		hues,
-		lightness,
-		greyLightness,
-		maxSaturation,
-		offset,
-	)
+	const { greyAccent, greyComplement, accent, complement } =
+		getAccentsAndComplements(hues, saturation, lightness, greyLightness, offset)
 
 	const half = Math.round(size / 2)
 	const cut = size % 2 === 0 ? half + 1 : half
 
 	const diverging = polynomialHslSequence(
 		greyComplement,
-		maxSaturationComplement,
+		complement,
 		cut,
 		polynomialExponent,
 	)
 		.slice(1)
 		.reverse()
 
-	let toAdd = polynomialHslSequence(
-		greyAccent,
-		maxSaturationAccent,
-		cut,
-		polynomialExponent,
-	)
+	let toAdd = polynomialHslSequence(greyAccent, accent, cut, polynomialExponent)
 	if (size % 2 === 0) {
 		toAdd = toAdd.slice(1, cut)
 	}
@@ -385,10 +366,10 @@ export function getAnnotations(
 
 	const annotations = greySequence(
 		accentHue,
-		5,
+		greySaturation,
 		mutedGreyLightness,
 		boldGreyLightness,
-		greySaturation,
+		5,
 	)
 	const lowContrastAnnotationHsl = annotations[0] as HslVector
 	const lowMidContrastAnnotationHsl = annotations[1] as HslVector

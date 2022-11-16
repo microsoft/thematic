@@ -41,7 +41,6 @@ export interface TuningParameters {
 	backgroundLevel: number
 	backgroundHueShift: number
 
-	maxSaturation: number
 	minNominalSaturation: number
 	minNominalLightness: number
 
@@ -82,7 +81,6 @@ function getDefaultTuning(
 		backgroundHueShift: 50,
 
 		nominalHueStep: 10,
-		maxSaturation: 100,
 		minNominalSaturation: 10,
 		minNominalLightness: 50,
 
@@ -138,7 +136,6 @@ export function getScheme(
 		darkMaxLightnessOffet,
 		lightTextLightness,
 		darkTextLightness,
-		maxSaturation,
 		lightBackgroundLightnessShift,
 		darkBackgroundLightnessShift,
 		backgroundLevel,
@@ -193,10 +190,10 @@ export function getScheme(
 
 	const greys = greySequence(
 		greyHue,
-		sequentialItemCount,
+		greySaturation,
 		greyLightness,
 		boldGreyLightness,
-		greySaturation,
+		sequentialItemCount,
 	)
 
 	const {
@@ -250,35 +247,35 @@ export function getScheme(
 
 	const sequential1 = getSequentialSequence(
 		nominalHues,
+		scaleSaturation,
 		accentLightness,
 		greyLightness,
-		maxSaturation,
 		sequentialItemCount,
 		0,
 	)
 	const sequential2 = getSequentialSequence(
 		nominalHues,
+		scaleSaturation,
 		accentLightness,
 		greyLightness,
-		maxSaturation,
 		sequentialItemCount,
 		1,
 	)
 
 	const diverging1 = getDivergingSequence(
 		nominalHues,
+		scaleSaturation,
 		accentLightness,
 		greyLightness,
-		maxSaturation,
 		polynomialExponent,
 		sequentialItemCount,
 		0,
 	)
 	const diverging2 = getDivergingSequence(
 		nominalHues,
+		scaleSaturation,
 		accentLightness,
 		greyLightness,
-		maxSaturation,
 		polynomialExponent,
 		sequentialItemCount,
 		1,

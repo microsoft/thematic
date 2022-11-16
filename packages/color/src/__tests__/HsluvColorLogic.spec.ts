@@ -31,21 +31,21 @@ const TINTED_GREYS = [
 	'#31302e',
 ]
 
-const SEQUENTIAL1 = ['#f5f5f5', '#e0d1c5', '#d7ac7e', '#bd8c49', '#a06d00']
+const SEQUENTIAL1 = ['#f5f5f5', '#dfd2c6', '#d4ad85', '#ba8c54', '#9d6e22']
 
-const SEQUENTIAL2 = ['#f5f5f5', '#d9d1df', '#c7a9da', '#be78e5', '#c200fb']
+const SEQUENTIAL2 = ['#f5f5f5', '#d9d1de', '#c5aad7', '#ba7cdd', '#b92fec']
 
 const DIVERGING = [
-	'#00894b',
-	'#52aa73',
-	'#87c69c',
-	'#b7ddc3',
+	'#238850',
+	'#5ba978',
+	'#8dc59f',
+	'#badcc4',
 	'#e3ebe5',
 	'#ebe9e7',
-	'#e0d1c4',
-	'#dab186',
-	'#c19050',
-	'#a06d00',
+	'#dfd1c6',
+	'#d7b28c',
+	'#be915a',
+	'#9d6e22',
 ]
 
 // TODO: test light v dark

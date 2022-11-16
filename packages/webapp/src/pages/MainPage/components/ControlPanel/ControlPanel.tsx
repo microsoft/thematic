@@ -6,7 +6,6 @@ import {
 	useColorBlindnessMode,
 	useDarkMode,
 	useScaleItemCount,
-	useSetTheme,
 	useThemeInfo,
 	useThemes,
 } from '../../../../state/index.js'
@@ -18,7 +17,6 @@ export const ControlPanel = () => {
 	const [darkMode, setDarkMode] = useDarkMode()
 	const [themes] = useThemes()
 	const [themeInfo, setThemeInfo] = useThemeInfo()
-	const setTheme = useSetTheme()
 	return (
 		<ControlPanelBase
 			scaleItemCount={scaleItemCount}
@@ -30,7 +28,6 @@ export const ControlPanel = () => {
 			themes={themes}
 			themeInfo={themeInfo}
 			onThemeChange={setThemeInfo}
-			onThemeLoaded={setTheme}
 		/>
 	)
 }
