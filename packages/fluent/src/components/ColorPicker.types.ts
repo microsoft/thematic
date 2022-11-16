@@ -12,7 +12,7 @@ export enum ColorPickerLayout {
 }
 
 export interface ColorPickerStyles {
-	sliders?: CSSProperties
+	container?: CSSProperties
 	slider?: ISliderStyles
 }
 

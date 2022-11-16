@@ -2,20 +2,23 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { IColor, ISliderStyles } from '@fluentui/react'
+import type { ISliderStyles } from '@fluentui/react'
 import { ColorPicker as FluentColorPicker, Slider } from '@fluentui/react'
-import type { SchemeParams } from '@thematic/color'
-import { css2hsluv } from '@thematic/color'
-import merge from 'lodash-es/merge.js'
 import type { CSSProperties, FC } from 'react'
-import { useCallback, useMemo } from 'react'
 
 import { useThematicFluent } from '../provider/useThematicFluent.js'
-import { useSliderChange } from './ColorPicker.hooks.js'
+import {
+	useOnParamsChange,
+	usePickerChange,
+	useSliderChange,
+} from './ColorPicker.hooks.js'
+import {
+	useContainerStyle,
+	useSectionHeaderStyle,
+	useSliderStyles,
+} from './ColorPicker.styles.js'
 import type { ColorPickerProps } from './ColorPicker.types.js'
 import { ColorPickerLayout } from './ColorPicker.types.js'
-
-type PartialParams = Partial<SchemeParams>
 
 /**
  * This is a simple ColorPicker that you can show users, allowing them to choose a custom accent color.
@@ -33,32 +36,9 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 
 	const lyt = layout || ColorPickerLayout.PickerOnly
 
-	const updateParams = useCallback(
-		(params: PartialParams) => {
-			onChange &&
-				onChange(
-					theme.clone({
-						params: {
-							...theme.params,
-							...params,
-						},
-					}),
-				)
-		},
-		[theme, onChange],
-	)
+	const updateParams = useOnParamsChange(theme, onChange)
 
-	const handlePickerChange = useCallback(
-		(_ev: React.SyntheticEvent<HTMLElement>, color: IColor) => {
-			const [h, s, l] = css2hsluv(color.hex)
-			updateParams({
-				accentHue: h,
-				accentSaturation: s,
-				accentLightness: l,
-			})
-		},
-		[updateParams],
-	)
+	const handlePickerChange = usePickerChange(updateParams)
 
 	// TODO: debounce sliders so the value can be shown updating
 	const handleAccentHueChange = useSliderChange('accentHue', updateParams)
@@ -94,114 +74,92 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 		greySaturation,
 	} = theme.params
 
-	const slidersStyles: CSSProperties = useMemo(
-		() => ({
-			width: 300, // default max width of color picker, so the sliders match
-			...(styles && styles.sliders),
-		}),
-		[styles],
-	)
-	const sliderStyles: ISliderStyles = useMemo(
-		() =>
-			merge(
-				{
-					root: {
-						marginTop: 8,
-						textAlign: 'left',
-					},
-					valueLabel: {
-						margin: 0,
-						padding: 0,
-					},
-				},
-				styles && styles.slider,
-			),
-		[styles],
-	)
-	const color = useMemo(() => theme.palette.themePrimary, [theme])
+	const containerStyle: CSSProperties = useContainerStyle(styles?.container)
+	const sliderStyles: ISliderStyles = useSliderStyles(styles?.slider)
+
+	const sectionHeaderStyle = useSectionHeaderStyle()
+
 	return (
 		<div style={{ display: 'flex' }}>
 			<FluentColorPicker
-				color={color}
+				color={theme.palette.themePrimary}
 				onChange={handlePickerChange}
 				alphaType="none"
 			/>
 			{lyt === ColorPickerLayout.SideBySide ? (
-				<div style={slidersStyles}>
-					<Slider
-						label="Accent hue"
-						value={accentHue}
-						min={0}
-						max={360}
-						step={1}
-						onChange={handleAccentHueChange}
-						styles={sliderStyles}
-					/>
-					<Slider
-						label="Accent saturation"
-						value={accentSaturation}
-						min={0}
-						max={100}
-						step={1}
-						onChange={handleAccentSaturationChange}
-						styles={sliderStyles}
-					/>
-					<Slider
-						label="Accent lightness"
-						value={accentLightness}
-						min={0}
-						max={100}
-						step={1}
-						onChange={handleAccentLightnessChange}
-						styles={sliderStyles}
-					/>
-					<div style={pairFlexStyle}>
-						<div style={pairStyle}>
-							<Slider
-								label="Scale saturation"
-								value={scaleSaturation}
-								min={0}
-								max={100}
-								step={1}
-								onChange={handleScaleSaturationChange}
-								styles={sliderStyles}
-							/>
-						</div>
-						<div style={pairStyle}>
-							<Slider
-								label="Scale lightness"
-								value={scaleLightness}
-								min={0}
-								max={100}
-								step={1}
-								onChange={handleScaleLightnessChange}
-								styles={sliderStyles}
-							/>
-						</div>
+				<div style={containerStyle}>
+					<div style={sectionStyle}>
+						<div style={sectionHeaderStyle}>Accent color</div>
+						<Slider
+							label="Hue"
+							value={accentHue}
+							min={0}
+							max={360}
+							step={1}
+							onChange={handleAccentHueChange}
+							styles={sliderStyles}
+						/>
+
+						<Slider
+							label="Saturation"
+							value={accentSaturation}
+							min={0}
+							max={100}
+							step={1}
+							onChange={handleAccentSaturationChange}
+							styles={sliderStyles}
+						/>
+						<Slider
+							label="Lightness"
+							value={accentLightness}
+							min={0}
+							max={100}
+							step={1}
+							onChange={handleAccentLightnessChange}
+							styles={sliderStyles}
+						/>
 					</div>
-					<div style={pairFlexStyle}>
-						<div style={pairStyle}>
-							<Slider
-								label="Grey hue"
-								value={greyHue}
-								min={0}
-								max={360}
-								step={1}
-								onChange={handleGreyHueChange}
-								styles={sliderStyles}
-							/>
-						</div>
-						<div style={pairStyle}>
-							<Slider
-								label="Grey saturation"
-								value={greySaturation}
-								min={0}
-								max={100}
-								step={1}
-								onChange={handleGreySaturationChange}
-								styles={sliderStyles}
-							/>
-						</div>
+					<div style={sectionStyle}>
+						<div style={sectionHeaderStyle}>Scale brightness</div>
+						<Slider
+							label="Saturation"
+							value={scaleSaturation}
+							min={0}
+							max={100}
+							step={1}
+							onChange={handleScaleSaturationChange}
+							styles={sliderStyles}
+						/>
+						<Slider
+							label="Lightness"
+							value={scaleLightness}
+							min={0}
+							max={100}
+							step={1}
+							onChange={handleScaleLightnessChange}
+							styles={sliderStyles}
+						/>
+					</div>
+					<div style={sectionStyle}>
+						<div style={sectionHeaderStyle}>Grey tint</div>
+						<Slider
+							label="Hue"
+							value={greyHue}
+							min={0}
+							max={360}
+							step={1}
+							onChange={handleGreyHueChange}
+							styles={sliderStyles}
+						/>
+						<Slider
+							label="Saturation"
+							value={greySaturation}
+							min={0}
+							max={100}
+							step={1}
+							onChange={handleGreySaturationChange}
+							styles={sliderStyles}
+						/>
 					</div>
 				</div>
 			) : null}
@@ -209,10 +167,6 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 	)
 }
 
-const pairFlexStyle = {
-	display: 'flex',
-}
-
-const pairStyle = {
-	width: '50%',
+const sectionStyle = {
+	textAlign: 'left' as const,
 }

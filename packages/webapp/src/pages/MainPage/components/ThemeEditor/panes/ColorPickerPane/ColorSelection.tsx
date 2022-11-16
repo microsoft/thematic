@@ -17,7 +17,7 @@ export const ColorSelection: FC<ColorSelectionProps> = ({ onThemeLoaded }) => {
 			<ColorPicker
 				onChange={onThemeLoaded}
 				layout={ColorPickerLayout.SideBySide}
-				styles={{ sliders: { width: 400 } }}
+				styles={{ container: { width: 400 } }}
 			/>
 		</div>
 	)
