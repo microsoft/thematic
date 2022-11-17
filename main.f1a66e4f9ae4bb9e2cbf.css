@@ -81,7 +81,7 @@ h2 {
 }
 h3 {
 	text-transform: uppercase;
-	font-size: 0.8em;
+	font-size: 20px;
 	margin-top: 12px;
 	margin-bottom: 8px;
 }
@@ -179,7 +179,7 @@ h3 {
 .theme-wrapper {
 	overflow-y: auto;
 	height: 100%;
-	padding: 20px;
+	padding: 10px 20px 20px 20px;
 }
 .example-grid {
 	display: flex;
@@ -191,5 +191,24 @@ h3 {
 	margin: 20px;
 }
 
+.chart-control-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 10px;
+}
+.chart-controls {
+	display: flex;
+}
+.chart-control {
+	display: flex;
+	margin-left: 20px;
+	margin-right: 20px;
+	align-items: center;
+}
+.chart-spinner {
+	width: 80px;
+}
 
-/*# sourceMappingURL=main.353b37e3659e671ca4eb.css.map*/
+
+/*# sourceMappingURL=main.f1a66e4f9ae4bb9e2cbf.css.map*/
