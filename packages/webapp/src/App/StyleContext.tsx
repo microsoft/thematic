@@ -25,7 +25,11 @@ export const StyleContext: FC<{
 const GlobalStyle = () => {
 	return (
 		<style>
-			{`html,
+			{`
+			* {
+				box-sizing: content-box;
+			}
+			html,
 			body,
 			#root {
 				overflow-y: hidden;

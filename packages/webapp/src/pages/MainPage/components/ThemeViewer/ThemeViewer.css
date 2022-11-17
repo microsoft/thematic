@@ -1,7 +1,7 @@
 .theme-wrapper {
 	overflow-y: auto;
 	height: 100%;
-	padding: 20px;
+	padding: 10px 20px 20px 20px;
 }
 .example-grid {
 	display: flex;

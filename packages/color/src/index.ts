@@ -9,12 +9,15 @@ export * from './nearest.js'
 export * from './scheme.js'
 export * from './types.js'
 
-// TODO: best would be to update the scheme compute to accept undefined or baseline params and handle an "empty" case, which is maybe grayscale
+/**
+ * Default set of params useful for initializing new themes with our "standard look".
+ */
 export const defaultParams = {
 	accentHue: 252,
 	accentSaturation: 89,
-	accentLuminance: 50,
-	backgroundHueShift: 50,
-	backgroundLevel: 95,
-	nominalHueStep: 10,
+	accentLightness: 50,
+	scaleSaturation: 90,
+	scaleLightness: 67,
+	greyHue: 72,
+	greySaturation: 7,
 }

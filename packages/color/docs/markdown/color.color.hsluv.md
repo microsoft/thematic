@@ -7,9 +7,9 @@
 <b>Signature:</b>
 
 ```typescript
-hsluv(): [number, number, number];
+hsluv(): HslVector;
 ```
 <b>Returns:</b>
 
-\[number, number, number\]
+[HslVector](./color.hslvector.md)
 

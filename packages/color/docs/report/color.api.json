@@ -338,8 +338,9 @@
                   "text": "hsl(): "
                 },
                 {
-                  "kind": "Content",
-                  "text": "{\n        h: number;\n        s: number;\n        l: number;\n    }"
+                  "kind": "Reference",
+                  "text": "Hsl",
+                  "canonicalReference": "@thematic/color!Hsl:interface"
                 },
                 {
                   "kind": "Content",
@@ -368,8 +369,9 @@
                   "text": "hsluv(): "
                 },
                 {
-                  "kind": "Content",
-                  "text": "[number, number, number]"
+                  "kind": "Reference",
+                  "text": "HslVector",
+                  "canonicalReference": "@thematic/color!HslVector:type"
                 },
                 {
                   "kind": "Content",
@@ -530,8 +532,9 @@
                   "text": "): "
                 },
                 {
-                  "kind": "Content",
-                  "text": "[number, number, number, number]"
+                  "kind": "Reference",
+                  "text": "RGBAV",
+                  "canonicalReference": "@thematic/color!RGBAV:type"
                 },
                 {
                   "kind": "Content",
@@ -1014,6 +1017,48 @@
             },
             {
               "kind": "EnumMember",
+              "canonicalReference": "@thematic/color!ColorSpace.HSL:member",
+              "docComment": "/**\n * HSL color space, { h, s, l }.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "HSL = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"hsl\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "HSL"
+            },
+            {
+              "kind": "EnumMember",
+              "canonicalReference": "@thematic/color!ColorSpace.HSLUV:member",
+              "docComment": "/**\n * HSLuv, which is a perceptually balanced space. [h, s, l]. https://www.hsluv.org/\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "HSLUV = "
+                },
+                {
+                  "kind": "Content",
+                  "text": "\"hsluv\""
+                }
+              ],
+              "initializerTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "name": "HSLUV"
+            },
+            {
+              "kind": "EnumMember",
               "canonicalReference": "@thematic/color!ColorSpace.RGB:member",
               "docComment": "/**\n * Encode as an object with r, g, b properies, scaled 0-255 each.\n */\n",
               "excerptTokens": [
@@ -1357,8 +1402,9 @@
               "text": "): "
             },
             {
-              "kind": "Content",
-              "text": "[number, number, number]"
+              "kind": "Reference",
+              "text": "HslVector",
+              "canonicalReference": "@thematic/color!HslVector:type"
             },
             {
               "kind": "Content",
@@ -1462,8 +1508,9 @@
               "text": "): "
             },
             {
-              "kind": "Content",
-              "text": "[number, number, number]"
+              "kind": "Reference",
+              "text": "HslVector",
+              "canonicalReference": "@thematic/color!HslVector:type"
             },
             {
               "kind": "Content",
@@ -1612,12 +1659,12 @@
         },
         {
           "kind": "Function",
-          "canonicalReference": "@thematic/color!css2rgbaNumber:function(1)",
+          "canonicalReference": "@thematic/color!css2rgbaint:function(1)",
           "docComment": "/**\n * Convert a standard CSS string to an integer number. This is commonly used in GL code.\n *\n * @param css - the css color hex string\n *\n * @param alpha - the alpha value to use [0-1]\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare function css2rgbaNumber(css: "
+              "text": "export declare function css2rgbaint(css: "
             },
             {
               "kind": "Content",
@@ -1668,16 +1715,16 @@
               "isOptional": true
             }
           ],
-          "name": "css2rgbaNumber"
+          "name": "css2rgbaint"
         },
         {
           "kind": "Function",
-          "canonicalReference": "@thematic/color!css2rgbaVector:function(1)",
+          "canonicalReference": "@thematic/color!css2rgbav:function(1)",
           "docComment": "/**\n * Convert a standard CSS string to vector of [r, g, b, a] values scaled from 0-1. This is typically used in WebGl.\n *\n * @param css - the css color hex string\n *\n * @param alpha - optional alpha override from 0-1. Not all CSS strings include alpha, so you can provide it if needed.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare function css2rgbaVector(css: "
+              "text": "export declare function css2rgbav(css: "
             },
             {
               "kind": "Content",
@@ -1728,7 +1775,7 @@
               "isOptional": true
             }
           ],
-          "name": "css2rgbaVector"
+          "name": "css2rgbav"
         },
         {
           "kind": "Function",
@@ -1793,7 +1840,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "@thematic/color!defaultParams:var",
-          "docComment": "",
+          "docComment": "/**\n * Default set of params useful for initializing new themes with our \"standard look\".\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1801,7 +1848,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    accentHue: number;\n    accentSaturation: number;\n    accentLuminance: number;\n    backgroundHueShift: number;\n    backgroundLevel: number;\n    nominalHueStep: number;\n}"
+              "text": "{\n    accentHue: number;\n    accentSaturation: number;\n    accentLightness: number;\n    scaleSaturation: number;\n    scaleLightness: number;\n    greyHue: number;\n    greySaturation: number;\n}"
             }
           ],
           "isReadonly": true,
@@ -1877,7 +1924,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@thematic/color!getScheme:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * Takes a set of core params and generates all of the scale computes required for a Schema, using HSLuv color space for even perceptual qualities.\n *\n * @param params - \n *\n * @param nominalItemCount - \n *\n * @param sequentialItemCount - \n *\n * @param light - \n *\n * @returns \n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -1885,8 +1932,8 @@
             },
             {
               "kind": "Reference",
-              "text": "Params",
-              "canonicalReference": "@thematic/color!Params:interface"
+              "text": "SchemeParams",
+              "canonicalReference": "@thematic/color!SchemeParams:interface"
             },
             {
               "kind": "Content",
@@ -1914,6 +1961,28 @@
             },
             {
               "kind": "Content",
+              "text": ", tuning?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "TuningParameters",
+              "canonicalReference": "@thematic/color!TuningParameters:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
               "text": "): "
             },
             {
@@ -1927,8 +1996,8 @@
             }
           ],
           "returnTypeTokenRange": {
-            "startIndex": 9,
-            "endIndex": 10
+            "startIndex": 14,
+            "endIndex": 15
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1964,6 +2033,14 @@
                 "endIndex": 8
               },
               "isOptional": false
+            },
+            {
+              "parameterName": "tuning",
+              "parameterTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 13
+              },
+              "isOptional": true
             }
           ],
           "name": "getScheme"
@@ -2073,27 +2150,12 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare function hsluv2hex(h: "
+              "text": "export declare function hsluv2hex(hsluv: "
             },
             {
-              "kind": "Content",
-              "text": "number"
-            },
-            {
-              "kind": "Content",
-              "text": ", s: "
-            },
-            {
-              "kind": "Content",
-              "text": "number"
-            },
-            {
-              "kind": "Content",
-              "text": ", l: "
-            },
-            {
-              "kind": "Content",
-              "text": "number"
+              "kind": "Reference",
+              "text": "HslVector",
+              "canonicalReference": "@thematic/color!HslVector:type"
             },
             {
               "kind": "Content",
@@ -2109,38 +2171,93 @@
             }
           ],
           "returnTypeTokenRange": {
-            "startIndex": 7,
-            "endIndex": 8
+            "startIndex": 3,
+            "endIndex": 4
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "h",
+              "parameterName": "hsluv",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
               },
               "isOptional": false
+            }
+          ],
+          "name": "hsluv2hex"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@thematic/color!hsluv2hsl:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function hsluv2hsl(hsluv: "
             },
             {
-              "parameterName": "s",
-              "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 4
-              },
-              "isOptional": false
+              "kind": "Reference",
+              "text": "HslVector",
+              "canonicalReference": "@thematic/color!HslVector:type"
             },
             {
-              "parameterName": "l",
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "HslVector",
+              "canonicalReference": "@thematic/color!HslVector:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "hsluv",
               "parameterTypeTokenRange": {
-                "startIndex": 5,
-                "endIndex": 6
+                "startIndex": 1,
+                "endIndex": 2
               },
               "isOptional": false
             }
           ],
-          "name": "hsluv2hex"
+          "name": "hsluv2hsl"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@thematic/color!HslVector:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type HslVector = "
+            },
+            {
+              "kind": "Content",
+              "text": "[number, number, number]"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "HslVector",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
         },
         {
           "kind": "Interface",
@@ -2489,185 +2606,6 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "@thematic/color!Params:interface",
-          "docComment": "/**\n * This is the core set of parameters for generating schemes using the ColorPicker\n */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export interface Params "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "Params",
-          "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/color!Params#accentHue:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "accentHue: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "number"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "accentHue",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/color!Params#accentLuminance:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "accentLuminance: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "number"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "accentLuminance",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/color!Params#accentSaturation:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "accentSaturation: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "number"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "accentSaturation",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/color!Params#backgroundHueShift:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "backgroundHueShift: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "number"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "backgroundHueShift",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/color!Params#backgroundLevel:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "backgroundLevel: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "number"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "backgroundLevel",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/color!Params#nominalHueStep:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "nominalHueStep: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "number"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "nominalHueStep",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
-        },
-        {
-          "kind": "Interface",
           "canonicalReference": "@thematic/color!Rgb:interface",
           "docComment": "",
           "excerptTokens": [
@@ -2868,6 +2806,31 @@
           "name": "rgba2hex"
         },
         {
+          "kind": "TypeAlias",
+          "canonicalReference": "@thematic/color!RGBAV:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare type RGBAV = "
+            },
+            {
+              "kind": "Content",
+              "text": "[number, number, number, number]"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "RGBAV",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
           "kind": "Function",
           "canonicalReference": "@thematic/color!rgbav2hex:function(1)",
           "docComment": "",
@@ -2877,8 +2840,9 @@
               "text": "export declare function rgbav2hex(rgbav: "
             },
             {
-              "kind": "Content",
-              "text": "[number, number, number, number]"
+              "kind": "Reference",
+              "text": "RGBAV",
+              "canonicalReference": "@thematic/color!RGBAV:type"
             },
             {
               "kind": "Content",
@@ -2974,6 +2938,87 @@
               "isOptional": false,
               "releaseTag": "Public",
               "name": "background",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!Scheme#dataPrimary:member",
+              "docComment": "/**\n * Primary data color, derived from the accent.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "dataPrimary: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataPrimary",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!Scheme#dataPrimaryBold:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "dataPrimaryBold: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataPrimaryBold",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!Scheme#dataPrimaryMuted:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "dataPrimaryMuted: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "dataPrimaryMuted",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -3386,6 +3431,33 @@
             },
             {
               "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!Scheme#rainbow:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "rainbow: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "rainbow",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "@thematic/color!Scheme#sequential:member",
               "docComment": "",
               "excerptTokens": [
@@ -3460,6 +3532,877 @@
               "isOptional": false,
               "releaseTag": "Public",
               "name": "warning",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@thematic/color!SchemeParams:interface",
+          "docComment": "/**\n * This is the core set of parameters for generating schemes using the ColorPicker\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface SchemeParams "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "SchemeParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!SchemeParams#accentHue:member",
+              "docComment": "/**\n * HSL hue component for the accent. Valid range is 0-360 (degrees).\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "accentHue: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accentHue",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!SchemeParams#accentLightness:member",
+              "docComment": "/**\n * HSL lightness component for the accent. Valid range is 0-100.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "accentLightness: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accentLightness",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!SchemeParams#accentSaturation:member",
+              "docComment": "/**\n * HSL saturation component for the accent. Valid range is 0-100.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "accentSaturation: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "accentSaturation",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!SchemeParams#greyHue:member",
+              "docComment": "/**\n * Optional hue to mix some of warm or cool into grey scales.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "greyHue?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "greyHue",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!SchemeParams#greySaturation:member",
+              "docComment": "/**\n * Optional saturation to mix some of warm or cool into grey scales.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "greySaturation?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "greySaturation",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!SchemeParams#scaleLightness:member",
+              "docComment": "/**\n * Sets the default lightness for nominal scales. Muted and bold scales are a fixed lightness +-\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "scaleLightness?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "scaleLightness",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!SchemeParams#scaleSaturation:member",
+              "docComment": "/**\n * Sets the default saturation for nominal scales. Muted and bold scales are a fixed saturation +-\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "scaleSaturation?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "scaleSaturation",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@thematic/color!TuningParameters:interface",
+          "docComment": "/**\n * Detailed tuning for the scale generation algorithms.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface TuningParameters "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "TuningParameters",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#analogousRange:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "analogousRange: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "analogousRange",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#backgroundHueShift:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "backgroundHueShift: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "backgroundHueShift",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#backgroundLevel:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "backgroundLevel: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "backgroundLevel",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#complementaryRange:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "complementaryRange: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "complementaryRange",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#darkBackgroundLightnessShift:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "darkBackgroundLightnessShift: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "darkBackgroundLightnessShift",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#darkestGrey:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "darkestGrey: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "darkestGrey",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#darkMaxLightnessOffet:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "darkMaxLightnessOffet: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "darkMaxLightnessOffet",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#darkTextLightness:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "darkTextLightness: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "darkTextLightness",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#lightBackgroundLightnessShift:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "lightBackgroundLightnessShift: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "lightBackgroundLightnessShift",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#lightestGrey:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "lightestGrey: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "lightestGrey",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#lightMaxLightnessOffset:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "lightMaxLightnessOffset: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "lightMaxLightnessOffset",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#lightTextLightness:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "lightTextLightness: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "lightTextLightness",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#lowContrastBackgroundShift:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "lowContrastBackgroundShift: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "lowContrastBackgroundShift",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#maxBackgroundChroma:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "maxBackgroundChroma: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "maxBackgroundChroma",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#minNominalLightness:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "minNominalLightness: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "minNominalLightness",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#minNominalSaturation:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "minNominalSaturation: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "minNominalSaturation",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#nominalBoldLightnessShift:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nominalBoldLightnessShift: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "nominalBoldLightnessShift",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#nominalBoldSaturationShift:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nominalBoldSaturationShift: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "nominalBoldSaturationShift",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#nominalHueStep:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nominalHueStep: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "nominalHueStep",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#nominalMutedLightnessShift:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nominalMutedLightnessShift: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "nominalMutedLightnessShift",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#nominalMutedSaturationShift:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nominalMutedSaturationShift: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "nominalMutedSaturationShift",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#offsetBackgroundLightnessShift:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "offsetBackgroundLightnessShift: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "offsetBackgroundLightnessShift",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#polynomialExponent:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "polynomialExponent: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "polynomialExponent",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/color!TuningParameters#reservedDataColors:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "reservedDataColors: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "reservedDataColors",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2

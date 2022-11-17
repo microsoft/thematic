@@ -11,6 +11,7 @@ import { useMemo } from 'react'
 import type { Graph } from '../../../../types.js'
 import { D3Chart } from './charts/D3/index.js'
 import { charts, VegaChart } from './charts/Vega/index.js'
+import { ControlPanel } from './ControlPanel/ControlPanel.js'
 import { FluentControls } from './FluentControls/index.js'
 import { D3Graph } from './graphs/D3/index.js'
 
@@ -64,10 +65,8 @@ export const ThemeViewer: FC<ThemeViewerProps> = ({
 	return (
 		<div className="theme-wrapper">
 			<Pivot>
-				<PivotItem headerText="Thematic controls">
-					<FluentControls />
-				</PivotItem>
 				<PivotItem headerText="Example visualizations">
+					<ControlPanel />
 					<div className="example-grid">
 						{graphs.map((graph, i) => (
 							<div className="example-grid-item" key={`example-graph-${i}`}>
@@ -83,6 +82,9 @@ export const ThemeViewer: FC<ThemeViewerProps> = ({
 							</div>
 						))}
 					</div>
+				</PivotItem>
+				<PivotItem headerText="Thematic controls">
+					<FluentControls />
 				</PivotItem>
 			</Pivot>
 		</div>

@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { Params, Scheme } from '@thematic/color'
+import type { Scheme, SchemeParams } from '@thematic/color'
 import { Color, ColorBlindnessMode, nearest } from '@thematic/color'
 import merge from 'lodash-es/merge.js'
 
@@ -80,9 +80,8 @@ export class Theme implements ITheme {
 	private _spec: ThemeSpec
 	private _themeDefinition: ThemeDefinition
 	private _config: ThemeConfig
-	private _params: Params
+	private _params: SchemeParams
 	private _scheme: Scheme
-	private _schemeCache: { [size: number]: Scheme }
 
 	/**
 	 * Creates a new Theme instance using the params defined in the spec.
@@ -92,7 +91,6 @@ export class Theme implements ITheme {
 	 */
 	public constructor(spec: ThemeSpec, config?: ThemeConfig) {
 		const conf = merge({}, defaultConfig, config)
-		this._schemeCache = {}
 		const scheme = createScheme(spec, conf.dark, conf.colorBlindnessMode)
 		this._scheme = scheme
 		this._spec = applyScheme(spec)
@@ -152,7 +150,7 @@ export class Theme implements ITheme {
 	public get config(): ThemeConfig {
 		return this._config
 	}
-	public get params(): Params {
+	public get params(): SchemeParams {
 		return this._params
 	}
 	public get scheme(): Scheme {
@@ -238,6 +236,14 @@ export class Theme implements ITheme {
 				const scheme = this.getScheme(100)
 				return continuous(scheme.greys, domain, scaleType, quantiles)
 			},
+			rainbow: (
+				domain: number[] = [0, 1],
+				scaleType?: ScaleType,
+				quantiles?: number,
+			) => {
+				const scheme = this.getScheme(360)
+				return continuous(scheme.rainbow, domain, scaleType, quantiles)
+			},
 		}
 	}
 	public application = (): Application => {
@@ -304,28 +310,20 @@ export class Theme implements ITheme {
 		const c = new Color(color)
 		const colors = scale
 			? scale.toColors()
-			: this.scales().nominal().toColors(20)
+			: this.scales().nominal(30).toColors()
 		return nearest(c, colors)
 	}
 	/**
 	 * Gets the scheme with the appropriate size
 	 * @param size - The number of elements in the scheme
 	 */
-	// TODO: this cache overcomes slow scale computes, but they shouldn't be slow
 	private getScheme(size = 0) {
-		if (!this._schemeCache[size]) {
-			this._schemeCache[size] = createScheme(
-				this._spec,
-				this._config.dark,
-				this._config.colorBlindnessMode,
-				size,
-				size,
-			)
-		}
-		const result = this._schemeCache[size]
-		if (!result) {
-			throw new Error(`could not locate schema with size ${size}`)
-		}
-		return result
+		return createScheme(
+			this._spec,
+			this._config.dark,
+			this._config.colorBlindnessMode,
+			size,
+			size,
+		)
 	}
 }

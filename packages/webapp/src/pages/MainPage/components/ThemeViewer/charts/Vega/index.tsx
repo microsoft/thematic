@@ -20,16 +20,16 @@ import stackedBar from './specs/stacked-bar.json'
 import sunburst from './specs/sunburst.json'
 
 const specs: Record<string, any> = {
-	heatmap,
-	bar,
-	stackedBar,
-	line,
-	area,
-	stackedArea,
 	scatterPlot,
+	bar,
+	area,
+	stackedBar,
+	stackedArea,
+	line,
 	donut,
 	pyramid,
 	sunburst,
+	heatmap,
 }
 
 export const charts = Object.keys(specs)
@@ -49,7 +49,7 @@ export const VegaChart: FC<VegaChartProps> = memo(function VegaChart({
 	const ref = useRef<HTMLDivElement>(null)
 	const view = useMemo(() => {
 		const spec = specs[type]
-		const merged = decorator(theme, spec, width, height)
+		const merged = decorator(theme, spec, { width, height })
 		const parsed = parse(merged)
 		return new View(parsed).renderer('svg')
 	}, [height, theme, type, width])
@@ -58,7 +58,7 @@ export const VegaChart: FC<VegaChartProps> = memo(function VegaChart({
 		if (ref.current != null) {
 			view.initialize(ref.current).run()
 		}
-	})
+	}, [ref, view])
 
 	return <div ref={ref} />
 })

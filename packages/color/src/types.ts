@@ -6,13 +6,81 @@
 /**
  * This is the core set of parameters for generating schemes using the ColorPicker
  */
-export interface Params {
+export interface SchemeParams {
+	/**
+	 * HSL hue component for the accent.
+	 * Valid range is 0-360 (degrees).
+	 */
 	accentHue: number
+	/**
+	 * HSL saturation component for the accent.
+	 * Valid range is 0-100.
+	 */
 	accentSaturation: number
-	accentLuminance: number
-	backgroundHueShift: number
-	backgroundLevel: number
+	/**
+	 * HSL lightness component for the accent.
+	 * Valid range is 0-100.
+	 */
+	accentLightness: number
+	/**
+	 * Sets the default saturation for nominal scales.
+	 * Muted and bold scales are a fixed saturation +-
+	 */
+	scaleSaturation?: number
+	/**
+	 * Sets the default lightness for nominal scales.
+	 * Muted and bold scales are a fixed lightness +-
+	 */
+	scaleLightness?: number
+	/**
+	 * Optional hue to mix some of warm or cool into grey scales.
+	 */
+	greyHue?: number
+	/**
+	 * Optional saturation to mix some of warm or cool into grey scales.
+	 */
+	greySaturation?: number
+}
+
+/**
+ * Detailed tuning for the scale generation algorithms.
+ */
+export interface TuningParameters {
+	analogousRange: number
+	complementaryRange: number
+
 	nominalHueStep: number
+
+	lightTextLightness: number
+	lightMaxLightnessOffset: number
+	lightBackgroundLightnessShift: number
+
+	darkTextLightness: number
+	darkMaxLightnessOffet: number
+	darkBackgroundLightnessShift: number
+
+	backgroundLevel: number
+	backgroundHueShift: number
+
+	minNominalSaturation: number
+	minNominalLightness: number
+
+	nominalMutedSaturationShift: number
+	nominalMutedLightnessShift: number
+
+	nominalBoldLightnessShift: number
+	nominalBoldSaturationShift: number
+
+	maxBackgroundChroma: number
+	lowContrastBackgroundShift: number
+	offsetBackgroundLightnessShift: number
+
+	lightestGrey: number
+	darkestGrey: number
+
+	reservedDataColors: number
+
+	polynomialExponent: number
 }
 
 /**
@@ -26,6 +94,12 @@ export interface Scheme {
 	accent: string
 	warning: string
 	error: string
+	/**
+	 * Primary data color, derived from the accent.
+	 */
+	dataPrimary: string
+	dataPrimaryMuted: string
+	dataPrimaryBold: string
 	faintAnnotation: string
 	lowContrastAnnotation: string
 	lowMidContrastAnnotation: string
@@ -40,6 +114,7 @@ export interface Scheme {
 	nominal: string[]
 	nominalMuted: string[]
 	greys: string[]
+	rainbow: string[]
 }
 
 /**
@@ -129,6 +204,15 @@ export enum ColorSpace {
 	 * (i.e., r, g \<\< 8, b \<\< 16, a \<\< 24)
 	 */
 	RGBA_NUMBER = 'rgbaint',
+	/**
+	 * HSL color space, { h, s, l }.
+	 */
+	HSL = 'hsl',
+	/**
+	 * HSLuv, which is a perceptually balanced space. [h, s, l].
+	 * https://www.hsluv.org/
+	 */
+	HSLUV = 'hsluv',
 }
 
 export interface Rgb {
@@ -152,3 +236,7 @@ export interface Hsl {
 	s: number
 	l: number
 }
+
+export type RGBAV = [number, number, number, number]
+
+export type HslVector = [number, number, number]

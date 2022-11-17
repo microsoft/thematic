@@ -18,6 +18,9 @@ export interface Scheme
 |  --- | --- | --- | --- |
 |  [accent](./color.scheme.accent.md) |  | string |  |
 |  [background](./color.scheme.background.md) |  | string |  |
+|  [dataPrimary](./color.scheme.dataprimary.md) |  | string | Primary data color, derived from the accent. |
+|  [dataPrimaryBold](./color.scheme.dataprimarybold.md) |  | string |  |
+|  [dataPrimaryMuted](./color.scheme.dataprimarymuted.md) |  | string |  |
 |  [diverging](./color.scheme.diverging.md) |  | string\[\] |  |
 |  [diverging2](./color.scheme.diverging2.md) |  | string\[\] |  |
 |  [error](./color.scheme.error.md) |  | string |  |
@@ -33,6 +36,7 @@ export interface Scheme
 |  [nominalBold](./color.scheme.nominalbold.md) |  | string\[\] |  |
 |  [nominalMuted](./color.scheme.nominalmuted.md) |  | string\[\] |  |
 |  [offsetBackground](./color.scheme.offsetbackground.md) |  | string |  |
+|  [rainbow](./color.scheme.rainbow.md) |  | string\[\] |  |
 |  [sequential](./color.scheme.sequential.md) |  | string\[\] |  |
 |  [sequential2](./color.scheme.sequential2.md) |  | string\[\] |  |
 |  [warning](./color.scheme.warning.md) |  | string |  |

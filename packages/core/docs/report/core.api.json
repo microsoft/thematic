@@ -2622,6 +2622,47 @@
             },
             {
               "kind": "PropertySignature",
+              "canonicalReference": "@thematic/core!ColorScales#rainbow:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "rainbow: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(domain?: number[], scaleType?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ScaleType",
+                  "canonicalReference": "@thematic/core!ScaleType:enum"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", quantiles?: number) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ContinuousColorScaleFunction",
+                  "canonicalReference": "@thematic/core!ContinuousColorScaleFunction:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "rainbow",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "@thematic/core!ColorScales#sequential:member",
               "docComment": "/**\n * Constructs a sequential numeric scale based on the input domain and specified ScaleType The input domain should be an array of values. For linear or log scales, the behavior mimics d3-scale. For quantile scales, the domain values are used to construct a quantile division using the requested number of quantile bins\n */\n",
               "excerptTokens": [
@@ -6367,8 +6408,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "Params",
-                  "canonicalReference": "@thematic/color!Params:interface"
+                  "text": "SchemeParams",
+                  "canonicalReference": "@thematic/color!SchemeParams:interface"
                 },
                 {
                   "kind": "Content",
@@ -8509,8 +8550,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "Params",
-                  "canonicalReference": "@thematic/color!Params:interface"
+                  "text": "SchemeParams",
+                  "canonicalReference": "@thematic/color!SchemeParams:interface"
                 },
                 {
                   "kind": "Content",
@@ -9255,8 +9296,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "Params",
-                  "canonicalReference": "@thematic/color!Params:interface"
+                  "text": "SchemeParams",
+                  "canonicalReference": "@thematic/color!SchemeParams:interface"
                 },
                 {
                   "kind": "Content",
@@ -9267,6 +9308,34 @@
               "isOptional": true,
               "releaseTag": "Public",
               "name": "params",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/core!ThemeSpec#tuning:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "tuning?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TuningParameters",
+                  "canonicalReference": "@thematic/color!TuningParameters:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "tuning",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2

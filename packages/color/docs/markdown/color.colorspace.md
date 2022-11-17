@@ -18,6 +18,8 @@ export declare enum ColorSpace
 |  --- | --- | --- |
 |  CSS | <code>&quot;css&quot;</code> | Encode the color using any CSS-compatible color string. The default due to its wide applicability, and the format colors use in theme JSON. https://www.w3.org/TR/css-color-3/\#colorunits |
 |  HEX | <code>&quot;hex&quot;</code> | Encode as a standard hexadecimal color. |
+|  HSL | <code>&quot;hsl&quot;</code> | HSL color space, { h, s, l }<!-- -->. |
+|  HSLUV | <code>&quot;hsluv&quot;</code> | HSLuv, which is a perceptually balanced space. \[h, s, l\]. https://www.hsluv.org/ |
 |  RGB | <code>&quot;rgb&quot;</code> | Encode as an object with r, g, b properies, scaled 0-255 each. |
 |  RGBA | <code>&quot;rgba&quot;</code> | Encode as an object with r, g, b properies, scaled 0-255 each, along with an alpha prop scaled 0-1 |
 |  RGBA\_NUMBER | <code>&quot;rgbaint&quot;</code> | This is raw JavaScript number representing the RGBA color. It is calculated by bitshifting R, G, B, and A values into a 32-bit space. (i.e., r, g &lt;<!-- -->&lt; 8, b &lt;<!-- -->&lt; 16, a &lt;<!-- -->&lt; 24) |

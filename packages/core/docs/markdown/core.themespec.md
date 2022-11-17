@@ -19,5 +19,6 @@ export interface ThemeSpec
 |  [dark?](./core.themespec.dark.md) |  | Scheme | <i>(Optional)</i> |
 |  [light?](./core.themespec.light.md) |  | Scheme | <i>(Optional)</i> |
 |  [name?](./core.themespec.name.md) |  | string | <i>(Optional)</i> |
-|  [params?](./core.themespec.params.md) |  | Params | <i>(Optional)</i> |
+|  [params?](./core.themespec.params.md) |  | SchemeParams | <i>(Optional)</i> |
+|  [tuning?](./core.themespec.tuning.md) |  | TuningParameters | <i>(Optional)</i> |
 

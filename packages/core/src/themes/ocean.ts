@@ -7,10 +7,11 @@ const oceanTheme = {
 	params: {
 		accentHue: 215,
 		accentSaturation: 95,
-		accentLuminance: 61,
-		backgroundLevel: 90,
-		backgroundHueShift: 40,
-		nominalHueStep: 0,
+		accentLightness: 61,
+		scaleSaturation: 90,
+		scaleLightness: 67,
+		greyHue: 100,
+		greySaturation: 7,
 	},
 }
 export default oceanTheme

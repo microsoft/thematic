@@ -6,8 +6,9 @@
 
 import { Color } from '@thematic/color';
 import { ColorBlindnessMode } from '@thematic/color';
-import type { Params } from '@thematic/color';
 import type { Scheme } from '@thematic/color';
+import type { SchemeParams } from '@thematic/color';
+import type { TuningParameters } from '@thematic/color';
 
 // Warning: (ae-missing-release-tag) "Application" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -248,6 +249,8 @@ export interface ColorScales {
     nominalBold: (sizeOrDomain?: number | string[] | number[]) => NominalColorScaleFunction;
     // (undocumented)
     nominalMuted: (sizeOrDomain?: number | string[] | number[]) => NominalColorScaleFunction;
+    // (undocumented)
+    rainbow: (domain?: number[], scaleType?: ScaleType, quantiles?: number) => ContinuousColorScaleFunction;
     sequential: (domain?: number[], scaleType?: ScaleType, quantiles?: number) => ContinuousColorScaleFunction;
     // (undocumented)
     sequential2: (domain?: number[], scaleType?: ScaleType, quantiles?: number) => ContinuousColorScaleFunction;
@@ -662,7 +665,7 @@ export interface Theme {
     // (undocumented)
     node: MarkFunction<Node>;
     // (undocumented)
-    params: Params;
+    params: SchemeParams;
     // (undocumented)
     plotArea: ChromeFunction<PlotArea>;
     // (undocumented)
@@ -797,7 +800,7 @@ export class ThemeImpl implements Theme {
     // (undocumented)
     node: (markConfig?: MarkConfig) => Node;
     // (undocumented)
-    get params(): Params;
+    get params(): SchemeParams;
     // (undocumented)
     plotArea: () => PlotArea;
     // (undocumented)
@@ -848,7 +851,9 @@ export interface ThemeSpec {
     // (undocumented)
     name?: string;
     // (undocumented)
-    params?: Params;
+    params?: SchemeParams;
+    // (undocumented)
+    tuning?: TuningParameters;
 }
 
 // Warning: (ae-missing-release-tag) "ThemeVariant" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)

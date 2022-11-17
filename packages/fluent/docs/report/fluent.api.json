@@ -715,6 +715,34 @@
           "members": [
             {
               "kind": "PropertySignature",
+              "canonicalReference": "@thematic/fluent!ColorPickerStyles#container:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "container?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CSSProperties",
+                  "canonicalReference": "@types/react!~React.CSSProperties:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "container",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "@thematic/fluent!ColorPickerStyles#slider:member",
               "docComment": "",
               "excerptTokens": [
@@ -724,8 +752,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "CSSProperties",
-                  "canonicalReference": "@types/react!~React.CSSProperties:interface"
+                  "text": "ISliderStyles",
+                  "canonicalReference": "@fluentui/react!ISliderStyles:interface"
                 },
                 {
                   "kind": "Content",
@@ -736,34 +764,6 @@
               "isOptional": true,
               "releaseTag": "Public",
               "name": "slider",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ColorPickerStyles#sliders:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "sliders?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "CSSProperties",
-                  "canonicalReference": "@types/react!~React.CSSProperties:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "sliders",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2

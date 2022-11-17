@@ -7,10 +7,11 @@ const defaultTheme = {
 	params: {
 		accentHue: 252,
 		accentSaturation: 78,
-		accentLuminance: 49,
-		backgroundLevel: 95,
-		backgroundHueShift: 50,
-		nominalHueStep: 10,
+		accentLightness: 49,
+		scaleSaturation: 90,
+		scaleLightness: 67,
+		greyHue: 72,
+		greySaturation: 7,
 	},
 }
 export default defaultTheme

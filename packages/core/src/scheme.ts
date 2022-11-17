@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { ColorBlindnessMode, Params, Scheme } from '@thematic/color'
+import type { ColorBlindnessMode, Scheme, SchemeParams } from '@thematic/color'
 import { colorBlindness, defaultParams, getScheme } from '@thematic/color'
 import merge from 'lodash-es/merge.js'
 import set from 'lodash-es/set.js'
@@ -20,23 +20,19 @@ type Config = {
 }
 
 /**
- * Creates a completed Params block from a ThemeDefinition, making sure missing optional fields are populated.
+ * Creates a completed SchemeParams block from a ThemeDefinition, making sure missing optional fields are populated.
  * @param themeDefinition
  */
-export function applyParams(spec: ThemeSpec): Params {
-	const { params = defaultParams } = spec
+export function applyParams(spec: ThemeSpec): SchemeParams {
+	const { params } = spec
 	return {
-		accentHue: params.accentHue,
-		accentSaturation: params.accentSaturation,
-		accentLuminance: params.accentLuminance,
-		backgroundHueShift: params.backgroundHueShift,
-		backgroundLevel: params.backgroundLevel,
-		nominalHueStep: params.nominalHueStep,
+		...defaultParams,
+		...params,
 	}
 }
 
 /**
- * Creates a computed scheme from a ThemeDefinition (specifically, the Params in the definition).
+ * Creates a computed scheme from a ThemeDefinition (specifically, the SchemeParams in the definition).
  * Note that this creates scales with 10 items as a default, useful for saving to file, etc.
  * If more gradations are desired, a new scheme should be created at point-of-use.
  * TODO: separate the scale bisection using Scheme functions that allow request of different
@@ -51,7 +47,13 @@ export function createScheme(
 	sequentialItemCount: number = DEFAULT_SEQUENTIAL_ITEMS,
 ): Scheme {
 	const params = applyParams(spec)
-	const scheme = getScheme(params, nominalItemCount, sequentialItemCount, !dark)
+	const scheme = getScheme(
+		params,
+		nominalItemCount,
+		sequentialItemCount,
+		!dark,
+		spec.tuning,
+	)
 	return colorBlindness(scheme, colorBlindnessMode)
 }
 
@@ -120,7 +122,7 @@ export function computeDefinition(
 			paths: ['application.error'],
 		},
 		{
-			value: scheme.nominal[0] as string,
+			value: scheme.dataPrimary,
 			paths: [
 				'rect.fill',
 				'area.fill',
@@ -133,7 +135,7 @@ export function computeDefinition(
 		{
 			// very light grey, for subtle borders and backgrounds
 			value: scheme.faintAnnotation,
-			paths: ['application.faint'],
+			paths: ['application.faint', 'gridLines.stroke'],
 		},
 		{
 			// low contrast grey, so they don't occupy lots of visual attention
@@ -143,7 +145,6 @@ export function computeDefinition(
 				'plotArea.stroke',
 				'axisLine.stroke',
 				'axisTicks.stroke',
-				'gridLines.stroke',
 				'arc.stroke',
 				'application.border',
 				'application.lowContrast',
@@ -191,7 +192,7 @@ export function computeDefinition(
 
 	const signalConfigs: Config[] = [
 		{
-			value: scheme.nominalBold[0] as string,
+			value: scheme.dataPrimaryBold,
 			paths: [
 				'rect.hovered.fill',
 				'area.hovered.fill',
@@ -208,7 +209,7 @@ export function computeDefinition(
 			],
 		},
 		{
-			value: scheme.nominalMuted[0] as string,
+			value: scheme.dataPrimaryMuted,
 			paths: [
 				'rect.suppressed.fill',
 				'area.suppressed.fill',

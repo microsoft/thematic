@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-get params(): Params;
+get params(): SchemeParams;
 ```

@@ -7,16 +7,14 @@
 <b>Signature:</b>
 
 ```typescript
-export declare function hsluv2hex(h: number, s: number, l: number): string;
+export declare function hsluv2hex(hsluv: HslVector): string;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  h | number |  |
-|  s | number |  |
-|  l | number |  |
+|  hsluv | [HslVector](./color.hslvector.md) |  |
 
 <b>Returns:</b>
 

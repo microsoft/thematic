@@ -30,9 +30,9 @@ const lightConfig = {
 // TODO: mock this out better so it isn't unstable
 
 const SCALE_VECTOR = [
-	0.9725490196078431, 0.5490196078431373, 0.5529411764705883, 1.0,
+	0.21568627450980393, 0.7058823529411765, 0.7058823529411765, 1.0,
 ]
-const SCALE_NUMBER = -7500552
+const SCALE_NUMBER = -4934601
 
 // these are variants from the mock theme config above
 const STROKE_VECTOR = [

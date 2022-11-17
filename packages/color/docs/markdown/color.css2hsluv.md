@@ -9,7 +9,7 @@ Convert a standard CSS-compatible string to \[h, s, l\] array
 <b>Signature:</b>
 
 ```typescript
-export declare function css2hsluv(css: string): [number, number, number];
+export declare function css2hsluv(css: string): HslVector;
 ```
 
 ## Parameters
@@ -20,5 +20,5 @@ export declare function css2hsluv(css: string): [number, number, number];
 
 <b>Returns:</b>
 
-\[number, number, number\]
+[HslVector](./color.hslvector.md)
 

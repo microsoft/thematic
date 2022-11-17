@@ -13,6 +13,7 @@ import { ColorBand } from './ColorBand.js'
 import { ColorStrip } from './ColorStrip.js'
 import { Contrast } from './Contrast.js'
 import { NamedPalette } from './NamedPalette.js'
+import { PrimaryDataColor } from './PrimaryDataColor.js'
 
 // this is the same number we use under the hood when constructing the continuous scales,
 // so it makes sense to use here and potentially allow the gradation bands to be visible,
@@ -64,6 +65,7 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 		sequential2,
 		diverging2,
 		greys,
+		rainbow,
 	] = useScales(scaleItemCount)
 	return (
 		<div
@@ -111,6 +113,8 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 						)
 					</li>
 				</ul>
+				<h3 style={{ color: headerColor! }}>Primary data color</h3>
+				<PrimaryDataColor />
 				<h3 style={{ color: headerColor! }}>Scales</h3>
 				<div
 					style={{
@@ -172,6 +176,12 @@ export const ThemeColors: FC<ThemeColorsProps> = ({ scaleItemCount }) => {
 						colors={greys!}
 						width={BAND_WIDTH}
 					/>
+					<ColorBand
+						label="Rainbow"
+						foreground={foregroundColor!}
+						colors={rainbow!}
+						width={BAND_WIDTH}
+					/>
 				</div>
 				<h3 style={{ color: headerColor! }}>Color matching</h3>
 				<div
@@ -224,6 +234,7 @@ function useScales(scaleItemCount: number) {
 			theme.scales().sequential2(bandDomain).toArray(),
 			theme.scales().diverging2(bandDomain).toArray(),
 			theme.scales().greys(bandDomain).toArray(),
+			theme.scales().rainbow(bandDomain).toArray(),
 		]
 	}, [theme, scaleItemCount])
 }

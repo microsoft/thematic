@@ -6,17 +6,14 @@ import { load } from '../loader.js'
 import { ThemeVariant } from '../types/index.js'
 
 describe('load', () => {
-	// these are variants from the theme json for arc.stroke - they could change if we change the json!
-	const STROKE_CSS = '#c5c5c5'
-
 	test('zero-config load (light theme)', () => {
 		const theme = load()
 		expect(theme.name).toBe('Default')
 		expect(theme.variant).toBe(ThemeVariant.Light)
 		expect(theme.dark).toBe(false)
 		expect(theme.chart().backgroundColor().hex()).toBe('none')
-		expect(theme.arc().stroke().hex()).toBe(STROKE_CSS)
-		expect(theme.text().fill().hex()).toBe('#303030')
+		expect(theme.arc().stroke().hex()).toBe('#c8c5be')
+		expect(theme.text().fill().hex()).toBe('#31302e')
 	})
 
 	test('load dark theme', () => {
@@ -27,7 +24,7 @@ describe('load', () => {
 		expect(theme.variant).toBe(ThemeVariant.Dark)
 		expect(theme.dark).toBe(true)
 		expect(theme.chart().backgroundColor().hex()).toBe('none')
-		expect(theme.arc().stroke().hex()).toBe('#323232')
-		expect(theme.text().fill().hex()).toBe('#e2e2e2')
+		expect(theme.arc().stroke().hex()).toBe('#333230')
+		expect(theme.text().fill().hex()).toBe('#e5e2db')
 	})
 })

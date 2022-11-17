@@ -2,11 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import type { Scheme } from '@thematic/color'
+
 import { computeDefinition } from '../scheme.js'
 
 const definition = {}
 
-const scheme = {
+const scheme: Scheme = {
 	background: '#111111',
 	offsetBackground: '#222222',
 	foreground: '#333333',
@@ -25,6 +27,9 @@ const scheme = {
 	greys: ['lightgrey', 'darkgrey'],
 	warning: 'orange',
 	error: 'red',
+	dataPrimary: '#999999',
+	dataPrimaryMuted: '#99999e',
+	dataPrimaryBold: '#99999f',
 }
 describe('scheme overlays', () => {
 	describe('computeDefinition', () => {
@@ -35,13 +40,13 @@ describe('scheme overlays', () => {
 		})
 
 		test('scale-based props', () => {
-			expect(def.rect!.fill).toBe(scheme.nominal[0])
+			expect(def.rect!.fill).toBe(scheme.dataPrimary)
 		})
 
 		test('signal props', () => {
-			expect(def.rect!.hovered!.fill).toBe(scheme.nominalBold[0])
-			expect(def.rect!.selected!.fill).toBe(scheme.nominalBold[0])
-			expect(def.rect!.suppressed!.fill).toBe(scheme.nominalMuted[0])
+			expect(def.rect!.suppressed!.fill).toBe(scheme.dataPrimaryMuted)
+			expect(def.rect!.hovered!.fill).toBe(scheme.dataPrimaryBold)
+			expect(def.rect!.selected!.fill).toBe(scheme.dataPrimaryBold)
 		})
 	})
 })

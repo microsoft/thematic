@@ -12,6 +12,7 @@ import type { FC } from 'react';
 import type { IChoiceGroupStyles } from '@fluentui/react';
 import type { IDropdownOption } from '@fluentui/react';
 import type { IDropdownProps } from '@fluentui/react';
+import type { ISliderStyles } from '@fluentui/react';
 import type { NominalColorScaleFunction } from '@thematic/core';
 import type { ReactNode } from 'react';
 import type { ScaleType } from '@thematic/core';
@@ -89,9 +90,9 @@ export interface ColorPickerProps {
 // @public (undocumented)
 export interface ColorPickerStyles {
     // (undocumented)
-    slider?: CSSProperties;
+    container?: CSSProperties;
     // (undocumented)
-    sliders?: CSSProperties;
+    slider?: ISliderStyles;
 }
 
 // Warning: (ae-missing-release-tag) "FluentTheme" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)

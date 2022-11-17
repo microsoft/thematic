@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-slider?: CSSProperties;
+slider?: ISliderStyles;
 ```

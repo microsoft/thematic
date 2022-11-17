@@ -7,14 +7,14 @@
 <b>Signature:</b>
 
 ```typescript
-export declare function rgbav2hex(rgbav: [number, number, number, number]): string;
+export declare function rgbav2hex(rgbav: RGBAV): string;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  rgbav | \[number, number, number, number\] |  |
+|  rgbav | [RGBAV](./color.rgbav.md) |  |
 
 <b>Returns:</b>
 

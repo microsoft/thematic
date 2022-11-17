@@ -2,18 +2,23 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { IColor } from '@fluentui/react'
+import type { ISliderStyles } from '@fluentui/react'
 import { ColorPicker as FluentColorPicker, Slider } from '@fluentui/react'
-import type { Params } from '@thematic/color'
-import { css2hsluv } from '@thematic/color'
 import type { CSSProperties, FC } from 'react'
-import { useCallback, useMemo } from 'react'
 
 import { useThematicFluent } from '../provider/useThematicFluent.js'
+import {
+	useParams,
+	usePickerChange,
+	useSliderChange,
+} from './ColorPicker.hooks.js'
+import {
+	useContainerStyle,
+	useSectionHeaderStyle,
+	useSliderStyles,
+} from './ColorPicker.styles.js'
 import type { ColorPickerProps } from './ColorPicker.types.js'
 import { ColorPickerLayout } from './ColorPicker.types.js'
-
-type PartialParams = Partial<Params>
 
 /**
  * This is a simple ColorPicker that you can show users, allowing them to choose a custom accent color.
@@ -29,159 +34,136 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 }) => {
 	const theme = useThematicFluent()
 
-	const lyt = layout || ColorPickerLayout.PickerOnly
-
-	const updateParams = useCallback(
-		(params: PartialParams) => {
-			onChange &&
-				onChange(
-					theme.clone({
-						params: {
-							...theme.params,
-							...params,
-						},
-					}),
-				)
-		},
-		[theme, onChange],
-	)
-
-	const handlePickerChange = useCallback(
-		(_ev: React.SyntheticEvent<HTMLElement>, color: IColor) => {
-			const [h, s, l] = css2hsluv(color.hex)
-			updateParams({
-				accentHue: h,
-				accentSaturation: s,
-				accentLuminance: l,
-			})
-		},
-		[updateParams],
-	)
-
-	// TODO: debounce sliders so the value can be shown updating
-	const handleAccentHueChange = useCallback(
-		(v: number) => updateParams({ accentHue: v }),
-		[updateParams],
-	)
-	const handleaccentSaturationChange = useCallback(
-		(v: number) => updateParams({ accentSaturation: v }),
-		[updateParams],
-	)
-	const handleAccentLuminanceChange = useCallback(
-		(v: number) => updateParams({ accentLuminance: v }),
-		[updateParams],
-	)
-	const handleBackgroundLevelChange = useCallback(
-		(v: number) => updateParams({ backgroundLevel: v }),
-		[updateParams],
-	)
-	const handleBackgroundHueShiftChange = useCallback(
-		(v: number) => updateParams({ backgroundHueShift: v }),
-		[updateParams],
-	)
-	const handleNominalHueStepChange = useCallback(
-		(v: number) => updateParams({ nominalHueStep: v }),
-		[updateParams],
-	)
+	const { params, updateParams } = useParams(theme, onChange)
 
 	const {
 		accentHue,
 		accentSaturation,
-		accentLuminance,
-		backgroundLevel,
-		backgroundHueShift,
-		nominalHueStep,
-	} = theme.params
+		accentLightness,
+		scaleSaturation,
+		scaleLightness,
+		greyHue,
+		greySaturation,
+	} = params
 
-	// TODO: it would be really nice to make these IStyle objects and pass directly to
-	// child component instead of wrapping them in a div
-	// however, there are type incompatibilities that make it wonky
-	const slidersStyles: CSSProperties = useMemo(
-		() => ({
-			width: 300, // default max width of color picker, so the sliders match
-			...(styles && styles.sliders),
-		}),
-		[styles],
+	const handlePickerChange = usePickerChange(updateParams)
+
+	const handleAccentHueChange = useSliderChange('accentHue', updateParams)
+	const handleAccentSaturationChange = useSliderChange(
+		'accentSaturation',
+		updateParams,
 	)
-	const sliderStyles: CSSProperties = useMemo(
-		() => ({
-			marginTop: 8,
-			...(styles && styles.slider),
-		}),
-		[styles],
+	const handleAccentLightnessChange = useSliderChange(
+		'accentLightness',
+		updateParams,
 	)
-	const color = useMemo(() => theme.palette.themePrimary, [theme])
+	const handleScaleSaturationChange = useSliderChange(
+		'scaleSaturation',
+		updateParams,
+	)
+	const handleScaleLightnessChange = useSliderChange(
+		'scaleLightness',
+		updateParams,
+	)
+	const handleGreyHueChange = useSliderChange('greyHue', updateParams)
+	const handleGreySaturationChange = useSliderChange(
+		'greySaturation',
+		updateParams,
+	)
+
+	const lyt = layout || ColorPickerLayout.PickerOnly
+	const containerStyle: CSSProperties = useContainerStyle(styles?.container)
+	const sliderStyles: ISliderStyles = useSliderStyles(styles?.slider)
+	const sectionHeaderStyle = useSectionHeaderStyle()
+
 	return (
 		<div style={{ display: 'flex' }}>
 			<FluentColorPicker
-				color={color}
+				color={theme.palette.themePrimary}
 				onChange={handlePickerChange}
 				alphaType="none"
 			/>
 			{lyt === ColorPickerLayout.SideBySide ? (
-				<div style={slidersStyles}>
-					<div style={sliderStyles}>
+				<div style={containerStyle}>
+					<div style={sectionStyle}>
+						<div style={sectionHeaderStyle}>Accent color</div>
 						<Slider
-							label="Accent hue"
+							label="Hue"
 							value={accentHue}
 							min={0}
 							max={360}
 							step={1}
 							onChange={handleAccentHueChange}
+							styles={sliderStyles}
 						/>
-					</div>
-					<div style={sliderStyles}>
+
 						<Slider
-							label="Accent saturation"
+							label="Saturation"
 							value={accentSaturation}
 							min={0}
 							max={100}
 							step={1}
-							onChange={handleaccentSaturationChange}
+							onChange={handleAccentSaturationChange}
+							styles={sliderStyles}
 						/>
-					</div>
-					<div style={sliderStyles}>
 						<Slider
-							label="Accent lightness"
-							value={accentLuminance}
+							label="Lightness"
+							value={accentLightness}
 							min={0}
 							max={100}
 							step={1}
-							onChange={handleAccentLuminanceChange}
+							onChange={handleAccentLightnessChange}
+							styles={sliderStyles}
 						/>
 					</div>
-					<div style={sliderStyles}>
+					<div style={sectionStyle}>
+						<div style={sectionHeaderStyle}>Scale brightness</div>
 						<Slider
-							label="Background level"
-							value={backgroundLevel}
+							label="Saturation"
+							value={scaleSaturation}
 							min={0}
 							max={100}
 							step={1}
-							onChange={handleBackgroundLevelChange}
+							onChange={handleScaleSaturationChange}
+							styles={sliderStyles}
 						/>
-					</div>
-					<div style={sliderStyles}>
 						<Slider
-							label="Background hue shift"
-							value={backgroundHueShift}
+							label="Lightness"
+							value={scaleLightness}
 							min={0}
 							max={100}
 							step={1}
-							onChange={handleBackgroundHueShiftChange}
+							onChange={handleScaleLightnessChange}
+							styles={sliderStyles}
 						/>
 					</div>
-					<div style={sliderStyles}>
+					<div style={sectionStyle}>
+						<div style={sectionHeaderStyle}>Grey tint</div>
 						<Slider
-							label="Nominal scale step"
-							value={nominalHueStep}
+							label="Hue"
+							value={greyHue}
 							min={0}
-							max={21}
+							max={360}
 							step={1}
-							onChange={handleNominalHueStepChange}
+							onChange={handleGreyHueChange}
+							styles={sliderStyles}
+						/>
+						<Slider
+							label="Saturation"
+							value={greySaturation}
+							min={0}
+							max={100}
+							step={1}
+							onChange={handleGreySaturationChange}
+							styles={sliderStyles}
 						/>
 					</div>
 				</div>
 			) : null}
 		</div>
 	)
+}
+
+const sectionStyle = {
+	textAlign: 'left' as const,
 }
