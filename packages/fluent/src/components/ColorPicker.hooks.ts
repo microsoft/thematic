@@ -6,35 +6,27 @@ import type { IColor } from '@fluentui/react'
 import type { SchemeParams } from '@thematic/color'
 import { css2hsluv } from '@thematic/color'
 import type { Theme } from '@thematic/core'
-import { useDebounceEffect } from 'ahooks'
-import { useCallback, useState } from 'react'
+import { useCallback } from 'react'
 
 type PartialParams = Partial<SchemeParams>
 
 export function useParams(theme: Theme, onChange?: (theme: Theme) => void) {
-	const [local, setLocal] = useState<SchemeParams>(theme.params)
 	const updateParams = useCallback(
 		(params: PartialParams) => {
-			setLocal(prev => ({
-				...prev,
-				...params,
-			}))
+			onChange &&
+				onChange(
+					theme.clone({
+						params: {
+							...theme.params,
+							...params,
+						},
+					}),
+				)
 		},
 		[theme, onChange],
 	)
-	useDebounceEffect(() => {
-		onChange &&
-			onChange(
-				theme.clone({
-					params: {
-						...theme.params,
-						...local,
-					},
-				}),
-			)
-	}, [theme, local])
 	return {
-		params: local,
+		params: theme.params,
 		updateParams,
 	}
 }
