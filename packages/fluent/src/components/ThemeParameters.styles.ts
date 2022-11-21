@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { ISliderStyles } from '@fluentui/react'
 import { useTheme } from '@fluentui/react'
 import merge from 'lodash-es/merge.js'
 import type { CSSProperties } from 'react'
@@ -61,4 +60,8 @@ export const defaultSliderStyles = {
 		padding: 0,
 		textAlign: 'right',
 	},
+}
+
+export const sectionStyle = {
+	textAlign: 'left' as const,
 }

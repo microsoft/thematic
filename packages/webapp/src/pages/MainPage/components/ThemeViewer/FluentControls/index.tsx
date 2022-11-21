@@ -4,7 +4,7 @@
  */
 import type { IChoiceGroupOption, IDropdownOption } from '@fluentui/react'
 import { ChoiceGroup } from '@fluentui/react'
-import type { Theme } from '@thematic/core'
+import type { SchemeParams } from '@thematic/color'
 import { ScaleType } from '@thematic/core'
 import {
 	ColorPicker,
@@ -16,14 +16,14 @@ import {
 import type { FC } from 'react'
 import { useCallback, useMemo, useState } from 'react'
 
-import { useSetTheme } from '../../../../../state/index.js'
+import { useSetParams } from '../../../../../state/index.js'
 
 export interface FluentControlsComponentProps {
-	themeLoaded: (theme: Theme) => void
+	paramsChanged: (params: SchemeParams) => void
 }
 
 const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
-	themeLoaded,
+	paramsChanged,
 }) => {
 	const theme = useThematicFluent()
 	const [size, setSize] = useState<'small' | 'medium'>('medium')
@@ -45,8 +45,8 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 		[],
 	)
 	const handlePickerChange = useCallback(
-		(t: Theme) => themeLoaded(t),
-		[themeLoaded],
+		(p: SchemeParams) => paramsChanged(p),
+		[paramsChanged],
 	)
 	const labelStyle = useMemo(
 		() => ({
@@ -139,8 +139,8 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 }
 
 export const FluentControls = () => {
-	const themeLoaded = useSetTheme()
-	return <FluentControlsComponent themeLoaded={themeLoaded} />
+	const paramsChanged = useSetParams()
+	return <FluentControlsComponent paramsChanged={paramsChanged} />
 }
 
 const controlsStyle = {

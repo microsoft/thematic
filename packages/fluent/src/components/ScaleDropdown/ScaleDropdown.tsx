@@ -60,7 +60,7 @@ export const ScaleDropdown: FC<ScaleDropdownProps> = ({ size, ...props }) => {
 	)
 
 	const _props = useStyledProps(props, size)
-	console.log(_props)
+
 	return (
 		<Dropdown
 			onRenderTitle={handleRenderTitle}
