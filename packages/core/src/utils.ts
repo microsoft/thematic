@@ -36,6 +36,8 @@ export function chooseScale(
 			return scales.diverging2(domain, scaleType)
 		case 'greys':
 			return scales.greys(domain, scaleType)
+		case 'rainbow':
+			return scales.rainbow(domain, scaleType)
 		case 'nominalMuted':
 			return scales.nominalMuted(nominalCount)
 		case 'nominalBold':
