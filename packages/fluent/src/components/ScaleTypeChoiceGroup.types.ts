@@ -4,6 +4,8 @@
  */
 import type { IChoiceGroupProps } from '@fluentui/react'
 
-export interface ScaleTypeChoiceGroupProps extends IChoiceGroupProps {
+export interface ScaleTypeChoiceGroupProps
+	extends Omit<IChoiceGroupProps, 'size'> {
+	size?: 'small' | 'medium'
 	suppressQuantile?: boolean
 }

@@ -6,18 +6,18 @@
 import { ChoiceGroup } from '@fluentui/react'
 import type { FC } from 'react'
 
-import { useStyles, useTypeOptions } from './ScaleTypeChoiceGroup.hooks.js'
+import { useStyledProps, useTypeOptions } from './ScaleTypeChoiceGroup.hooks.js'
 import type { ScaleTypeChoiceGroupProps } from './ScaleTypeChoiceGroup.types.js'
 
 /**
  * Represents a strongly typed ChoiceGroup for selecting thematic ScaleTypes.
  */
 export const ScaleTypeChoiceGroup: FC<ScaleTypeChoiceGroupProps> = ({
-	styles,
+	size,
 	suppressQuantile = false,
 	...props
 }) => {
-	const typeOptions = useTypeOptions(suppressQuantile)
-	const _styles = useStyles(styles)
-	return <ChoiceGroup {...props} styles={_styles} options={typeOptions} />
+	const options = useTypeOptions(suppressQuantile)
+	const _props = useStyledProps(props, options, size)
+	return <ChoiceGroup {..._props} />
 }

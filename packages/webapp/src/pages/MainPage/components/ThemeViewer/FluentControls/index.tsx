@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { useChoiceGroupProps } from '@essex/components'
 import type { IChoiceGroupOption, IDropdownOption } from '@fluentui/react'
 import { ChoiceGroup } from '@fluentui/react'
 import type { Theme } from '@thematic/core'
@@ -73,8 +72,6 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 		[size],
 	)
 
-	const scaleChoiceSizedProps = useChoiceGroupProps({}, size)
-	console.log(scaleChoiceSizedProps)
 	return (
 		<div
 			style={{
@@ -99,7 +96,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 				<div style={controlStyle}>
 					<p>
 						<span style={labelStyle}>ScaleDropdown:</span> a Dropdown that
-						pre-loads Thematic scale options.
+						pre-loads Thematic scale options including a visual rendering.
 					</p>
 					<ScaleDropdown
 						size={size}
@@ -114,7 +111,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 						that pre-loads Thematic scale types.
 					</p>
 					<ScaleTypeChoiceGroup
-						{...scaleChoiceSizedProps}
+						size={size}
 						selectedKey={scaleType}
 						onChange={handleScaleTypeChange}
 					/>

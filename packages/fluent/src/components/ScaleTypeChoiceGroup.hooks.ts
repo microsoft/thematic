@@ -2,15 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type {
-	IChoiceGroupOption,
-	IChoiceGroupStyleProps,
-	IChoiceGroupStyles,
-	IStyleFunctionOrObject,
-} from '@fluentui/react'
+import { useChoiceGroupProps } from '@essex/components'
+import type { IChoiceGroupOption, IChoiceGroupProps } from '@fluentui/react'
 import { merge } from 'lodash-es'
 import { useMemo } from 'react'
-
 export function useTypeOptions(suppressQuantile = false): IChoiceGroupOption[] {
 	return useMemo(() => {
 		const options = [
@@ -33,18 +28,24 @@ export function useTypeOptions(suppressQuantile = false): IChoiceGroupOption[] {
 	}, [suppressQuantile])
 }
 
-export function useStyles(
-	styles?: IStyleFunctionOrObject<IChoiceGroupStyleProps, IChoiceGroupStyles>,
-): IStyleFunctionOrObject<IChoiceGroupStyleProps, IChoiceGroupStyles> {
-	return useMemo(
+export function useStyledProps(
+	props: IChoiceGroupProps,
+	options: IChoiceGroupOption[],
+	size: 'small' | 'medium' = 'medium',
+) {
+	const base = useMemo(
 		() =>
 			merge(
 				{
-					// we have a small number of options, so we flex to horizontal layout by default
-					flexContainer: { display: 'flex', justifyContent: 'space-around' },
+					styles: {
+						// we have a small number of options, so we flex to horizontal layout by default
+						flexContainer: { display: 'flex', justifyContent: 'space-around' },
+					},
+					options,
 				},
-				styles,
+				props,
 			),
-		[styles],
+		[props, options],
 	)
+	return useChoiceGroupProps(base, size)
 }
