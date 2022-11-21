@@ -7,35 +7,35 @@ import { Dropdown } from '@fluentui/react'
 import type { FC } from 'react'
 import { useCallback, useRef } from 'react'
 
-import { useSafeDimensions } from './hooks/size.js'
 import {
-	useContainerStyle,
+	useDropdownStyles,
 	useItemStyle,
 	usePaletteHeight,
 	usePaletteWidth,
+	useSafeDimensions,
 	useThematicScaleOptions,
-} from './hooks/theme.js'
+} from './ScaleDropdown.hooks.js'
 import type { ScaleDropdownProps } from './ScaleDropdown.types.js'
-import { ScaleDropdownItem } from './ScaleDropdownItem.js'
+import { ScaleDropdownOption } from './ScaleDropdownOption.js'
 
 /**
  * Represents a Fluent dropdown of Thematic scale options.
  * The scale names can be accompanied by a visual rendering of the scale colors.
  * This bascially extends Dropdown, overriding the options and item rendering.
  */
-export const ScaleDropdown: FC<ScaleDropdownProps> = props => {
+export const ScaleDropdown: FC<ScaleDropdownProps> = ({ styles, ...props }) => {
 	const ref = useRef(null)
 	const { width, height } = useSafeDimensions(ref)
+	const _styles = useDropdownStyles(styles)
 	const paletteWidth = usePaletteWidth(width)
 	const paletteHeight = usePaletteHeight(height, props.label)
-	const containerStyle = useContainerStyle()
 	const itemStyle = useItemStyle(width)
 	const options = useThematicScaleOptions()
 	const handleRenderTitle = useCallback(
 		(options: IDropdownOption<any>[] | undefined) => {
 			const firstOption: IDropdownOption<any> = options![0]!
 			return (
-				<ScaleDropdownItem
+				<ScaleDropdownOption
 					paletteWidth={paletteWidth}
 					paletteHeight={paletteHeight}
 					option={firstOption!}
@@ -48,7 +48,7 @@ export const ScaleDropdown: FC<ScaleDropdownProps> = props => {
 	const handleRenderOption = useCallback(
 		(option: IDropdownOption<any> | undefined) => {
 			return option ? (
-				<ScaleDropdownItem
+				<ScaleDropdownOption
 					key={`scale-dropdown-item-${option.key as string}`}
 					paletteWidth={paletteWidth}
 					paletteHeight={paletteHeight}
@@ -61,13 +61,13 @@ export const ScaleDropdown: FC<ScaleDropdownProps> = props => {
 	)
 
 	return (
-		<div style={containerStyle} ref={ref}>
-			<Dropdown
-				{...props}
-				options={options}
-				onRenderTitle={handleRenderTitle}
-				onRenderOption={handleRenderOption}
-			/>
-		</div>
+		<Dropdown
+			onRenderTitle={handleRenderTitle}
+			onRenderOption={handleRenderOption}
+			{...props}
+			ref={ref}
+			styles={_styles}
+			options={options}
+		/>
 	)
 }

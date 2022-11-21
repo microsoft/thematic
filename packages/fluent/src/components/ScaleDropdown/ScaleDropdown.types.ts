@@ -10,7 +10,7 @@ import type {
 
 export type ScaleDropdownProps = Omit<IDropdownProps, 'options'>
 
-export interface ScaleDropdownItemProps {
+export interface ScaleDropdownOptionProps {
 	option: IDropdownOption
 	paletteWidth: number
 	paletteHeight: number

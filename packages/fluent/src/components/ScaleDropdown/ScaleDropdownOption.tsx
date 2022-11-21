@@ -5,11 +5,15 @@
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
-import { useSafeCollapseDimensions } from './hooks/size.js'
-import { TEXT_WIDTH, usePaletteComponent, useScale } from './hooks/theme.js'
-import type { ScaleDropdownItemProps } from './ScaleDropdown.types.js'
+import {
+	TEXT_WIDTH,
+	usePaletteComponent,
+	useSafeCollapseDimensions,
+	useScale,
+} from './ScaleDropdown.hooks.js'
+import type { ScaleDropdownOptionProps } from './ScaleDropdown.types.js'
 
-export const ScaleDropdownItem: FC<ScaleDropdownItemProps> = ({
+export const ScaleDropdownOption: FC<ScaleDropdownOptionProps> = ({
 	option,
 	paletteWidth,
 	paletteHeight,
