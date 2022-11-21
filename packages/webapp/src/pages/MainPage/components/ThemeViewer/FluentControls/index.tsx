@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { IDropdownOption } from '@fluentui/react'
+import type { IChoiceGroupOption, IDropdownOption } from '@fluentui/react'
 import type { Theme } from '@thematic/core'
 import { ScaleType } from '@thematic/core'
 import {
@@ -33,7 +33,8 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 	)
 	const [scaleType, setScaleType] = useState<ScaleType>(ScaleType.Linear)
 	const handleScaleTypeChange = useCallback(
-		(type: ScaleType) => setScaleType(type),
+		(_ev?: any, option?: IChoiceGroupOption) =>
+			setScaleType(option?.key as ScaleType),
 		[],
 	)
 	const handlePickerChange = useCallback(
