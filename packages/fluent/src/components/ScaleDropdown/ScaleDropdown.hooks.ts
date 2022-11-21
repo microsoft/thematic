@@ -2,12 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type {
-	IDropdownOption,
-	IDropdownStyleProps,
-	IDropdownStyles,
-	IStyleFunctionOrObject,
-} from '@fluentui/react'
+import { useDropdownProps } from '@essex/components'
+import type { IDropdownOption, IDropdownProps } from '@fluentui/react'
 import type {
 	ContinuousColorScaleFunction,
 	NominalColorScaleFunction,
@@ -34,20 +30,34 @@ const LABEL_HEIGHT = 29 // defined default in fluent dropdown
 // visually we'll keep it lowercase in this app for visual consistency
 const TITLE_CASE = false
 
-export function useDropdownStyles(
-	styles?: IStyleFunctionOrObject<IDropdownStyleProps, IDropdownStyles>,
-): IStyleFunctionOrObject<IDropdownStyleProps, IDropdownStyles> {
-	return useMemo(
+export function useStyledProps(
+	props: Partial<IDropdownProps>,
+	size: 'small' | 'medium' = 'medium',
+): Partial<IDropdownProps> {
+	const styledProps = useMemo(
 		() =>
 			merge(
 				{
-					root: {
-						textAlign: 'left',
+					styles: {
+						root: {
+							textAlign: 'left',
+						},
 					},
 				},
-				styles,
+				props,
 			),
-		[styles],
+		[props],
+	)
+	const _props = useDropdownProps(styledProps, size)
+	// FIXME: this is to correct a missing prop in the toolkit dropdown styles
+	return useMemo(
+		() =>
+			merge(_props, {
+				styles: {
+					dropdownItemSelected: (_props?.styles as any).dropdownItem,
+				},
+			}),
+		[_props],
 	)
 }
 

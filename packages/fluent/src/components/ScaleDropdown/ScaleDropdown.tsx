@@ -8,11 +8,11 @@ import type { FC } from 'react'
 import { useCallback, useRef } from 'react'
 
 import {
-	useDropdownStyles,
 	useItemStyle,
 	usePaletteHeight,
 	usePaletteWidth,
 	useSafeDimensions,
+	useStyledProps,
 	useThematicScaleOptions,
 } from './ScaleDropdown.hooks.js'
 import type { ScaleDropdownProps } from './ScaleDropdown.types.js'
@@ -23,10 +23,9 @@ import { ScaleDropdownOption } from './ScaleDropdownOption.js'
  * The scale names can be accompanied by a visual rendering of the scale colors.
  * This bascially extends Dropdown, overriding the options and item rendering.
  */
-export const ScaleDropdown: FC<ScaleDropdownProps> = ({ styles, ...props }) => {
+export const ScaleDropdown: FC<ScaleDropdownProps> = ({ size, ...props }) => {
 	const ref = useRef(null)
 	const { width, height } = useSafeDimensions(ref)
-	const _styles = useDropdownStyles(styles)
 	const paletteWidth = usePaletteWidth(width)
 	const paletteHeight = usePaletteHeight(height, props.label)
 	const itemStyle = useItemStyle(width)
@@ -60,13 +59,14 @@ export const ScaleDropdown: FC<ScaleDropdownProps> = ({ styles, ...props }) => {
 		[paletteWidth, paletteHeight, itemStyle],
 	)
 
+	const _props = useStyledProps(props, size)
+	console.log(_props)
 	return (
 		<Dropdown
 			onRenderTitle={handleRenderTitle}
 			onRenderOption={handleRenderOption}
-			{...props}
+			{..._props}
 			ref={ref}
-			styles={_styles}
 			options={options}
 		/>
 	)

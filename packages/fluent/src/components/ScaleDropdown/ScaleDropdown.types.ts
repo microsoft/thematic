@@ -8,7 +8,9 @@ import type {
 	NominalColorScaleFunction,
 } from '@thematic/core'
 
-export type ScaleDropdownProps = Omit<IDropdownProps, 'options'>
+export interface ScaleDropdownProps extends Omit<IDropdownProps, 'options'> {
+	size?: 'small' | 'medium'
+}
 
 export interface ScaleDropdownOptionProps {
 	option: IDropdownOption

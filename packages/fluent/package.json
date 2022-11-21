@@ -22,8 +22,10 @@
 		"lint": "essex lint --fix"
 	},
 	"dependencies": {
+		"@essex/components": "^3.2.0",
 		"@thematic/color": "workspace:^",
 		"@thematic/core": "workspace:^",
+		"@thematic/d3": "workspace:^",
 		"@thematic/react": "workspace:^",
 		"ahooks": "^3.7.2",
 		"d3-scale": "^4.0.2",

@@ -2,7 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { useChoiceGroupProps } from '@essex/components'
 import type { IChoiceGroupOption, IDropdownOption } from '@fluentui/react'
+import { ChoiceGroup } from '@fluentui/react'
 import type { Theme } from '@thematic/core'
 import { ScaleType } from '@thematic/core'
 import {
@@ -25,6 +27,12 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 	themeLoaded,
 }) => {
 	const theme = useThematicFluent()
+	const [size, setSize] = useState<'small' | 'medium'>('medium')
+	const handleSizeChange = useCallback(
+		(_ev?: any, option?: IChoiceGroupOption) =>
+			setSize(option?.key as 'small' | 'medium'),
+		[],
+	)
 	const [scale, setScale] = useState<string>('<none>')
 	const handleScaleChange = useCallback(
 		(_e: any, option: IDropdownOption<any> | undefined) =>
@@ -56,6 +64,17 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 		}),
 		[theme],
 	)
+	const controlStyle = useMemo(
+		() => ({
+			width: size === 'medium' ? 320 : 240,
+			padding: 8,
+			margin: 8,
+		}),
+		[size],
+	)
+
+	const scaleChoiceSizedProps = useChoiceGroupProps({}, size)
+	console.log(scaleChoiceSizedProps)
 	return (
 		<div
 			style={{
@@ -66,7 +85,16 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 			<p>
 				The @thematic/fluent package contains a few custom Fluent controls you
 				can use in your applications to allow Thematic-specific interactions.
+				These components also support a <b>size</b> prop to align with Fluent 9
+				sizing, which you can preview here.
 			</p>
+			<ChoiceGroup
+				label="Controls size"
+				selectedKey={size}
+				options={sizeOptions}
+				styles={sizeStyles}
+				onChange={handleSizeChange}
+			/>
 			<div style={controlsStyle}>
 				<div style={controlStyle}>
 					<p>
@@ -74,6 +102,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 						pre-loads Thematic scale options.
 					</p>
 					<ScaleDropdown
+						size={size}
 						placeholder={'Choose scale'}
 						onChange={handleScaleChange}
 					/>
@@ -85,8 +114,8 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 						that pre-loads Thematic scale types.
 					</p>
 					<ScaleTypeChoiceGroup
-						label=""
-						selectedType={scaleType}
+						{...scaleChoiceSizedProps}
+						selectedKey={scaleType}
 						onChange={handleScaleTypeChange}
 					/>
 					<p style={actionStyle}> onChange: {scaleType}</p>
@@ -124,8 +153,15 @@ const controlsStyle = {
 	justifyContent: 'space-around' as const,
 }
 
-const controlStyle = {
-	width: 320,
-	padding: 8,
-	margin: 8,
+const sizeOptions = [
+	{ key: 'small', text: 'Small' },
+	{ key: 'medium', text: 'Medium' },
+]
+
+const sizeStyles = {
+	flexContainer: {
+		display: 'flex',
+		justifyContent: 'center',
+		gap: 12,
+	},
 }
