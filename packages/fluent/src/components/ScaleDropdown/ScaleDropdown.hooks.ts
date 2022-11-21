@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import type { Size } from '@essex/components'
 import { useDropdownProps } from '@essex/components'
 import type { IDropdownOption, IDropdownProps } from '@fluentui/react'
 import type {
@@ -32,7 +33,7 @@ const TITLE_CASE = false
 
 export function useStyledProps(
 	props: Partial<IDropdownProps>,
-	size: 'small' | 'medium' = 'medium',
+	size: Size = 'medium',
 ): Partial<IDropdownProps> {
 	const styledProps = useMemo(
 		() =>

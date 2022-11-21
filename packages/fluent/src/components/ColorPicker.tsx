@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { useColorPickerProps } from '@essex/components'
 import { ColorPicker as FluentColorPicker } from '@fluentui/react'
 import { useThematic } from '@thematic/react'
 import type { FC } from 'react'
@@ -17,12 +18,17 @@ import type { ColorPickerProps } from './ColorPicker.types.js'
  * parameterization and leave room for additional functionality.
  * Note also that it does NOT expose an alpha control, because this is not allowed in thematic params.
  */
-export const ColorPicker: FC<ColorPickerProps> = ({ onChange, ...props }) => {
+export const ColorPicker: FC<ColorPickerProps> = ({
+	size,
+	onChange,
+	...props
+}) => {
 	const theme = useThematic()
 	const handlePickerChange = usePickerChange(theme, onChange)
+	const _props = useColorPickerProps(props, size)
 	return (
 		<FluentColorPicker
-			{...props}
+			{..._props}
 			color={theme.application().accent().hex()}
 			onChange={handlePickerChange}
 			alphaType="none"

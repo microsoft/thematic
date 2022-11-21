@@ -2,10 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import type { Size } from '@essex/components'
 import { useChoiceGroupProps } from '@essex/components'
 import type { IChoiceGroupOption, IChoiceGroupProps } from '@fluentui/react'
 import { merge } from 'lodash-es'
 import { useMemo } from 'react'
+
 export function useTypeOptions(suppressQuantile = false): IChoiceGroupOption[] {
 	return useMemo(() => {
 		const options = [
@@ -31,7 +33,7 @@ export function useTypeOptions(suppressQuantile = false): IChoiceGroupOption[] {
 export function useStyledProps(
 	props: IChoiceGroupProps,
 	options: IChoiceGroupOption[],
-	size: 'small' | 'medium' = 'medium',
+	size: Size = 'medium',
 ) {
 	const base = useMemo(
 		() =>
