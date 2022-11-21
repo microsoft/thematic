@@ -2,9 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { ISliderStyles } from '@fluentui/react'
+import { useSliderProps } from '@essex/components'
+import type { ISliderProps } from '@fluentui/react'
 import { ColorPicker as FluentColorPicker, Slider } from '@fluentui/react'
+import { merge } from 'lodash-es'
 import type { CSSProperties, FC } from 'react'
+import { useMemo } from 'react'
 
 import { useThematicFluent } from '../provider/useThematicFluent.js'
 import {
@@ -13,9 +16,9 @@ import {
 	useSliderChange,
 } from './ColorPicker.hooks.js'
 import {
+	defaultSliderStyles,
 	useContainerStyle,
 	useSectionHeaderStyle,
-	useSliderStyles,
 } from './ColorPicker.styles.js'
 import type { ColorPickerProps } from './ColorPicker.types.js'
 import { ColorPickerLayout } from './ColorPicker.types.js'
@@ -73,7 +76,14 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 
 	const lyt = layout || ColorPickerLayout.PickerOnly
 	const containerStyle: CSSProperties = useContainerStyle(styles?.container)
-	const sliderStyles: ISliderStyles = useSliderStyles(styles?.slider)
+	const defaultSliderProps = useMemo(
+		() => merge({ styles: defaultSliderStyles }, styles?.slider),
+		[styles],
+	)
+	const sliderBaseProps: ISliderProps = useSliderProps(
+		defaultSliderProps,
+		'small',
+	)
 	const sectionHeaderStyle = useSectionHeaderStyle()
 
 	return (
@@ -88,74 +98,74 @@ export const ColorPicker: FC<ColorPickerProps> = ({
 					<div style={sectionStyle}>
 						<div style={sectionHeaderStyle}>Accent color</div>
 						<Slider
+							{...sliderBaseProps}
 							label="Hue"
 							value={accentHue}
 							min={0}
 							max={360}
 							step={1}
 							onChange={handleAccentHueChange}
-							styles={sliderStyles}
 						/>
 
 						<Slider
+							{...sliderBaseProps}
 							label="Saturation"
 							value={accentSaturation}
 							min={0}
 							max={100}
 							step={1}
 							onChange={handleAccentSaturationChange}
-							styles={sliderStyles}
 						/>
 						<Slider
+							{...sliderBaseProps}
 							label="Lightness"
 							value={accentLightness}
 							min={0}
 							max={100}
 							step={1}
 							onChange={handleAccentLightnessChange}
-							styles={sliderStyles}
 						/>
 					</div>
 					<div style={sectionStyle}>
 						<div style={sectionHeaderStyle}>Scale brightness</div>
 						<Slider
+							{...sliderBaseProps}
 							label="Saturation"
 							value={scaleSaturation}
 							min={0}
 							max={100}
 							step={1}
 							onChange={handleScaleSaturationChange}
-							styles={sliderStyles}
 						/>
 						<Slider
+							{...sliderBaseProps}
 							label="Lightness"
 							value={scaleLightness}
 							min={0}
 							max={100}
 							step={1}
 							onChange={handleScaleLightnessChange}
-							styles={sliderStyles}
 						/>
 					</div>
 					<div style={sectionStyle}>
 						<div style={sectionHeaderStyle}>Grey tint</div>
 						<Slider
+							{...sliderBaseProps}
 							label="Hue"
 							value={greyHue}
 							min={0}
 							max={360}
 							step={1}
 							onChange={handleGreyHueChange}
-							styles={sliderStyles}
 						/>
 						<Slider
+							{...sliderBaseProps}
 							label="Saturation"
 							value={greySaturation}
 							min={0}
 							max={100}
 							step={1}
 							onChange={handleGreySaturationChange}
-							styles={sliderStyles}
 						/>
 					</div>
 				</div>

@@ -2,7 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { ISliderStyles } from '@fluentui/react'
+import type {
+	IColorPickerProps,
+	IColorPickerStyles,
+	ISliderStyles,
+} from '@fluentui/react'
 import type { Theme } from '@thematic/core'
 import type { CSSProperties } from 'react'
 
@@ -11,12 +15,12 @@ export enum ColorPickerLayout {
 	SideBySide = 'sidebyside',
 }
 
-export interface ColorPickerStyles {
+export interface ColorPickerStyles extends IColorPickerStyles {
 	container?: CSSProperties
 	slider?: ISliderStyles
 }
 
-export interface ColorPickerProps {
+export interface ColorPickerProps extends Omit<IColorPickerProps, 'onChange'> {
 	onChange?: (theme: Theme) => void
 	layout?: ColorPickerLayout
 	styles?: ColorPickerStyles
