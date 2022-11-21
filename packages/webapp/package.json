@@ -18,9 +18,9 @@
 		"directory": "packages/webapp"
 	},
 	"dependencies": {
-		"@essex/components": "^3.1.0",
-		"@fluentui/font-icons-mdl2": "^8.5.3",
-		"@fluentui/react": "^8.101.0",
+		"@essex/components": "^3.2.0",
+		"@fluentui/font-icons-mdl2": "^8.5.4",
+		"@fluentui/react": "^8.102.0",
 		"@thematic/color": "workspace:^",
 		"@thematic/core": "workspace:^",
 		"@thematic/d3": "workspace:^",
@@ -44,7 +44,7 @@
 		"@types/d3-selection": "^3.0.3",
 		"@types/node": "^18.11.9",
 		"@types/react": "^18.0.25",
-		"@types/react-dom": "^18.0.8",
+		"@types/react-dom": "^18.0.9",
 		"typescript": "^4.8.4"
 	},
 	"browserslist": [
