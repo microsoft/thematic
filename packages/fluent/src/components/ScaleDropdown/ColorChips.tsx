@@ -29,7 +29,12 @@ export const ColorChips: FC<ChipsProps> = ({
 			return []
 		}
 
-		const r = height / 2
+		// use the largest radius that will fit - either half the height or based on the
+		// max available width when constrained horizontally
+		const hr = height / 2
+		const pr = width / maxItems / 2 - 0.5
+		const r = pr < hr ? pr : hr
+
 		const x = scaleLinear()
 			.domain([0, maxItems - 1])
 			.range([r, width - r])
@@ -42,7 +47,7 @@ export const ColorChips: FC<ChipsProps> = ({
 					fill={color}
 					stroke={'none'}
 					cx={x(i)}
-					cy={r}
+					cy={hr}
 					r={r}
 					height={height}
 				/>

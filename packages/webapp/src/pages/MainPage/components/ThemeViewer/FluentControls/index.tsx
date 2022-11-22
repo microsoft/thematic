@@ -65,7 +65,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 	)
 	const controlStyle = useMemo(
 		() => ({
-			width: size === 'medium' ? 320 : 240,
+			width: size === 'medium' ? 320 : 200,
 			padding: 8,
 			margin: 8,
 		}),
