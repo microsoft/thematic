@@ -7,14 +7,14 @@
 <b>Signature:</b>
 
 ```typescript
-export interface ColorPickerProps 
+export interface ColorPickerProps extends Omit<IColorPickerProps, 'color' | 'onChange'> 
 ```
+<b>Extends:</b> Omit&lt;IColorPickerProps, 'color' \| 'onChange'&gt;
 
 ## Properties
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [layout?](./fluent.colorpickerprops.layout.md) |  | [ColorPickerLayout](./fluent.colorpickerlayout.md) | <i>(Optional)</i> |
-|  [onChange?](./fluent.colorpickerprops.onchange.md) |  | (theme: Theme) =&gt; void | <i>(Optional)</i> |
-|  [styles?](./fluent.colorpickerprops.styles.md) |  | [ColorPickerStyles](./fluent.colorpickerstyles.md) | <i>(Optional)</i> |
+|  [onChange?](./fluent.colorpickerprops.onchange.md) |  | (params: SchemeParams) =&gt; void | <i>(Optional)</i> |
+|  [size?](./fluent.colorpickerprops.size.md) |  | Size | <i>(Optional)</i> |
 
