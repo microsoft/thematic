@@ -130,7 +130,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 						<span style={labelStyle}>ColorPickerButton:</span> a DropdownButton
 						that hosts a Thematic ColorPicker.
 					</p>
-					<ColorPickerButton onChange={handlePickerChange} />
+					<ColorPickerButton size={size} onChange={handlePickerChange} />
 					<p style={actionStyle}> onChange: {theme.palette.themePrimary}</p>
 				</div>
 			</div>
