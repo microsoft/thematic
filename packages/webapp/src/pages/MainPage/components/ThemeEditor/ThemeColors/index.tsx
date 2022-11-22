@@ -234,7 +234,7 @@ function useScales(scaleItemCount: number) {
 			theme.scales().sequential2(bandDomain).toArray(),
 			theme.scales().diverging2(bandDomain).toArray(),
 			theme.scales().greys(bandDomain).toArray(),
-			theme.scales().rainbow(bandDomain).toArray(),
+			theme.scales().rainbow(bandDomain).toArray(100),
 		]
 	}, [theme, scaleItemCount])
 }

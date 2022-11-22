@@ -28,10 +28,10 @@ export const ColorStrip: FC<ColorStripProps> = ({
 						key={`Color-${index}`}
 						title={`${label} color ${color}`}
 						style={{
-							width: 50,
+							width: 58,
 							flexShrink: 0,
 							background: color,
-							height: 20,
+							height: 30,
 							lineHeight: '20px',
 							color: labelColors != null ? labelColors[index] : background,
 							textAlign: 'center',
