@@ -23,9 +23,12 @@ const DEFAULT_WIDTH = 200
 const DEFAULT_HEIGHT = 32
 
 const ITEM_LEFT_PADDING = 8 // default right padding in fluent item
-const CARET_PADDING = 28 // defined default in fluent dropdown is 28 (this also aligns with item right padding)
-export const TEXT_WIDTH = 80 // TODO: adjust this based on font size/max measured
-const LABEL_HEIGHT = 29 // defined default in fluent dropdown
+const MEDIUM_CARET_PADDING = 28 // defined default in fluent dropdown is 28 (this also aligns with item right padding)
+const SMALL_CARET_PADDING = MEDIUM_CARET_PADDING - 4
+const MEDIUM_TEXT_WIDTH = 78
+const SMALL_TEXT_WIDTH = MEDIUM_TEXT_WIDTH - 10
+const MEDIUM_LABEL_HEIGHT = 29 // defined default in fluent dropdown
+const SMALL_LABEL_HEIGHT = MEDIUM_LABEL_HEIGHT - 3
 
 // we may want this to be an optional prop once extracted
 // visually we'll keep it lowercase in this app for visual consistency
@@ -49,27 +52,36 @@ export function useStyledProps(
 			),
 		[props],
 	)
-	const _props = useDropdownProps(styledProps, size)
-	// FIXME: this is to correct a missing prop in the toolkit dropdown styles
+	return useDropdownProps(styledProps, size)
+}
+
+export function useLabelStyle(size: Size = 'medium') {
 	return useMemo(
-		() =>
-			merge(_props, {
-				styles: {
-					dropdownItemSelected: (_props?.styles as any).dropdownItem,
-				},
-			}),
-		[_props],
+		() => ({
+			width: size === 'medium' ? MEDIUM_TEXT_WIDTH : SMALL_TEXT_WIDTH,
+			minWidth: size === 'medium' ? MEDIUM_TEXT_WIDTH : SMALL_TEXT_WIDTH,
+		}),
+		[size],
 	)
 }
 
-export function usePaletteWidth(width: number): number {
+export function usePaletteWidth(width: number, size: Size = 'medium'): number {
 	// subtract space for the caret, pad, text, etc.
-	return width - ITEM_LEFT_PADDING - TEXT_WIDTH - CARET_PADDING
+	const caretPadding =
+		size === 'small' ? SMALL_CARET_PADDING : MEDIUM_CARET_PADDING
+	const textWidth = size === 'small' ? SMALL_TEXT_WIDTH : MEDIUM_TEXT_WIDTH
+	return width - ITEM_LEFT_PADDING - textWidth - caretPadding
 }
 
-export function usePaletteHeight(height: number, label?: string): number {
+export function usePaletteHeight(
+	height: number,
+	label?: string,
+	size: Size = 'medium',
+): number {
 	// the measured component dimensions will include the label if present
-	const root = label ? height - LABEL_HEIGHT : height
+	const labelHeight =
+		size === 'small' ? SMALL_LABEL_HEIGHT : MEDIUM_LABEL_HEIGHT
+	const root = label ? height - labelHeight : height
 	return root / 2
 }
 
@@ -82,9 +94,9 @@ export function usePaletteHeight(height: number, label?: string): number {
 export function useItemStyle(width: number): React.CSSProperties {
 	return useMemo(
 		() => ({
-			width: width - CARET_PADDING,
+			width: width - MEDIUM_CARET_PADDING,
 			paddingLeft: 0,
-			paddingRight: CARET_PADDING,
+			paddingRight: MEDIUM_CARET_PADDING,
 		}),
 		[width],
 	)

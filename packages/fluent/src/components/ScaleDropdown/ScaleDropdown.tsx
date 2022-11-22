@@ -26,8 +26,8 @@ import { ScaleDropdownOption } from './ScaleDropdownOption.js'
 export const ScaleDropdown: FC<ScaleDropdownProps> = ({ size, ...props }) => {
 	const ref = useRef(null)
 	const { width, height } = useSafeDimensions(ref)
-	const paletteWidth = usePaletteWidth(width)
-	const paletteHeight = usePaletteHeight(height, props.label)
+	const paletteWidth = usePaletteWidth(width, size)
+	const paletteHeight = usePaletteHeight(height, props.label, size)
 	const itemStyle = useItemStyle(width)
 	const options = useThematicScaleOptions()
 	const handleRenderTitle = useCallback(
@@ -38,10 +38,12 @@ export const ScaleDropdown: FC<ScaleDropdownProps> = ({ size, ...props }) => {
 					paletteWidth={paletteWidth}
 					paletteHeight={paletteHeight}
 					option={firstOption!}
+					style={itemStyle}
+					size={size}
 				/>
 			)
 		},
-		[paletteWidth, paletteHeight],
+		[paletteWidth, paletteHeight, itemStyle, size],
 	)
 
 	const handleRenderOption = useCallback(
@@ -53,10 +55,11 @@ export const ScaleDropdown: FC<ScaleDropdownProps> = ({ size, ...props }) => {
 					paletteHeight={paletteHeight}
 					option={option}
 					style={itemStyle}
+					size={size}
 				/>
 			) : null
 		},
-		[paletteWidth, paletteHeight, itemStyle],
+		[paletteWidth, paletteHeight, itemStyle, size],
 	)
 
 	const _props = useStyledProps(props, size)

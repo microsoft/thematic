@@ -6,7 +6,7 @@ import type { FC } from 'react'
 import { useMemo } from 'react'
 
 import {
-	TEXT_WIDTH,
+	useLabelStyle,
 	usePaletteComponent,
 	useSafeCollapseDimensions,
 	useScale,
@@ -18,6 +18,7 @@ export const ScaleDropdownOption: FC<ScaleDropdownOptionProps> = ({
 	paletteWidth,
 	paletteHeight,
 	style,
+	size,
 }) => {
 	const { key } = option
 	const Palette = usePaletteComponent(key as string)
@@ -30,17 +31,13 @@ export const ScaleDropdownOption: FC<ScaleDropdownOptionProps> = ({
 		}),
 		[style],
 	)
+	const labelStyle = useLabelStyle(size)
 	return (
 		<div style={cStyle}>
 			<div style={labelStyle}>{option.text}</div>
 			<Palette scale={scale} width={width} height={height} />
 		</div>
 	)
-}
-
-const labelStyle = {
-	width: TEXT_WIDTH,
-	minWidth: TEXT_WIDTH,
 }
 
 const containerStyle = {

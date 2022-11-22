@@ -22,7 +22,7 @@
 		"lint": "essex lint --fix"
 	},
 	"dependencies": {
-		"@essex/components": "^3.2.0",
+		"@essex/components": "^3.2.1",
 		"@thematic/color": "workspace:^",
 		"@thematic/core": "workspace:^",
 		"@thematic/d3": "workspace:^",
@@ -35,7 +35,7 @@
 		"@essex/jest-config": "^21.0.16",
 		"@essex/scripts": "^22.1.0",
 		"@essex/tsconfig-base": "^1.0.2",
-		"@fluentui/react": "^8.102.0",
+		"@fluentui/react": "^8.103.0",
 		"@types/chroma-js": "^2.1.4",
 		"@types/d3-scale": "^4.0.2",
 		"@types/lodash-es": "^4.17.6",

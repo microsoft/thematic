@@ -18,6 +18,7 @@ export interface ScaleDropdownOptionProps {
 	paletteWidth: number
 	paletteHeight: number
 	style?: React.CSSProperties
+	size?: Size
 }
 
 export interface ChipsProps {

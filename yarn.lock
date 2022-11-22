@@ -2305,9 +2305,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/components@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "@essex/components@npm:3.2.0"
+"@essex/components@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "@essex/components@npm:3.2.1"
   dependencies:
     "@essex/hooks": ^4.0.13
     "@essex/react-animate-height": ^2.1.4
@@ -2339,7 +2339,7 @@ __metadata:
     "@uifabric/icons": ">= 7.3.38"
     react: ">= 18"
     react-dom: ">= 18"
-  checksum: e8d8753f28b5141cfa3589f98ec2c72973b442d2e92f33253c3b6acdbd739167d796095daf34952d6eb619d3650d727912389890ebab2250f0a2e38665a46ce9
+  checksum: c9452fe9cd7e49b4f47ceb3d8321b9fb90d6070153f6d2cbb82c2b9697c999fbb64dac9ec10a4ee60118ee7c600093399588602f9464f687d4c19b479eca9f19
   languageName: node
   linkType: hard
 
@@ -2735,9 +2735,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fluentui/react@npm:^8.102.0":
-  version: 8.102.0
-  resolution: "@fluentui/react@npm:8.102.0"
+"@fluentui/react@npm:^8.103.0":
+  version: 8.103.0
+  resolution: "@fluentui/react@npm:8.103.0"
   dependencies:
     "@fluentui/date-time-utilities": ^8.5.3
     "@fluentui/font-icons-mdl2": ^8.5.4
@@ -2758,7 +2758,7 @@ __metadata:
     "@types/react-dom": ">=16.8.0 <19.0.0"
     react: ">=16.8.0 <19.0.0"
     react-dom: ">=16.8.0 <19.0.0"
-  checksum: 4ef2885563c26f7a516b44d555e9c248acd790a70efb64ba2751ff72078d3bb54641c44f1b544fcec05d452c4f02940462283bc6bc7ccc457d9147ee54e3d499
+  checksum: 617ea9cf30c2d60932815ccc17f02cb3b7b62619bb14e2d3d595396f7c82cd39727468e2f08204109317193f58ac9ecfc623466fdb40c934d21e59ace07832bc
   languageName: node
   linkType: hard
 
@@ -3863,11 +3863,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/fluent@workspace:packages/fluent"
   dependencies:
-    "@essex/components": ^3.2.0
+    "@essex/components": ^3.2.1
     "@essex/jest-config": ^21.0.16
     "@essex/scripts": ^22.1.0
     "@essex/tsconfig-base": ^1.0.2
-    "@fluentui/react": ^8.102.0
+    "@fluentui/react": ^8.103.0
     "@thematic/color": "workspace:^"
     "@thematic/core": "workspace:^"
     "@thematic/d3": "workspace:^"
@@ -3974,12 +3974,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/webapp@workspace:packages/webapp"
   dependencies:
-    "@essex/components": ^3.2.0
+    "@essex/components": ^3.2.1
     "@essex/scripts": ^22.1.0
     "@essex/tsconfig-base": ^1.0.2
     "@essex/webpack-config": ^21.0.8
     "@fluentui/font-icons-mdl2": ^8.5.4
-    "@fluentui/react": ^8.102.0
+    "@fluentui/react": ^8.103.0
     "@thematic/color": "workspace:^"
     "@thematic/core": "workspace:^"
     "@thematic/d3": "workspace:^"

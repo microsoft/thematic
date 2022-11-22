@@ -18,9 +18,9 @@
 		"directory": "packages/webapp"
 	},
 	"dependencies": {
-		"@essex/components": "^3.2.0",
+		"@essex/components": "^3.2.1",
 		"@fluentui/font-icons-mdl2": "^8.5.4",
-		"@fluentui/react": "^8.102.0",
+		"@fluentui/react": "^8.103.0",
 		"@thematic/color": "workspace:^",
 		"@thematic/core": "workspace:^",
 		"@thematic/d3": "workspace:^",
