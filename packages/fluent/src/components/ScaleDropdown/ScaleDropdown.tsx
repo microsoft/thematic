@@ -23,13 +23,17 @@ import { ScaleDropdownOption } from './ScaleDropdownOption.js'
  * The scale names can be accompanied by a visual rendering of the scale colors.
  * This bascially extends Dropdown, overriding the options and item rendering.
  */
-export const ScaleDropdown: FC<ScaleDropdownProps> = ({ size, ...props }) => {
+export const ScaleDropdown: FC<ScaleDropdownProps> = ({
+	type,
+	size,
+	...props
+}) => {
 	const ref = useRef(null)
 	const { width, height } = useSafeDimensions(ref)
 	const paletteWidth = usePaletteWidth(width, size)
 	const paletteHeight = usePaletteHeight(height, props.label, size)
 	const itemStyle = useItemStyle(width)
-	const options = useThematicScaleOptions()
+	const options = useThematicScaleOptions(type)
 	const handleRenderTitle = useCallback(
 		(options: IDropdownOption<any>[] | undefined) => {
 			const firstOption: IDropdownOption<any> = options![0]!

@@ -5,6 +5,7 @@
 import type { Size } from '@essex/components'
 import { useDropdownProps } from '@essex/components'
 import type { IDropdownOption, IDropdownProps } from '@fluentui/react'
+import { isNominal } from '@thematic/color'
 import type {
 	ContinuousColorScaleFunction,
 	NominalColorScaleFunction,
@@ -102,12 +103,22 @@ export function useItemStyle(width: number): React.CSSProperties {
 	)
 }
 
-// TODO: it would be helpful to provide a filter function so scales can be
-// constrained to categorical or sequential when data is string versus numeric
-export function useThematicScaleOptions(): IDropdownOption[] {
+export function useThematicScaleOptions(
+	type?: 'nominal' | 'continuous',
+): IDropdownOption[] {
 	const theme = useThematic()
 	return useMemo(() => {
-		const keys = Object.keys(theme.scales())
+		const keys = Object.keys(theme.scales()).filter(key => {
+			if (type) {
+				if (type === 'nominal' && isNominal(key)) {
+					return true
+				} else if (type === 'continuous' && !isNominal(key)) {
+					return true
+				}
+				return false
+			}
+			return true
+		})
 		return keys.map(key => {
 			// pretty print the scale names
 			// (1) uppercase first letter
@@ -121,7 +132,7 @@ export function useThematicScaleOptions(): IDropdownOption[] {
 				text,
 			}
 		})
-	}, [theme])
+	}, [theme, type])
 }
 
 export function useScale(
