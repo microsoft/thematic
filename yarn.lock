@@ -3993,6 +3993,7 @@ __metadata:
     "@types/node": ^18.11.9
     "@types/react": ^18.0.25
     "@types/react-dom": ^18.0.9
+    ahooks: ^3.7.2
     d3-axis: ^3.0.0
     d3-scale: ^4.0.2
     d3-selection: ^3.0.0

@@ -19,8 +19,6 @@ export const ColorBand: FC<ColorBandProps> = ({
 	width,
 }) => {
 	const colorBlocks = useMemo(() => {
-		// hard-coded 83 is the label width + (2 * padding) + (2 * margin) + (2 * band margin)
-		// 65 + 10 + 4 + 4
 		const slice = width ? (width - 102) / colors.length : 0
 		return colors.map((color, index) => {
 			return (
