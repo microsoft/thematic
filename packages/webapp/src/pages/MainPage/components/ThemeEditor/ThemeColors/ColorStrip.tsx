@@ -28,10 +28,10 @@ export const ColorStrip: FC<ColorStripProps> = ({
 						key={`Color-${index}`}
 						title={`${label} color ${color}`}
 						style={{
-							width: 50,
+							width: 58,
 							flexShrink: 0,
 							background: color,
-							height: 20,
+							height: 30,
 							lineHeight: '20px',
 							color: labelColors != null ? labelColors[index] : background,
 							textAlign: 'center',
@@ -47,14 +47,14 @@ export const ColorStrip: FC<ColorStripProps> = ({
 	)
 	const foregroundStyle = useMemo(
 		() => ({
-			width: 65,
+			width: 75,
 			flexShrink: 0,
-			height: 20,
+			height: 30,
 			lineHeight: '20px',
 			color: foreground,
 			textAlign: 'right' as const,
-			margin: 2,
-			padding: 5,
+			paddingTop: 8,
+			marginRight: 4,
 		}),
 		[foreground],
 	)

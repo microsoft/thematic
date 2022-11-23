@@ -2,10 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import type { Theme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
-import { vega as decorator } from '@thematic/vega'
-import type { FC } from 'react'
-import { memo, useLayoutEffect, useMemo, useRef } from 'react'
+import { vega } from '@thematic/vega'
+import { useDebounceEffect } from 'ahooks'
+import type { FC, RefObject } from 'react'
+import { memo, useCallback, useRef } from 'react'
 import { parse, View } from 'vega'
 
 import area from './specs/area.json'
@@ -47,18 +49,21 @@ export const VegaChart: FC<VegaChartProps> = memo(function VegaChart({
 }) {
 	const theme = useThematic()
 	const ref = useRef<HTMLDivElement>(null)
-	const view = useMemo(() => {
-		const spec = specs[type]
-		const merged = decorator(theme, spec, { width, height })
-		const parsed = parse(merged)
-		return new View(parsed).renderer('svg')
-	}, [height, theme, type, width])
+	const render = useCallback(
+		(ref: RefObject<HTMLDivElement>, theme: Theme) => {
+			if (ref.current) {
+				const spec = specs[type]
+				const merged = vega(theme, spec, { width, height })
+				const parsed = parse(merged)
+				new View(parsed).renderer('svg').initialize(ref.current).run()
+			}
+		},
+		[type, width, height],
+	)
 
-	useLayoutEffect(() => {
-		if (ref.current != null) {
-			view.initialize(ref.current).run()
-		}
-	}, [ref, view])
+	useDebounceEffect(() => render(ref, theme), [ref, theme], {
+		wait: 200,
+	})
 
 	return <div ref={ref} />
 })

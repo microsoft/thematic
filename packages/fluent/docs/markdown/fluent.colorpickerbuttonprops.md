@@ -7,14 +7,14 @@
 <b>Signature:</b>
 
 ```typescript
-export interface ColorPickerButtonProps 
+export interface ColorPickerButtonProps extends Omit<IButtonProps, 'onChange' | 'iconProps' | 'menuProps' | 'size'> 
 ```
+<b>Extends:</b> Omit&lt;IButtonProps, 'onChange' \| 'iconProps' \| 'menuProps' \| 'size'&gt;
 
 ## Properties
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [label?](./fluent.colorpickerbuttonprops.label.md) |  | string | <i>(Optional)</i> |
-|  [onChange?](./fluent.colorpickerbuttonprops.onchange.md) |  | (theme: Theme) =&gt; void | <i>(Optional)</i> |
-|  [styles?](./fluent.colorpickerbuttonprops.styles.md) |  | [ColorPickerButtonStyles](./fluent.colorpickerbuttonstyles.md) | <i>(Optional)</i> |
+|  [onChange?](./fluent.colorpickerbuttonprops.onchange.md) |  | (params: SchemeParams) =&gt; void | <i>(Optional)</i> |
+|  [size?](./fluent.colorpickerbuttonprops.size.md) |  | Size | <i>(Optional)</i> |
 

@@ -9,13 +9,16 @@
 import type { ContinuousColorScaleFunction } from '@thematic/core';
 import type { CSSProperties } from 'react';
 import type { FC } from 'react';
-import type { IChoiceGroupStyles } from '@fluentui/react';
+import type { IButtonProps } from '@fluentui/react';
+import type { IChoiceGroupProps } from '@fluentui/react';
+import type { IColorPickerProps } from '@fluentui/react';
 import type { IDropdownOption } from '@fluentui/react';
 import type { IDropdownProps } from '@fluentui/react';
 import type { ISliderStyles } from '@fluentui/react';
 import type { NominalColorScaleFunction } from '@thematic/core';
 import type { ReactNode } from 'react';
-import type { ScaleType } from '@thematic/core';
+import type { SchemeParams } from '@thematic/color';
+import type { Size } from '@essex/components';
 import type { Theme } from '@thematic/core';
 import type { Theme as Theme_2 } from '@fluentui/react';
 
@@ -46,53 +49,21 @@ export const ColorPickerButton: FC<ColorPickerButtonProps>;
 // Warning: (ae-missing-release-tag) "ColorPickerButtonProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export interface ColorPickerButtonProps {
+export interface ColorPickerButtonProps extends Omit<IButtonProps, 'onChange' | 'iconProps' | 'menuProps' | 'size'> {
     // (undocumented)
-    label?: string;
+    onChange?: (params: SchemeParams) => void;
     // (undocumented)
-    onChange?: (theme: Theme) => void;
-    // (undocumented)
-    styles?: ColorPickerButtonStyles;
-}
-
-// Warning: (ae-missing-release-tag) "ColorPickerButtonStyles" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
-export interface ColorPickerButtonStyles {
-    // (undocumented)
-    label?: CSSProperties;
-}
-
-// Warning: (ae-missing-release-tag) "ColorPickerLayout" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
-export enum ColorPickerLayout {
-    // (undocumented)
-    PickerOnly = "pickeronly",
-    // (undocumented)
-    SideBySide = "sidebyside"
+    size?: Size;
 }
 
 // Warning: (ae-missing-release-tag) "ColorPickerProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export interface ColorPickerProps {
+export interface ColorPickerProps extends Omit<IColorPickerProps, 'color' | 'onChange'> {
     // (undocumented)
-    layout?: ColorPickerLayout;
+    onChange?: (params: SchemeParams) => void;
     // (undocumented)
-    onChange?: (theme: Theme) => void;
-    // (undocumented)
-    styles?: ColorPickerStyles;
-}
-
-// Warning: (ae-missing-release-tag) "ColorPickerStyles" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
-export interface ColorPickerStyles {
-    // (undocumented)
-    container?: CSSProperties;
-    // (undocumented)
-    slider?: ISliderStyles;
+    size?: Size;
 }
 
 // Warning: (ae-missing-release-tag) "FluentTheme" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
@@ -114,10 +85,10 @@ export function loadFluentTheme(theme: Theme): FluentTheme;
 // @public
 export const ScaleDropdown: FC<ScaleDropdownProps>;
 
-// Warning: (ae-missing-release-tag) "ScaleDropdownItemProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ScaleDropdownOptionProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export interface ScaleDropdownItemProps {
+export interface ScaleDropdownOptionProps {
     // (undocumented)
     option: IDropdownOption;
     // (undocumented)
@@ -125,13 +96,19 @@ export interface ScaleDropdownItemProps {
     // (undocumented)
     paletteWidth: number;
     // (undocumented)
+    size?: Size;
+    // (undocumented)
     style?: React.CSSProperties;
 }
 
 // Warning: (ae-missing-release-tag) "ScaleDropdownProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export type ScaleDropdownProps = Omit<IDropdownProps, 'options'>;
+export interface ScaleDropdownProps extends Omit<IDropdownProps, 'options'> {
+    // (undocumented)
+    size?: Size;
+    type?: 'nominal' | 'continuous';
+}
 
 // Warning: (ae-missing-release-tag) "ScaleTypeChoiceGroup" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -141,15 +118,9 @@ export const ScaleTypeChoiceGroup: FC<ScaleTypeChoiceGroupProps>;
 // Warning: (ae-missing-release-tag) "ScaleTypeChoiceGroupProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export interface ScaleTypeChoiceGroupProps {
+export interface ScaleTypeChoiceGroupProps extends Omit<IChoiceGroupProps, 'size'> {
     // (undocumented)
-    label: string;
-    // (undocumented)
-    onChange?: (scaleType: ScaleType) => void;
-    // (undocumented)
-    selectedType: ScaleType;
-    // (undocumented)
-    styles?: IChoiceGroupStyles;
+    size?: Size;
     // (undocumented)
     suppressQuantile?: boolean;
 }
@@ -170,6 +141,31 @@ export interface ThematicFluentProviderProps {
     style?: React.CSSProperties;
     // (undocumented)
     theme: Theme;
+}
+
+// Warning: (ae-missing-release-tag) "ThemeParameters" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const ThemeParameters: FC<ThemeParametersProps>;
+
+// Warning: (ae-missing-release-tag) "ThemeParametersProps" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ThemeParametersProps {
+    // (undocumented)
+    onChange?: (params: SchemeParams) => void;
+    // (undocumented)
+    styles?: ThemeParametersStyles;
+}
+
+// Warning: (ae-missing-release-tag) "ThemeParametersStyles" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ThemeParametersStyles {
+    // (undocumented)
+    container?: CSSProperties;
+    // (undocumented)
+    slider?: ISliderStyles;
 }
 
 // Warning: (ae-missing-release-tag) "useThematicFluent" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)

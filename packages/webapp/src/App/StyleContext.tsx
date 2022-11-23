@@ -27,7 +27,7 @@ const GlobalStyle = () => {
 		<style>
 			{`
 			* {
-				box-sizing: content-box;
+				box-sizing: border-box;
 			}
 			html,
 			body,

@@ -7,16 +7,14 @@
 <b>Signature:</b>
 
 ```typescript
-export interface ScaleTypeChoiceGroupProps 
+export interface ScaleTypeChoiceGroupProps extends Omit<IChoiceGroupProps, 'size'> 
 ```
+<b>Extends:</b> Omit&lt;IChoiceGroupProps, 'size'&gt;
 
 ## Properties
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [label](./fluent.scaletypechoicegroupprops.label.md) |  | string |  |
-|  [onChange?](./fluent.scaletypechoicegroupprops.onchange.md) |  | (scaleType: ScaleType) =&gt; void | <i>(Optional)</i> |
-|  [selectedType](./fluent.scaletypechoicegroupprops.selectedtype.md) |  | ScaleType |  |
-|  [styles?](./fluent.scaletypechoicegroupprops.styles.md) |  | IChoiceGroupStyles | <i>(Optional)</i> |
+|  [size?](./fluent.scaletypechoicegroupprops.size.md) |  | Size | <i>(Optional)</i> |
 |  [suppressQuantile?](./fluent.scaletypechoicegroupprops.suppressquantile.md) |  | boolean | <i>(Optional)</i> |
 

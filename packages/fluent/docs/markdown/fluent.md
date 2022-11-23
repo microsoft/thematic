@@ -4,12 +4,6 @@
 
 ## fluent package
 
-## Enumerations
-
-|  Enumeration | Description |
-|  --- | --- |
-|  [ColorPickerLayout](./fluent.colorpickerlayout.md) |  |
-
 ## Functions
 
 |  Function | Description |
@@ -23,13 +17,14 @@
 |  --- | --- |
 |  [ChipsProps](./fluent.chipsprops.md) |  |
 |  [ColorPickerButtonProps](./fluent.colorpickerbuttonprops.md) |  |
-|  [ColorPickerButtonStyles](./fluent.colorpickerbuttonstyles.md) |  |
 |  [ColorPickerProps](./fluent.colorpickerprops.md) |  |
-|  [ColorPickerStyles](./fluent.colorpickerstyles.md) |  |
 |  [FluentTheme](./fluent.fluenttheme.md) | This interface provides a mapping from thematic theme config to a theme suitable for use with the Fluent UI library. https://developer.microsoft.com/en-us/fluentui\#/ Dev docs: https://developer.microsoft.com/en-us/fluentui\#/controls/web |
-|  [ScaleDropdownItemProps](./fluent.scaledropdownitemprops.md) |  |
+|  [ScaleDropdownOptionProps](./fluent.scaledropdownoptionprops.md) |  |
+|  [ScaleDropdownProps](./fluent.scaledropdownprops.md) |  |
 |  [ScaleTypeChoiceGroupProps](./fluent.scaletypechoicegroupprops.md) |  |
 |  [ThematicFluentProviderProps](./fluent.thematicfluentproviderprops.md) |  |
+|  [ThemeParametersProps](./fluent.themeparametersprops.md) |  |
+|  [ThemeParametersStyles](./fluent.themeparametersstyles.md) |  |
 
 ## Variables
 
@@ -40,10 +35,5 @@
 |  [ScaleDropdown](./fluent.scaledropdown.md) | Represents a Fluent dropdown of Thematic scale options. The scale names can be accompanied by a visual rendering of the scale colors. This bascially extends Dropdown, overriding the options and item rendering. |
 |  [ScaleTypeChoiceGroup](./fluent.scaletypechoicegroup.md) | Represents a strongly typed ChoiceGroup for selecting thematic ScaleTypes. |
 |  [ThematicFluentProvider](./fluent.thematicfluentprovider.md) | This component wraps the ThematicProvider and Fluent ThemeProvider to simplify instantiation. Just treat it like a typical Context.Provider, wrapping it around your app. Your Fluent controls should automatically inherit the Thematic colors as semantically applied by Fluent. You can use the context hooks for any of the three variants as you please: - useThematic from @<!-- -->thematic/react returns the normal thematic theme - useThematicFluent from this package returns the hybrid theme - useTheme from @<!-- -->fluentui/react returns the normal fluent theme |
-
-## Type Aliases
-
-|  Type Alias | Description |
-|  --- | --- |
-|  [ScaleDropdownProps](./fluent.scaledropdownprops.md) |  |
+|  [ThemeParameters](./fluent.themeparameters.md) | This is a simple ThemeParameters control that you can show users, allowing them to tune core theme parameters. It does not expose the background and nominal step properties, but may do so in the future. |
 

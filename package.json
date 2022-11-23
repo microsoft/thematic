@@ -2,6 +2,12 @@
 	"name": "@thematic/root",
 	"private": true,
 	"license": "MIT",
+	"author": "Nathan Evans <naevans@microsoft.com>",
+	"contributors": [
+		"Nathan Evans <naevans@microsoft.com>",
+		"Chris Trevino <chtrevin@microsoft.com>",
+		"Eric Kimbrel <lekimbrel@gmail.com>"
+	],
 	"scripts": {
 		"preinstall": "npx only-allow yarn",
 		"postinstall": "husky install",
@@ -29,7 +35,7 @@
 		"@essex/jest-config": "^21.0.16",
 		"@essex/prettier-config": "^18.0.3",
 		"@essex/scripts": "^22.1.0",
-		"@types/jest": "^29.2.2",
+		"@types/jest": "^29.2.3",
 		"@types/node": "^18.11.9",
 		"eslint": "^8.27.0",
 		"husky": "^8.0.2",

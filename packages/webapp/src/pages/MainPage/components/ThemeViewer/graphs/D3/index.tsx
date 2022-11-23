@@ -68,9 +68,10 @@ export const D3Graph: FC<GraphProps> = ({
 		[nodeHover, nodeSelect],
 	)
 
+	// construct core positioning for nodes and edges
 	useLayoutEffect(() => {
 		const [xmin, xmax, ymin, ymax] = bounds(nodes)
-		const r = theme.node().radius()
+		const r = 4
 		const xScale = scaleLinear()
 			.domain([xmin, xmax])
 			.range([r, width - r])
@@ -79,12 +80,8 @@ export const D3Graph: FC<GraphProps> = ({
 			.range([r, height - r])
 
 		select(ref.current).select('*').remove()
-		const svg = select(ref.current).call(chart as any, theme, { width, height })
-		const g = svg.append('g').call(plotArea as any, theme, {
-			on: {
-				mouseup: () => setNodeSelect(null),
-			},
-		})
+		const svg = select(ref.current).attr('width', width).attr('height', height)
+		const g = svg.append('g').on('mouseup', () => setNodeSelect(null))
 
 		const nmap = nodes.reduce((acc, cur) => {
 			acc[cur.id] = cur
@@ -100,7 +97,6 @@ export const D3Graph: FC<GraphProps> = ({
 			.attr('x2', d => xScale(nmap[d.target]!.x) as number)
 			.attr('y1', d => yScale(nmap[d.source]!.y) as number)
 			.attr('y2', d => yScale(nmap[d.target]!.y) as number)
-			.call(line as any, theme.link({ selectionState: SelectionState.Hidden }))
 
 		g.selectAll('.node')
 			.data(nodes)
@@ -113,13 +109,16 @@ export const D3Graph: FC<GraphProps> = ({
 			.on('mouseover', d => setNodeHover(d.id as any))
 			.on('mouseout', () => setNodeHover(null))
 			.on('mouseup', d => setNodeSelect(d.id as any))
-			.call(
-				circle as any,
-				theme.node({ selectionState: SelectionState.Hidden }),
-			)
-	}, [theme, graph, width, height, nodes, edges])
+	}, [graph, width, height, nodes, edges])
 
-	useEffect(() => {
+	useLayoutEffect(() => {
+		select(ref.current)
+			.call(chart as any, theme)
+			.select('g')
+			.call(plotArea as any, theme)
+	}, [theme])
+
+	useLayoutEffect(() => {
 		select(ref.current)
 			.selectAll<Element, Edge>('line')
 			.call(
@@ -132,7 +131,7 @@ export const D3Graph: FC<GraphProps> = ({
 			)
 	}, [theme, graph, drawLinks, width, height])
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		select(ref.current)
 			.selectAll<Element, Node>('.node')
 			.call(

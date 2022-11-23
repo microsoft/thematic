@@ -4,25 +4,25 @@
  */
 import './ColorPicker.css'
 
-import type { Theme } from '@thematic/core'
+import type { SchemeParams } from '@thematic/color'
 import type { FC } from 'react'
 
-import { useSetTheme } from '../../../../../../state/index.js'
+import { useSetParams } from '../../../../../../state/index.js'
 import { ColorSelection } from './ColorSelection.js'
 
 export interface ColorPickerProps {
-	themeLoaded: (theme: Theme) => void
+	paramsChanged: (params: SchemeParams) => void
 }
 
-const ColorPickerComponent: FC<ColorPickerProps> = ({ themeLoaded }) => {
+const ColorPickerComponent: FC<ColorPickerProps> = ({ paramsChanged }) => {
 	return (
 		<div>
-			<ColorSelection onThemeLoaded={themeLoaded} />
+			<ColorSelection onParamsChanged={paramsChanged} />
 		</div>
 	)
 }
 
 export const ColorPicker = () => {
-	const themeLoaded = useSetTheme()
-	return <ColorPickerComponent themeLoaded={themeLoaded} />
+	const paramsChanged = useSetParams()
+	return <ColorPickerComponent paramsChanged={paramsChanged} />
 }

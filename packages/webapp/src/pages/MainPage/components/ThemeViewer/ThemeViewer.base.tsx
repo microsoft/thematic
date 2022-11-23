@@ -36,31 +36,34 @@ export const ThemeViewer: FC<ThemeViewerProps> = ({
 		[chartSize],
 	)
 
-	const graphs = [
-		<D3Graph
-			key="graph-1"
-			graph={graph}
-			{...common}
-			drawNodes={drawNodes}
-			drawLinks={drawLinks}
-		/>,
-		<D3Graph
-			key="graph-2"
-			graph={graph}
-			{...common}
-			drawNodes={drawNodes}
-			drawLinks={drawLinks}
-			categoricalFill
-		/>,
-		<D3Graph
-			key="graph-3"
-			graph={graph}
-			{...common}
-			drawNodes={drawNodes}
-			drawLinks={drawLinks}
-			sequentialFill
-		/>,
-	]
+	const graphs = useMemo(
+		() => [
+			<D3Graph
+				key="graph-1"
+				graph={graph}
+				{...common}
+				drawNodes={drawNodes}
+				drawLinks={drawLinks}
+			/>,
+			<D3Graph
+				key="graph-2"
+				graph={graph}
+				{...common}
+				drawNodes={drawNodes}
+				drawLinks={drawLinks}
+				categoricalFill
+			/>,
+			<D3Graph
+				key="graph-3"
+				graph={graph}
+				{...common}
+				drawNodes={drawNodes}
+				drawLinks={drawLinks}
+				sequentialFill
+			/>,
+		],
+		[graph, common, drawNodes, drawLinks],
+	)
 
 	return (
 		<div className="theme-wrapper">

@@ -248,7 +248,7 @@ export function plotArea(
 		.classed('thematic-plot-area', true)
 		.attr('transform', `translate(${marginLeft ?? 0},${marginTop ?? 0})`)
 	group
-		.append('rect')
+		.insert('rect', ':first-child')
 		.classed('thematic-plot-area-background', true)
 		.call(rectCall as any, p)
 		.call(applyBaseOptions as any, opts)

@@ -386,40 +386,35 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export interface ColorPickerButtonProps "
+              "text": "export interface ColorPickerButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "IButtonProps",
+              "canonicalReference": "@fluentui/react!IButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'onChange' | 'iconProps' | 'menuProps' | 'size'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
             }
           ],
           "releaseTag": "Public",
           "name": "ColorPickerButtonProps",
           "preserveMemberOrder": false,
           "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ColorPickerButtonProps#label:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "label?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "label",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
             {
               "kind": "PropertySignature",
               "canonicalReference": "@thematic/fluent!ColorPickerButtonProps#onChange:member",
@@ -431,12 +426,12 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(theme: "
+                  "text": "(params: "
                 },
                 {
                   "kind": "Reference",
-                  "text": "Theme",
-                  "canonicalReference": "@thematic/core!Theme:interface"
+                  "text": "SchemeParams",
+                  "canonicalReference": "@thematic/color!SchemeParams:interface"
                 },
                 {
                   "kind": "Content",
@@ -458,17 +453,17 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ColorPickerButtonProps#styles:member",
+              "canonicalReference": "@thematic/fluent!ColorPickerButtonProps#size:member",
               "docComment": "",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "styles?: "
+                  "text": "size?: "
                 },
                 {
                   "kind": "Reference",
-                  "text": "ColorPickerButtonStyles",
-                  "canonicalReference": "@thematic/fluent!ColorPickerButtonStyles:interface"
+                  "text": "Size",
+                  "canonicalReference": "@essex/components!Size:type"
                 },
                 {
                   "kind": "Content",
@@ -478,115 +473,17 @@
               "isReadonly": false,
               "isOptional": true,
               "releaseTag": "Public",
-              "name": "styles",
+              "name": "size",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
               }
             }
           ],
-          "extendsTokenRanges": []
-        },
-        {
-          "kind": "Interface",
-          "canonicalReference": "@thematic/fluent!ColorPickerButtonStyles:interface",
-          "docComment": "",
-          "excerptTokens": [
+          "extendsTokenRanges": [
             {
-              "kind": "Content",
-              "text": "export interface ColorPickerButtonStyles "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "ColorPickerButtonStyles",
-          "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ColorPickerButtonStyles#label:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "label?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "CSSProperties",
-                  "canonicalReference": "@types/react!~React.CSSProperties:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "label",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
-        },
-        {
-          "kind": "Enum",
-          "canonicalReference": "@thematic/fluent!ColorPickerLayout:enum",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "export declare enum ColorPickerLayout "
-            }
-          ],
-          "releaseTag": "Public",
-          "name": "ColorPickerLayout",
-          "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "EnumMember",
-              "canonicalReference": "@thematic/fluent!ColorPickerLayout.PickerOnly:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "PickerOnly = "
-                },
-                {
-                  "kind": "Content",
-                  "text": "\"pickeronly\""
-                }
-              ],
-              "initializerTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "releaseTag": "Public",
-              "name": "PickerOnly"
-            },
-            {
-              "kind": "EnumMember",
-              "canonicalReference": "@thematic/fluent!ColorPickerLayout.SideBySide:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "SideBySide = "
-                },
-                {
-                  "kind": "Content",
-                  "text": "\"sidebyside\""
-                }
-              ],
-              "initializerTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "releaseTag": "Public",
-              "name": "SideBySide"
+              "startIndex": 1,
+              "endIndex": 5
             }
           ]
         },
@@ -597,41 +494,35 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export interface ColorPickerProps "
+              "text": "export interface ColorPickerProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "IColorPickerProps",
+              "canonicalReference": "@fluentui/react!IColorPickerProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'color' | 'onChange'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
             }
           ],
           "releaseTag": "Public",
           "name": "ColorPickerProps",
           "preserveMemberOrder": false,
           "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ColorPickerProps#layout:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "layout?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "ColorPickerLayout",
-                  "canonicalReference": "@thematic/fluent!ColorPickerLayout:enum"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "layout",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
             {
               "kind": "PropertySignature",
               "canonicalReference": "@thematic/fluent!ColorPickerProps#onChange:member",
@@ -643,12 +534,12 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(theme: "
+                  "text": "(params: "
                 },
                 {
                   "kind": "Reference",
-                  "text": "Theme",
-                  "canonicalReference": "@thematic/core!Theme:interface"
+                  "text": "SchemeParams",
+                  "canonicalReference": "@thematic/color!SchemeParams:interface"
                 },
                 {
                   "kind": "Content",
@@ -670,17 +561,17 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ColorPickerProps#styles:member",
+              "canonicalReference": "@thematic/fluent!ColorPickerProps#size:member",
               "docComment": "",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "styles?: "
+                  "text": "size?: "
                 },
                 {
                   "kind": "Reference",
-                  "text": "ColorPickerStyles",
-                  "canonicalReference": "@thematic/fluent!ColorPickerStyles:interface"
+                  "text": "Size",
+                  "canonicalReference": "@essex/components!Size:type"
                 },
                 {
                   "kind": "Content",
@@ -690,87 +581,19 @@
               "isReadonly": false,
               "isOptional": true,
               "releaseTag": "Public",
-              "name": "styles",
+              "name": "size",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
               }
             }
           ],
-          "extendsTokenRanges": []
-        },
-        {
-          "kind": "Interface",
-          "canonicalReference": "@thematic/fluent!ColorPickerStyles:interface",
-          "docComment": "",
-          "excerptTokens": [
+          "extendsTokenRanges": [
             {
-              "kind": "Content",
-              "text": "export interface ColorPickerStyles "
+              "startIndex": 1,
+              "endIndex": 5
             }
-          ],
-          "releaseTag": "Public",
-          "name": "ColorPickerStyles",
-          "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ColorPickerStyles#container:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "container?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "CSSProperties",
-                  "canonicalReference": "@types/react!~React.CSSProperties:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "container",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ColorPickerStyles#slider:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "slider?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "ISliderStyles",
-                  "canonicalReference": "@fluentui/react!ISliderStyles:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "slider",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": []
+          ]
         },
         {
           "kind": "Interface",
@@ -974,7 +797,7 @@
             {
               "kind": "Reference",
               "text": "ScaleDropdownProps",
-              "canonicalReference": "@thematic/fluent!ScaleDropdownProps:type"
+              "canonicalReference": "@thematic/fluent!ScaleDropdownProps:interface"
             },
             {
               "kind": "Content",
@@ -991,21 +814,21 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "@thematic/fluent!ScaleDropdownItemProps:interface",
+          "canonicalReference": "@thematic/fluent!ScaleDropdownOptionProps:interface",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export interface ScaleDropdownItemProps "
+              "text": "export interface ScaleDropdownOptionProps "
             }
           ],
           "releaseTag": "Public",
-          "name": "ScaleDropdownItemProps",
+          "name": "ScaleDropdownOptionProps",
           "preserveMemberOrder": false,
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ScaleDropdownItemProps#option:member",
+              "canonicalReference": "@thematic/fluent!ScaleDropdownOptionProps#option:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -1033,7 +856,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ScaleDropdownItemProps#paletteHeight:member",
+              "canonicalReference": "@thematic/fluent!ScaleDropdownOptionProps#paletteHeight:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -1060,7 +883,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ScaleDropdownItemProps#paletteWidth:member",
+              "canonicalReference": "@thematic/fluent!ScaleDropdownOptionProps#paletteWidth:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -1087,7 +910,35 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ScaleDropdownItemProps#style:member",
+              "canonicalReference": "@thematic/fluent!ScaleDropdownOptionProps#size:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "size?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Size",
+                  "canonicalReference": "@essex/components!Size:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "size",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/fluent!ScaleDropdownOptionProps#style:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -1117,13 +968,13 @@
           "extendsTokenRanges": []
         },
         {
-          "kind": "TypeAlias",
-          "canonicalReference": "@thematic/fluent!ScaleDropdownProps:type",
+          "kind": "Interface",
+          "canonicalReference": "@thematic/fluent!ScaleDropdownProps:interface",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type ScaleDropdownProps = "
+              "text": "export interface ScaleDropdownProps extends "
             },
             {
               "kind": "Reference",
@@ -1145,15 +996,75 @@
             },
             {
               "kind": "Content",
-              "text": ";"
+              "text": " "
             }
           ],
           "releaseTag": "Public",
           "name": "ScaleDropdownProps",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 5
-          }
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/fluent!ScaleDropdownProps#size:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "size?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Size",
+                  "canonicalReference": "@essex/components!Size:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "size",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/fluent!ScaleDropdownProps#type:member",
+              "docComment": "/**\n * If a data type is catgorical only (e.g., strings), filter to only include the nomincal scales. Likewise, if the data is numeric in nature, filter to only include categorical scales.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "type?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "'nominal' | 'continuous'"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "type",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ]
         },
         {
           "kind": "Variable",
@@ -1198,7 +1109,29 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export interface ScaleTypeChoiceGroupProps "
+              "text": "export interface ScaleTypeChoiceGroupProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "IChoiceGroupProps",
+              "canonicalReference": "@fluentui/react!IChoiceGroupProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'size'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
             }
           ],
           "releaseTag": "Public",
@@ -1207,52 +1140,17 @@
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ScaleTypeChoiceGroupProps#label:member",
+              "canonicalReference": "@thematic/fluent!ScaleTypeChoiceGroupProps#size:member",
               "docComment": "",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "label: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "label",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ScaleTypeChoiceGroupProps#onChange:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "onChange?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "(scaleType: "
+                  "text": "size?: "
                 },
                 {
                   "kind": "Reference",
-                  "text": "ScaleType",
-                  "canonicalReference": "@thematic/core!ScaleType:enum"
-                },
-                {
-                  "kind": "Content",
-                  "text": ") => void"
+                  "text": "Size",
+                  "canonicalReference": "@essex/components!Size:type"
                 },
                 {
                   "kind": "Content",
@@ -1262,63 +1160,7 @@
               "isReadonly": false,
               "isOptional": true,
               "releaseTag": "Public",
-              "name": "onChange",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 4
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ScaleTypeChoiceGroupProps#selectedType:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "selectedType: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "ScaleType",
-                  "canonicalReference": "@thematic/core!ScaleType:enum"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "selectedType",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@thematic/fluent!ScaleTypeChoiceGroupProps#styles:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "styles?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "IChoiceGroupStyles",
-                  "canonicalReference": "@fluentui/react!IChoiceGroupStyles:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "styles",
+              "name": "size",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -1352,7 +1194,12 @@
               }
             }
           ],
-          "extendsTokenRanges": []
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ]
         },
         {
           "kind": "Variable",
@@ -1537,6 +1384,196 @@
               "isOptional": false,
               "releaseTag": "Public",
               "name": "theme",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@thematic/fluent!ThemeParameters:var",
+          "docComment": "/**\n * This is a simple ThemeParameters control that you can show users, allowing them to tune core theme parameters. It does not expose the background and nominal step properties, but may do so in the future.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "ThemeParameters: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FC",
+              "canonicalReference": "@types/react!~React.FC:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "ThemeParametersProps",
+              "canonicalReference": "@thematic/fluent!ThemeParametersProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "ThemeParameters",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@thematic/fluent!ThemeParametersProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface ThemeParametersProps "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "ThemeParametersProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/fluent!ThemeParametersProps#onChange:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "onChange?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(params: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "SchemeParams",
+                  "canonicalReference": "@thematic/color!SchemeParams:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ") => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "onChange",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/fluent!ThemeParametersProps#styles:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "styles?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ThemeParametersStyles",
+                  "canonicalReference": "@thematic/fluent!ThemeParametersStyles:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "styles",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@thematic/fluent!ThemeParametersStyles:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface ThemeParametersStyles "
+            }
+          ],
+          "releaseTag": "Public",
+          "name": "ThemeParametersStyles",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/fluent!ThemeParametersStyles#container:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "container?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CSSProperties",
+                  "canonicalReference": "@types/react!~React.CSSProperties:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "container",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@thematic/fluent!ThemeParametersStyles#slider:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "slider?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ISliderStyles",
+                  "canonicalReference": "@fluentui/react!ISliderStyles:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "slider",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2

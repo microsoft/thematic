@@ -2,8 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { IDropdownOption } from '@fluentui/react'
-import type { Theme } from '@thematic/core'
+import type { IChoiceGroupOption, IDropdownOption } from '@fluentui/react'
+import { ChoiceGroup } from '@fluentui/react'
+import type { SchemeParams } from '@thematic/color'
 import { ScaleType } from '@thematic/core'
 import {
 	ColorPicker,
@@ -15,16 +16,22 @@ import {
 import type { FC } from 'react'
 import { useCallback, useMemo, useState } from 'react'
 
-import { useSetTheme } from '../../../../../state/index.js'
+import { useSetParams } from '../../../../../state/index.js'
 
 export interface FluentControlsComponentProps {
-	themeLoaded: (theme: Theme) => void
+	paramsChanged: (params: SchemeParams) => void
 }
 
 const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
-	themeLoaded,
+	paramsChanged,
 }) => {
 	const theme = useThematicFluent()
+	const [size, setSize] = useState<'small' | 'medium'>('medium')
+	const handleSizeChange = useCallback(
+		(_ev?: any, option?: IChoiceGroupOption) =>
+			setSize(option?.key as 'small' | 'medium'),
+		[],
+	)
 	const [scale, setScale] = useState<string>('<none>')
 	const handleScaleChange = useCallback(
 		(_e: any, option: IDropdownOption<any> | undefined) =>
@@ -33,12 +40,13 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 	)
 	const [scaleType, setScaleType] = useState<ScaleType>(ScaleType.Linear)
 	const handleScaleTypeChange = useCallback(
-		(type: ScaleType) => setScaleType(type),
+		(_ev?: any, option?: IChoiceGroupOption) =>
+			setScaleType(option?.key as ScaleType),
 		[],
 	)
 	const handlePickerChange = useCallback(
-		(t: Theme) => themeLoaded(t),
-		[themeLoaded],
+		(p: SchemeParams) => paramsChanged(p),
+		[paramsChanged],
 	)
 	const labelStyle = useMemo(
 		() => ({
@@ -55,6 +63,15 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 		}),
 		[theme],
 	)
+	const controlStyle = useMemo(
+		() => ({
+			width: size === 'medium' ? 320 : 220,
+			padding: 8,
+			margin: 8,
+		}),
+		[size],
+	)
+
 	return (
 		<div
 			style={{
@@ -65,14 +82,24 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 			<p>
 				The @thematic/fluent package contains a few custom Fluent controls you
 				can use in your applications to allow Thematic-specific interactions.
+				These components also support a <b>size</b> prop to align with Fluent 9
+				sizing, which you can preview here.
 			</p>
+			<ChoiceGroup
+				label="Controls size"
+				selectedKey={size}
+				options={sizeOptions}
+				styles={sizeStyles}
+				onChange={handleSizeChange}
+			/>
 			<div style={controlsStyle}>
 				<div style={controlStyle}>
 					<p>
 						<span style={labelStyle}>ScaleDropdown:</span> a Dropdown that
-						pre-loads Thematic scale options.
+						pre-loads Thematic scale options including a visual rendering.
 					</p>
 					<ScaleDropdown
+						size={size}
 						placeholder={'Choose scale'}
 						onChange={handleScaleChange}
 					/>
@@ -84,8 +111,8 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 						that pre-loads Thematic scale types.
 					</p>
 					<ScaleTypeChoiceGroup
-						label=""
-						selectedType={scaleType}
+						size={size}
+						selectedKey={scaleType}
 						onChange={handleScaleTypeChange}
 					/>
 					<p style={actionStyle}> onChange: {scaleType}</p>
@@ -95,7 +122,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 						<span style={labelStyle}>ColorPicker:</span> a ColorPicker that
 						emits Thematic parameters.
 					</p>
-					<ColorPicker onChange={handlePickerChange} />
+					<ColorPicker size={size} onChange={handlePickerChange} />
 					<p style={actionStyle}> onChange: {theme.palette.themePrimary}</p>
 				</div>
 				<div style={controlStyle}>
@@ -103,7 +130,7 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 						<span style={labelStyle}>ColorPickerButton:</span> a DropdownButton
 						that hosts a Thematic ColorPicker.
 					</p>
-					<ColorPickerButton onChange={handlePickerChange} />
+					<ColorPickerButton size={size} onChange={handlePickerChange} />
 					<p style={actionStyle}> onChange: {theme.palette.themePrimary}</p>
 				</div>
 			</div>
@@ -112,8 +139,8 @@ const FluentControlsComponent: FC<FluentControlsComponentProps> = ({
 }
 
 export const FluentControls = () => {
-	const themeLoaded = useSetTheme()
-	return <FluentControlsComponent themeLoaded={themeLoaded} />
+	const paramsChanged = useSetParams()
+	return <FluentControlsComponent paramsChanged={paramsChanged} />
 }
 
 const controlsStyle = {
@@ -123,8 +150,15 @@ const controlsStyle = {
 	justifyContent: 'space-around' as const,
 }
 
-const controlStyle = {
-	width: 320,
-	padding: 8,
-	margin: 8,
+const sizeOptions = [
+	{ key: 'small', text: 'Small' },
+	{ key: 'medium', text: 'Medium' },
+]
+
+const sizeStyles = {
+	flexContainer: {
+		display: 'flex',
+		justifyContent: 'center',
+		gap: 12,
+	},
 }

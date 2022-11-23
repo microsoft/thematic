@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { ISliderStyles } from '@fluentui/react'
 import { useTheme } from '@fluentui/react'
 import merge from 'lodash-es/merge.js'
 import type { CSSProperties } from 'react'
@@ -39,50 +38,30 @@ export function useSectionHeaderStyle() {
 	)
 }
 
-export function useSliderStyles(styles?: ISliderStyles) {
-	return useMemo(
-		() =>
-			merge(
-				{
-					root: {
-						marginBottom: 4,
-						textAlign: 'left',
-						display: 'flex',
-						alignItems: 'center',
-						width: '100%',
-					},
-					titleLabel: {
-						fontSize: 12,
-						textAlign: 'right',
-						width: 60,
-					},
-					container: {
-						flex: 1,
-					},
-					valueLabel: {
-						fontSize: 12,
-						width: 24,
-						margin: 0,
-						padding: 0,
-						textAlign: 'right',
-					},
-					thumb: {
-						top: -3.5,
-						width: 10,
-						height: 10,
-						borderWidth: 1,
-					},
-					lineContainer: {
-						height: 2,
-						borderRadius: 2,
-					},
-					slideBox: {
-						paddingTop: 1,
-						paddingRight: 0,
-					},
-				},
-				styles,
-			),
-		[styles],
-	)
+// layout with the labels on the left and then right-aligned
+export const defaultSliderStyles = {
+	root: {
+		marginBottom: 4,
+		textAlign: 'left',
+		display: 'flex',
+		alignItems: 'center',
+		width: '100%',
+	},
+	titleLabel: {
+		textAlign: 'right',
+		width: 60,
+	},
+	container: {
+		flex: 1,
+	},
+	valueLabel: {
+		width: 24,
+		margin: 0,
+		padding: 0,
+		textAlign: 'right',
+	},
+}
+
+export const sectionStyle = {
+	textAlign: 'left' as const,
 }
