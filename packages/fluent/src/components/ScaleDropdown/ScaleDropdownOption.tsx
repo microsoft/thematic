@@ -23,7 +23,7 @@ export const ScaleDropdownOption: FC<ScaleDropdownOptionProps> = ({
 	const { key } = option
 	const Palette = usePaletteComponent(key as string)
 	const [width, height] = useSafeCollapseDimensions(paletteWidth, paletteHeight)
-	const scale = useScale(option.key as string, paletteWidth)
+	const scale = useScale(option.key as string, width)
 	const cStyle = useMemo(
 		() => ({
 			...containerStyle,
