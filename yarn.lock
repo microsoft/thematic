@@ -2305,9 +2305,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/components@npm:^3.2.1":
-  version: 3.2.1
-  resolution: "@essex/components@npm:3.2.1"
+"@essex/components@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "@essex/components@npm:3.3.0"
   dependencies:
     "@essex/hooks": ^4.0.13
     "@essex/react-animate-height": ^2.1.4
@@ -2339,7 +2339,7 @@ __metadata:
     "@uifabric/icons": ">= 7.3.38"
     react: ">= 18"
     react-dom: ">= 18"
-  checksum: c9452fe9cd7e49b4f47ceb3d8321b9fb90d6070153f6d2cbb82c2b9697c999fbb64dac9ec10a4ee60118ee7c600093399588602f9464f687d4c19b479eca9f19
+  checksum: 1c97a8846b3e48c37a896e20c022a8aadac0a7a161beb4843769da77df0a6b6f818d14a90acce821c4db5044ab85993d821f54e31a85821715c628ce4ca1f033
   languageName: node
   linkType: hard
 
@@ -2735,9 +2735,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fluentui/react@npm:^8.103.0":
-  version: 8.103.0
-  resolution: "@fluentui/react@npm:8.103.0"
+"@fluentui/react@npm:^8.103.4":
+  version: 8.103.4
+  resolution: "@fluentui/react@npm:8.103.4"
   dependencies:
     "@fluentui/date-time-utilities": ^8.5.3
     "@fluentui/font-icons-mdl2": ^8.5.4
@@ -2758,7 +2758,7 @@ __metadata:
     "@types/react-dom": ">=16.8.0 <19.0.0"
     react: ">=16.8.0 <19.0.0"
     react-dom: ">=16.8.0 <19.0.0"
-  checksum: 617ea9cf30c2d60932815ccc17f02cb3b7b62619bb14e2d3d595396f7c82cd39727468e2f08204109317193f58ac9ecfc623466fdb40c934d21e59ace07832bc
+  checksum: 8e2bb42848bbd60bae92ada23f3588bc535a1dd3ec1447a9888428ff22ff35e2246c3d46534d9c9f4744c6fdee6cf30f678eebaf1569db42dff0dffd7885d106
   languageName: node
   linkType: hard
 
@@ -3788,7 +3788,7 @@ __metadata:
     "@essex/tsconfig-base": ^1.0.2
     "@types/chroma-js": ^2.1.4
     "@types/jest": ^29.2.3
-    "@types/node": ^18.11.9
+    "@types/node": ^18.11.10
     chroma-js: ^2.4.2
     color-blind: ^0.1.3
     hsluv: ^1.0.0
@@ -3816,7 +3816,7 @@ __metadata:
     "@types/jest": ^29.2.3
     "@types/lodash-es": ^4.17.6
     "@types/murmurhash-js": ^1.0.3
-    "@types/node": ^18.11.9
+    "@types/node": ^18.11.10
     d3-scale: ^4.0.2
     jest: ^29.3.1
     lodash-es: ^4.17.21
@@ -3842,7 +3842,7 @@ __metadata:
     "@thematic/core": "workspace:^"
     "@types/d3-axis": ^3.0.1
     "@types/d3-selection": ^3.0.3
-    "@types/node": ^18.11.9
+    "@types/node": ^18.11.10
     d3-axis: ^3.0.0
     d3-selection: ^3.0.0
   peerDependencies:
@@ -3863,11 +3863,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/fluent@workspace:packages/fluent"
   dependencies:
-    "@essex/components": ^3.2.1
+    "@essex/components": ^3.3.0
     "@essex/jest-config": ^21.0.16
     "@essex/scripts": ^22.1.0
     "@essex/tsconfig-base": ^1.0.2
-    "@fluentui/react": ^8.103.0
+    "@fluentui/react": ^8.103.4
     "@thematic/color": "workspace:^"
     "@thematic/core": "workspace:^"
     "@thematic/d3": "workspace:^"
@@ -3875,8 +3875,8 @@ __metadata:
     "@types/chroma-js": ^2.1.4
     "@types/d3-scale": ^4.0.2
     "@types/lodash-es": ^4.17.6
-    "@types/node": ^18.11.9
-    "@types/react": ^18.0.25
+    "@types/node": ^18.11.10
+    "@types/react": ^18.0.26
     ahooks: ^3.7.2
     chroma-js: ^2.4.2
     d3-scale: ^4.0.2
@@ -3908,8 +3908,8 @@ __metadata:
     "@essex/tsconfig-base": ^1.0.2
     "@thematic/color": "workspace:^"
     "@thematic/core": "workspace:^"
-    "@types/node": ^18.11.9
-    "@types/react": ^18.0.25
+    "@types/node": ^18.11.10
+    "@types/react": ^18.0.26
     react: ^18.2.0
   peerDependencies:
     "@types/node": "*"
@@ -3934,7 +3934,7 @@ __metadata:
     "@essex/prettier-config": ^18.0.3
     "@essex/scripts": ^22.1.0
     "@types/jest": ^29.2.3
-    "@types/node": ^18.11.9
+    "@types/node": ^18.11.10
     eslint: ^8.27.0
     husky: ^8.0.2
     jest: ^29.3.1
@@ -3958,7 +3958,7 @@ __metadata:
     "@thematic/core": "workspace:^"
     "@types/jest": ^29.2.3
     "@types/lodash-es": ^4.17.6
-    "@types/node": ^18.11.9
+    "@types/node": ^18.11.10
     jest: ^29.3.1
     lodash-es: ^4.17.21
     vega: ^5.22.1
@@ -3974,12 +3974,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thematic/webapp@workspace:packages/webapp"
   dependencies:
-    "@essex/components": ^3.2.1
+    "@essex/components": ^3.3.0
     "@essex/scripts": ^22.1.0
     "@essex/tsconfig-base": ^1.0.2
     "@essex/webpack-config": ^21.0.8
     "@fluentui/font-icons-mdl2": ^8.5.4
-    "@fluentui/react": ^8.103.0
+    "@fluentui/react": ^8.103.4
     "@thematic/color": "workspace:^"
     "@thematic/core": "workspace:^"
     "@thematic/d3": "workspace:^"
@@ -3990,8 +3990,8 @@ __metadata:
     "@types/d3-scale": ^4.0.2
     "@types/d3-selection": ^3.0.3
     "@types/lodash-es": ^4.17.6
-    "@types/node": ^18.11.9
-    "@types/react": ^18.0.25
+    "@types/node": ^18.11.10
+    "@types/react": ^18.0.26
     "@types/react-dom": ^18.0.9
     ahooks: ^3.7.2
     d3-axis: ^3.0.0
@@ -4384,10 +4384,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.11.9":
-  version: 18.11.9
-  resolution: "@types/node@npm:18.11.9"
-  checksum: cc0aae109e9b7adefc32eecb838d6fad931663bb06484b5e9cbbbf74865c721b03d16fd8d74ad90e31dbe093d956a7c2c306ba5429ba0c00f3f7505103d7a496
+"@types/node@npm:^18.11.10":
+  version: 18.11.10
+  resolution: "@types/node@npm:18.11.10"
+  checksum: 0f60cb090b2ee91fcd3dc4311bc1ed7889b92f14644c0069f100776f86474c12eebbcc6c75bc0d7d96b975a103b4d5d6b3c22b4e88bea6e7f4e2b1bb0daf5ea8
   languageName: node
   linkType: hard
 
@@ -4445,14 +4445,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.0.25":
-  version: 18.0.25
-  resolution: "@types/react@npm:18.0.25"
+"@types/react@npm:^18.0.26":
+  version: 18.0.26
+  resolution: "@types/react@npm:18.0.26"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 231d658c45abdef044a716b4502774f1585d8336d73b2f5bd68f181acbfc874b7a457686ecd29b415b43ed0922c309bab7e2cf96832d188a3f4f1b02f2af760a
+  checksum: b62f0ea3cdfa68e106391728325057ad36f1bde7ba2dfae029472c47e01e482bc77c6ba4f1dad59f3f04ee81cb597618ff7c30a33c157c0a20462b6dd6aa2d4d
   languageName: node
   linkType: hard
 

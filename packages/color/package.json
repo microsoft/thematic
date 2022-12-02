@@ -32,7 +32,7 @@
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/chroma-js": "^2.1.4",
 		"@types/jest": "^29.2.3",
-		"@types/node": "^18.11.9",
+		"@types/node": "^18.11.10",
 		"jest": "^29.3.1"
 	},
 	"peerDependencies": {
