@@ -30,7 +30,7 @@
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/d3-axis": "^3.0.1",
 		"@types/d3-selection": "^3.0.3",
-		"@types/node": "^18.11.9"
+		"@types/node": "^18.11.10"
 	},
 	"peerDependencies": {
 		"@types/d3-axis": ">= 1",
