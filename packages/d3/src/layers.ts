@@ -247,6 +247,8 @@ export function plotArea(
 	group
 		.classed('thematic-plot-area', true)
 		.attr('transform', `translate(${marginLeft ?? 0},${marginTop ?? 0})`)
+	// if there's already a background rect, remove it, then insert a new one at the bottom of the stack
+	group.select('.thematic-plot-area-background').remove()
 	group
 		.insert('rect', ':first-child')
 		.classed('thematic-plot-area-background', true)

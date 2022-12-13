@@ -109,14 +109,14 @@ export const D3Graph: FC<GraphProps> = ({
 			.on('mouseover', d => setNodeHover(d.id as any))
 			.on('mouseout', () => setNodeHover(null))
 			.on('mouseup', d => setNodeSelect(d.id as any))
-	}, [graph, width, height, nodes, edges])
+	}, [ref, graph, width, height, nodes, edges])
 
 	useLayoutEffect(() => {
 		select(ref.current)
 			.call(chart as any, theme)
 			.select('g')
 			.call(plotArea as any, theme)
-	}, [theme])
+	}, [theme, ref])
 
 	useLayoutEffect(() => {
 		select(ref.current)
@@ -129,7 +129,7 @@ export const D3Graph: FC<GraphProps> = ({
 						: SelectionState.Hidden,
 				}),
 			)
-	}, [theme, graph, drawLinks, width, height])
+	}, [theme, ref, graph, drawLinks, width, height])
 
 	useLayoutEffect(() => {
 		select(ref.current)
@@ -142,7 +142,7 @@ export const D3Graph: FC<GraphProps> = ({
 						: SelectionState.Hidden,
 				}),
 			)
-	}, [theme, graph, drawNodes, width, height])
+	}, [theme, ref, graph, drawNodes, width, height])
 
 	useEffect(() => {
 		const n = select<any, any>(ref.current).selectAll<Element, Node>('.node')
@@ -188,6 +188,7 @@ export const D3Graph: FC<GraphProps> = ({
 		}
 	}, [
 		theme,
+		ref,
 		graph,
 		drawNodes,
 		width,
