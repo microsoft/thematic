@@ -38,7 +38,7 @@
 		"vega": "^5.22.1"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^22.1.0",
+		"@essex/scripts": "^22.2.0",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@essex/webpack-config": "^21.0.9",
 		"@types/d3-axis": "^3.0.1",

@@ -32,7 +32,7 @@
 	},
 	"devDependencies": {
 		"@essex/jest-config": "^21.0.17",
-		"@essex/scripts": "^22.1.0",
+		"@essex/scripts": "^22.2.0",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@fluentui/react": "^8.103.8",
 		"@thematic/react": "workspace:^",
