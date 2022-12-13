@@ -8,7 +8,6 @@
 		"arcanis.vscode-zipfs",
 		"silvenon.mdx"
 	],
-	"workspaceFolder": "/ws",
 	"service": "workspace",
 
 	// Use 'postCreateCommand' to run commands after the container is created.
