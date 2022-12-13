@@ -14,7 +14,7 @@ export const ThemeViewer = () => {
 	const [drawNodes] = useDrawNodes()
 	const [drawLinks] = useDrawLinks()
 	const [chartSize] = useChartSize()
-	const [graph] = useGraph()
+	const graph = useGraph()
 	return (
 		<ThemeViewerBase
 			drawNodes={drawNodes}
