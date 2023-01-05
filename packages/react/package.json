@@ -18,7 +18,8 @@
 		"clean": "essex clean",
 		"build": "essex build --skipExportCheck --docs",
 		"release": "yarn npm publish --tolerate-republish --access public",
-		"lint": "essex lint --fix --noFormat"
+		"lint": "essex lint --noFormat",
+		"lint_fix": "essex lint --fix --noFormat"
 	},
 	"dependencies": {
 		"@thematic/color": "workspace:^",
