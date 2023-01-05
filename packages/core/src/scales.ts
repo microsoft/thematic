@@ -118,7 +118,7 @@ export function quantile(
 		.domain([0, bins! - 1])
 		.range([0, 1])
 	const scale = (value: number) => {
-		const binIndex = quantized.findIndex(bin => {
+		const binIndex = quantized.findIndex((bin) => {
 			return value >= bin.x0! && value <= bin.x1!
 		})
 		return histoLinearScale(binIndex)

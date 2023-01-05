@@ -6,7 +6,8 @@
 		"esbenp.prettier-vscode",
 		"editorconfig.editorconfig",
 		"arcanis.vscode-zipfs",
-		"silvenon.mdx"
+		"silvenon.mdx",
+		"rome.rome"
 	],
 	"service": "workspace",
 

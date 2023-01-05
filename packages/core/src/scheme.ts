@@ -419,7 +419,7 @@ export function computeDefinition(
 function reduceConfig(configs: Config[]): ThemeDefinition {
 	return configs.reduce((acc, cur) => {
 		const { value, paths } = cur
-		paths.forEach(path => set(acc, path, value))
+		paths.forEach((path) => set(acc, path, value))
 		return acc
 	}, {} as ThemeDefinition)
 }

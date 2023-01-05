@@ -93,22 +93,22 @@ export const D3Graph: FC<GraphProps> = ({
 			.enter()
 			.append('line')
 			.attr('class', 'link')
-			.attr('x1', d => xScale(nmap[d.source]!.x) as number)
-			.attr('x2', d => xScale(nmap[d.target]!.x) as number)
-			.attr('y1', d => yScale(nmap[d.source]!.y) as number)
-			.attr('y2', d => yScale(nmap[d.target]!.y) as number)
+			.attr('x1', (d) => xScale(nmap[d.source]!.x) as number)
+			.attr('x2', (d) => xScale(nmap[d.target]!.x) as number)
+			.attr('y1', (d) => yScale(nmap[d.source]!.y) as number)
+			.attr('y2', (d) => yScale(nmap[d.target]!.y) as number)
 
 		g.selectAll('.node')
 			.data(nodes)
 			.enter()
 			.append('circle')
 			.attr('class', 'node')
-			.attr('cx', d => xScale(d.x) as number)
-			.attr('cy', d => yScale(d.y) as number)
+			.attr('cx', (d) => xScale(d.x) as number)
+			.attr('cy', (d) => yScale(d.y) as number)
 			.style('cursor', 'pointer')
-			.on('mouseover', d => setNodeHover(d.id as any))
+			.on('mouseover', (d) => setNodeHover(d.id as any))
 			.on('mouseout', () => setNodeHover(null))
-			.on('mouseup', d => setNodeSelect(d.id as any))
+			.on('mouseup', (d) => setNodeSelect(d.id as any))
 	}, [ref, graph, width, height, nodes, edges])
 
 	useLayoutEffect(() => {
@@ -164,7 +164,7 @@ export const D3Graph: FC<GraphProps> = ({
 					Object.keys(unique).length,
 				)
 			} else if (sequentialFill) {
-				const domain = nodes.map(node => node.weight).sort((a, b) => a - b)
+				const domain = nodes.map((node) => node.weight).sort((a, b) => a - b)
 				n.call(
 					circle as any,
 					theme.node({
@@ -172,7 +172,7 @@ export const D3Graph: FC<GraphProps> = ({
 						scaleBindings: {
 							fill: {
 								scale: sequential(theme, domain, ScaleType.Quantile),
-								accessor: d => d.weight,
+								accessor: (d) => d.weight,
 							},
 						},
 					}),

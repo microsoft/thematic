@@ -28,7 +28,7 @@ const themes = {
  * These can be loaded using the loadById function.
  */
 export const defaultThemes: ThemeListing[] = Object.entries(themes).map(
-	entry => {
+	(entry) => {
 		const [key, value] = entry
 		const { accentHue, accentSaturation, accentLightness } = value.params
 		return {

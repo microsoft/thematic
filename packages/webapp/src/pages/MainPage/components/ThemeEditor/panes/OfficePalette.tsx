@@ -59,7 +59,7 @@ export const OfficePalette: FC<OfficePaletteProps> = ({ colors }) => {
 function useColors(theme: OfficeTheme, keys: string[]) {
 	return useMemo(
 		() =>
-			keys.map(key => ({
+			keys.map((key) => ({
 				color: theme[key as keyof OfficeTheme],
 				label: key,
 				secondaryLabel: theme[key as keyof OfficeTheme],

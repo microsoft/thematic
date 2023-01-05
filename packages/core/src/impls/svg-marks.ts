@@ -68,16 +68,16 @@ function getMarkValue(
 	markConfig?: MarkConfig,
 	datum?: any,
 ) {
-	const selectionState = markConfig && markConfig.selectionState
-	const scaleBindings = markConfig && markConfig.scaleBindings
-	const overrides = markConfig && markConfig.overrides
-	const generalAccessor = markConfig && markConfig.accessor
+	const selectionState = markConfig?.selectionState
+	const scaleBindings = markConfig?.scaleBindings
+	const overrides = markConfig?.overrides
+	const generalAccessor = markConfig?.accessor
 	const selectionProp = selectionStateString(selectionState!, datum)
 	const mark: SignaledSVGSpec = (spec as any)[selectionProp] || spec
-	if (overrides && overrides[property]) {
+	if (overrides?.[property]) {
 		return overrides[property]
 	}
-	if (scaleBindings && scaleBindings[property]) {
+	if (scaleBindings?.[property]) {
 		const { scale, accessor = generalAccessor || identity } =
 			scaleBindings[property]!
 		const value = accessor(datum)

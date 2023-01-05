@@ -84,7 +84,7 @@ export const FluentPalette: FC<FluentPaletteProps> = ({ theme }) => {
 function useColors(theme: Theme, keys: string[]) {
 	return useMemo(
 		() =>
-			keys.map(key => ({
+			keys.map((key) => ({
 				color: theme.palette[key as keyof IPalette],
 				label: key,
 				secondaryLabel: theme.palette[key as keyof IPalette],

@@ -58,7 +58,7 @@ export function nominal(
 	}
 
 	fn.toColors = function (length?: number) {
-		return this.toArray(length).map(color => new Color(color))
+		return this.toArray(length).map((color) => new Color(color))
 	}
 
 	return fn
@@ -73,7 +73,7 @@ export function continuous(
 	let scale: (value: number) => number
 	// this ensures no infinite values can be used with log scale
 	// note that the results can still be unpredictable if the domain crosses zero
-	const safedomain = domain.map(d => (d === 0 ? 1e-10 : d))
+	const safedomain = domain.map((d) => (d === 0 ? 1e-10 : d))
 	switch (scaleType) {
 		case ScaleType.Log:
 			scale = log(safedomain)
@@ -106,7 +106,7 @@ export function continuous(
 	}
 
 	fn.toColors = function (length?: number) {
-		return this.toArray(length).map(color => new Color(color))
+		return this.toArray(length).map((color) => new Color(color))
 	}
 
 	return fn

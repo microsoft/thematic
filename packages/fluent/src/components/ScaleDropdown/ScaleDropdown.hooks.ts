@@ -108,7 +108,7 @@ export function useThematicScaleOptions(
 ): IDropdownOption[] {
 	const theme = useThematic()
 	return useMemo(() => {
-		const keys = Object.keys(theme.scales()).filter(key => {
+		const keys = Object.keys(theme.scales()).filter((key) => {
 			if (type) {
 				if (type === 'nominal' && isNominal(key)) {
 					return true
@@ -119,12 +119,12 @@ export function useThematicScaleOptions(
 			}
 			return true
 		})
-		return keys.map(key => {
+		return keys.map((key) => {
 			// pretty print the scale names
 			// (1) uppercase first letter
 			// (2) use +/- for bold/muted
 			const text = key
-				.replace(/^(\w{1})/, c => (TITLE_CASE ? c.toLocaleUpperCase() : c))
+				.replace(/^(\w{1})/, (c) => (TITLE_CASE ? c.toLocaleUpperCase() : c))
 				.replace('Bold', '+')
 				.replace('Muted', '-')
 			return {

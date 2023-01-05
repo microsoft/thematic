@@ -152,9 +152,9 @@ function __hack_fix__(theme: Theme, spec: Spec) {
 	// the default config for arcs does not honor the stroke field,
 	// so we're gonna search for any places where an arc is defined and add the stroke directly
 	if (spec.marks) {
-		spec.marks.forEach(mark => {
+		spec.marks.forEach((mark) => {
 			if (mark.type === 'arc') {
-				if (mark.encode && mark.encode.enter && !mark.encode.enter.stroke) {
+				if (mark.encode?.enter && !mark.encode.enter.stroke) {
 					mark.encode.enter.stroke = {
 						value: theme.arc().stroke().hex(),
 					}

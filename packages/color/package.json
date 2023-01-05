@@ -18,7 +18,8 @@
 		"clean": "essex clean",
 		"build": "essex build --docs",
 		"release": "yarn npm publish --tolerate-republish --access public",
-		"lint": "essex lint --fix",
+		"lint": "essex lint --noFormat",
+		"lint_fix": "essex lint --fix --noFormat",
 		"test": "NODE_OPTIONS=--experimental-vm-modules yarn node $(yarn bin jest) --runInBand"
 	},
 	"dependencies": {

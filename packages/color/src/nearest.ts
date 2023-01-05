@@ -16,7 +16,7 @@ import type { Color } from './Color.js'
  */
 export function nearest(input: Color, list: Color[]): Color {
 	const hsl = input.hsluv()
-	const distances = list.map(color => {
+	const distances = list.map((color) => {
 		const hsl2 = color.hsluv()
 		const left = hsl[0]
 		const right = hsl2[0]

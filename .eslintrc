@@ -1,5 +1,5 @@
 {
-	"extends": "@essex/eslint-config",
+	"extends": "@essex/eslint-config/rome",
 	"rules": {
 		"@typescript-eslint/no-explicit-any": 0,
 		"@typescript-eslint/no-non-null-assertion": 0,

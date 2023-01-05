@@ -19,7 +19,8 @@
 		"build": "essex build --skipExportCheck --docs",
 		"release": "yarn npm publish --tolerate-republish --access public",
 		"test": "NODE_OPTIONS=--experimental-vm-modules yarn node $(yarn bin jest) --runInBand",
-		"lint": "essex lint --fix"
+		"lint": "essex lint --noFormat",
+		"lint_fix": "essex lint --fix --noFormat"
 	},
 	"dependencies": {
 		"@essex/components": "^3.5.2",

@@ -14,11 +14,10 @@ export function useSliderChange(
 ) {
 	return useCallback(
 		(v: number) => {
-			onChange &&
-				onChange({
-					...theme.params,
-					[key]: v,
-				})
+			onChange?.({
+				...theme.params,
+				[key]: v,
+			})
 		},
 		[key, theme, onChange],
 	)
