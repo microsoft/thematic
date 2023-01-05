@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type AxisLine = SVGChrome;
+export type AxisLine = SVGChrome;
 ```
 <b>References:</b> [SVGChrome](./core.svgchrome.md)
 

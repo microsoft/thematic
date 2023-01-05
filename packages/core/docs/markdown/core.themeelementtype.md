@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type ThemeElementType = MarkType | ChromeType;
+export type ThemeElementType = MarkType | ChromeType;
 ```
 <b>References:</b> [MarkType](./core.marktype.md)<!-- -->, [ChromeType](./core.chrometype.md)
 

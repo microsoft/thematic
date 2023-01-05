@@ -2241,7 +2241,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type HslVector = "
+              "text": "export type HslVector = "
             },
             {
               "kind": "Content",
@@ -2812,7 +2812,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type RGBAV = "
+              "text": "export type RGBAV = "
             },
             {
               "kind": "Content",

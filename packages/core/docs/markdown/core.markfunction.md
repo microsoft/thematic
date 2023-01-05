@@ -9,7 +9,7 @@ Function that produces an SVGMark config
 <b>Signature:</b>
 
 ```typescript
-export declare type MarkFunction<T> = (markConfig?: MarkConfig) => T;
+export type MarkFunction<T> = (markConfig?: MarkConfig) => T;
 ```
 <b>References:</b> [MarkConfig](./core.markconfig.md)
 

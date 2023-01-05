@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type PlotAreaSpec = SVGSpec;
+export type PlotAreaSpec = SVGSpec;
 ```
 <b>References:</b> [SVGSpec](./core.svgspec.md)
 

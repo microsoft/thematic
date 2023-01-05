@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type HslVector = [number, number, number];
+export type HslVector = [number, number, number];
 ```

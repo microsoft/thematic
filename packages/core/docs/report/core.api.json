@@ -980,7 +980,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type Arc = "
+              "text": "export type Arc = "
             },
             {
               "kind": "Reference",
@@ -1006,7 +1006,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type ArcSpec = "
+              "text": "export type ArcSpec = "
             },
             {
               "kind": "Reference",
@@ -1032,7 +1032,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type Area = "
+              "text": "export type Area = "
             },
             {
               "kind": "Reference",
@@ -1058,7 +1058,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type AreaSpec = "
+              "text": "export type AreaSpec = "
             },
             {
               "kind": "Reference",
@@ -1084,7 +1084,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type AxisLine = "
+              "text": "export type AxisLine = "
             },
             {
               "kind": "Reference",
@@ -1110,7 +1110,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type AxisLineSpec = "
+              "text": "export type AxisLineSpec = "
             },
             {
               "kind": "Reference",
@@ -1476,7 +1476,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type AxisTitle = "
+              "text": "export type AxisTitle = "
             },
             {
               "kind": "Reference",
@@ -1943,7 +1943,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type ChromeFunction<T> = "
+              "text": "export type ChromeFunction<T> = "
             },
             {
               "kind": "Content",
@@ -2093,7 +2093,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type ChromeType = "
+              "text": "export type ChromeType = "
             },
             {
               "kind": "Content",
@@ -2899,7 +2899,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type Flow = "
+              "text": "export type Flow = "
             },
             {
               "kind": "Reference",
@@ -2925,7 +2925,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type FlowSpec = "
+              "text": "export type FlowSpec = "
             },
             {
               "kind": "Reference",
@@ -2978,7 +2978,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type GridLines = "
+              "text": "export type GridLines = "
             },
             {
               "kind": "Reference",
@@ -3004,7 +3004,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type GridLinesSpec = "
+              "text": "export type GridLinesSpec = "
             },
             {
               "kind": "Reference",
@@ -3030,7 +3030,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type HiddenSVGSpec = "
+              "text": "export type HiddenSVGSpec = "
             },
             {
               "kind": "Reference",
@@ -3056,7 +3056,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type HoveredSVGSpec = "
+              "text": "export type HoveredSVGSpec = "
             },
             {
               "kind": "Reference",
@@ -3153,7 +3153,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type Line = "
+              "text": "export type Line = "
             },
             {
               "kind": "Reference",
@@ -3239,7 +3239,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type LineSpec = "
+              "text": "export type LineSpec = "
             },
             {
               "kind": "Reference",
@@ -3265,7 +3265,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type Link = "
+              "text": "export type Link = "
             },
             {
               "kind": "Reference",
@@ -3291,7 +3291,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type LinkSpec = "
+              "text": "export type LinkSpec = "
             },
             {
               "kind": "Reference",
@@ -3687,7 +3687,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type MarkFunction<T> = "
+              "text": "export type MarkFunction<T> = "
             },
             {
               "kind": "Content",
@@ -3734,7 +3734,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type MarkType = "
+              "text": "export type MarkType = "
             },
             {
               "kind": "Content",
@@ -3759,7 +3759,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type Node = "
+              "text": "export type Node = "
             },
             {
               "kind": "Reference",
@@ -3785,7 +3785,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type NodeSpec = "
+              "text": "export type NodeSpec = "
             },
             {
               "kind": "Reference",
@@ -3922,7 +3922,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type OfficeTheme = "
+              "text": "export type OfficeTheme = "
             },
             {
               "kind": "Content",
@@ -3947,7 +3947,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type PlotArea = "
+              "text": "export type PlotArea = "
             },
             {
               "kind": "Reference",
@@ -3973,7 +3973,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type PlotAreaSpec = "
+              "text": "export type PlotAreaSpec = "
             },
             {
               "kind": "Reference",
@@ -4187,7 +4187,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type Process = "
+              "text": "export type Process = "
             },
             {
               "kind": "Reference",
@@ -4213,7 +4213,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type ProcessSpec = "
+              "text": "export type ProcessSpec = "
             },
             {
               "kind": "Reference",
@@ -4340,7 +4340,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type Rect = "
+              "text": "export type Rect = "
             },
             {
               "kind": "Reference",
@@ -4366,7 +4366,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type RectSpec = "
+              "text": "export type RectSpec = "
             },
             {
               "kind": "Reference",
@@ -4392,7 +4392,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type Rule = "
+              "text": "export type Rule = "
             },
             {
               "kind": "Reference",
@@ -4418,7 +4418,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type RuleSpec = "
+              "text": "export type RuleSpec = "
             },
             {
               "kind": "Reference",
@@ -4523,7 +4523,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type SelectedSVGSpec = "
+              "text": "export type SelectedSVGSpec = "
             },
             {
               "kind": "Reference",
@@ -4834,7 +4834,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type SuppressedSVGSpec = "
+              "text": "export type SuppressedSVGSpec = "
             },
             {
               "kind": "Reference",
@@ -7621,7 +7621,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type ThemeElementType = "
+              "text": "export type ThemeElementType = "
             },
             {
               "kind": "Reference",
@@ -9409,7 +9409,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type Tooltip = "
+              "text": "export type Tooltip = "
             },
             {
               "kind": "Reference",
@@ -9435,7 +9435,7 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export declare type TooltipSpec = "
+              "text": "export type TooltipSpec = "
             },
             {
               "kind": "Reference",

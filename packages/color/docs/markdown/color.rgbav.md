@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type RGBAV = [number, number, number, number];
+export type RGBAV = [number, number, number, number];
 ```

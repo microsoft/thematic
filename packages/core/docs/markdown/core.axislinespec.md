@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type AxisLineSpec = SVGSpec;
+export type AxisLineSpec = SVGSpec;
 ```
 <b>References:</b> [SVGSpec](./core.svgspec.md)
 

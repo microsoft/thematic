@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type AxisTitle = ChromeText;
+export type AxisTitle = ChromeText;
 ```
 <b>References:</b> [ChromeText](./core.chrometext.md)
 
