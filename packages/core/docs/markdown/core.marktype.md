@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type MarkType = 'rect' | 'area' | 'circle' | 'process' | 'node' | 'line' | 'rule' | 'flow' | 'link' | 'arc' | 'text';
+export type MarkType = 'rect' | 'area' | 'circle' | 'process' | 'node' | 'line' | 'rule' | 'flow' | 'link' | 'arc' | 'text';
 ```

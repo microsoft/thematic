@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type Rect = SVGMark;
+export type Rect = SVGMark;
 ```
 <b>References:</b> [SVGMark](./core.svgmark.md)
 

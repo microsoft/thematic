@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type AreaSpec = SignaledSVGSpec;
+export type AreaSpec = SignaledSVGSpec;
 ```
 <b>References:</b> [SignaledSVGSpec](./core.signaledsvgspec.md)
 

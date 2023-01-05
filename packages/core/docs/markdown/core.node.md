@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type Node = Circle;
+export type Node = Circle;
 ```
 <b>References:</b> [Circle](./core.circle.md)
 

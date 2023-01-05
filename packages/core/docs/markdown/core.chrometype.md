@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type ChromeType = 'plotArea' | 'tooltip' | 'axisLine' | 'axisTicks' | 'gridLines' | 'axisTickLabels' | 'axisTitle';
+export type ChromeType = 'plotArea' | 'tooltip' | 'axisLine' | 'axisTicks' | 'gridLines' | 'axisTickLabels' | 'axisTitle';
 ```

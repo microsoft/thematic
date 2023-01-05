@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type TooltipSpec = SVGSpec;
+export type TooltipSpec = SVGSpec;
 ```
 <b>References:</b> [SVGSpec](./core.svgspec.md)
 

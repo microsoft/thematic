@@ -9,5 +9,5 @@ Function that produces a SVGChrome config
 <b>Signature:</b>
 
 ```typescript
-export declare type ChromeFunction<T> = () => T;
+export type ChromeFunction<T> = () => T;
 ```

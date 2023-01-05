@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type PlotArea = SVGChrome;
+export type PlotArea = SVGChrome;
 ```
 <b>References:</b> [SVGChrome](./core.svgchrome.md)
 
