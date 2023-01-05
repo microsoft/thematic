@@ -15,13 +15,12 @@ export function usePickerChange(
 	return useCallback(
 		(_ev: React.SyntheticEvent<HTMLElement>, color: IColor) => {
 			const [h, s, l] = css2hsluv(color.hex)
-			onChange &&
-				onChange({
-					...theme.params,
-					accentHue: h,
-					accentSaturation: s,
-					accentLightness: l,
-				})
+			onChange?.({
+				...theme.params,
+				accentHue: h,
+				accentSaturation: s,
+				accentLightness: l,
+			})
 		},
 		[theme, onChange],
 	)

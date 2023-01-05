@@ -64,7 +64,7 @@ export const ApplicationPalette: FC = () => {
 function useColors(keys: string[], theme: Theme) {
 	return useMemo(() => {
 		const app = theme.application()
-		return keys.map(key => ({
+		return keys.map((key) => ({
 			color: app[key as keyof Application]().hex(),
 			label: key,
 			secondaryLabel: app[key as keyof Application]().hex(),

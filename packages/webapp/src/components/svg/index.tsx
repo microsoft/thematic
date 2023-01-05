@@ -23,7 +23,7 @@ const svgAttrs = (config: SVGMark | TextMark) => ({
 	strokeWidth: config.strokeWidth(),
 })
 
-const Mark: FC<MarkProps> = props => {
+const Mark: FC<MarkProps> = (props) => {
 	const { children, size } = props
 	return (
 		<svg width={size} height={size} style={{ backgroundColor: 'none' }}>
@@ -32,7 +32,7 @@ const Mark: FC<MarkProps> = props => {
 	)
 }
 
-export const Rect: FC<ThemedMarkProps> = props => {
+export const Rect: FC<ThemedMarkProps> = (props) => {
 	const { config, size } = props
 	return (
 		<Mark {...props}>
@@ -41,7 +41,7 @@ export const Rect: FC<ThemedMarkProps> = props => {
 	)
 }
 
-export const Circle: FC<ThemedMarkProps> = props => {
+export const Circle: FC<ThemedMarkProps> = (props) => {
 	const { config, size } = props
 	return (
 		<Mark {...props}>
@@ -55,7 +55,7 @@ export const Circle: FC<ThemedMarkProps> = props => {
 	)
 }
 
-export const Line: FC<ThemedMarkProps> = props => {
+export const Line: FC<ThemedMarkProps> = (props) => {
 	const { config, size } = props
 	return (
 		<Mark {...props}>
@@ -70,7 +70,7 @@ export const Line: FC<ThemedMarkProps> = props => {
 	)
 }
 
-export const Arc: FC<ThemedMarkProps> = props => {
+export const Arc: FC<ThemedMarkProps> = (props) => {
 	const { config, size } = props
 	const d = `M0 0 L ${size} 0 A ${size / 4} ${size / 5} 0 0 1 0 0`
 	return (
@@ -80,7 +80,7 @@ export const Arc: FC<ThemedMarkProps> = props => {
 	)
 }
 
-export const Text: FC<ThemedMarkProps> = props => {
+export const Text: FC<ThemedMarkProps> = (props) => {
 	const { config, size } = props
 	const conf = config as TextMark
 	return (

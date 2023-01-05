@@ -92,16 +92,16 @@ export const D3Chart: FC<ChartProps> = ({ width = 800, height = 600 }) => {
 			plot.selectAll('circle').remove()
 			// create a series of random circles, with the fill bound to a sequential scale
 			const circ = theme.circle({
-				selectionState: d =>
+				selectionState: (d) =>
 					d.weight < 50 ? SelectionState.Selected : SelectionState.Suppressed,
 				scaleBindings: {
 					fill: {
 						scale: theme.scales().diverging2([-1, 1]),
-						accessor: d => d.weight,
+						accessor: (d) => d.weight,
 					},
 					radius: {
 						scale: scaleLinear().range([MIN_RADIUS, MAX_RADIUS]),
-						accessor: d => d.count,
+						accessor: (d) => d.count,
 					},
 				},
 				overrides: {
@@ -117,8 +117,8 @@ export const D3Chart: FC<ChartProps> = ({ width = 800, height = 600 }) => {
 				.enter()
 				.append('circle')
 				.call(circle as any, circ)
-				.attr('cx', d => cxScale(d.x) as number)
-				.attr('cy', d => cyScale(d.y) as number)
+				.attr('cx', (d) => cxScale(d.x) as number)
+				.attr('cy', (d) => cyScale(d.y) as number)
 		}
 	}, [theme, plot, cxScale, cyScale, data])
 
@@ -181,11 +181,11 @@ export const D3Chart: FC<ChartProps> = ({ width = 800, height = 600 }) => {
 				.data(labels)
 				.enter()
 				.append('text')
-				.text(d => d.t)
+				.text((d) => d.t)
 				.attr('fill', theme.axisTickLabels().fill().hex())
 				.attr('font-size', 10)
 				.attr('x', LEGEND_WIDTH / 2)
-				.attr('y', d => d.y)
+				.attr('y', (d) => d.y)
 				.attr('text-anchor', 'middle')
 				.attr('dominant-baseline', 'middle')
 		}

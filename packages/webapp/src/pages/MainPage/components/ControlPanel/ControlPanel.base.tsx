@@ -41,7 +41,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 	const handleThemeChange = useCallback(
 		(_event: React.FormEvent<HTMLDivElement>, option?: IDropdownOption) => {
 			if (option) {
-				const found = themes.find(t => t.id === option.key)
+				const found = themes.find((t) => t.id === option.key)
 				if (found) {
 					onThemeChange(found)
 				}
@@ -108,7 +108,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 	)
 	const options = useMemo(
 		() =>
-			themes.map(t => ({
+			themes.map((t) => ({
 				key: t.id,
 				text: t.name,
 				data: t,

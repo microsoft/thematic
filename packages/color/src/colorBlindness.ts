@@ -31,7 +31,7 @@ export function colorBlindness(
 	return Object.entries(scheme).reduce((acc, cur) => {
 		const [key, value] = cur
 		if (Array.isArray(value)) {
-			acc[key] = value.map(c => fn(c))
+			acc[key] = value.map((c) => fn(c))
 		} else {
 			acc[key] = fn(value)
 		}

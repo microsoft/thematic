@@ -25,7 +25,7 @@ export function useGraph() {
 			return acc
 		}, new Set<NodeId>())
 		const edges = graph.edges.filter(
-			edge => map.has(edge.source) && map.has(edge.target),
+			(edge) => map.has(edge.source) && map.has(edge.target),
 		)
 		return {
 			nodes,

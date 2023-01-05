@@ -17,7 +17,7 @@ export interface PowerBIPaletteProps {
 const mainKeys = ['foreground', 'background', 'tableAccent']
 
 const mapkeys = (theme: PowerBITheme, keys: string[]) =>
-	keys.map(key => ({
+	keys.map((key) => ({
 		color: theme[key as keyof PowerBITheme],
 		label: key,
 		secondaryLabel: theme[key as keyof PowerBITheme],
@@ -30,7 +30,7 @@ export const PowerBIPalette: FC<PowerBIPaletteProps> = ({ colors }) => {
 	)
 	const dataColorsLeft = useMemo(
 		() =>
-			colors.dataColors.slice(0, 6).map(c => ({
+			colors.dataColors.slice(0, 6).map((c) => ({
 				color: c,
 				label: c,
 			})),
@@ -38,7 +38,7 @@ export const PowerBIPalette: FC<PowerBIPaletteProps> = ({ colors }) => {
 	)
 	const dataColorsRight = useMemo(
 		() =>
-			colors.dataColors.slice(6).map(c => ({
+			colors.dataColors.slice(6).map((c) => ({
 				color: c,
 				secondaryLabel: c,
 			})),

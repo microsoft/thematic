@@ -34,11 +34,11 @@ function mark(
 	child: SVGMark,
 ): Selection<Element, any, Element, any> {
 	return selection
-		.attr('fill', d => child.fill(d).hex())
-		.attr('fill-opacity', d => child.fillOpacity(d))
-		.attr('stroke', d => child.stroke(d).hex())
-		.attr('stroke-opacity', d => child.strokeOpacity(d))
-		.attr('stroke-width', d => child.strokeWidth(d))
+		.attr('fill', (d) => child.fill(d).hex())
+		.attr('fill-opacity', (d) => child.fillOpacity(d))
+		.attr('stroke', (d) => child.stroke(d).hex())
+		.attr('stroke-opacity', (d) => child.strokeOpacity(d))
+		.attr('stroke-width', (d) => child.strokeWidth(d))
 }
 
 /**
@@ -62,7 +62,7 @@ export function circle(
 	selection: Selection<Element, any, Element, any>,
 	child: Circle | Node,
 ): Selection<Element, any, Element, any> {
-	return selection.attr('r', d => child.radius(d)).call(mark, child)
+	return selection.attr('r', (d) => child.radius(d)).call(mark, child)
 }
 
 /**

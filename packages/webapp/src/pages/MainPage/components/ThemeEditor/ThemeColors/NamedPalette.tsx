@@ -61,7 +61,7 @@ export const NamedPalette: FC = () => {
 
 function useMatchedColors(keys: string[], theme: Theme) {
 	return useMemo(() => {
-		return keys.map(key => ({
+		return keys.map((key) => ({
 			color: theme.nearest(key).hex(),
 			secondaryLabel: theme.nearest(key).hex(),
 		}))
@@ -70,7 +70,7 @@ function useMatchedColors(keys: string[], theme: Theme) {
 
 function useStandardColors(keys: string[]) {
 	return useMemo(() => {
-		return keys.map(key => ({
+		return keys.map((key) => ({
 			color: key,
 			label: key,
 		}))

@@ -35,7 +35,7 @@ describe('theme shading correction functions', () => {
 
 		const fixed = correctShades(palette, false)
 
-		Object.keys(palette).forEach(key => {
+		Object.keys(palette).forEach((key) => {
 			const dist = chroma.distance(palette[key], fixed[key], 'rgb')
 			expect(dist).toBeLessThan(colorDistance)
 		})
@@ -65,7 +65,7 @@ describe('theme shading correction functions', () => {
 
 		const fixed = correctShades(palette, true)
 
-		Object.keys(palette).forEach(key => {
+		Object.keys(palette).forEach((key) => {
 			const dist = chroma.distance(palette[key], fixed[key], 'rgb')
 			expect(dist).toBeLessThan(colorDistance)
 		})

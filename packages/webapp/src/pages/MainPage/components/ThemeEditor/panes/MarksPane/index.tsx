@@ -60,7 +60,7 @@ export const MarkGrid: FC = () => {
 		<div style={{ display: 'flex', flexDirection: 'column' }}>
 			<div style={labelStyle}>On-chart marks</div>
 			<div className="mark-grid">
-				{markKeys.map(key => (
+				{markKeys.map((key) => (
 					<GridCell
 						key={key}
 						name={key}
@@ -92,7 +92,7 @@ export const MarkGrid: FC = () => {
 			</div>
 			<div style={labelStyle}>Chart chrome</div>
 			<div className="mark-grid">
-				{chromeKeys.map(key => (
+				{chromeKeys.map((key) => (
 					<GridCell key={key} name={key} size={SIZE} />
 				))}
 			</div>

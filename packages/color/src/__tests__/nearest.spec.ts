@@ -24,7 +24,7 @@ describe('nearest', () => {
 			'#db84f2',
 			'#46b1c0',
 			'#a6a840',
-		].map(c => new Color(c))
+		].map((c) => new Color(c))
 
 		test('red', () => {
 			const color = new Color('red')
@@ -92,7 +92,7 @@ describe('nearest', () => {
 			'#9eae3f',
 			'#f38090',
 			'#59a8f1',
-		].map(c => new Color(c))
+		].map((c) => new Color(c))
 
 		test('red', () => {
 			const color = new Color('red')

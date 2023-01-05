@@ -142,7 +142,7 @@ export function applyNominalAttrWithSignalState(
 	const normal = theme.scales().nominal(size)
 	const muted = theme.scales().nominalMuted(size)
 	const bold = theme.scales().nominalBold(size)
-	selection.attr(attr, d => {
+	selection.attr(attr, (d) => {
 		const selectionState = getState(d)
 		const key = accessor(d)
 		switch (selectionState) {

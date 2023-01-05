@@ -76,10 +76,10 @@ export const ThemeViewer: FC<ThemeViewerProps> = ({
 								{graph}
 							</div>
 						))}
-						<div className="example-grid-item" key={`example-rar-chart`}>
+						<div className="example-grid-item" key={'example-rar-chart'}>
 							<D3Chart {...common} />
 						</div>
-						{charts.map(chart => (
+						{charts.map((chart) => (
 							<div className="example-grid-item" key={`example-chart-${chart}`}>
 								<VegaChart type={chart} {...common} />
 							</div>

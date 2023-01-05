@@ -15,7 +15,7 @@ export const ContinuousBand: FC<ChipsProps> = ({ scale, width, height }) => {
 				height,
 				minWidth: width,
 				minHeight: height,
-			} as CSSProperties),
+			}) as CSSProperties,
 		[width, height],
 	)
 
