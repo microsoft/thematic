@@ -22,7 +22,7 @@
 			"outputs": ["dist/**", "build/**"]
 		},
 		"ci": {
-			"dependsOn": ["build", "lint", "//#romecheck", "test", "bundle"],
+			"dependsOn": ["build", "lint", "//#romeci", "test", "bundle"],
 			"outputs": ["dist/**", "docs/**"]
 		},
 		"clean": {
@@ -34,7 +34,7 @@
 		"start": {
 			"cache": false
 		},
-		"//#romecheck": { 
+		"//#romeci": { 
 			"cache": false
 		}
 	}
