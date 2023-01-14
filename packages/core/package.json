@@ -29,11 +29,11 @@
 		"murmurhash-js": "^1.0.0"
 	},
 	"devDependencies": {
-		"@essex/jest-config": "^21.0.18",
-		"@essex/scripts": "^22.2.1",
+		"@essex/jest-config": "^21.0.19",
+		"@essex/scripts": "^23.0.1",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/d3-scale": "^4.0.2",
-		"@types/jest": "^29.2.4",
+		"@types/jest": "^29.2.5",
 		"@types/lodash-es": "^4.17.6",
 		"@types/murmurhash-js": "^1.0.3",
 		"@types/node": "^18.11.18",

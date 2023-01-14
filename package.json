@@ -33,11 +33,11 @@
 		]
 	},
 	"devDependencies": {
-		"@essex/eslint-config": "^20.4.0",
-		"@essex/jest-config": "^21.0.18",
-		"@essex/prettier-config": "^18.0.5",
-		"@essex/scripts": "^22.2.1",
-		"@types/jest": "^29.2.4",
+		"@essex/eslint-config": "^20.5.0",
+		"@essex/jest-config": "^21.0.19",
+		"@essex/prettier-config": "^18.0.7",
+		"@essex/scripts": "^23.0.1",
+		"@types/jest": "^29.2.5",
 		"@types/node": "^18.11.18",
 		"eslint": "^8.31.0",
 		"jest": "^29.3.1",

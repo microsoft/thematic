@@ -26,7 +26,7 @@
 		"@thematic/core": "workspace:^"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^22.2.1",
+		"@essex/scripts": "^23.0.1",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/node": "^18.11.18",
 		"@types/react": "^18.0.26",
