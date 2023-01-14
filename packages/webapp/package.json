@@ -10,8 +10,8 @@
 		"bundle": "essex bundle",
 		"start": "essex serve",
 		"start:webapp": "yarn start",
-		"lint": "essex lint --noFormat",
-		"lint_fix": "essex lint --fix --noFormat"
+		"check": "essex check --formatter none",
+		"fix": "essex fix --formatter none"
 	},
 	"repository": {
 		"type": "git",

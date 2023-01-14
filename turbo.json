@@ -9,11 +9,11 @@
 			"dependsOn": [],
 			"outputs": []
 		},
-		"lint": {
+		"check": {
 			"dependsOn": [],
 			"outputs": []
 		},
-		"lint_fix": {
+		"fix": {
 			"dependsOn": [],
 			"outputs": []
 		},
@@ -22,7 +22,7 @@
 			"outputs": ["dist/**", "build/**"]
 		},
 		"ci": {
-			"dependsOn": ["build", "lint", "//#romeci", "test", "bundle"],
+			"dependsOn": ["build", "check", "test", "bundle"],
 			"outputs": ["dist/**", "docs/**"]
 		},
 		"clean": {
@@ -32,9 +32,6 @@
 			"cache": false
 		},
 		"start": {
-			"cache": false
-		},
-		"//#romeci": { 
 			"cache": false
 		}
 	}
