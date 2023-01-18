@@ -13,6 +13,10 @@
 			"dependsOn": [],
 			"outputs": []
 		},
+		"check-deps": {
+			"dependsOn": [],
+			"outputs": []
+		},
 		"fix": {
 			"dependsOn": [],
 			"outputs": []
@@ -22,7 +26,7 @@
 			"outputs": ["dist/**", "build/**"]
 		},
 		"ci": {
-			"dependsOn": ["build", "check", "test", "bundle"],
+			"dependsOn": ["build", "check", "test", "check-deps", "bundle"],
 			"outputs": ["dist/**", "docs/**"]
 		},
 		"clean": {

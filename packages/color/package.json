@@ -19,6 +19,7 @@
 		"build": "essex build --docs",
 		"release": "yarn npm publish --tolerate-republish --access public",
 		"check": "essex check --formatter none",
+		"check-deps": "essex check-deps",
 		"fix": "essex fix --formatter none",
 		"test": "NODE_OPTIONS=--experimental-vm-modules yarn node $(yarn bin jest) --runInBand"
 	},
@@ -29,7 +30,7 @@
 	},
 	"devDependencies": {
 		"@essex/jest-config": "^21.0.19",
-		"@essex/scripts": "^23.0.1",
+		"@essex/scripts": "^23.1.4",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/chroma-js": "^2.1.4",
 		"@types/jest": "^29.2.5",
