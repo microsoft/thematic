@@ -10,7 +10,7 @@
 	],
 	"scripts": {
 		"_version_cut": "yarn version apply --all",
-		"_ci_force": "yarn ci --force --no-cache",
+		"_ci_force": "turbo run ci --force --no-cache",
 		"_release_packages": "turbo run release",
 		"_rome_fix": "rome check . --apply-suggested",
 		"_rome_ci": "rome ci .",
