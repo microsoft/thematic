@@ -3058,14 +3058,12 @@ __metadata:
     jest: ^29.3.1
     lodash-es: ^4.17.21
     react: ^18.2.0
-    react-dom: ^18.2.0
   peerDependencies:
     "@fluentui/react": ">= 8"
     "@thematic/react": "workspace:^"
     "@types/node": "*"
     "@types/react": ">= 17"
     react: ">= 17"
-    react-dom: ">= 17"
   peerDependenciesMeta:
     "@fluentui/react":
       optional: false
@@ -3075,8 +3073,6 @@ __metadata:
       optional: true
     react:
       optional: false
-    react-dom:
-      optional: true
   languageName: unknown
   linkType: soft
 
