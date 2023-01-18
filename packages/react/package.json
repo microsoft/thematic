@@ -18,15 +18,16 @@
 		"clean": "essex clean",
 		"build": "essex build --skipExportCheck --docs",
 		"release": "yarn npm publish --tolerate-republish --access public",
-		"lint": "essex lint --noFormat",
-		"lint_fix": "essex lint --fix --noFormat"
+		"check": "essex check --formatter none",
+		"check-deps": "essex check-deps",
+		"fix": "essex fix --formatter none"
 	},
 	"dependencies": {
 		"@thematic/color": "workspace:^",
 		"@thematic/core": "workspace:^"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^22.2.1",
+		"@essex/scripts": "^23.1.4",
 		"@essex/tsconfig-base": "^1.0.2",
 		"@types/node": "^18.11.18",
 		"@types/react": "^18.0.26",
