@@ -20,34 +20,34 @@
 		"directory": "packages/webapp"
 	},
 	"dependencies": {
-		"@essex/components": "^3.6.2",
-		"@fluentui/font-icons-mdl2": "^8.5.6",
-		"@fluentui/react": "^8.104.5",
+		"@essex/components": "^3.6.15",
+		"@fluentui/font-icons-mdl2": "^8.5.13",
+		"@fluentui/react": "^8.106.9",
 		"@thematic/color": "workspace:^",
 		"@thematic/core": "workspace:^",
 		"@thematic/d3": "workspace:^",
 		"@thematic/fluent": "workspace:^",
 		"@thematic/react": "workspace:^",
 		"@thematic/vega": "workspace:^",
-		"ahooks": "^3.7.4",
+		"ahooks": "^3.7.6",
 		"d3-axis": "^3.0.0",
 		"d3-scale": "^4.0.2",
 		"d3-selection": "^3.0.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"recoil": "^0.7.6",
-		"vega": "^5.22.1"
+		"recoil": "^0.7.7",
+		"vega": "^5.24.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^23.1.4",
-		"@essex/tsconfig-base": "^1.0.2",
+		"@essex/scripts": "^24.0.4",
+		"@essex/tsconfig-base": "^2.0.0",
 		"@types/d3-axis": "^3.0.2",
 		"@types/d3-scale": "^4.0.3",
-		"@types/d3-selection": "^3.0.4",
-		"@types/node": "^18.11.18",
-		"@types/react": "^18.0.26",
-		"@types/react-dom": "^18.0.10",
-		"typescript": "^4.9.4"
+		"@types/d3-selection": "^3.0.5",
+		"@types/node": "^18.15.10",
+		"@types/react": "^18.0.29",
+		"@types/react-dom": "^18.0.11",
+		"typescript": "^5.0.2"
 	},
 	"browserslist": [
 		">0.2%",
