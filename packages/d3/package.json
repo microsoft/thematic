@@ -26,11 +26,11 @@
 		"@thematic/core": "workspace:^"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^23.1.4",
-		"@essex/tsconfig-base": "^1.0.2",
+		"@essex/scripts": "^24.0.4",
+		"@essex/tsconfig-base": "^2.0.0",
 		"@types/d3-axis": "^3.0.2",
-		"@types/d3-selection": "^3.0.4",
-		"@types/node": "^18.11.18"
+		"@types/d3-selection": "^3.0.5",
+		"@types/node": "^18.15.10"
 	},
 	"peerDependencies": {
 		"@types/d3-axis": ">= 1",
