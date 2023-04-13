@@ -1,40 +1,38 @@
 {
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "suspicious": {
-        "noExplicitAny": "off"
-      }
-    },
-    "ignore": [
-      "dist",
-      "lib",
-      "build",
-      "storybook-static",
-      ".turbo",
-      ".pnp.cjs",
-      ".pnp.loader.mjs"
-    ]
-  },
-  "javascript": {
-    "formatter": {
-      "semicolons": "asNeeded",
-      "quoteStyle": "single",
-      "trailingComma": "all",
-      "quoteProperties": "asNeeded"
-    }
-  },
-  "formatter": {
-    "indentStyle": "tab",
-    "ignore": [
-      "dist",
-      "lib",
-      "build",
-      "storybook-static",
-      ".turbo",
-      ".pnp.cjs",
-      ".pnp.loader.mjs"
-    ]
-  }
+	"files": {
+		"ignore": [
+			"dist/", "lib/", "build/", "docs/", ".devcontainer/", "storybook-static/",
+			".turbo", ".pnp.cjs", ".pnp.loader.mjs"
+		]
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"suspicious": {
+				"noExplicitAny": "off"
+			},
+			"style": {
+				"noNonNullAssertion": "off"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"semicolons": "asNeeded",
+			"quoteStyle": "single",
+			"trailingComma": "all",
+			"quoteProperties": "asNeeded"
+		}
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"formatter": {
+		"indentStyle": "tab",
+		"ignore": [
+			"dist", "lib", "build", "storybook-static", ".turbo", ".pnp.cjs",
+			".pnp.loader.mjs"
+		]
+	}
 }

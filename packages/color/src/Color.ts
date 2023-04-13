@@ -11,7 +11,7 @@ import {
 	css2rgbaint,
 	css2rgbav,
 } from './chroma.js'
-import type { Hsl, HslVector, Rgba, RGBAV } from './types.js'
+import type { Hsl, HslVector, RGBAV, Rgba } from './types.js'
 
 /**
  * This class represents an instance of a color.

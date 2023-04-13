@@ -20,9 +20,9 @@
 		"directory": "packages/webapp"
 	},
 	"dependencies": {
-		"@essex/components": "^3.6.15",
+		"@essex/components": "^3.6.16",
 		"@fluentui/font-icons-mdl2": "^8.5.13",
-		"@fluentui/react": "^8.106.9",
+		"@fluentui/react": "^8.107.5",
 		"@thematic/color": "workspace:^",
 		"@thematic/core": "workspace:^",
 		"@thematic/d3": "workspace:^",
@@ -41,15 +41,15 @@
 		"vega": "^5.24.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^24.0.4",
+		"@essex/scripts": "^24.0.5",
 		"@essex/tsconfig-base": "^2.0.0",
 		"@types/d3-axis": "^3.0.2",
 		"@types/d3-scale": "^4.0.3",
 		"@types/d3-selection": "^3.0.5",
-		"@types/node": "^18.15.10",
-		"@types/react": "^18.0.29",
+		"@types/node": "^18.15.11",
+		"@types/react": "^18.0.35",
 		"@types/react-dom": "^18.0.11",
-		"typescript": "^5.0.2"
+		"typescript": "^5.0.4"
 	},
 	"browserslist": [
 		">0.2%",

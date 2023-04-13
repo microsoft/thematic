@@ -9,9 +9,9 @@ import type {
 	SchemeParams,
 } from '@thematic/color'
 
-import type { ScaleType, SelectionState, ThemeVariant } from './enums.js'
 import type { ThemeConfig } from './ThemeConfig.js'
 import type { ThemeDefinition, ThemeSpec } from './ThemeDefinition.js'
+import type { ScaleType, SelectionState, ThemeVariant } from './enums.js'
 
 /**
  * Overall application level config, e.g., 'chrome'.

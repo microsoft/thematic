@@ -2,12 +2,16 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import type { ScaleType } from './types/enums.js'
 import type {
 	ContinuousColorScaleFunction,
 	NominalColorScaleFunction,
 	Theme,
 } from './types/Theme.js'
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+import type { ScaleType } from './types/enums.js'
 
 /**
  * Flexible scale selector

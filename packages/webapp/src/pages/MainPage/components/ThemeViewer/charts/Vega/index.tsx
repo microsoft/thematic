@@ -8,7 +8,7 @@ import { vega } from '@thematic/vega'
 import { useDebounceEffect } from 'ahooks'
 import type { FC, RefObject } from 'react'
 import { memo, useCallback, useRef } from 'react'
-import { parse, View } from 'vega'
+import { View, parse } from 'vega'
 
 import area from './specs/area.json'
 import bar from './specs/bar.json'
