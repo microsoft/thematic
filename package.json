@@ -27,7 +27,7 @@
 		"format": "rome format . --write",
 		"ci": "run-s check test is_clean",
 		"is_clean": "essex git-is-clean",
-		"release": "run-s clean _version_cut ci _release_packages",
+		"release": "run-s clean _version_cut check test _release_packages",
 		"update_sdks": "yarn dlx @yarnpkg/sdks vscode"
 	},
 	"workspaces": {

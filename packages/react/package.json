@@ -1,6 +1,6 @@
 {
 	"name": "@thematic/react",
-	"version": "2.1.7",
+	"version": "2.1.8",
 	"license": "MIT",
 	"type": "module",
 	"main": "src/index.ts",
