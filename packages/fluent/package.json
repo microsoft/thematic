@@ -1,6 +1,6 @@
 {
 	"name": "@thematic/fluent",
-	"version": "5.0.7",
+	"version": "5.0.8",
 	"license": "MIT",
 	"type": "module",
 	"main": "src/index.ts",
