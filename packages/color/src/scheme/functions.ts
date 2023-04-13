@@ -237,7 +237,7 @@ export function getNominalSequence(
 	minSaturation: number,
 	lightness: number,
 	minLightness: number,
-) {
+): HslVector[] {
 	const minS = Math.min(saturation, minSaturation)
 	const minL = Math.min(lightness, minLightness)
 	let baseSaturation = saturation
