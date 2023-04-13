@@ -86,18 +86,8 @@ h3 {
 	margin-bottom: 8px;
 }
 
-.color-controls-area {
+.application-palette {
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-
-.color-controls {
-	margin-left: 20px;
-	width: 400px;
-}
-.color-control {
-	margin-bottom: 8px;
 }
 
 .color-strip-horizontal {
@@ -148,6 +138,20 @@ h3 {
 	margin: 4px;
 }
 
+.color-controls-area {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.color-controls {
+	margin-left: 20px;
+	width: 400px;
+}
+.color-control {
+	margin-bottom: 8px;
+}
+
 .mark-grid {
 	display: flex;
 	flex-direction: row;
@@ -170,10 +174,6 @@ h3 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-.application-palette {
-	display: flex;
 }
 
 .theme-wrapper {
@@ -211,4 +211,4 @@ h3 {
 }
 
 
-/*# sourceMappingURL=main.97ecce678e47988a9430.css.map*/
+/*# sourceMappingURL=main.d9bfaa1b116d2995ecdf.css.map*/
