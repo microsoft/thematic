@@ -26,8 +26,8 @@ import type {
 	RectSpec,
 	Rule,
 	RuleSpec,
-	SignaledSVGSpec,
 	SVGMark,
+	SignaledSVGSpec,
 	Text,
 	TextSpec,
 } from '../types/index.js'

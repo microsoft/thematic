@@ -6,7 +6,7 @@
 import chroma from 'chroma-js'
 import { Hsluv } from 'hsluv'
 
-import type { Hsl, HslVector, Hsv, Rgb, Rgba, RGBAV } from './types.js'
+import type { Hsl, HslVector, Hsv, RGBAV, Rgb, Rgba } from './types.js'
 
 /**
  * This is a variety of color utilities to minimize additional direct dependencies
