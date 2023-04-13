@@ -7,6 +7,7 @@ import { useThematicFluent } from '@thematic/fluent'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
+import type { ColorDefinition } from '../../../../../components/ColorStrip.js'
 import { ColorStrip } from '../../../../../components/ColorStrip.js'
 
 export const PrimaryDataColor: FC = () => {
@@ -27,19 +28,19 @@ export const PrimaryDataColor: FC = () => {
 		<div className="application-palette">
 			<ColorStrip
 				vertical
-				colorDefinitions={[primary[0]!]}
+				colorDefinitions={[primary[0]]}
 				swatchStyle={styles.swatch}
 				labelStyle={styles.label}
 			/>
 			<ColorStrip
 				vertical
-				colorDefinitions={[primary[1]!]}
+				colorDefinitions={[primary[1]]}
 				swatchStyle={styles.swatch}
 				labelStyle={styles.label}
 			/>
 			<ColorStrip
 				vertical
-				colorDefinitions={[primary[2]!]}
+				colorDefinitions={[primary[2]]}
 				swatchStyle={styles.swatch}
 				labelStyle={styles.label}
 			/>
@@ -47,9 +48,13 @@ export const PrimaryDataColor: FC = () => {
 	)
 }
 
-function useThemePrimaryColors() {
+function useThemePrimaryColors(): [
+	ColorDefinition,
+	ColorDefinition,
+	ColorDefinition,
+] {
 	const theme = useThematicFluent()
-	return useMemo(() => {
+	return useMemo<[ColorDefinition, ColorDefinition, ColorDefinition]>(() => {
 		const primary = theme.rect().fill().hex()
 		const muted = theme
 			.rect({

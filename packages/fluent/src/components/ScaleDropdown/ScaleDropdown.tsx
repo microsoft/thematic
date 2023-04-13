@@ -36,16 +36,16 @@ export const ScaleDropdown: FC<ScaleDropdownProps> = ({
 	const options = useThematicScaleOptions(type)
 	const handleRenderTitle = useCallback(
 		(options: IDropdownOption<any>[] | undefined) => {
-			const firstOption: IDropdownOption<any> = options![0]!
-			return (
+			const firstOption = options?.[0]
+			return firstOption ? (
 				<ScaleDropdownOption
 					paletteWidth={paletteWidth}
 					paletteHeight={paletteHeight}
-					option={firstOption!}
+					option={firstOption}
 					style={itemStyle}
 					size={size}
 				/>
-			)
+			) : null
 		},
 		[paletteWidth, paletteHeight, itemStyle, size],
 	)

@@ -1,4 +1,4 @@
-/*!
+/*?
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
@@ -8,7 +8,7 @@ import { computeDefinition } from '../scheme.js'
 
 const definition = {}
 
-const scheme: Scheme = {
+const scheme: Partial<Scheme> = {
 	background: '#111111',
 	offsetBackground: '#222222',
 	foreground: '#333333',
@@ -33,20 +33,20 @@ const scheme: Scheme = {
 }
 describe('scheme overlays', () => {
 	describe('computeDefinition', () => {
-		const def = computeDefinition(definition, scheme)
+		const def = computeDefinition(definition, scheme as Scheme)
 		test('single props', () => {
-			expect(def.application!.background).toBe(scheme.background)
-			expect(def.plotArea!.fill).toBe(scheme.offsetBackground)
+			expect(def.application?.background).toBe(scheme.background)
+			expect(def.plotArea?.fill).toBe(scheme.offsetBackground)
 		})
 
 		test('scale-based props', () => {
-			expect(def.rect!.fill).toBe(scheme.dataPrimary)
+			expect(def.rect?.fill).toBe(scheme.dataPrimary)
 		})
 
 		test('signal props', () => {
-			expect(def.rect!.suppressed!.fill).toBe(scheme.dataPrimaryMuted)
-			expect(def.rect!.hovered!.fill).toBe(scheme.dataPrimaryBold)
-			expect(def.rect!.selected!.fill).toBe(scheme.dataPrimaryBold)
+			expect(def.rect?.suppressed?.fill).toBe(scheme.dataPrimaryMuted)
+			expect(def.rect?.hovered?.fill).toBe(scheme.dataPrimaryBold)
+			expect(def.rect?.selected?.fill).toBe(scheme.dataPrimaryBold)
 		})
 	})
 })
