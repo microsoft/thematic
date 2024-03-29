@@ -951,6 +951,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@essex/hooks@npm:^4.0.22":
+  version: 4.0.22
+  resolution: "@essex/hooks@npm:4.0.22"
+  dependencies:
+    "@essex/toolbox": ^3.0.18
+    lodash-es: ^4.17.21
+  peerDependencies:
+    "@types/node": "*"
+    "@types/react": "*"
+    "@types/react-dom": "*"
+    react: ">= 18"
+    react-dom: ^18.2.0
+  peerDependenciesMeta:
+    "@type/node":
+      optional: true
+    "@types/react":
+      optional: true
+    "@types/react-dom":
+      optional: true
+    react:
+      optional: false
+    react-dom:
+      optional: true
+  checksum: d9e3b6cab26bfcbd82c9a0ba05bebcecb20258b3e76e9a99e04af229fc3b813963d70e153f066357f6d4fa5533c68b0b84c6067675a203e65ba8f826551c5f7e
+  languageName: node
+  linkType: hard
+
 "@essex/jest-config@npm:^21.0.22":
   version: 21.0.22
   resolution: "@essex/jest-config@npm:21.0.22"
@@ -1089,6 +1116,13 @@ __metadata:
   version: 3.0.17
   resolution: "@essex/toolbox@npm:3.0.17"
   checksum: 47bf7202ee2b0b7e403e7890437974637004b92605d5adc7c1f0d9e3c29d342cca8bd1860dac8fac94fc01c24aeec6b19d30060f5eac8d1a8be671b4f1c6a827
+  languageName: node
+  linkType: hard
+
+"@essex/toolbox@npm:^3.0.18":
+  version: 3.0.18
+  resolution: "@essex/toolbox@npm:3.0.18"
+  checksum: 3486ed63b8c15738e926d62845625ce72fbc91721c14eac70dde90c59e8cc4c4fb4971d2c74172ea59cb8330021b27969e357c805d7860c3b1a7dbd9e324a44d
   languageName: node
   linkType: hard
 
@@ -2436,6 +2470,7 @@ __metadata:
   resolution: "@thematic/webapp@workspace:packages/webapp"
   dependencies:
     "@essex/components": ^3.6.16
+    "@essex/hooks": ^4.0.22
     "@essex/scripts": ^24.0.5
     "@essex/tsconfig-base": ^2.0.0
     "@fluentui/font-icons-mdl2": ^8.5.13

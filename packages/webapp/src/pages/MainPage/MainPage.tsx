@@ -7,6 +7,7 @@ import './MainPage.css'
 import { useThematicFluent } from '@thematic/fluent'
 import type { FC } from 'react'
 
+import { Footer } from './Footer.js'
 import { ControlPanel } from './components/ControlPanel/ControlPanel.js'
 import { ThemeEditor } from './components/ThemeEditor/ThemeEditor.js'
 import { ThemeViewer } from './components/ThemeViewer/ThemeViewer.js'
@@ -31,6 +32,7 @@ export const MainPage: FC = () => {
 					<ThemeViewer />
 				</div>
 			</div>
+			<Footer />
 		</div>
 	)
 }
