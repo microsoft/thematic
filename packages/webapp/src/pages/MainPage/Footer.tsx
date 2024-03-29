@@ -7,7 +7,7 @@ import { useTheme } from '@fluentui/react'
 import type { FC } from 'react'
 import { memo, useMemo } from 'react'
 
-import { Container, LinkA, LinkDiv, constants } from './Footer.styles.js'
+import { constants, useContainerStyles } from './Footer.styles.js'
 
 export const Footer: FC = memo(function Footer() {
 	const theme = useTheme()
@@ -17,13 +17,18 @@ export const Footer: FC = memo(function Footer() {
 		onChange: (c: any) => console.log('consent changed', c),
 	}
 	const [, manageConsent] = useMicrosoftConsentBanner(CONSENT_CONF)
+	const containerStyles = useContainerStyles()
 	// override link color to provide subtle footer while still meeting contrast requirements
 	const style = useMemo(
-		() => ({ color: theme.palette.neutralSecondary }),
+		() => ({
+			color: theme.palette.neutralSecondary,
+			cursor: 'pointer',
+			textDecoration: 'none !important',
+		}),
 		[theme],
 	)
 	return (
-		<Container theme={theme}>
+		<div style={containerStyles}>
 			<Link href={constants.privacyUrl} style={style}>
 				Privacy
 			</Link>
@@ -51,7 +56,7 @@ export const Footer: FC = memo(function Footer() {
 			<Link href={constants.github} style={style}>
 				GitHub
 			</Link>
-		</Container>
+		</div>
 	)
 })
 
@@ -65,11 +70,12 @@ const Link: FC<
 	}>
 > = memo(function Link({ id, className, children, href, style, onClick }) {
 	return href == null ? (
-		<LinkDiv style={style} className={className} id={id} onClick={onClick}>
+		// rome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
+		<div style={style} className={className} id={id} onClick={onClick}>
 			{children}
-		</LinkDiv>
+		</div>
 	) : (
-		<LinkA
+		<a
 			target='_blank'
 			rel='noreferrer'
 			href={href}
@@ -78,6 +84,6 @@ const Link: FC<
 			id={id}
 		>
 			{children}
-		</LinkA>
+		</a>
 	)
 })

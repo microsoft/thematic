@@ -2,21 +2,28 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import styled from 'styled-components'
+import { useTheme } from '@fluentui/react'
+import { useMemo } from 'react'
 
-export const Container = styled.footer`
-	width: 100%;
-	height: 32px;
-	font-size: 12px;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	gap: 18px;
-	align-items: center;
-	color: ${({ theme }) => theme.palette.neutralSecondary};
-	background: ${({ theme }) => theme.palette.neutralLight};
-	border-top: 1px solid ${({ theme }) => theme.palette.neutralTertiaryAlt};
-`
+export function useContainerStyles() {
+	const theme = useTheme()
+	return useMemo(
+		() => ({
+			width: '100%',
+			height: 32,
+			fontSize: 12,
+			display: 'flex',
+			flexDirection: 'row' as const,
+			justifyContent: 'center',
+			gap: 18,
+			alignItems: 'center',
+			color: theme.palette.neutralSecondary,
+			background: theme.palette.neutralLight,
+			borderTop: `1px solid ${theme.palette.neutralTertiaryAlt}`,
+		}),
+		[theme],
+	)
+}
 
 export const constants = {
 	privacyUrl: 'https://go.microsoft.com/fwlink/?LinkId=521839',
@@ -27,11 +34,3 @@ export const constants = {
 	copyright: `©️ ${new Date().getFullYear()} Microsoft`,
 	github: 'https://github.com/microsoft/thematic',
 }
-
-export const LinkDiv = styled.div`
-	cursor: pointer;
-`
-export const LinkA = styled.a`
-	cursor: pointer;
-	text-decoration: none !important;
-`
