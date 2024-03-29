@@ -47,31 +47,6 @@ export const ThemeEditor: FC<ThemeEditorProps> = ({ scaleItemCount }) => {
 				</PivotItem>
 			</Pivot>
 			<ThemeColors scaleItemCount={scaleItemCount} />
-			<div className="footer">
-				<div className="privacy">
-					This site does not collect any personal information or use
-					cookies.&nbsp;
-					<a
-						target="_blank"
-						rel="noreferrer"
-						href="https://privacy.microsoft.com/en-us/privacystatement/"
-					>
-						Read Microsoft&apos;s statement on Privacy and Cookies
-					</a>
-					.
-				</div>
-				<div className="github">
-					Contribute at&nbsp;
-					<a
-						target="_blank"
-						rel="noreferrer"
-						href="https://github.com/microsoft/thematic"
-					>
-						GitHub
-					</a>
-					.
-				</div>
-			</div>
 		</div>
 	)
 }

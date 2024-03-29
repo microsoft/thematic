@@ -21,6 +21,7 @@
 	},
 	"dependencies": {
 		"@essex/components": "^3.6.16",
+		"@essex/hooks": "^4.0.22",
 		"@fluentui/font-icons-mdl2": "^8.5.13",
 		"@fluentui/react": "^8.107.5",
 		"@thematic/color": "workspace:^",
