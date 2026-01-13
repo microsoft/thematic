@@ -1,3 +1,5 @@
+**This repository is the result of research efforts that are no longer active. It has been marked read-only on GitHub to preserve the public code, but is no longer maintained or accepting contributions.** 
+
 # Thematic
 
 This repository holds all of the packages for creating shareable, perceptually-balanced and tastefully complementary (hopefully!) application and data viz themes. There are adapter libraries and tools to apply themes across several environments, which will be detailed below. We briefly describe the intentions and usage of the library in [a paper on visualizing workgroup collaboration](https://arxiv.org/pdf/2005.00402.pdf).
