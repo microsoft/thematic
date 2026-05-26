@@ -30,7 +30,7 @@
 		"@thematic/d3": "workspace:^",
 		"ahooks": "^3.7.6",
 		"d3-scale": "^4.0.2",
-		"lodash-es": "^4.17.21"
+		"lodash-es": "^4.18.1"
 	},
 	"devDependencies": {
 		"@essex/jest-config": "^21.0.22",
